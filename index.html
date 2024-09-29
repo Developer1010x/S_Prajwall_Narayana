@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajwall Narayana's Portfolio</title>
+
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Styling -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            padding: 0 20px;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 3px solid #0073b1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #0073b1;
+        }
+
+        p {
+            margin: 15px 0;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .buttons a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #0073b1;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttons a:hover {
+            background-color: #005582;
+        }
+
+        section {
+            margin: 50px 0;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .skills ul,
+        .projects ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills li,
+        .projects li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #282828;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .skills li:hover,
+        .projects li:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px 0;
+            border-top: 1px solid #333;
+            color: #aaa;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: #0073b1;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #005582;
+        }
+
+        /* Featured Project Styling */
+        .featured-project .project-item {
+            display: flex;
+            align-items: center;
+            background-color: #282828;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .featured-project .project-item img {
+            width: 150px;
+            height: auto;
+            margin-right: 30px;
+            border-radius: 5px;
+        }
+
+        .featured-project .project-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #ffffff;
+            background-color: #0073b1;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .featured-project .project-link:hover {
+            background-color: #005582;
+        }
+
+        /* Projects Section Image Styling */
+        .projects ul li {
+            display: flex;
+            align-items: center;
+        }
+
+        .projects ul li img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+
+        .projects ul li div {
+            flex: 1;
+        }
+
+        /* Matrix effect styling */
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: black;
+            pointer-events: none;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .buttons a {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <!-- Header and Profile -->
+    <header>
+        <div class="profile">
+            <img src="unnamed.jpg" alt="Profile Picture">
+            <h1>S Prajwall Narayana</h1>
+            <h2>Computer Science Engineering Student</h2>
+            <p>
+                Hello! I'm S Prajwall Narayana, a passionate computer science engineering student based in India. I actively
+                engage in coding competitions and IoT projects, expanding my knowledge of software development.
+            </p>
+        </div>
+    </header>
+
+    <!-- Buttons for quick links -->
+    <div class="buttons">
+        <a href="https://drive.google.com/file/d/1llVZj2tqTSnflKubWOOmuqc0xsF93qz0/view?usp=share_link">Resume</a>
+        <a href="https://github.com/developer1010x">GitHub</a>
+        <a href="https://www.linkedin.com/in/s-prajwall-n-1a82b7262/">LinkedIn</a>
+    </div>
+
+    <!-- Featured Project Section -->
+    <section class="featured-project">
+        <h3>Featured Project</h3>
+        <div class="project-item">
+            <img src="iot_rover.jpg" alt="IoT Robotic Rover">
+            <div>
+                <h4>IoT Robotic Rover with YOLO-based Detection</h4>
+                <p>Developed an IoT rover with web server capabilities and integrated YOLO v3 for object detection.</p>
+                <a href="https://github.com/developer1010x" class="project-link">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <h3>Skills</h3>
+        <ul>
+            <li><strong>Programming Languages:</strong> C, C++, Python, JavaScript, Swift</li>
+            <li><strong>Web Development:</strong> HTML, CSS, JavaScript</li>
+            <li><strong>Database Management:</strong> MySQL, MongoDB</li>
+        </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <h3>Projects</h3>
+        <ul>
+            <li>
+                <img src="sqlite2sql.png" alt="sqlite2sql Project Screenshot">
+                <div>
+                    <strong><a href="https://github.com/developer1010x/sqlite2sql">sqlite2sql</a></strong>
+                    <p>Python script that converts SQLite code to SQL.</p>
+                </div>
+            </li>
+            <li>
+                <img src="portfolio.png" alt="Portfolio Project Screenshot">
+                <div>
+                    <strong><a href="https://github.com/developer1010x/PORTFOLIO">PORTFOLIO</a></strong>
+                    <p>Personal portfolio website built with HTML and CSS.</p>
+                </div>
+            </li>
+            <li>
+                <img src="knotescentral.png" alt="KnotesCentral Project Screenshot">
+                <div>
+                    <strong><a href="https://github.com/developer1010x/KnotesCentral">KnotesCentral</a></strong>
+                    <p>Open-source platform providing comprehensive course materials for students.</p>
+                </div>
+            </li>
+            <li>
+                <img src="deepfake.png" alt="Deepfake Detection Project Screenshot">
+                <div>
+                    <strong><a href="https://github.com/developer1010x/Deepfake-Audio-and-AI-Content-Detection">Deepfake Audio and AI Content Detection</a></strong>
+                    <p>Project focused on detecting deepfake audio using AI techniques.</p>
+                </div>
+            </li>
+            <li>
+                <img src="game.png" alt="JavaScript Game Project Screenshot">
+                <div>
+                    <strong><a href="https://github.com/developer1010x/game">JavaScript Game</a></strong>
+                    <p>Simple game developed using JavaScript.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://github.com/developer1010x" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/s-prajwall-n-1a82b7262/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2024 Prajwall Narayana. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
