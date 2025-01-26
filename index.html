@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    <!-- Meta Description for SEO -->
+    <meta name="description" content="Portfolio of S Prajwall Narayana - Computer Science Engineering Student with expertise in IoT, software development, and coding.">
+
     <!-- Styling -->
     <style>
         * {
@@ -20,8 +23,9 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            background-color: var(--bg-color, #121212);
+            color: var(--text-color, #ffffff);
+            transition: background-color 0.3s ease, color 0.3s ease;
             padding: 0 20px;
             overflow-x: hidden;
         }
@@ -32,7 +36,6 @@
             align-items: center;
             padding: 20px 0;
             margin-bottom: 30px;
-            position: relative;
         }
 
         .profile {
@@ -71,15 +74,15 @@
         .buttons a {
             margin: 0 10px;
             text-decoration: none;
-            color: #ffffff;
-            background-color: #0073b1;
+            color: var(--button-text-color, #ffffff);
+            background-color: var(--button-bg-color, #0073b1);
             padding: 10px 20px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
 
         .buttons a:hover {
-            background-color: #005582;
+            background-color: var(--button-hover-bg-color, #005582);
         }
 
         section {
@@ -92,22 +95,25 @@
         }
 
         .skills ul,
-        .projects ul {
+        .projects ul,
+        .publications ul {
             list-style: none;
             padding: 0;
         }
 
         .skills li,
-        .projects li {
+        .projects li,
+        .publications li {
             margin: 10px 0;
             padding: 10px;
-            background-color: #282828;
+            background-color: var(--box-bg-color, #282828);
             border-radius: 5px;
             transition: transform 0.3s ease;
         }
 
         .skills li:hover,
-        .projects li:hover {
+        .projects li:hover,
+        .publications li:hover {
             transform: scale(1.05);
         }
 
@@ -115,8 +121,8 @@
             text-align: center;
             margin-top: 50px;
             padding: 20px 0;
-            border-top: 1px solid #333;
-            color: #aaa;
+            border-top: 1px solid var(--border-color, #333);
+            color: var(--footer-text-color, #aaa);
         }
 
         .social-links a {
@@ -134,7 +140,7 @@
         .featured-project .project-item {
             display: flex;
             align-items: center;
-            background-color: #282828;
+            background-color: var(--box-bg-color, #282828);
             padding: 20px;
             border-radius: 5px;
         }
@@ -149,44 +155,56 @@
         .featured-project .project-link {
             display: inline-block;
             margin-top: 10px;
-            color: #ffffff;
-            background-color: #0073b1;
+            color: var(--button-text-color, #ffffff);
+            background-color: var(--button-bg-color, #0073b1);
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
         }
 
         .featured-project .project-link:hover {
-            background-color: #005582;
+            background-color: var(--button-hover-bg-color, #005582);
         }
 
-        /* Projects Section Image Styling */
-        .projects ul li {
-            display: flex;
-            align-items: center;
+        /* Light Mode Variables */
+        body.light-mode {
+            --bg-color: #ffffff;
+            --text-color: #121212;
+            --button-bg-color: #0073b1;
+            --button-hover-bg-color: #005582;
+            --button-text-color: #ffffff;
+            --box-bg-color: #f2f2f2;
+            --border-color: #ccc;
+            --footer-text-color: #333;
         }
 
-        .projects ul li img {
-            width: 100px;
-            height: auto;
-            margin-right: 20px;
+        /* Dark Mode Default */
+        body {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --button-bg-color: #0073b1;
+            --button-hover-bg-color: #005582;
+            --button-text-color: #ffffff;
+            --box-bg-color: #282828;
+            --border-color: #333;
+            --footer-text-color: #aaa;
+        }
+
+        /* Toggle Button */
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--button-bg-color, #0073b1);
+            color: var(--button-text-color, #ffffff);
+            border: none;
+            padding: 10px 20px;
             border-radius: 5px;
+            cursor: pointer;
         }
 
-        .projects ul li div {
-            flex: 1;
-        }
-
-        /* Matrix effect styling */
-        #matrix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: black;
-            pointer-events: none;
+        .toggle-btn:hover {
+            background-color: var(--button-hover-bg-color, #005582);
         }
 
         /* Responsive layout */
@@ -203,16 +221,30 @@
             .buttons a {
                 margin: 10px 0;
             }
+
+            .featured-project .project-item,
+            .projects ul li,
+            .publications ul li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .featured-project .project-item img,
+            .projects ul li img {
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <canvas id="matrix"></canvas>
+    <!-- Dark Mode Toggle -->
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Light/Dark Mode</button>
+
     <header>
         <div class="profile">
-            <img src="unnamed.jpg" alt="Profile Picture">
+            <img src="unnamed.jpg" alt="Profile Picture of S Prajwall Narayana">
             <h1>S Prajwall Narayana</h1>
             <h2>Computer Science Engineering Student</h2>
             <p>
@@ -222,10 +254,11 @@
         </div>
     </header>
     <div class="buttons">
-        <a href="https://drive.google.com/file/d/1DnH06Vt-YPVtu6izG3lO3FeBeGYL6RXH/view?usp=sharing">Resume</a>
+        <a href="resume.pdf" target="_blank">Resume</a>
         <a href="https://github.com/developer1010x">GitHub</a>
         <a href="https://www.linkedin.com/in/s-prajwall-n-1a82b7262/">LinkedIn</a>
     </div>
+
     <section class="featured-project">
         <h3>Featured Project</h3>
         <div class="project-item">
@@ -242,6 +275,21 @@
             <li><strong>Programming Languages:</strong> C, C++, Python, JavaScript, Swift</li>
             <li><strong>Web Development:</strong> HTML, CSS, JavaScript</li>
             <li><strong>Database Management:</strong> MySQL, MongoDB</li>
+        </ul>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications">
+        <h3>Publications</h3>
+        <ul>
+            <li>
+                <strong><a href="https://ieeexplore.ieee.org/document/10816816" target="_blank">Web-Server Controlled Rover with Robotic Arm and Object Detection</a></strong>
+                <p>A versatile rover equipped with robotic arm and object detection capabilities. Published on IEEE Xplore.</p>
+            </li>
+            <li>
+                <strong><a href="https://ieeexplore.ieee.org/document/10816835" target="_blank">An Empirical Study of ResNet50 Hyperparameter Tuning for Plant Disease Classification</a></strong>
+                <p>Research exploring optimization of ResNet50 for enhancing plant disease diagnosis accuracy. Published on IEEE Xplore.</p>
+            </li>
         </ul>
     </section>
 
@@ -262,7 +310,6 @@
                 </div>
             </li>
             <li>
-              
                 <div>
                     <strong><a href="https://github.com/developer1010x/Deepfake-Audio-and-AI-Content-Detection">Deepfake Audio and AI Content Detection</a></strong>
                     <p>Project focused on detecting deepfake audio using AI techniques.</p>
@@ -281,12 +328,16 @@
     <footer class="footer">
         <div class="social-links">
             <a href="https://github.com/developer1010x" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://github.com/developer1100x" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/s-prajwall-n-1a82b7262/" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
         <p>&copy; 2024 Prajwall Narayana. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('light-mode');
+        }
+    </script>
 </body>
 
 </html>
