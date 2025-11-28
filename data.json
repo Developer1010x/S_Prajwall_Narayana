@@ -1,0 +1,347 @@
+{
+  "personal": {
+    "name": "S Prajwall Narayana",
+    "title": "AI Engineer & Full-Stack Developer",
+    "tagline": "Building intelligent solutions with cutting-edge AI/ML technologies",
+    "email": "sprajwalln@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/sprajwallnarayana",
+    "github": "https://github.com/developer1010x",
+    "location": "Bengaluru, Karnataka, India",
+    "availability": "Working Full Time",
+    "profileImage": "S_Prajwall_Narayana.jpg",
+    "logo": "logo.jpg",
+    "resume": "resume.pdf"
+  },
+
+  "roles": [
+    "AI Engineer",
+    "Prompt Engineering Researcher",
+    "Open Source Contributor"
+  ],
+
+  "stats": [
+    { "count": 2, "label": "IEEE Papers" },
+    { "count": 10, "label": "Projects" },
+    { "count": 3, "label": "Internships" }
+  ],
+
+  "about": [
+    {
+      "icon": "fa-user-astronaut",
+      "title": "Who I Am",
+      "description": "AI Engineer at <strong>Colligence Research</strong>, working on state-of-the-art virtual communication platforms. Computer Science graduate from <strong>RV College of Engineering</strong> with a passion for building impactful tech solutions."
+    },
+    {
+      "icon": "fa-briefcase",
+      "title": "Experience",
+      "description": "<strong>Ernst & Young India</strong> - Cybersecurity & Cloud Architecture<br><strong>RVCE Centre of Excellence</strong> - AI/Deepfake Detection Research<br>Published <strong>2 IEEE Papers</strong> in ML & Robotics"
+    },
+    {
+      "icon": "fa-trophy",
+      "title": "Highlights",
+      "description": "<strong>3rd Best Project</strong> at RVCE for Arogya-Sathi<br>Built <strong>KnotesCentral</strong> - used by 500+ students<br>Led NSS events with <strong>2000+ participants</strong>"
+    },
+    {
+      "icon": "fa-rocket",
+      "title": "What I Do",
+      "description": "<strong>Prompt Engineering</strong> & LLM Development<br><strong>Full-Stack Development</strong> with React & Node.js<br><strong>AI/ML Solutions</strong> using TensorFlow & PyTorch"
+    }
+  ],
+
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "icon": "fa-code",
+      "items": [
+        { "name": "Python", "level": 95, "tooltip": "Primary Language" },
+        { "name": "JavaScript", "level": 90, "tooltip": "Full-Stack" },
+        { "name": "C++", "level": 85, "tooltip": "OOP & DSA" },
+        { "name": "Java", "level": 80, "tooltip": "Enterprise Apps" },
+        { "name": "C", "level": 80, "tooltip": "Systems Programming" },
+        { "name": "Swift", "level": 70, "tooltip": "iOS Development" }
+      ]
+    },
+    {
+      "category": "Web Development",
+      "icon": "fa-laptop-code",
+      "items": [
+        { "name": "React.js", "level": 90 },
+        { "name": "Node.js", "level": 88 },
+        { "name": "HTML5/CSS3", "level": 95 }
+      ]
+    },
+    {
+      "category": "AI/ML & LLMs",
+      "icon": "fa-brain",
+      "items": [
+        { "name": "PyTorch", "level": 88, "highlight": true },
+        { "name": "TensorFlow", "level": 85, "highlight": true },
+        { "name": "Claude Code", "level": 82 },
+        { "name": "OpenCV", "level": 80 },
+        { "name": "YOLO", "level": 78 },
+        { "name": "Prompt Engineering", "level": 90 }
+      ]
+    },
+    {
+      "category": "Database & Backend",
+      "icon": "fa-database",
+      "items": [
+        { "name": "MongoDB", "level": 88 },
+        { "name": "PostgreSQL", "level": 85 },
+        { "name": "MySQL", "level": 85 }
+      ]
+    },
+    {
+      "category": "DevOps & Tools",
+      "icon": "fa-tools",
+      "items": [
+        { "name": "Git", "level": 92 },
+        { "name": "Docker", "level": 80 },
+        { "name": "AWS", "level": 75 },
+        { "name": "Linux", "level": 85 },
+        { "name": "CI/CD", "level": 78 },
+        { "name": "Vercel", "level": 85 }
+      ]
+    },
+    {
+      "category": "IoT & Embedded",
+      "icon": "fa-robot",
+      "items": [
+        { "name": "Arduino", "level": 85 },
+        { "name": "Raspberry Pi", "level": 82 },
+        { "name": "ESP32", "level": 80 }
+      ]
+    }
+  ],
+
+  "experience": [
+    {
+      "id": 1,
+      "phase": "Phase 1",
+      "date": "Nov 2025 - Present",
+      "title": "AI Engineer & Prompt Engineering Researcher",
+      "company": "Colligence Research",
+      "location": "Bengaluru, IN",
+      "description": "Contributing to a state-of-the-art virtual communication platform leveraging advanced technologies. Focused on seamless integration of best-in-class features for unified and comprehensive communication and collaboration solutions.",
+      "tags": ["AI/ML", "Prompt Engineering", "LLMs", "Research"],
+      "type": "work",
+      "current": true
+    },
+    {
+      "id": 2,
+      "phase": "Phase 2",
+      "date": "Oct 2024 - Nov 2024",
+      "title": "Student Intern - AI Research",
+      "company": "RVCE Centre of Excellence",
+      "location": "Bengaluru, IN",
+      "description": "Developed a prototype model for AI-generated content and deepfake detection using CNN-based architectures. Achieved 92.3% accuracy, 90.7% precision, and 91.5% recall on benchmark deepfake datasets (FaceForensics++ and DFDC).",
+      "tags": ["Deep Learning", "CNN", "TensorFlow", "PyTorch"],
+      "type": "work"
+    },
+    {
+      "id": 3,
+      "phase": "Phase 3",
+      "date": "Aug 2024 - Sep 2024",
+      "title": "Associate Consultant Intern",
+      "company": "Ernst & Young India",
+      "location": "Bengaluru, IN",
+      "description": "Gained expertise in Enterprise Security Architecture and Cybersecurity through work on the IFTAS Cloud project. Applied the SABSA Framework for risk-driven design, cloud security, IAM, and regulatory compliance in financial systems.",
+      "tags": ["Cybersecurity", "Cloud Security", "SABSA", "IAM"],
+      "type": "work"
+    },
+    {
+      "id": 4,
+      "phase": "Phase 4",
+      "date": "2023 - 2024",
+      "title": "Research & Development Projects",
+      "company": "Academic Projects",
+      "location": "RVCE",
+      "description": "Led multiple research projects including IoT rover development with YOLO-based object detection and plant disease classification using ResNet50. Published research papers in IEEE conferences.",
+      "tags": ["IoT", "YOLO", "ResNet50", "IEEE"],
+      "type": "research"
+    },
+    {
+      "id": 5,
+      "phase": "Phase 5",
+      "date": "2022 - 2024",
+      "title": "Open Source Contributor",
+      "company": "GitHub Community",
+      "location": "Remote",
+      "description": "Actively contributed to open-source projects and maintained personal repositories. Developed tools like sqlite2sql converter and KnotesCentral platform.",
+      "tags": ["Open Source", "Git", "Community"],
+      "type": "contribution"
+    }
+  ],
+
+  "education": [
+    {
+      "id": 1,
+      "phase": "Foundation",
+      "date": "2021 - 2025",
+      "title": "Bachelor of Engineering - Computer Science",
+      "institution": "R V College of Engineering",
+      "location": "Bengaluru, Karnataka, India",
+      "description": "Completed comprehensive coursework in Data Structures, Algorithms, Database Management, Software Engineering, and Computer Networks. Maintained strong academic performance while actively participating in coding competitions and technical projects.",
+      "tags": ["Computer Science", "DSA", "Software Engineering"],
+      "type": "education"
+    }
+  ],
+
+  "projects": [
+    {
+      "id": 1,
+      "title": "Arogya-Sathi",
+      "subtitle": "AI Healthcare Platform",
+      "description": "Multilingual, AI-powered healthcare assistant built using Streamlit, LangChain, LLaMA 3.2, YOLOv8, OCR & OpenStreetMap. Features include a chatbot, report analyzer, and symptom checker with 93% accuracy.",
+      "icon": "fa-stethoscope",
+      "tags": ["Python", "LLM", "YOLOv8", "Streamlit", "LangChain"],
+      "github": "https://github.com/Developer1010x/Arogya-Sathi",
+      "demo": null,
+      "publication": null,
+      "featured": false,
+      "award": "3rd Best Project at RVCE"
+    },
+    {
+      "id": 2,
+      "title": "LLM_Terminal",
+      "subtitle": "CLI AI Assistant",
+      "description": "A terminal-based conversational tool using GPT-like LLMs for offline AI assistance. Lightweight, fast, and perfect for developers who want quick, browser-free interactions.",
+      "icon": "fa-terminal",
+      "tags": ["Python", "CLI", "LLM", "GPT"],
+      "github": "https://github.com/Developer1010x/LLM_Terminal",
+      "demo": null,
+      "publication": null,
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "IoT Robotic Rover",
+      "subtitle": "YOLO Object Detection",
+      "description": "LAN-controlled rover with robotic arm and YOLOv3 object detection. Web interface and real-time streaming powered by ESP32s and OpenCV.",
+      "icon": "fa-robot",
+      "tags": ["Python", "YOLOv3", "ESP32", "OpenCV", "IoT"],
+      "github": "https://github.com/Developer1010x/Robotic_rover",
+      "demo": null,
+      "publication": "https://ieeexplore.ieee.org/document/10816816",
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Plant Disease Detection",
+      "subtitle": "ResNet50 Classifier",
+      "description": "ResNet50-based classifier with tuned hyperparameters for plant disease recognition. Boosts generalizability across diverse datasets.",
+      "icon": "fa-leaf",
+      "tags": ["TensorFlow", "Python", "ResNet50", "ML"],
+      "github": "https://github.com/Developer1010x/Plant-Disease-Detection",
+      "demo": null,
+      "publication": "https://ieeexplore.ieee.org/document/10816835",
+      "featured": false
+    },
+    {
+      "id": 5,
+      "title": "Deepfake Detection",
+      "subtitle": "AI Content Verification",
+      "description": "AI content verification system using ML techniques for detecting synthetic audio and images. Targets misinformation & media authenticity.",
+      "icon": "fa-shield-alt",
+      "tags": ["ML", "Python", "Audio Processing", "CNN"],
+      "github": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection",
+      "demo": null,
+      "publication": null,
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "KnotesCentral",
+      "subtitle": "Academic Platform",
+      "description": "Resource-sharing platform for RVCE students built in TypeScript & React. Hosts notes, lab manuals, and exam resources for academic ease.",
+      "icon": "fa-graduation-cap",
+      "tags": ["TypeScript", "React", "Vercel", "Education"],
+      "github": "https://github.com/Developer1010x/KnotesCentral-Source-Code",
+      "demo": "https://knotescentral.vercel.app",
+      "publication": null,
+      "featured": false
+    },
+    {
+      "id": 7,
+      "title": "sqlite2sql Converter",
+      "subtitle": "Database Migration Tool",
+      "description": "Python tool to convert SQLite schemas into SQL scripts. Useful for database migration and platform transitions.",
+      "icon": "fa-database",
+      "tags": ["Python", "SQLite", "SQL", "CLI"],
+      "github": "https://github.com/Developer1010x/sqlite2sql",
+      "demo": null,
+      "publication": null,
+      "featured": false
+    },
+    {
+      "id": 8,
+      "title": "NexusBallz",
+      "subtitle": "Interactive JS Game",
+      "description": "Fun browser-based game demonstrating front-end dev skills: JS logic, CSS transitions, and DOM manipulation.",
+      "icon": "fa-gamepad",
+      "tags": ["JavaScript", "HTML5", "CSS3", "Game Dev"],
+      "github": "https://github.com/Developer1010x/game",
+      "demo": "https://nexusballz.vercel.app",
+      "publication": null,
+      "featured": false
+    }
+  ],
+
+  "achievements": [
+    {
+      "id": 1,
+      "icon": "fa-award",
+      "title": "IEEE Publications",
+      "description": "Published 2 research papers in IEEE conferences on IoT robotics and machine learning applications.",
+      "year": "2024"
+    },
+    {
+      "id": 2,
+      "icon": "fa-trophy",
+      "title": "Arogya-Sathi Project Award",
+      "description": "Secured 3rd Best Major Project in CSE Dept at RVCE for developing an AI-powered multilingual healthcare assistant using LLMs, YOLOv8, RAG, and microservices architecture.",
+      "year": "2025"
+    },
+    {
+      "id": 3,
+      "icon": "fa-hand-holding-heart",
+      "title": "NSS RVCE Recognition",
+      "description": "Recognized by RVCE Management and RSST Trust for contributions to NSS as Content Head and Core Team Member. Led impactful events like Utsarga, health camps, and plantation drives.",
+      "year": "2024"
+    },
+    {
+      "id": 4,
+      "icon": "fa-code-branch",
+      "title": "Open Source Contributor",
+      "description": "Active contributor to open-source projects with multiple repositories and community contributions on GitHub.",
+      "year": "2022-Present"
+    },
+    {
+      "id": 5,
+      "icon": "fa-project-diagram",
+      "title": "Project Leadership",
+      "description": "Led multiple technical projects combining hardware and software development with innovative solutions.",
+      "year": "2023-2024"
+    },
+    {
+      "id": 6,
+      "icon": "fa-users",
+      "title": "Community Impact",
+      "description": "Created educational resources and tools benefiting 500+ students and the developer community.",
+      "year": "2023-Present"
+    },
+    {
+      "id": 7,
+      "icon": "fa-terminal",
+      "title": "Coding Competitions",
+      "description": "Regular participant in competitive programming contests and hackathons with strong problem-solving skills.",
+      "year": "2021-Present"
+    }
+  ],
+
+  "techStack": [
+    "Python", "React", "Node.js", "TensorFlow", "PyTorch",
+    "Docker", "AWS", "MongoDB", "Git", "LLMs",
+    "TypeScript", "PostgreSQL", "LangChain", "OpenCV"
+  ]
+}
