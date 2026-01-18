@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>S Prajwall Narayana | AI Engineer & Full-Stack Developer</title>
-<!-- Fonts and Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Preconnect for faster resource loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<!-- Fonts - optimized with display=swap -->
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<!-- Font Awesome - loaded async to prevent render blocking -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 <!-- SEO Meta Tags -->
 <meta name="description" content="S Prajwall Narayana - AI Engineer at Colligence Research, Full-Stack Developer, and IoT Innovator. Building intelligent solutions with cutting-edge AI/ML technologies.">
 <meta name="keywords" content="AI Engineer, Full Stack Developer, Machine Learning, Python, React, TensorFlow, PyTorch, Prompt Engineering">
@@ -66,21 +72,48 @@
 margin: 0;
 padding: 0;
 box-sizing: border-box;
- }
+}
+*::before,
+*::after {
+box-sizing: inherit;
+}
+html {
+-webkit-text-size-adjust: 100%;
+-ms-text-size-adjust: 100%;
+}
 body {
 font-family: 'Sora', sans-serif;
 background: var(--bg-primary);
 color: var(--text-primary);
 line-height: 1.6;
 overflow-x: hidden;
-transition: all 0.3s ease;
 font-weight: 400;
 letter-spacing: -0.3px;
- }
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+/* Optimize theme transitions */
+transition: background-color 0.3s ease, color 0.3s ease;
+/* Better touch scrolling on iOS */
+-webkit-overflow-scrolling: touch;
+}
 /* Scroll behavior */
 html {
 scroll-behavior: smooth;
- }
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+outline: 2px solid var(--primary-color);
+outline-offset: 2px;
+}
+
+/* Remove outline for mouse users */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+outline: none;
+}
 /* Custom scrollbar */
 ::-webkit-scrollbar {
 width: 8px;
@@ -99,11 +132,13 @@ top: 0;
 width: 100%;
 background: rgba(10, 14, 39, 0.7);
 backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
 z-index: 1000;
 padding: 1rem 0;
-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+transition: background-color 0.3s ease, box-shadow 0.3s ease;
 border-bottom: 1px solid rgba(61, 116, 209, 0.1);
- }
+will-change: background-color;
+}
  .navbar.scrolled {
 background: rgba(10, 14, 39, 0.95);
 box-shadow: var(--shadow);
@@ -326,7 +361,8 @@ height: 100%;
 text-align: center;
 transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 transform-style: preserve-3d;
- }
+will-change: transform;
+}
 
 .flip-card:hover .flip-card-inner {
 transform: rotateY(180deg) rotateZ(5deg);
@@ -715,7 +751,17 @@ margin-bottom: 0.25rem;
 .contact-details p {
 color: var(--text-muted);
 font-size: 0.875rem;
- }
+}
+.contact-details a {
+color: var(--text-muted);
+text-decoration: none;
+transition: color 0.3s ease;
+word-break: break-word;
+}
+.contact-details a:hover,
+.contact-details a:focus {
+color: var(--primary-color);
+}
 .contact-form {
 background: var(--bg-card);
 padding: 2rem;
@@ -804,19 +850,51 @@ display: none;
 display: none;
 flex-direction: column;
 cursor: pointer;
-gap: 4px;
- }
+gap: 5px;
+padding: 10px;
+margin: -10px;
+/* Better touch target */
+min-width: 44px;
+min-height: 44px;
+justify-content: center;
+align-items: center;
+}
 .hamburger span {
-width: 25px;
+width: 24px;
 height: 3px;
 background: var(--text-primary);
 transition: all 0.3s ease;
- }
-/* Responsive Design */
+border-radius: 2px;
+}
+.hamburger.active span:nth-child(1) {
+transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+transform: rotate(-45deg) translate(6px, -6px);
+}
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) {
+.hero-content {
+gap: 2rem;
+}
+.nav-links {
+gap: 1.5rem;
+}
+.section {
+padding: 4rem 0;
+padding-left: 1.5rem;
+padding-right: 1.5rem;
+}
+}
+
+/* Responsive Design - Mobile Landscape & Tablet Portrait */
 @media (max-width: 768px) {
 .hamburger {
 display: flex;
- }
+}
 .nav-links {
 display: none;
 position: absolute;
@@ -825,64 +903,200 @@ left: 0;
 right: 0;
 background: var(--bg-secondary);
 flex-direction: column;
-padding: 2rem;
-gap: 1rem;
+padding: 1.5rem;
+gap: 0.75rem;
 border-top: 1px solid var(--border-color);
- }
+max-height: 70vh;
+overflow-y: auto;
+}
 .nav-links.active {
 display: flex;
- }
+}
+.nav-links a {
+padding: 0.75rem 1rem;
+display: block;
+border-radius: 8px;
+transition: background 0.3s ease;
+}
+.nav-links a:hover,
+.nav-links a:active {
+background: var(--bg-hover);
+}
 .hero-content {
 grid-template-columns: 1fr;
 gap: 2rem;
 text-align: center;
- }
+padding-top: 80px;
+}
 .hero-text h1 {
-font-size: 2.5rem;
- }
+font-size: 2.25rem;
+}
+.hero-text .subtitle {
+font-size: 1.25rem;
+}
+.hero-text .description {
+font-size: 1rem;
+}
+.hero-buttons {
+justify-content: center;
+}
+.hero-stats {
+justify-content: center;
+}
 .contact-grid {
 grid-template-columns: 1fr;
 gap: 2rem;
- }
+}
 .section {
 padding: 3rem 0;
 padding-left: 1rem;
 padding-right: 1rem;
- }
+}
+.section-title {
+font-size: 2.25rem;
+}
 .btn {
 padding: 0.75rem 1.5rem;
 font-size: 0.875rem;
- }
+/* Better touch targets */
+min-height: 44px;
+}
 .flip-card {
 width: 250px;
 height: 350px;
- }
+}
 .profile-image {
 width: 150px;
 height: 150px;
- }
- }
+}
+/* Better touch interactions */
+.skill-tag,
+.project-tag,
+.waterfall-tag {
+padding: 0.625rem 1rem;
+min-height: 40px;
+display: inline-flex;
+align-items: center;
+}
+.contact-item {
+padding: 1.25rem;
+}
+/* Disable hover effects on touch devices */
+@media (hover: none) {
+.skill-category:hover,
+.project-card:hover,
+.achievement-card:hover,
+.timeline-item:hover {
+  transform: none;
+}
+}
+}
+
+/* Responsive Design - Mobile Portrait */
 @media (max-width: 480px) {
+.nav-container {
+padding: 0 1rem;
+}
+.logo {
+font-size: 1.2rem;
+}
+.hero-content {
+padding-top: 70px;
+}
 .hero-text h1 {
-font-size: 2rem;
- }
+font-size: 1.75rem;
+line-height: 1.2;
+}
+.hero-text .subtitle {
+font-size: 1.1rem;
+}
+.hero-text .description {
+font-size: 0.95rem;
+line-height: 1.6;
+}
 .section-title {
-font-size: 2rem;
- }
+font-size: 1.75rem;
+}
+.section-subtitle {
+font-size: 1rem;
+}
 .projects-grid,
 .skills-grid,
-.achievements-grid {
+.achievements-grid,
+.projects-waterfall,
+.achievements-waterfall {
 grid-template-columns: 1fr;
- }
+gap: 1.5rem;
+}
 .flip-card {
-width: 220px;
-height: 320px;
- }
+width: 200px;
+height: 300px;
+}
 .profile-image {
-width: 120px;
-height: 120px;
- }
- }
+width: 110px;
+height: 110px;
+}
+.hero-buttons {
+flex-direction: column;
+width: 100%;
+}
+.hero-buttons .btn {
+width: 100%;
+justify-content: center;
+}
+.hero-stats {
+gap: 1.5rem;
+}
+.stat-number {
+font-size: 2rem;
+}
+/* Contact section improvements */
+.contact-item {
+flex-direction: column;
+text-align: center;
+gap: 0.75rem;
+}
+.contact-icon {
+margin: 0 auto;
+}
+/* Project cards */
+.project-waterfall-card {
+padding: 1.25rem;
+}
+.project-links {
+flex-direction: column;
+}
+.project-link {
+justify-content: center;
+}
+/* Timeline adjustments */
+.waterfall-phase {
+width: auto;
+}
+.phase-number {
+width: 50px;
+height: 50px;
+font-size: 1rem;
+}
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+.hero-text h1 {
+font-size: 1.5rem;
+}
+.section-title {
+font-size: 1.5rem;
+}
+.flip-card {
+width: 180px;
+height: 270px;
+}
+.profile-image {
+width: 90px;
+height: 90px;
+}
+}
 /* Animations */
 @keyframes fadeInUp {
  from {
@@ -1134,13 +1348,37 @@ animation: borderGlow 2s ease infinite;
 /* Mobile Responsive Additions */
 @media (max-width: 768px) {
 .cursor, .cursor-dot {
-display: none;
+display: none !important;
 }
 .back-to-top {
 bottom: 20px;
 right: 20px;
-width: 45px;
-height: 45px;
+width: 48px;
+height: 48px;
+/* Better touch target */
+min-width: 48px;
+min-height: 48px;
+}
+.tech-marquee-content span {
+padding: 0 1rem;
+font-size: 0.8rem;
+}
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+*,
+*::before,
+*::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
+.float {
+animation: none;
+}
+.tech-marquee-content {
+animation: none;
 }
 }
 
@@ -1624,12 +1862,14 @@ to {
 @media (max-width: 768px) {
 .waterfall-step {
 flex-direction: column !important;
+min-height: auto;
 }
 
 .waterfall-phase {
 width: 100%;
 flex-direction: row;
 justify-content: flex-start;
+align-items: center;
 gap: 1rem;
 padding: 0;
 margin-bottom: 1rem;
@@ -1645,10 +1885,53 @@ padding: 0;
 
 .waterfall-card {
 margin-left: 0;
+padding: 1.25rem;
+}
+
+.waterfall-card-header {
+flex-direction: column;
+align-items: flex-start;
+}
+
+.waterfall-title {
+font-size: 1.1rem;
+}
+
+.waterfall-description {
+font-size: 0.9rem;
+}
+
+.waterfall-tags {
+gap: 0.375rem;
+}
+
+.waterfall-tag {
+font-size: 0.7rem;
+padding: 0.25rem 0.5rem;
 }
 
 .projects-waterfall {
 grid-template-columns: 1fr;
+}
+
+.achievements-waterfall {
+grid-template-columns: 1fr;
+}
+}
+
+@media (max-width: 480px) {
+.waterfall-card {
+padding: 1rem;
+}
+
+.phase-number {
+width: 45px;
+height: 45px;
+font-size: 0.9rem;
+}
+
+.phase-label {
+font-size: 0.65rem;
 }
 }
 
@@ -2066,6 +2349,28 @@ margin-bottom: 1rem;
     </footer>
 
     <script>
+        // ==================== UTILITY FUNCTIONS ====================
+        // Throttle function for scroll performance
+        function throttle(func, limit) {
+            let inThrottle;
+            return function(...args) {
+                if (!inThrottle) {
+                    func.apply(this, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        // Debounce function for resize events
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            }
+        }
+
         // ==================== THEME TOGGLE ====================
         function toggleTheme() {
             const body = document.body;
@@ -2100,10 +2405,14 @@ margin-bottom: 1rem;
         }
 
         // ==================== SMOOTH SCROLL ====================
+        const mobileNavLinks = document.querySelector('.nav-links');
+        const hamburgerBtn = document.querySelector('.hamburger');
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
                 if (target) {
                     const offsetTop = target.offsetTop - 80;
                     window.scrollTo({
@@ -2112,29 +2421,33 @@ margin-bottom: 1rem;
                     });
                 }
                 // Close mobile menu
-                document.querySelector('.nav-links')?.classList.remove('active');
-                document.querySelector('.hamburger')?.classList.remove('active');
+                mobileNavLinks?.classList.remove('active');
+                hamburgerBtn?.classList.remove('active');
             });
         });
 
-        // ==================== NAVBAR SCROLL EFFECT ====================
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            const backToTop = document.querySelector('.back-to-top');
+        // ==================== NAVBAR SCROLL EFFECT (THROTTLED) ====================
+        const navbar = document.querySelector('.navbar');
+        const backToTop = document.querySelector('.back-to-top');
 
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+        const handleScroll = throttle(function() {
+            const scrollY = window.scrollY;
+
+            if (scrollY > 50) {
+                navbar?.classList.add('scrolled');
             } else {
-                navbar.classList.remove('scrolled');
+                navbar?.classList.remove('scrolled');
             }
 
             // Back to top button visibility
-            if (window.scrollY > 500) {
+            if (scrollY > 500) {
                 backToTop?.classList.add('visible');
             } else {
                 backToTop?.classList.remove('visible');
             }
-        });
+        }, 16); // ~60fps
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
 
         // ==================== BACK TO TOP ====================
         function scrollToTop() {
@@ -2184,13 +2497,15 @@ margin-bottom: 1rem;
             }
         }
 
-        // ==================== PARTICLE ANIMATION ====================
+        // ==================== PARTICLE ANIMATION (OPTIMIZED) ====================
         function initParticles() {
             const canvas = document.getElementById('particles-canvas');
             if (!canvas) return;
 
             const ctx = canvas.getContext('2d');
             let particles = [];
+            let animationId = null;
+            let isVisible = true;
 
             function resize() {
                 canvas.width = canvas.parentElement.offsetWidth;
@@ -2227,21 +2542,26 @@ margin-bottom: 1rem;
 
             function init() {
                 particles = [];
-                const numberOfParticles = Math.min(100, (canvas.width * canvas.height) / 10000);
+                // Reduce particles on mobile for better performance
+                const isMobile = window.innerWidth < 768;
+                const maxParticles = isMobile ? 30 : 60;
+                const numberOfParticles = Math.min(maxParticles, (canvas.width * canvas.height) / 15000);
                 for (let i = 0; i < numberOfParticles; i++) {
                     particles.push(new Particle());
                 }
             }
 
             function connectParticles() {
+                const maxDistance = window.innerWidth < 768 ? 80 : 120;
                 for (let a = 0; a < particles.length; a++) {
-                    for (let b = a; b < particles.length; b++) {
+                    for (let b = a + 1; b < particles.length; b++) {
                         const dx = particles[a].x - particles[b].x;
                         const dy = particles[a].y - particles[b].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        const distSq = dx * dx + dy * dy;
 
-                        if (distance < 120) {
-                            ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - distance / 120)})`;
+                        if (distSq < maxDistance * maxDistance) {
+                            const distance = Math.sqrt(distSq);
+                            ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - distance / maxDistance)})`;
                             ctx.lineWidth = 1;
                             ctx.beginPath();
                             ctx.moveTo(particles[a].x, particles[a].y);
@@ -2253,38 +2573,78 @@ margin-bottom: 1rem;
             }
 
             function animate() {
+                if (!isVisible) return;
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 particles.forEach(particle => {
                     particle.update();
                     particle.draw();
                 });
                 connectParticles();
-                requestAnimationFrame(animate);
+                animationId = requestAnimationFrame(animate);
+            }
+
+            // Pause animation when hero section is not visible
+            const heroSection = document.getElementById('home');
+            if (heroSection && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            isVisible = true;
+                            if (!animationId) animate();
+                        } else {
+                            isVisible = false;
+                            if (animationId) {
+                                cancelAnimationFrame(animationId);
+                                animationId = null;
+                            }
+                        }
+                    });
+                }, { threshold: 0.1 });
+                observer.observe(heroSection);
             }
 
             resize();
             init();
             animate();
 
-            window.addEventListener('resize', () => {
+            window.addEventListener('resize', debounce(() => {
                 resize();
                 init();
-            });
+            }, 250));
         }
 
         // ==================== CUSTOM CURSOR ====================
         function initCursor() {
+            // Skip on touch devices
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            if (isTouchDevice || window.innerWidth < 768) return;
+
             const cursor = document.querySelector('.cursor');
             const cursorDot = document.querySelector('.cursor-dot');
 
-            if (!cursor || !cursorDot || window.innerWidth < 768) return;
+            if (!cursor || !cursorDot) return;
+
+            let mouseX = 0, mouseY = 0;
+            let cursorX = 0, cursorY = 0;
 
             document.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-                cursorDot.style.left = e.clientX + 'px';
-                cursorDot.style.top = e.clientY + 'px';
-            });
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            }, { passive: true });
+
+            // Smooth cursor animation using RAF
+            function animateCursor() {
+                cursorX += (mouseX - cursorX) * 0.15;
+                cursorY += (mouseY - cursorY) * 0.15;
+
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                cursorDot.style.left = mouseX + 'px';
+                cursorDot.style.top = mouseY + 'px';
+
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
 
             const hoverElements = document.querySelectorAll('a, button, .btn, .skill-tag, .project-card, .flip-card');
             hoverElements.forEach(el => {
@@ -2297,10 +2657,18 @@ margin-bottom: 1rem;
         function initScrollReveal() {
             const revealElements = document.querySelectorAll('.reveal, .stagger-children');
 
-            const revealObserver = new IntersectionObserver((entries) => {
+            if (!('IntersectionObserver' in window)) {
+                // Fallback for older browsers
+                revealElements.forEach(el => el.classList.add('active'));
+                return;
+            }
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
+                        // Stop observing once revealed for better performance
+                        observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
@@ -2312,25 +2680,37 @@ margin-bottom: 1rem;
         function animateCounters() {
             const counters = document.querySelectorAll('.stat-number');
 
-            const counterObserver = new IntersectionObserver((entries) => {
+            if (!('IntersectionObserver' in window)) {
+                // Fallback for older browsers
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    counter.innerText = target + '+';
+                });
+                return;
+            }
+
+            const counterObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        const target = parseInt(entry.target.getAttribute('data-count'));
+                        const target = parseInt(entry.target.getAttribute('data-count')) || 0;
                         let count = 0;
-                        const increment = target / 50;
+                        const duration = 1000; // 1 second
+                        const steps = 50;
+                        const increment = target / steps;
+                        const stepTime = duration / steps;
 
                         const updateCount = () => {
                             if (count < target) {
                                 count += increment;
                                 entry.target.innerText = Math.ceil(count) + '+';
-                                requestAnimationFrame(updateCount);
+                                setTimeout(updateCount, stepTime);
                             } else {
                                 entry.target.innerText = target + '+';
                             }
                         };
 
                         updateCount();
-                        counterObserver.unobserve(entry.target);
+                        observer.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.5 });
@@ -2340,6 +2720,10 @@ margin-bottom: 1rem;
 
         // ==================== TILT EFFECT ====================
         function initTiltEffect() {
+            // Skip on touch devices for better performance
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            if (isTouchDevice || window.innerWidth < 768) return;
+
             const tiltCards = document.querySelectorAll('.tilt-card');
 
             tiltCards.forEach(card => {
@@ -2353,7 +2737,7 @@ margin-bottom: 1rem;
                     const rotateY = (centerX - x) / 20;
 
                     card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-                });
+                }, { passive: true });
 
                 card.addEventListener('mouseleave', () => {
                     card.style.transform = '';
@@ -2363,6 +2747,10 @@ margin-bottom: 1rem;
 
         // ==================== MAGNETIC BUTTONS ====================
         function initMagneticButtons() {
+            // Skip on touch devices
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            if (isTouchDevice) return;
+
             const magneticBtns = document.querySelectorAll('.magnetic-btn');
 
             magneticBtns.forEach(btn => {
@@ -2371,7 +2759,7 @@ margin-bottom: 1rem;
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
                     btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-                });
+                }, { passive: true });
 
                 btn.addEventListener('mouseleave', () => {
                     btn.style.transform = '';
@@ -2379,29 +2767,149 @@ margin-bottom: 1rem;
             });
         }
 
+        // ==================== EMBEDDED DATA (Fallback for file:// protocol) ====================
+        const portfolioData = {
+            experience: [
+                {
+                    id: 1, phase: "Phase 1", date: "Nov 2024 - Present",
+                    title: "AI Engineer & Prompt Engineering Researcher",
+                    company: "Colligence Research", location: "Bengaluru, IN",
+                    description: "Contributing to a state-of-the-art virtual communication platform leveraging advanced technologies. Focused on seamless integration of best-in-class features for unified and comprehensive communication and collaboration solutions.",
+                    tags: ["AI/ML", "Prompt Engineering", "LLMs", "Research"],
+                    type: "work", current: true
+                },
+                {
+                    id: 2, phase: "Phase 2", date: "Oct 2024 - Nov 2024",
+                    title: "Student Intern - AI Research",
+                    company: "RVCE Centre of Excellence", location: "Bengaluru, IN",
+                    description: "Developed a prototype model for AI-generated content and deepfake detection using CNN-based architectures. Achieved 92.3% accuracy, 90.7% precision, and 91.5% recall on benchmark deepfake datasets.",
+                    tags: ["Deep Learning", "CNN", "TensorFlow", "PyTorch"],
+                    type: "work"
+                },
+                {
+                    id: 3, phase: "Phase 3", date: "Aug 2024 - Sep 2024",
+                    title: "Associate Consultant Intern",
+                    company: "Ernst & Young India", location: "Bengaluru, IN",
+                    description: "Gained expertise in Enterprise Security Architecture and Cybersecurity through work on the IFTAS Cloud project. Applied the SABSA Framework for risk-driven design, cloud security, IAM, and regulatory compliance.",
+                    tags: ["Cybersecurity", "Cloud Security", "SABSA", "IAM"],
+                    type: "work"
+                },
+                {
+                    id: 4, phase: "Phase 4", date: "2023 - 2024",
+                    title: "Research & Development Projects",
+                    company: "Academic Projects", location: "RVCE",
+                    description: "Led multiple research projects including IoT rover development with YOLO-based object detection and plant disease classification using ResNet50. Published research papers in IEEE conferences.",
+                    tags: ["IoT", "YOLO", "ResNet50", "IEEE"],
+                    type: "research"
+                },
+                {
+                    id: 5, phase: "Phase 5", date: "2022 - 2024",
+                    title: "Open Source Contributor",
+                    company: "GitHub Community", location: "Remote",
+                    description: "Actively contributed to open-source projects and maintained personal repositories. Developed tools like sqlite2sql converter and KnotesCentral platform.",
+                    tags: ["Open Source", "Git", "Community"],
+                    type: "contribution"
+                }
+            ],
+            education: [
+                {
+                    id: 1, phase: "Foundation", date: "2021 - 2025",
+                    title: "Bachelor of Engineering - Computer Science",
+                    institution: "R V College of Engineering", location: "Bengaluru, Karnataka, India",
+                    description: "Completed comprehensive coursework in Data Structures, Algorithms, Database Management, Software Engineering, and Computer Networks. Maintained strong academic performance while actively participating in coding competitions.",
+                    tags: ["Computer Science", "DSA", "Software Engineering"],
+                    type: "education"
+                }
+            ],
+            projects: [
+                {
+                    id: 1, title: "Arogya-Sathi", subtitle: "AI Healthcare Platform",
+                    description: "Multilingual, AI-powered healthcare assistant built using Streamlit, LangChain, LLaMA 3.2, YOLOv8, OCR & OpenStreetMap. Features include a chatbot, report analyzer, and symptom checker with 93% accuracy.",
+                    icon: "fa-stethoscope", tags: ["Python", "LLM", "YOLOv8", "Streamlit", "LangChain"],
+                    github: "https://github.com/Developer1010x/Arogya-Sathi",
+                    featured: false, award: "3rd Best Project at RVCE"
+                },
+                {
+                    id: 2, title: "LLM_Terminal", subtitle: "CLI AI Assistant",
+                    description: "A terminal-based conversational tool using GPT-like LLMs for offline AI assistance. Lightweight, fast, and perfect for developers who want quick, browser-free interactions.",
+                    icon: "fa-terminal", tags: ["Python", "CLI", "LLM", "GPT"],
+                    github: "https://github.com/Developer1010x/LLM_Terminal"
+                },
+                {
+                    id: 3, title: "IoT Robotic Rover", subtitle: "YOLO Object Detection",
+                    description: "LAN-controlled rover with robotic arm and YOLOv3 object detection. Web interface and real-time streaming powered by ESP32s and OpenCV.",
+                    icon: "fa-robot", tags: ["Python", "YOLOv3", "ESP32", "OpenCV", "IoT"],
+                    github: "https://github.com/Developer1010x/Robotic_rover",
+                    publication: "https://ieeexplore.ieee.org/document/10816816"
+                },
+                {
+                    id: 4, title: "Plant Disease Detection", subtitle: "ResNet50 Classifier",
+                    description: "ResNet50-based classifier with tuned hyperparameters for plant disease recognition. Boosts generalizability across diverse datasets.",
+                    icon: "fa-leaf", tags: ["TensorFlow", "Python", "ResNet50", "ML"],
+                    github: "https://github.com/Developer1010x/Plant-Disease-Detection",
+                    publication: "https://ieeexplore.ieee.org/document/10816835"
+                },
+                {
+                    id: 5, title: "Deepfake Detection", subtitle: "AI Content Verification",
+                    description: "AI content verification system using ML techniques for detecting synthetic audio and images. Targets misinformation & media authenticity.",
+                    icon: "fa-shield-alt", tags: ["ML", "Python", "Audio Processing", "CNN"],
+                    github: "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
+                },
+                {
+                    id: 6, title: "KnotesCentral", subtitle: "Academic Platform",
+                    description: "Resource-sharing platform for RVCE students built in TypeScript & React. Hosts notes, lab manuals, and exam resources for academic ease.",
+                    icon: "fa-graduation-cap", tags: ["TypeScript", "React", "Vercel", "Education"],
+                    github: "https://github.com/Developer1010x/KnotesCentral-Source-Code",
+                    demo: "https://knotescentral.vercel.app"
+                },
+                {
+                    id: 7, title: "sqlite2sql Converter", subtitle: "Database Migration Tool",
+                    description: "Python tool to convert SQLite schemas into SQL scripts. Useful for database migration and platform transitions.",
+                    icon: "fa-database", tags: ["Python", "SQLite", "SQL", "CLI"],
+                    github: "https://github.com/Developer1010x/sqlite2sql"
+                },
+                {
+                    id: 8, title: "NexusBallz", subtitle: "Interactive JS Game",
+                    description: "Fun browser-based game demonstrating front-end dev skills: JS logic, CSS transitions, and DOM manipulation.",
+                    icon: "fa-gamepad", tags: ["JavaScript", "HTML5", "CSS3", "Game Dev"],
+                    github: "https://github.com/Developer1010x/game",
+                    demo: "https://nexusballz.vercel.app"
+                }
+            ],
+            achievements: [
+                { id: 1, icon: "fa-award", title: "IEEE Publications", description: "Published 2 research papers in IEEE conferences on IoT robotics and machine learning applications.", year: "2024" },
+                { id: 2, icon: "fa-trophy", title: "Arogya-Sathi Project Award", description: "Secured 3rd Best Major Project in CSE Dept at RVCE for developing an AI-powered multilingual healthcare assistant.", year: "2025" },
+                { id: 3, icon: "fa-hand-holding-heart", title: "NSS RVCE Recognition", description: "Recognized by RVCE Management and RSST Trust for contributions to NSS as Content Head and Core Team Member.", year: "2024" },
+                { id: 4, icon: "fa-code-branch", title: "Open Source Contributor", description: "Active contributor to open-source projects with multiple repositories and community contributions on GitHub.", year: "2022-Present" },
+                { id: 5, icon: "fa-project-diagram", title: "Project Leadership", description: "Led multiple technical projects combining hardware and software development with innovative solutions.", year: "2023-2024" },
+                { id: 6, icon: "fa-users", title: "Community Impact", description: "Created educational resources and tools benefiting 500+ students and the developer community.", year: "2023-Present" },
+                { id: 7, icon: "fa-terminal", title: "Coding Competitions", description: "Regular participant in competitive programming contests and hackathons with strong problem-solving skills.", year: "2021-Present" }
+            ]
+        };
+
         // ==================== JSON DATA RENDERING ====================
         async function loadPortfolioData() {
+            let data = portfolioData; // Use embedded data as default
+
             try {
+                // Try to fetch from JSON file (works on web servers)
                 const response = await fetch('data.json');
-                const data = await response.json();
-
-                renderExperience(data.experience, data.education);
-                renderProjects(data.projects);
-                renderAchievements(data.achievements);
-
-                // Re-initialize effects for new elements
-                setTimeout(() => {
-                    initScrollReveal();
-                    initTiltEffect();
-                }, 100);
-
+                if (response.ok) {
+                    data = await response.json();
+                }
             } catch (error) {
-                console.error('Error loading portfolio data:', error);
-                // Show error state
-                document.querySelectorAll('.skeleton').forEach(el => {
-                    el.innerHTML = '<p style="color: var(--error-color);">Failed to load data</p>';
-                });
+                console.log('Using embedded data (file:// protocol detected)');
             }
+
+            renderExperience(data.experience, data.education);
+            renderProjects(data.projects);
+            renderAchievements(data.achievements);
+
+            // Re-initialize effects for new elements
+            setTimeout(() => {
+                initScrollReveal();
+                initTiltEffect();
+            }, 100);
         }
 
         function renderExperience(experience, education) {
@@ -2531,10 +3039,14 @@ margin-bottom: 1rem;
                 new TypeWriter(typedElement, words, 2000);
             }
 
-            // Active nav link on scroll
+            // Active nav link on scroll (throttled)
             const sections = document.querySelectorAll('section[id]');
-            window.addEventListener('scroll', () => {
+            const navLinksAll = document.querySelectorAll('.nav-links a');
+
+            const updateActiveNav = throttle(() => {
                 let current = '';
+                const scrollY = window.scrollY;
+
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop - 100;
                     if (scrollY >= sectionTop) {
@@ -2542,13 +3054,15 @@ margin-bottom: 1rem;
                     }
                 });
 
-                document.querySelectorAll('.nav-links a').forEach(link => {
+                navLinksAll.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === `#${current}`) {
                         link.classList.add('active');
                     }
                 });
-            });
+            }, 100);
+
+            window.addEventListener('scroll', updateActiveNav, { passive: true });
         });
 
         // Console Easter Egg
