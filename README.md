@@ -1,5 +1,5 @@
 # Hey there! 👋 I'm **S Prajwall Narayana**  
-💻 *Frontend Developer* | 🐍 *Python & Computer Vision Enthusiast* | 🔧 *IC Engine*  
+💻 *Backend Developer, Devops* | 🐍 *Python & Computer Vision Enthusiast* | 🔧 *IC Engine*  
 
 📍 **India** | 📧 **sprajwalln.cs21@rvce.edu.in.com**  
 
