@@ -44,9 +44,4 @@
 
 ---
 
-## 🏆 Achievements  
-![trophy](https://github-profile-trophy.vercel.app/?username=developer1010x&theme=dracula&margin-w=15&margin-h=15)
-
----
-
 💡 *"Code is like humor. When you have to explain it, it’s bad."*  
