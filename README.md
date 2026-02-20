@@ -44,12 +44,6 @@
 
 ---
 
-## 📊 GitHub Highlights  
-| ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=developer1010x&layout=compact&theme=tokyonight) | ![GitHub stats](https://github-readme-stats.vercel.app/api?username=developer1010x&show_icons=true&theme=tokyonight) |
-| --- | --- |
-
----
-
 ## 🏆 Achievements  
 ![trophy](https://github-profile-trophy.vercel.app/?username=developer1010x&theme=dracula&margin-w=15&margin-h=15)
 
