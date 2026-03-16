@@ -2076,7 +2076,7 @@ margin-bottom: 0.5rem;
 <li class="nav-os-mobile"><a href="javascript:void(0)" onclick="switchToOs('theme-ios');toggleMobileMenu()"><i class="fas fa-mobile-screen"></i> iOS</a></li>
 <li class="nav-os-mobile"><a href="javascript:void(0)" onclick="switchToOs('theme-android');toggleMobileMenu()"><i class="fab fa-android"></i> Android</a></li>
 </ul>
-<div class="nav-dropdown">
+<div class="nav-dropdown" id="desktopViewDropdown">
   <button class="theme-toggle os-dropdown-btn" onclick="toggleDropdown('desktopDropdown');return false">
     <i class="fas fa-desktop" style="margin-right:6px"></i> Desktop View <i class="fas fa-chevron-down" style="margin-left:6px;font-size:10px"></i>
   </button>
@@ -2086,9 +2086,19 @@ margin-bottom: 0.5rem;
     <a href="javascript:void(0)" onclick="switchToOs('theme-kali')"><i class="fas fa-terminal"></i> Kali Linux</a>
   </div>
 </div>
+<script>
+  // Hide Desktop View button on real touch mobile devices
+  (function(){
+    var isTouchMobile = /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent) && 'ontouchstart' in window;
+    if(isTouchMobile){
+      var el = document.getElementById('desktopViewDropdown');
+      if(el) el.style.display = 'none';
+    }
+  })();
+</script>
 <div class="nav-dropdown">
   <button class="theme-toggle os-dropdown-btn" onclick="toggleDropdown('mobileDropdown');return false">
-    <i class="fas fa-mobile-alt" style="margin-right:6px"></i> Mobile View <i class="fas fa-chevron-down" style="margin-left:6px;font-size:10px"></i>
+    <i class="fas fa-tablet-alt" style="margin-right:6px"></i> Tablet View <i class="fas fa-chevron-down" style="margin-left:6px;font-size:10px"></i>
   </button>
   <div id="mobileDropdown" class="dropdown-content">
     <a href="javascript:void(0)" onclick="switchToOs('theme-ios')"><i class="fas fa-mobile-screen"></i> iOS</a>
