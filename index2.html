@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S. Prajwall Narayana | AI Engineer & Full-Stack Developer</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="theme-macos">
+
+<!-- ===== DESKTOP ===== -->
+<div id="desktop">
+
+  <!-- macOS Menu Bar -->
+  <div id="menubar" class="macos-only">
+    <div class="mb-left">
+      <span class="mb-item mb-apple" id="appleMenu">&#xf8ff;</span>
+      <span class="mb-item bold" id="activeAppName">Finder</span>
+      <span class="mb-item">File</span>
+      <span class="mb-item">Edit</span>
+      <span class="mb-item">View</span>
+      <span class="mb-item">Window</span>
+      <span class="mb-item" onclick="window.location.href='index.html'"><i class="fa fa-arrow-left"></i> Classic Portfolio</span>
+      <span class="mb-item">Help</span>
+    </div>
+    <div class="mb-right">
+      <span class="mb-item mb-os-selector" id="osSelectorBtn" onclick="toggleOsMenu()">
+        <i class="fa fa-desktop"></i> <span id="currentOsName">macOS</span>
+      </span>
+      <span class="mb-item"><i class="fa fa-bell"></i></span>
+      <span class="mb-item" id="spotlightBtn"><i class="fa fa-magnifying-glass"></i></span>
+      <span class="mb-item" id="ctrlCenterBtn"><i class="fa fa-table-cells"></i></span>
+      <span class="mb-item"><i class="fa fa-battery-full"></i> 100%</span>
+      <span class="mb-item"><i class="fa fa-wifi"></i></span>
+      <span class="mb-item" id="menuClock">Mon Mar 16  3:45 PM</span>
+    </div>
+  </div>
+
+  <!-- OS Dropdown Menu -->
+  <div id="osDropdown" class="os-dropdown">
+    <div class="os-dropdown-header">Choose Operating System</div>
+    <div class="os-dropdown-item active" data-theme="theme-macos" onclick="setTheme('theme-macos')">
+      <i class="fab fa-apple"></i><span>macOS</span>
+    </div>
+    <div class="os-dropdown-item" data-theme="theme-windows" onclick="setTheme('theme-windows')">
+      <i class="fab fa-windows"></i><span>Windows 11</span>
+    </div>
+    <div class="os-dropdown-item" data-theme="theme-kali" onclick="setTheme('theme-kali')">
+      <i class="fa fa-terminal"></i><span>Kali Linux</span>
+    </div>
+    <div class="os-dropdown-item" data-theme="theme-ios" onclick="setTheme('theme-ios')">
+      <i class="fa fa-mobile-screen"></i><span>iOS</span>
+    </div>
+    <div class="os-dropdown-item" data-theme="theme-android" onclick="setTheme('theme-android')">
+      <i class="fab fa-android"></i><span>Android</span>
+    </div>
+  </div>
+
+  <!-- Windows Taskbar -->
+  <div id="taskbar" class="windows-only">
+    <div id="taskbar-start">
+      <div class="tb-icon" id="startBtn" title="Start">
+        <svg viewBox="0 0 24 24" fill="#60cdff"><path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/></svg>
+      </div>
+      <div class="tb-icon tb-os-selector" id="winOsBtn" onclick="toggleOsMenu()" title="Switch OS">
+        <i class="fa fa-desktop" style="font-size:16px"></i>
+      </div>
+      <div class="tb-icon" onclick="window.location.href='index.html'" title="Classic Portfolio">
+        <i class="fa fa-arrow-left" style="font-size:16px;color:var(--accent)"></i>
+      </div>
+    </div>
+    <div id="taskbar-center">
+      <div class="tb-icon" data-app="finder" title="File Explorer">
+        <i class="fa fa-folder" style="color:#FFD700;font-size:20px"></i>
+        <span class="tb-label">File Explorer</span>
+      </div>
+      <div class="tb-icon" data-app="safari" title="Edge">
+        <i class="fa fa-globe" style="color:#0078D4;font-size:20px"></i>
+        <span class="tb-label">Edge</span>
+      </div>
+      <div class="tb-icon" data-app="terminal" title="PowerShell">
+        <i class="fa fa-terminal" style="color:#012456;font-size:18px;background:#012456;color:#fff;padding:2px;border-radius:3px"></i>
+        <span class="tb-label">PowerShell</span>
+      </div>
+      <div class="tb-icon" data-app="notes" title="Notepad">
+        <i class="fa fa-file-lines" style="color:#fff;font-size:20px"></i>
+        <span class="tb-label">Notepad</span>
+      </div>
+      <div class="tb-icon" data-app="calendar" title="Calendar">
+        <i class="fa fa-calendar" style="color:#60cdff;font-size:20px"></i>
+        <span class="tb-label">Calendar</span>
+      </div>
+      <div class="tb-icon" data-app="photos" title="Photos">
+        <i class="fa fa-images" style="color:#34C759;font-size:20px"></i>
+        <span class="tb-label">Photos</span>
+      </div>
+      <div class="tb-icon" data-app="mail" title="Mail">
+        <i class="fa fa-envelope" style="color:#0078D4;font-size:20px"></i>
+        <span class="tb-label">Mail</span>
+      </div>
+      <div class="tb-sep"></div>
+      <div class="tb-icon" onclick="window.open('https://www.linkedin.com/in/sprajwallnarayana','_blank')" title="LinkedIn">
+        <i class="fab fa-linkedin" style="color:#0A66C2;font-size:20px"></i>
+        <span class="tb-label">LinkedIn</span>
+      </div>
+      <div class="tb-icon" onclick="window.open('https://github.com/developer1010x','_blank')" title="GitHub">
+        <i class="fab fa-github" style="color:#fff;font-size:20px"></i>
+        <span class="tb-label">GitHub</span>
+      </div>
+    </div>
+    <div id="taskbar-right">
+      <span><i class="fa fa-wifi"></i></span>
+      <span><i class="fa fa-volume-high"></i></span>
+      <span><i class="fa fa-battery-full"></i></span>
+      <div id="winClock" style="text-align:right;line-height:1.3">
+        <div id="winTime">3:45 PM</div>
+        <div id="winDate">3/16/2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kali Top Panel -->
+  <div id="toppanel" class="kali-only">
+    <div class="kp-left">
+      <span class="kp-item kp-logo">&#x1F409; Kali Linux</span>
+      <span class="kp-item kp-os-selector" onclick="toggleOsMenu()"><i class="fa fa-desktop"></i> OS</span>
+      <span class="kp-item" onclick="window.location.href='index.html'"><i class="fa fa-arrow-left"></i> Classic Portfolio</span>
+      <span class="kp-item">Applications <span class="kp-arrow">&#x25BE;</span></span>
+      <span class="kp-item">Places <span class="kp-arrow">&#x25BE;</span></span>
+      <span class="kp-item">System <span class="kp-arrow">&#x25BE;</span></span>
+    </div>
+    <div class="kp-center" id="kaliClock">Mon 16 Mar, 15:45:00</div>
+    <div class="kp-right">
+      <span class="kp-icon"><i class="fa fa-network-wired"></i></span>
+      <span class="kp-icon"><i class="fa fa-volume-high"></i></span>
+      <span class="kp-icon"><i class="fa fa-power-off"></i></span>
+    </div>
+  </div>
+
+  <!-- Kali Left Dock -->
+  <div id="kalidock" class="kali-only">
+    <div class="kd-icon" data-app="finder" title="Files"><i class="fa fa-folder-open" style="color:#00ff41"></i><span class="kd-label">Files</span></div>
+    <div class="kd-icon" data-app="safari" title="Firefox"><i class="fab fa-firefox-browser" style="color:#FF6611"></i><span class="kd-label">Firefox</span></div>
+    <div class="kd-icon kd-active" data-app="terminal" title="Terminal"><i class="fa fa-terminal" style="color:#00ff41"></i><span class="kd-label">Terminal</span></div>
+    <div class="kd-icon" data-app="photos" title="Achievements"><span style="font-size:22px">&#x1F480;</span><span class="kd-label">Burp Suite</span></div>
+    <div class="kd-icon" data-app="appstore" title="Tools"><i class="fa fa-shield-halved" style="color:#7B2FBE"></i><span class="kd-label">Metasploit</span></div>
+    <div class="kd-icon" data-app="notes" title="Wireshark"><i class="fa fa-fish" style="color:#1BA3E5"></i><span class="kd-label">Wireshark</span></div>
+    <div class="kd-icon" data-app="settings" title="Settings"><i class="fa fa-gear" style="color:#aaa"></i><span class="kd-label">Settings</span></div>
+  </div>
+
+  <!-- iOS Status Bar -->
+  <div id="ios-statusbar" class="ios-only">
+    <div class="ios-sb-left">
+      <span>&#x2022;&#x2022;&#x2022;&#x2022; Carrier</span>
+    </div>
+    <div class="ios-sb-center" id="iosClock">3:45</div>
+    <div class="ios-sb-right">
+      <i class="fa fa-wifi"></i>
+      <i class="fa fa-battery-full"></i>
+    </div>
+  </div>
+
+  <!-- Android Status Bar -->
+  <div id="android-statusbar" class="android-only">
+    <div id="androidTime">3:45</div>
+    <div class="android-sb-right">
+      <i class="fa fa-wifi"></i>
+      <i class="fa fa-signal"></i>
+      <i class="fa fa-battery-full"></i>
+      <span>100%</span>
+    </div>
+  </div>
+
+  <!-- Android Search Bar -->
+  <div id="android-searchbar" class="android-only">
+    <i class="fa fa-magnifying-glass" style="color:#aaa"></i>
+    <span style="color:#aaa">Search apps and web</span>
+    <img src="assets/images/S_Prajwall_Narayana.jpg" alt="G" style="width:24px;height:24px;border-radius:50%;margin-left:auto;object-fit:cover">
+  </div>
+
+  <!-- iOS App Grid -->
+  <div id="ios-appgrid" class="ios-only">
+    <!-- Row 1 -->
+    <div class="ios-app" data-app="finder"><div class="ios-icon" style="background:linear-gradient(145deg,#1C8EF9,#34AADC)"><i class="fa fa-folder-open fa-lg" style="color:#fff"></i></div><span>About Me</span></div>
+    <div class="ios-app" data-app="safari"><div class="ios-icon" style="background:linear-gradient(145deg,#007AFF,#5AC8FA)"><i class="fa fa-globe fa-lg" style="color:#fff"></i></div><span>Projects</span></div>
+    <div class="ios-app" data-app="mail"><div class="ios-icon" style="background:linear-gradient(145deg,#007AFF,#34AADC)"><i class="fa fa-envelope fa-lg" style="color:#fff"></i></div><span>Mail</span></div>
+    <!-- Row 2 -->
+    <div class="ios-app" data-app="notes"><div class="ios-icon" style="background:linear-gradient(145deg,#FFD60A,#FF9F0A)"><i class="fa fa-file-lines fa-lg" style="color:#fff"></i></div><span>Experience</span></div>
+    <div class="ios-app" data-app="calendar"><div class="ios-icon" style="background:linear-gradient(145deg,#FF3B30,#FF9F0A)"><i class="fa fa-calendar fa-lg" style="color:#fff"></i></div><span>Calendar</span></div>
+    <div class="ios-app" data-app="photos"><div class="ios-icon" style="background:linear-gradient(145deg,#34C759,#30D158)"><i class="fa fa-trophy fa-lg" style="color:#fff"></i></div><span>Awards</span></div>
+    <div class="ios-app" data-app="music"><div class="ios-icon" style="background:linear-gradient(145deg,#FF2D55,#FF6B81)"><i class="fa fa-music fa-lg" style="color:#fff"></i></div><span>Music</span></div>
+    <!-- Row 3 -->
+    <div class="ios-app" data-app="appstore"><div class="ios-icon" style="background:linear-gradient(145deg,#007AFF,#5856D6)"><i class="fa fa-bag-shopping fa-lg" style="color:#fff"></i></div><span>App Store</span></div>
+    <div class="ios-app" data-app="osswitcher"><div class="ios-icon" style="background:linear-gradient(145deg,#6A1B9A,#9C27B0)"><i class="fa fa-desktop fa-lg" style="color:#fff"></i></div><span>OS Switcher</span></div>
+    <div class="ios-app" data-app="github"><div class="ios-icon" style="background:#1C1C1E"><i class="fab fa-github fa-lg" style="color:#fff"></i></div><span>GitHub</span></div>
+    <div class="ios-app" data-app="preview"><div class="ios-icon" style="background:#E53935"><i class="fa fa-file-pdf fa-lg" style="color:#fff"></i></div><span>Resume</span></div>
+    </div>
+
+  <!-- Android App Grid -->
+  <div id="android-appgrid" class="android-only">
+    <div class="and-app" data-app="finder"><div class="and-icon" style="background:#1565C0"><i class="fa fa-folder-open fa-lg" style="color:#fff"></i></div><span>About Me</span></div>
+    <div class="and-app" data-app="safari"><div class="and-icon" style="background:#1B5E20"><i class="fa fa-globe fa-lg" style="color:#fff"></i></div><span>Projects</span></div>
+    <div class="and-app" data-app="notes"><div class="and-icon" style="background:#F57F17"><i class="fa fa-file-lines fa-lg" style="color:#fff"></i></div><span>Experience</span></div>
+    <div class="and-app" data-app="calendar"><div class="and-icon" style="background:#B71C1C"><i class="fa fa-calendar fa-lg" style="color:#fff"></i></div><span>Calendar</span></div>
+    <div class="and-app" data-app="photos"><div class="and-icon" style="background:#1B5E20"><i class="fa fa-trophy fa-lg" style="color:#fff"></i></div><span>Awards</span></div>
+    <div class="and-app" data-app="mail"><div class="and-icon" style="background:#01579B"><i class="fa fa-envelope fa-lg" style="color:#fff"></i></div><span>Mail</span></div>
+    <div class="and-app" data-app="music"><div class="and-icon" style="background:#880E4F"><i class="fa fa-music fa-lg" style="color:#fff"></i></div><span>Music</span></div>
+    <div class="and-app" data-app="appstore"><div class="and-icon" style="background:#0D47A1"><i class="fa fa-bag-shopping fa-lg" style="color:#fff"></i></div><span>Play Store</span></div>
+    <div class="and-app" data-app="osswitcher"><div class="and-icon" style="background:#6A1B9A"><i class="fa fa-desktop fa-lg" style="color:#fff"></i></div><span>OS Switcher</span></div>
+    <div class="and-app" data-app="github"><div class="and-icon" style="background:#1C1C1E"><i class="fab fa-github fa-lg" style="color:#fff"></i></div><span>GitHub</span></div>
+    <div class="and-app" data-app="preview"><div class="and-icon" style="background:#E53935"><i class="fa fa-file-pdf fa-lg" style="color:#fff"></i></div><span>Resume</span></div>
+  </div>
+
+  <!-- iOS Dock -->
+  <div id="ios-dock" class="ios-only">
+    <div class="ios-app ios-dock-app" data-app="safari"><div class="ios-icon" style="background:linear-gradient(145deg,#007AFF,#5AC8FA)"><i class="fa fa-globe fa-lg" style="color:#fff"></i></div></div>
+    <div class="ios-app ios-dock-app" data-app="notes"><div class="ios-icon" style="background:linear-gradient(145deg,#FFD60A,#FF9F0A)"><i class="fa fa-file-lines fa-lg" style="color:#fff"></i></div></div>
+    <div class="ios-app ios-dock-app" data-app="finder"><div class="ios-icon" style="background:linear-gradient(145deg,#1C8EF9,#34AADC)"><i class="fa fa-folder-open fa-lg" style="color:#fff"></i></div></div>
+    <div class="ios-app ios-dock-app" data-app="mail"><div class="ios-icon" style="background:linear-gradient(145deg,#007AFF,#34AADC)"><i class="fa fa-envelope fa-lg" style="color:#fff"></i></div></div>
+  </div>
+
+  <!-- iOS Home Indicator -->
+  <div id="ios-home-indicator" class="ios-only"></div>
+
+  <!-- Android Nav Bar -->
+  <div id="android-navbar" class="android-only">
+    <span class="and-nav-btn" id="andBack">&#x25C1;</span>
+    <span class="and-nav-btn" id="andHome">&#x25CB;</span>
+    <span class="and-nav-btn" id="andRecent">&#x25A1;</span>
+  </div>
+
+  <!-- macOS Dock -->
+  <div id="dock" class="macos-only">
+    <div class="dock-icon" data-app="finder"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%23006EFF'/%3E%3Ccircle cx='22' cy='30' r='10' fill='%23fff'/%3E%3Ccircle cx='38' cy='30' r='10' fill='%23fff'/%3E%3Ccircle cx='22' cy='30' r='6' fill='%230057CC'/%3E%3Ccircle cx='38' cy='30' r='6' fill='%2300B4FF'/%3E%3C/svg%3E" alt="Finder"><span class="dock-label">Finder</span><div class="dock-dot"></div></div>
+    <div class="dock-icon" data-app="safari"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%23fff'/%3E%3Ccircle cx='30' cy='30' r='22' stroke='%23E5E5EA' stroke-width='1' fill='none'/%3E%3Cpath d='M30 8 L30 52 M8 30 L52 30' stroke='%23E5E5EA' stroke-width='1'/%3E%3Cpath d='M38 22 L26 34' stroke='%23FF3B30' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M22 38 L34 26' stroke='%230070C9' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E" alt="Safari"><span class="dock-label">Safari</span><div class="dock-dot"></div></div>
+    <div class="dock-icon" data-app="terminal"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%231C1C1E'/%3E%3Ctext x='10' y='38' font-family='monospace' font-size='22' fill='%2300ff41'%3E%3E_%3C/text%3E%3C/svg%3E" alt="Terminal"><span class="dock-label">Terminal</span><div class="dock-dot"></div></div>
+    <div class="dock-icon" data-app="notes"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%23FFD60A'/%3E%3Crect x='14' y='20' width='32' height='4' rx='2' fill='%23fff'/%3E%3Crect x='14' y='30' width='24' height='3' rx='1.5' fill='rgba(0,0,0,.3)'/%3E%3Crect x='14' y='38' width='20' height='3' rx='1.5' fill='rgba(0,0,0,.3)'/%3E%3C/svg%3E" alt="Notes"><span class="dock-label">Notes</span><div class="dock-dot"></div></div>
+    <div class="dock-icon" data-app="calendar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%23fff'/%3E%3Crect x='8' y='8' width='44' height='44' rx='8' fill='%23fff'/%3E%3Crect x='8' y='8' width='44' height='16' rx='8' fill='%23FF3B30'/%3E%3Crect x='8' y='16' width='44' height='8' fill='%23FF3B30'/%3E%3Ctext x='30' y='47' font-family='Inter' font-size='20' font-weight='700' fill='%23000' text-anchor='middle'%3E16%3C/text%3E%3Ctext x='30' y='22' font-family='Inter' font-size='9' fill='%23fff' text-anchor='middle'%3EMARCH%3C/text%3E%3C/svg%3E" alt="Calendar"><span class="dock-label">Calendar</span><div class="dock-dot"></div></div>
+    <div class="dock-icon" data-app="photos"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%23fff'/%3E%3Ccircle cx='30' cy='30' r='14' fill='%23FF9500'/%3E%3Ccircle cx='30' cy='30' r='10' fill='%23FFD60A'/%3E%3C/svg%3E" alt="Photos"><span class="dock-label">Photos</span><div class="dock-dot"></div></div>
+    <div class="dock-icon" data-app="music"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%23FF2D55'/%3E%3Cellipse cx='22' cy='42' rx='8' ry='6' fill='rgba(0,0,0,.4)'/%3E%3Cellipse cx='22' cy='42' rx='5' ry='4' fill='%23fff'/%3E%3Cpath d='M30 14 L30 36 L44 30 L44 10 Z' fill='%23fff'/%3E%3C/svg%3E" alt="Music"><span class="dock-label">Music</span><div class="dock-dot"></div></div>
+    <div class="dock-icon" data-app="mail"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%230070C9'/%3E%3Crect x='10' y='18' width='40' height='28' rx='4' fill='%23fff'/%3E%3Cpath d='M10 18 L30 34 L50 18' stroke='%230070C9' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Mail"><span class="dock-label">Mail</span><div class="dock-dot"></div></div>
+    <div class="dock-sep"></div>
+    <div class="dock-icon" onclick="window.open('https://www.linkedin.com/in/sprajwallnarayana','_blank')"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%230A66C2'/%3E%3Ctext x='12' y='44' font-family='Arial' font-weight='900' font-size='28' fill='%23fff'%3Ein%3C/text%3E%3C/svg%3E" alt="LinkedIn"><span class="dock-label">LinkedIn</span></div>
+    <div class="dock-icon" onclick="window.open('https://github.com/developer1010x','_blank')"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%231C1C1E'/%3E%3Cpath d='M30 10 C18.95 10 10 18.95 10 30 C10 38.84 15.56 46.33 23.4 48.97 C24.4 49.16 24.75 48.54 24.75 48 L24.75 44.5 C19.28 45.69 18.13 42.04 18.13 42.04 C17.22 39.78 15.9 39.17 15.9 39.17 C14.07 37.94 16.04 37.97 16.04 37.97 C18.07 38.11 19.14 40.05 19.14 40.05 C20.94 43.09 23.86 42.21 24.87 41.7 C25.06 40.41 25.58 39.53 26.15 39.03 C21.78 38.52 17.19 36.83 17.19 29.34 C17.19 27.21 17.97 25.47 19.17 24.1 C18.97 23.59 18.28 21.6 19.37 18.94 C19.37 18.94 21.07 18.41 24.74 20.91 C26.27 20.47 27.9 20.25 29.53 20.24 C31.16 20.25 32.79 20.47 34.32 20.91 C37.99 18.41 39.69 18.94 39.69 18.94 C40.78 21.6 40.09 23.59 39.89 24.1 C41.1 25.47 41.87 27.21 41.87 29.34 C41.87 36.85 37.27 38.51 32.89 39.01 C33.61 39.63 34.25 40.85 34.25 42.72 L34.25 48 C34.25 48.54 34.6 49.17 35.62 48.97 C43.45 46.32 49 38.83 49 30 C49 18.95 40.05 10 30 10 Z' fill='%23fff'/%3E%3C/svg%3E" alt="GitHub"><span class="dock-label">GitHub</span></div>
+    <div class="dock-icon" data-app="appstore"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%23007AFF'/%3E%3Ctext x='30' y='40' font-family='Arial' font-size='30' fill='%23fff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" alt="App Store"><span class="dock-label">App Store</span></div>
+    <div class="dock-icon" data-app="preview"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%23fff'/%3E%3Crect x='8' y='10' width='44' height='40' rx='4' fill='%23E53935'/%3E%3Ctext x='30' y='35' font-family='Arial' font-size='18' font-weight='bold' fill='%23fff' text-anchor='middle'%3EPDF%3C/text%3E%3C/svg%3E" alt="Preview"><span class="dock-label">Preview</span><div class="dock-dot"></div></div>
+    <div class="dock-icon" data-app="github"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%231C1C1E'/%3E%3Cpath d='M30 10 C18.95 10 10 18.95 10 30 C10 38.84 15.56 46.33 23.4 48.97 C24.4 49.16 24.75 48.54 24.75 48 L24.75 44.5 C19.28 45.69 18.13 42.04 18.13 42.04 C17.22 39.78 15.9 39.17 15.9 39.17 C14.07 37.94 16.04 37.97 16.04 37.97 C18.07 38.11 19.14 40.05 19.14 40.05 C20.94 43.09 23.86 42.21 24.87 41.7 C25.06 40.41 25.58 39.53 26.15 39.03 C21.78 38.52 17.19 36.83 17.19 29.34 C17.19 27.21 17.97 25.47 19.17 24.1 C18.97 23.59 18.28 21.6 19.37 18.94 C19.37 18.94 21.07 18.41 24.74 20.91 C26.27 20.47 27.9 20.25 29.53 20.24 C31.16 20.25 32.79 20.47 34.32 20.91 C37.99 18.41 39.69 18.94 39.69 18.94 C40.78 21.6 40.09 23.59 39.89 24.1 C41.1 25.47 41.87 27.21 41.87 29.34 C41.87 36.85 37.27 38.51 32.89 39.01 C33.61 39.63 34.25 40.85 34.25 42.72 L34.25 48 C34.25 48.54 34.6 49.17 35.62 48.97 C43.45 46.32 49 38.83 49 30 C49 18.95 40.05 10 30 10 Z' fill='%23fff'/%3E%3C/svg%3E" alt="GitHub"><span class="dock-label">GitHub</span><div class="dock-dot"></div></div>
+    <div class="dock-icon" data-app="settings"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%238E8E93'/%3E%3Ccircle cx='30' cy='30' r='10' stroke='%23fff' stroke-width='3' fill='none'/%3E%3Cpath d='M30 12 L30 18 M30 42 L30 48 M12 30 L18 30 M42 30 L48 30' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" alt="Settings"><span class="dock-label">Settings</span></div>
+  </div>
+
+  <!-- Kali Matrix Rain Canvas -->
+  <canvas id="matrixCanvas" class="kali-only"></canvas>
+
+  <!-- Desktop Widgets -->
+  <div id="widgets-container">
+    <div class="widget" id="clockWidget">
+      <div class="widget-header"><span>Clock</span><button class="widget-close" onclick="document.getElementById('clockWidget').style.display='none'">&#x2715;</button></div>
+      <canvas id="analogClock" width="120" height="120"></canvas>
+      <div id="digitalClock" class="digital-clock">3:45:00 PM</div>
+      <div style="font-size:11px;color:var(--text3);text-align:center">IST (UTC+5:30)</div>
+    </div>
+    <div class="widget" id="calendarWidget">
+      <div class="widget-header">
+        <button class="widget-nav" id="calPrev">&#x2039;</button>
+        <span id="calTitle">March 2026</span>
+        <button class="widget-nav" id="calNext">&#x203A;</button>
+        <button class="widget-close" onclick="document.getElementById('calendarWidget').style.display='none'">&#x2715;</button>
+      </div>
+      <div id="miniCal"></div>
+    </div>
+    <div class="widget" id="weatherWidget">
+      <div class="widget-header"><span>Weather</span><button class="widget-close" onclick="document.getElementById('weatherWidget').style.display='none'">&#x2715;</button></div>
+      <div class="weather-city">Bengaluru, KA</div>
+      <div class="weather-main">&#x26C5; 28°C</div>
+      <div class="weather-sub">Partly Cloudy &bull; H:31° L:22°</div>
+      <div class="weather-row"><span>&#x1F4A7; 65%</span><span>&#x1F4A8; 12 km/h</span></div>
+      <div class="weather-forecast">
+        <div class="wf-day"><div>Mon</div><div>&#x2600;&#xFE0F;</div><div>31°</div></div>
+        <div class="wf-day"><div>Tue</div><div>&#x26C5;</div><div>29°</div></div>
+        <div class="wf-day"><div>Wed</div><div>&#x1F327;</div><div>25°</div></div>
+        <div class="wf-day"><div>Thu</div><div>&#x26C5;</div><div>27°</div></div>
+        <div class="wf-day"><div>Fri</div><div>&#x2600;&#xFE0F;</div><div>30°</div></div>
+      </div>
+    </div>
+    <div class="widget" id="blogWidget">
+      <div class="widget-header"><span>My Technical Blog</span><button class="widget-close" onclick="document.getElementById('blogWidget').style.display='none'">&#x2715;</button></div>
+      <div class="blog-post"><div class="blog-tag">Coming Soon</div><div class="blog-title">Building Autonomous AI Systems with Claude Code</div></div>
+      <div class="blog-post"><div class="blog-tag">Coming Soon</div><div class="blog-title">Self-Healing Deployment Pipelines</div></div>
+      <div class="blog-post"><div class="blog-tag">Coming Soon</div><div class="blog-title">IEEE Research: YOLOv3 in Robotics</div></div>
+      <button class="blog-subscribe">Subscribe</button>
+    </div>
+    <div class="widget" id="githubWidget">
+      <div class="widget-header"><span>GitHub Stats</span><button class="widget-close" onclick="document.getElementById('githubWidget').style.display='none'">&#x2715;</button></div>
+      <div class="gh-user"><i class="fab fa-github"></i> developer1010x</div>
+      <div class="gh-stats">
+        <div class="gh-stat"><div class="gh-num">12</div><div>Repos</div></div>
+        <div class="gh-stat"><div class="gh-num">45</div><div>Followers</div></div>
+        <div class="gh-stat"><div class="gh-num">87</div><div>Stars</div></div>
+      </div>
+      <div id="ghContrib"></div>
+    </div>
+  </div>
+
+  <!-- Windows Widgets Panel -->
+  <div id="win-widgets" class="windows-only">
+    <div class="win-widget-card" id="ww-clock">
+      <div id="ww-time">3:45 PM</div>
+      <div id="ww-date-full">Monday, March 16, 2026</div>
+    </div>
+    <div class="win-widget-card">
+      <div style="font-weight:600;margin-bottom:8px">&#x26C5; Bengaluru, KA</div>
+      <div style="font-size:28px;font-weight:200">28°C</div>
+      <div style="font-size:12px;color:var(--text2)">Partly Cloudy</div>
+    </div>
+    <div class="win-widget-card">
+      <div style="font-weight:600;margin-bottom:8px">&#x1F4F0; News</div>
+      <div style="font-size:12px;color:var(--text2)">Tech Roundup: AI breakthroughs in 2026...</div>
+    </div>
+  </div>
+
+  <!-- ===== APP WINDOWS ===== -->
+
+  <!-- Finder / About Me -->
+  <div class="win-window" id="win-finder">
+    <div class="titlebar" data-win="win-finder">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-finder')"></span>
+        <span class="tl min" onclick="minWin('win-finder')"></span>
+        <span class="tl max" onclick="maxWin('win-finder')"></span>
+      </div>
+      <div class="win-title">About Me — Finder</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body finder-layout">
+      <div class="finder-sidebar">
+        <div class="sidebar-section">FAVORITES</div>
+        <div class="sidebar-item active" onclick="showFinderTab('about')"><i class="fa fa-user"></i> About</div>
+        <div class="sidebar-item" onclick="showFinderTab('skills')"><i class="fa fa-code"></i> Skills</div>
+        <div class="sidebar-item" onclick="showFinderTab('stats')"><i class="fa fa-chart-bar"></i> Stats</div>
+        <div class="sidebar-section">LOCATIONS</div>
+        <div class="sidebar-item" onclick="openApp('safari')"><i class="fa fa-globe"></i> Projects</div>
+        <div class="sidebar-item" onclick="openApp('notes')"><i class="fa fa-briefcase"></i> Experience</div>
+        <div class="sidebar-item" onclick="openApp('photos')"><i class="fa fa-trophy"></i> Awards</div>
+      </div>
+      <div class="finder-main" id="finderMain">
+        <div id="finderAbout" class="finder-tab active">
+          <div class="about-hero">
+            <img src="assets/images/S_Prajwall_Narayana.jpg" alt="S. Prajwall Narayana" class="about-photo">
+            <div class="about-info">
+              <h1 class="about-name">S. Prajwall Narayana</h1>
+              <p class="about-title">AI Engineer & Prompt Engineering Researcher</p>
+              <p class="about-location"><i class="fa fa-location-dot"></i> Bengaluru, Karnataka, India</p>
+              <div class="about-links">
+                <a href="mailto:sprajwalln@gmail.com" class="about-link"><i class="fa fa-envelope"></i> sprajwalln@gmail.com</a>
+                <a href="https://www.linkedin.com/in/sprajwallnarayana" target="_blank" class="about-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://github.com/developer1010x" target="_blank" class="about-link"><i class="fab fa-github"></i> GitHub</a>
+              </div>
+              <a href="assets/images/resume.pdf" target="_blank" class="about-resume-btn"><i class="fa fa-file-pdf"></i> View Resume</a>
+            </div>
+          </div>
+          <div class="about-bio">
+            <h2>Current Work</h2>
+            <p>AI Engineer at <strong>Colligence Research</strong> architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines. Building DevOps infrastructure using Docker, Ansible, OpenTofu, and Linode with microfrontend architecture and Citadel auth.</p>
+          </div>
+          <div class="about-cards">
+            <div class="about-card"><div class="ac-icon"><i class="fa fa-robot"></i></div><div><b>Autonomous Systems</b><p>Claude Code, FastAPI, LangChain, Prompt Engineering</p></div></div>
+            <div class="about-card"><div class="ac-icon"><i class="fa fa-cloud"></i></div><div><b>DevOps & Cloud</b><p>Docker, Ansible, OpenTofu, Linode, PostgreSQL</p></div></div>
+            <div class="about-card"><div class="ac-icon"><i class="fa fa-brain"></i></div><div><b>AI/ML Research</b><p>PyTorch, TensorFlow, YOLOv3/v8, CNN, ResNet50</p></div></div>
+          </div>
+        </div>
+        <div id="finderSkills" class="finder-tab">
+          <h2 style="margin-bottom:20px">Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-cat"><h3>Autonomous Systems & LLM Infrastructure</h3>
+              <div class="skill-bar"><span>Claude Code</span><div class="bar"><div class="bar-fill" style="width:90%"></div></div><span>90%</span></div>
+              <div class="skill-bar"><span>FastAPI</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div><span>88%</span></div>
+              <div class="skill-bar"><span>LangChain</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
+              <div class="skill-bar"><span>Prompt Engineering</span><div class="bar"><div class="bar-fill" style="width:92%"></div></div><span>92%</span></div>
+            </div>
+            <div class="skill-cat"><h3>DevOps & Cloud Architecture</h3>
+              <div class="skill-bar"><span>Docker</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div><span>88%</span></div>
+              <div class="skill-bar"><span>Ansible</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
+              <div class="skill-bar"><span>OpenTofu</span><div class="bar"><div class="bar-fill" style="width:82%"></div></div><span>82%</span></div>
+              <div class="skill-bar"><span>Linode</span><div class="bar"><div class="bar-fill" style="width:80%"></div></div><span>80%</span></div>
+              <div class="skill-bar"><span>PostgreSQL</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
+            </div>
+            <div class="skill-cat"><h3>AI/ML Research</h3>
+              <div class="skill-bar"><span>PyTorch</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div><span>88%</span></div>
+              <div class="skill-bar"><span>TensorFlow</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
+              <div class="skill-bar"><span>YOLOv3/v8</span><div class="bar"><div class="bar-fill" style="width:82%"></div></div><span>82%</span></div>
+              <div class="skill-bar"><span>CNN</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
+              <div class="skill-bar"><span>ResNet50</span><div class="bar"><div class="bar-fill" style="width:80%"></div></div><span>80%</span></div>
+            </div>
+            <div class="skill-cat"><h3>Full-Stack Development</h3>
+              <div class="skill-bar"><span>React</span><div class="bar"><div class="bar-fill" style="width:90%"></div></div><span>90%</span></div>
+              <div class="skill-bar"><span>TypeScript</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div><span>88%</span></div>
+              <div class="skill-bar"><span>Node.js</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
+              <div class="skill-bar"><span>HTML/CSS</span><div class="bar"><div class="bar-fill" style="width:95%"></div></div><span>95%</span></div>
+            </div>
+          </div>
+        </div>
+        <div id="finderStats" class="finder-tab">
+          <h2 style="margin-bottom:20px">Stats</h2>
+          <div class="stats-grid">
+            <div class="stat-card"><div class="stat-num">2</div><div class="stat-label">IEEE Papers</div></div>
+            <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Projects</div></div>
+            <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Internships</div></div>
+            <div class="stat-card"><div class="stat-num">1K+</div><div class="stat-label">Users</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Safari / Projects Browser -->
+  <div class="win-window" id="win-safari">
+    <div class="titlebar" data-win="win-safari">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-safari')"></span>
+        <span class="tl min" onclick="minWin('win-safari')"></span>
+        <span class="tl max" onclick="maxWin('win-safari')"></span>
+      </div>
+      <div class="win-title">Projects Browser</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="browser-toolbar">
+      <button class="browser-btn" id="browserBack" onclick="browserNav('back')"><i class="fa fa-chevron-left"></i></button>
+      <button class="browser-btn" id="browserFwd" onclick="browserNav('fwd')"><i class="fa fa-chevron-right"></i></button>
+      <button class="browser-btn" onclick="browserNav('refresh')"><i class="fa fa-rotate-right"></i></button>
+      <button class="browser-btn" onclick="browserNav('home')"><i class="fa fa-house"></i></button>
+      <input type="text" class="browser-url" id="browserUrl" value="portfolio://projects" readonly>
+      <button class="browser-btn" onclick="window.open(document.getElementById('browserUrl').value,'_blank')"><i class="fa fa-arrow-up-right-from-square"></i></button>
+    </div>
+    <div class="browser-content" id="browserContent">
+      <div id="browserHome">
+        <div class="browser-home-header">
+          <h2>Projects</h2>
+          <p>A collection of AI, full-stack and research projects</p>
+        </div>
+        <div class="projects-grid">
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x/S_Prajwall_Narayana','Portfolio','This OS-themed portfolio website built with vanilla JS featuring macOS, Windows, Kali Linux, iOS, and Android themes.')">
+            <div class="proj-icon"><i class="fa fa-desktop" style="color:#007AFF"></i></div>
+            <h3>OS Portfolio Website</h3>
+            <p>This portfolio website with OS simulation - macOS, Windows, Kali Linux, iOS, Android themes</p>
+            <div class="proj-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection','Deepfake Detection','CNN-based deepfake detection with 92.3% accuracy on FaceForensics++ and DFDC benchmarks.')">
+            <div class="proj-icon"><i class="fa fa-shield-halved" style="color:#AF52DE"></i></div>
+            <h3>Deepfake Detection</h3>
+            <p>AI-generated content detection using CNN - 92.3% accuracy, 90.7% precision, 91.5% recall</p>
+            <div class="proj-tags"><span>Python</span><span>TensorFlow</span><span>PyTorch</span><span>CNN</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x/KnotesCentral-Source-Code','KnotesCentral','Academic resource platform serving 800-1000 RVCE students with notes and past papers.')">
+            <div class="proj-icon"><i class="fa fa-graduation-cap" style="color:#FF9F0A"></i></div>
+            <h3>KnotesCentral</h3>
+            <p>Academic platform serving 800-1000+ RVCE students with centralized resources</p>
+            <div class="proj-tags"><span>TypeScript</span><span>React</span><span>HTML/CSS</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x/Robotic_rover','Web-Server Controlled Rover','LAN-controlled modular rover with YOLOv3 object detection and 4-DOF robotic arm, IEEE published.')">
+            <div class="proj-icon"><i class="fa fa-robot" style="color:#34C759"></i></div>
+            <h3>Web-Server Controlled Rover</h3>
+            <p>LAN-controlled rover with YOLOv3 and 4-DOF robotic arm - IEEE Xplore published</p>
+            <div class="proj-tags"><span>YOLOv3</span><span>Python</span><span>ESP32</span><span>C++</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x/Plant-Disease-Detection','Plant Disease Classification','ResNet50 hyperparameter optimization for plant disease classification, IEEE published.')">
+            <div class="proj-icon"><i class="fa fa-leaf" style="color:#30D158"></i></div>
+            <h3>Plant Disease Classification</h3>
+            <p>ResNet50-based plant disease detection - IEEE Xplore published</p>
+            <div class="proj-tags"><span>ResNet50</span><span>TensorFlow</span><span>PyTorch</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x/LLM_Terminal','LLM Terminal','Terminal-based application integrating with LLMs for conversational AI assistance.')">
+            <div class="proj-icon"><i class="fa fa-terminal" style="color:#00ff41"></i></div>
+            <h3>LLM Terminal</h3>
+            <p>Terminal-based LLM integration for AI-powered command line assistance</p>
+            <div class="proj-tags"><span>Python</span><span>LLM</span><span>CLI</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x','Open Source Project 1','Coming soon to GitHub - Stay tuned!')">
+            <div class="proj-icon"><i class="fa fa-code" style="color:#FF9500"></i></div>
+            <h3>Open Source Project 1</h3>
+            <p>Coming soon - Currently in development</p>
+            <div class="proj-tags"><span>TBD</span></div>
+            <button class="proj-open">Coming Soon <i class="fa fa-clock"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x','Open Source Project 2','Coming soon to GitHub - Stay tuned!')">
+            <div class="proj-icon"><i class="fa fa-rocket" style="color:#FF3B30"></i></div>
+            <h3>Open Source Project 2</h3>
+            <p>Coming soon - Currently in development</p>
+            <div class="proj-tags"><span>TBD</span></div>
+            <button class="proj-open">Coming Soon <i class="fa fa-clock"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x/Arogya-Sathi','Arogya-Sathi','Multilingual healthcare platform with symptom checker, X-ray analyzer in 30 languages.')">
+            <div class="proj-icon"><i class="fa fa-heartbeat" style="color:#FF3B30"></i></div>
+            <h3>Arogya-Sathi</h3>
+            <p>AI healthcare platform with symptom checker, X-ray analyzer supporting 30 languages</p>
+            <div class="proj-tags"><span>Streamlit</span><span>LangChain</span><span>LLaMA 3.2</span><span>YOLOv8</span><span>OCR</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x/KnotesCentral-Source-Code','KnotesCentral','Centralized academic platform serving 800-1000 RVCE students.')">
+            <div class="proj-icon"><i class="fa fa-graduation-cap" style="color:#FF9F0A"></i></div>
+            <h3>KnotesCentral</h3>
+            <p>Academic resource platform serving 800-1000+ RVCE students</p>
+            <div class="proj-tags"><span>TypeScript</span><span>React</span><span>HTML/CSS</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/developer1010x/Deepfake-Detection','Deepfake Detection','CNN-based deepfake detection with 92.3% accuracy on FaceForensics++ and DFDC.')">
+            <div class="proj-icon"><i class="fa fa-shield-halved" style="color:#AF52DE"></i></div>
+            <h3>Deepfake Detection Model</h3>
+            <p>CNN-based deepfake detection - 92.3% accuracy, 90.7% precision, 91.5% recall</p>
+            <div class="proj-tags"><span>CNN</span><span>TensorFlow</span><span>PyTorch</span><span>FaceForensics++</span><span>DFDC</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/developer1010x/YOLOv3-Rover','Web-Server Controlled Rover','LAN-controlled modular rover with YOLOv3 and 4-DOF robotic arm, IEEE published.')">
+            <div class="proj-icon"><i class="fa fa-robot" style="color:#34C759"></i></div>
+            <h3>Web-Server Controlled Rover</h3>
+            <p>LAN-controlled rover with YOLOv3 object detection and 4-DOF robotic arm</p>
+            <div class="proj-tags"><span>YOLOv3</span><span>Python</span><span>ESP32</span><span>Robotics</span><span>OpenCV</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/developer1010x/Plant-Disease-Classification','Plant Disease Classification','ResNet50 hyperparameter optimization for plant disease classification, IEEE published.')">
+            <div class="proj-icon"><i class="fa fa-leaf" style="color:#30D158"></i></div>
+            <h3>Plant Disease Classification</h3>
+            <p>Empirical study standardizing ResNet50 hyperparameter benchmarks for plant diseases</p>
+            <div class="proj-tags"><span>ResNet50</span><span>TensorFlow</span><span>PyTorch</span><span>Transfer Learning</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <div id="browserIframeWrap" style="display:none;flex:1;position:relative">
+        <iframe id="browserIframe" src="" style="width:100%;height:100%;border:none;flex:1"></iframe>
+        <div id="browserError" style="display:none;position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--win-bg);gap:16px">
+          <i class="fa fa-ban" style="font-size:48px;color:var(--text3)"></i>
+          <h3>Can't open this page</h3>
+          <p style="color:var(--text2)">This website blocks embedding</p>
+          <button class="about-resume-btn" id="browserOpenExternal">Open in New Tab</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terminal -->
+  <div class="win-window" id="win-terminal">
+    <div class="titlebar" data-win="win-terminal">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-terminal')"></span>
+        <span class="tl min" onclick="minWin('win-terminal')"></span>
+        <span class="tl max" onclick="maxWin('win-terminal')"></span>
+      </div>
+      <div class="win-title" id="termTitle">Terminal</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body terminal-layout" id="terminalBody">
+      <div id="termOutput"></div>
+      <div class="term-input-row" id="termInputRow">
+        <span class="term-prompt" id="termPrompt">prajwall@macbook-pro ~ % </span>
+        <input type="text" class="term-input" id="termInput" autocomplete="off" spellcheck="false" autocorrect="off">
+      </div>
+    </div>
+  </div>
+
+  <!-- Notes / Experience -->
+  <div class="win-window" id="win-notes">
+    <div class="titlebar" data-win="win-notes">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-notes')"></span>
+        <span class="tl min" onclick="minWin('win-notes')"></span>
+        <span class="tl max" onclick="maxWin('win-notes')"></span>
+      </div>
+      <div class="win-title">Experience &amp; Education — Notes</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body notes-layout">
+      <div class="notes-sidebar">
+        <div class="notes-tab active" onclick="showNotesTab('experience')">Experience</div>
+        <div class="notes-tab" onclick="showNotesTab('education')">Education</div>
+        <div class="notes-tab" onclick="showNotesTab('notepad')">Notepad</div>
+      </div>
+      <div class="notes-content">
+        <div id="notesExperience" class="notes-pane active">
+          <div class="timeline">
+            <div class="tl-item current">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <div class="tl-company"><a href="https://colligence.in" target="_blank">Colligence Research</a></div>
+                <div class="tl-role">AI Engineer & Prompt Engineering Researcher</div>
+                <div class="tl-period">Nov 2024 – Present &bull; Bengaluru, IN</div>
+                <ul class="tl-bullets">
+                  <li>Architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines</li>
+                  <li>Building DevOps infrastructure using Docker, Ansible, OpenTofu, and Linode</li>
+                  <li>Microfrontend architecture and Citadel auth implementation</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <div class="tl-company">RVCE Centre of Excellence</div>
+                <div class="tl-role">Student Intern - AI Research</div>
+                <div class="tl-period">Oct 2024 – Nov 2024 &bull; Bengaluru, IN</div>
+                <ul class="tl-bullets">
+                  <li>Developed deepfake detection model using CNN architectures</li>
+                  <li>Achieved 92.3% accuracy, 90.7% precision, 91.5% recall on FaceForensics++ and DFDC benchmarks</li>
+                </ul>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <div class="tl-company">Ernst & Young India</div>
+                <div class="tl-role">Associate Consultant Intern</div>
+                <div class="tl-period">Aug 2024 – Sep 2024 &bull; Bengaluru, IN</div>
+                <ul class="tl-bullets">
+                  <li>Enterprise Security Architecture and Cybersecurity work on IFTAS Cloud project</li>
+                  <li>Applied SABSA Framework for risk-driven design, cloud security, IAM, and regulatory compliance</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="notesEducation" class="notes-pane">
+          <div class="timeline">
+            <div class="tl-item current">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <div class="tl-company">RV College of Engineering (RVCE)</div>
+                <div class="tl-role">B.E. Computer Science &amp; Engineering</div>
+                <div class="tl-period">2021 – 2025 &bull; Bengaluru, Karnataka</div>
+                <ul class="tl-bullets">
+                  <li>Specialized in AI/ML, Distributed Systems, and Computer Vision</li>
+                  <li>Published 2 IEEE research papers during undergraduate studies</li>
+                  <li>Active member of Robotics &amp; AI research lab</li>
+                  <li>Relevant coursework: Deep Learning, Computer Vision, Cloud Computing, Algorithms</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="notesNotepad" class="notes-pane">
+          <div class="notepad-header">Personal Notes</div>
+          <textarea id="notepadText" class="notepad-area" placeholder="Start typing your notes here...&#10;&#10;Notes are saved automatically in your browser."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calendar -->
+  <div class="win-window" id="win-calendar">
+    <div class="titlebar" data-win="win-calendar">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-calendar')"></span>
+        <span class="tl min" onclick="minWin('win-calendar')"></span>
+        <span class="tl max" onclick="maxWin('win-calendar')"></span>
+      </div>
+      <div class="win-title">Calendar</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body cal-layout">
+      <div class="cal-sidebar">
+        <div class="cal-sidebar-title" id="calSidebarTitle">March 2026</div>
+        <div id="calSidebarMini"></div>
+        <div class="cal-events-list" id="calEventsList"></div>
+      </div>
+      <div class="cal-main">
+        <div class="cal-nav">
+          <button class="cal-nav-btn" id="calMainPrev"><i class="fa fa-chevron-left"></i></button>
+          <h2 id="calMainTitle">March 2026</h2>
+          <button class="cal-nav-btn" id="calMainNext"><i class="fa fa-chevron-right"></i></button>
+          <button class="cal-today-btn" id="calTodayBtn">Today</button>
+        </div>
+        <div class="cal-grid-header">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div id="calGrid" class="cal-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photos / Achievements -->
+  <div class="win-window" id="win-photos">
+    <div class="titlebar" data-win="win-photos">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-photos')"></span>
+        <span class="tl min" onclick="minWin('win-photos')"></span>
+        <span class="tl max" onclick="maxWin('win-photos')"></span>
+      </div>
+      <div class="win-title">Achievements — Photos</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body photos-layout">
+      <h2 style="margin-bottom:20px;padding:20px 20px 0">Achievements & Recognition</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="ach-icon"><i class="fa fa-file-alt" style="color:#007AFF"></i></div>
+          <div class="ach-year">Nov 2024</div>
+          <h3>2 IEEE Xplore Publications</h3>
+          <p>Peer-reviewed papers on robotics (YOLOv3 rover with 4-DOF arm) and ML (ResNet50 hyperparameter optimization)</p>
+        </div>
+        <div class="achievement-card">
+          <div class="ach-icon"><i class="fa fa-users" style="color:#34C759"></i></div>
+          <div class="ach-year">2024</div>
+          <h3>1,000+ Active Users</h3>
+          <p>KnotesCentral platform serving RVCE student community with centralized academic resources</p>
+        </div>
+        <div class="achievement-card">
+          <div class="ach-icon"><i class="fa fa-bullseye" style="color:#FF9F0A"></i></div>
+          <div class="ach-year">2024</div>
+          <h3>93% Detection Accuracy</h3>
+          <p>Deepfake detection model on FaceForensics++ and DFDC benchmarks - 90.7% precision, 91.5% recall</p>
+        </div>
+        <div class="achievement-card">
+          <div class="ach-icon"><i class="fa fa-server" style="color:#AF52DE"></i></div>
+          <div class="ach-year">2024</div>
+          <h3>Production Deployment</h3>
+          <p>Autonomous systems and DevOps infrastructure at Colligence Research with self-healing pipelines</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Music -->
+  <div class="win-window" id="win-music">
+    <div class="titlebar" data-win="win-music">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-music')"></span>
+        <span class="tl min" onclick="minWin('win-music')"></span>
+        <span class="tl max" onclick="maxWin('win-music')"></span>
+      </div>
+      <div class="win-title">Music</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body music-layout">
+      <div class="music-sidebar">
+        <div class="music-sidebar-section">PLAYLISTS</div>
+        <div class="music-playlist-item active">Productivity Mix</div>
+        <div class="music-sidebar-section">SONGS</div>
+        <div class="music-song active" onclick="selectSong(0)"><i class="fa fa-music"></i> Claude Sonnet</div>
+        <div class="music-song" onclick="selectSong(1)"><i class="fa fa-music"></i> Claude Code</div>
+        <div class="music-song" onclick="selectSong(2)"><i class="fa fa-music"></i> OpenCode Flow</div>
+        <div class="music-song" onclick="selectSong(3)"><i class="fa fa-music"></i> Codex by OpenAI</div>
+        <div class="music-song" onclick="selectSong(4)"><i class="fa fa-music"></i> GPT-4o Groove</div>
+        <div class="music-song" onclick="selectSong(5)"><i class="fa fa-music"></i> Gemini Flash</div>
+        <div class="music-song" onclick="selectSong(6)"><i class="fa fa-music"></i> Llama 3 Flow</div>
+        <div class="music-song" onclick="selectSong(7)"><i class="fa fa-music"></i> Mistral Waves</div>
+        <div class="music-song" onclick="selectSong(8)"><i class="fa fa-music"></i> Copilot Jazz</div>
+        <div class="music-song" onclick="selectSong(9)"><i class="fa fa-music"></i> Perplexity Quest</div>
+        <div class="music-song" onclick="selectSong(10)"><i class="fa fa-music"></i> Stable Diffusion</div>
+        <div class="music-song" onclick="selectSong(11)"><i class="fa fa-music"></i> Midjourney Dreams</div>
+      </div>
+      <div class="music-main">
+        <div class="music-art" id="musicArt">
+          <i class="fa fa-music" style="font-size:48px;color:rgba(255,255,255,.4)"></i>
+        </div>
+        <div class="music-info">
+          <div class="music-title" id="musicTitle">Claude Code Blues</div>
+          <div class="music-artist" id="musicArtist">Productivity Mix</div>
+        </div>
+        <div class="music-progress-wrap">
+          <span id="musicCurrent">1:23</span>
+          <div class="music-progress"><div class="music-progress-fill" id="musicFill" style="width:35%"></div></div>
+          <span id="musicTotal">3:45</span>
+        </div>
+        <div class="music-controls">
+          <button class="music-btn" onclick="musicControl('shuffle')"><i class="fa fa-shuffle"></i></button>
+          <button class="music-btn" onclick="musicControl('prev')"><i class="fa fa-backward-step"></i></button>
+          <button class="music-btn play" id="musicPlay" onclick="musicControl('play')"><i class="fa fa-play"></i></button>
+          <button class="music-btn" onclick="musicControl('next')"><i class="fa fa-forward-step"></i></button>
+          <button class="music-btn" onclick="musicControl('repeat')"><i class="fa fa-repeat"></i></button>
+        </div>
+        <div class="music-vol">
+          <i class="fa fa-volume-low"></i>
+          <input type="range" min="0" max="100" value="70" class="vol-slider">
+          <i class="fa fa-volume-high"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mail / Contact -->
+  <div class="win-window" id="win-mail">
+    <div class="titlebar" data-win="win-mail">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-mail')"></span>
+        <span class="tl min" onclick="minWin('win-mail')"></span>
+        <span class="tl max" onclick="maxWin('win-mail')"></span>
+      </div>
+      <div class="win-title">Mail — Contact</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body mail-layout">
+      <div class="mail-sidebar">
+        <div class="mail-sidebar-item active"><i class="fa fa-inbox"></i> Inbox</div>
+        <div class="mail-sidebar-item"><i class="fa fa-paper-plane"></i> Sent</div>
+        <div class="mail-sidebar-item"><i class="fa fa-pen-to-square"></i> Drafts</div>
+      </div>
+      <div class="mail-content">
+        <div class="mail-compose">
+          <h2 style="margin-bottom:20px">Contact Me</h2>
+          <div class="avail-badge"><span class="avail-dot"></span>Available for opportunities</div>
+          <div class="mail-field"><label>To:</label><span class="mail-to"><a href="mailto:sprajwalln@gmail.com">sprajwalln@gmail.com</a></span></div>
+          <div class="mail-field"><label>Subject:</label><input type="text" class="mail-input" placeholder="Opportunity / Collaboration / Hello!"></div>
+          <textarea class="mail-body" placeholder="Hi Prajwall,&#10;&#10;I'd love to connect about..."></textarea>
+          <div class="mail-actions">
+            <button class="mail-send" onclick="window.location.href='mailto:sprajwalln@gmail.com?subject=Hello%20from%20Portfolio'"><i class="fa fa-paper-plane"></i> Send</button>
+          </div>
+          <div class="mail-links">
+            <a href="https://www.linkedin.com/in/sprajwallnarayana" target="_blank" class="mail-link-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/developer1010x" target="_blank" class="mail-link-btn"><i class="fab fa-github"></i> GitHub</a>
+            <a href="assets/images/resume.pdf" target="_blank" class="mail-link-btn"><i class="fa fa-file-pdf"></i> Resume</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- App Store / Tech Stack -->
+  <div class="win-window" id="win-appstore">
+    <div class="titlebar" data-win="win-appstore">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-appstore')"></span>
+        <span class="tl min" onclick="minWin('win-appstore')"></span>
+        <span class="tl max" onclick="maxWin('win-appstore')"></span>
+      </div>
+      <div class="win-title">App Store — Tech Stack</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body appstore-layout">
+      <div class="appstore-featured">
+        <div class="featured-card">
+          <img src="assets/images/S_Prajwall_Narayana.jpg" alt="Developer" class="featured-photo">
+          <div>
+            <div class="featured-label">FEATURED DEVELOPER</div>
+            <div class="featured-name">S. Prajwall Narayana</div>
+            <div class="featured-desc">Building autonomous app-generation systems and self-healing deployment infrastructure</div>
+          </div>
+        </div>
+      </div>
+      <div class="appstore-section">Installed Tech Stack</div>
+      <div class="appstore-list">
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#3776AB,#FFD43B)"><i class="fab fa-python" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">Python</div><div class="app-item-ver">v3.12</div><div class="app-stars">★★★★★</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#009688,#00BCD4)"><i class="fa fa-bolt" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">FastAPI</div><div class="app-item-ver">v0.115</div><div class="app-stars">★★★★★</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#61DAFB,#20232A)"><i class="fab fa-react" style="color:#61DAFB;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">React</div><div class="app-item-ver">v18.3</div><div class="app-stars">★★★★★</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#2496ED,#1565C0)"><i class="fab fa-docker" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">Docker</div><div class="app-item-ver">v26.0</div><div class="app-stars">★★★★★</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#E34F26,#F06529)"><i class="fab fa-node-js" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">Node.js</div><div class="app-item-ver">v22.0</div><div class="app-stars">★★★★☆</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#EE4C2C,#F5A623)"><i class="fa fa-fire" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">PyTorch</div><div class="app-item-ver">v2.5</div><div class="app-stars">★★★★★</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#FF6F00,#FFA000)"><i class="fa fa-brain" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">TensorFlow</div><div class="app-item-ver">v2.18</div><div class="app-stars">★★★★☆</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#007AFF,#5856D6)"><i class="fa fa-code" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">Claude Code</div><div class="app-item-ver">Latest</div><div class="app-stars">★★★★★</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#326CE5,#5C6BC0)"><i class="fa fa-link" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">LangChain</div><div class="app-item-ver">v0.3</div><div class="app-stars">★★★★☆</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#CC2927,#FF5733)"><i class="fa fa-database" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">PostgreSQL</div><div class="app-item-ver">v17.0</div><div class="app-stars">★★★★★</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#FB896B,#E04582)"><i class="fa fa-network-wired" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">Ansible</div><div class="app-item-ver">v2.18</div><div class="app-stars">★★★★☆</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#8BC34A,#4CAF50)"><i class="fa fa-cloud" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">OpenTofu</div><div class="app-item-ver">v1.8</div><div class="app-stars">★★★★☆</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#4285F4,#34A853)"><i class="fab fa-linux" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">Linode</div><div class="app-item-ver">SDK v1</div><div class="app-stars">★★★★☆</div></div><span class="app-badge installed">Installed</span></div>
+        <div class="app-item"><div class="app-item-icon" style="background:linear-gradient(135deg,#3178C6,#235A97)"><i class="fab fa-typescript" style="color:#fff;font-size:20px"></i></div><div class="app-item-info"><div class="app-item-name">TypeScript</div><div class="app-item-ver">v5.5</div><div class="app-stars">★★★★★</div></div><span class="app-badge installed">Installed</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings -->
+  <div class="win-window" id="win-settings">
+    <div class="titlebar" data-win="win-settings">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-settings')"></span>
+        <span class="tl min" onclick="minWin('win-settings')"></span>
+        <span class="tl max" onclick="maxWin('win-settings')"></span>
+      </div>
+      <div class="win-title">Settings</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body settings-layout">
+      <div class="settings-sidebar">
+        <div class="settings-item active" onclick="showSettings('appearance')"><i class="fa fa-palette"></i> Appearance</div>
+        <div class="settings-item" onclick="showSettings('os')"><i class="fa fa-desktop"></i> OS Theme</div>
+        <div class="settings-item" onclick="showSettings('wallpaper')"><i class="fa fa-image"></i> Wallpaper</div>
+        <div class="settings-item" onclick="showSettings('notifications')"><i class="fa fa-bell"></i> Notifications</div>
+        <div class="settings-item" onclick="showSettings('about')"><i class="fa fa-info-circle"></i> About</div>
+      </div>
+      <div class="settings-content">
+        <div id="settingsAppearance" class="settings-pane active">
+          <h2>Appearance</h2>
+          <div class="settings-row"><span>Dark Mode</span><label class="toggle"><input type="checkbox" checked id="darkModeToggle"><span class="toggle-slider"></span></label></div>
+          <div class="settings-row"><span>Transparency Effects</span><label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label></div>
+          <div class="settings-row"><span>Reduce Motion</span><label class="toggle"><input type="checkbox"><span class="toggle-slider"></span></label></div>
+        </div>
+        <div id="settingsOs" class="settings-pane">
+          <h2>OS Theme</h2>
+          <p style="color:var(--text2);margin-bottom:16px">Choose your operating system theme</p>
+          <div class="os-theme-btns">
+            <button class="os-theme-btn" onclick="setTheme('theme-macos')"><i class="fab fa-apple"></i><span>macOS</span></button>
+            <button class="os-theme-btn" onclick="setTheme('theme-windows')"><i class="fab fa-windows"></i><span>Windows</span></button>
+            <button class="os-theme-btn" onclick="setTheme('theme-kali')"><i class="fa fa-skull"></i><span>Kali</span></button>
+            <button class="os-theme-btn" onclick="setTheme('theme-ios')"><i class="fa fa-mobile-screen"></i><span>iOS</span></button>
+            <button class="os-theme-btn" onclick="setTheme('theme-android')"><i class="fab fa-android"></i><span>Android</span></button>
+          </div>
+        </div>
+        <div id="settingsWallpaper" class="settings-pane">
+          <h2>Wallpaper</h2>
+          <div id="settingsWallpaperGrid" class="wallpaper-grid-settings"></div>
+        </div>
+        <div id="settingsNotifications" class="settings-pane">
+          <h2>Notifications</h2>
+          <div class="settings-row"><span>Allow Notifications</span><label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label></div>
+          <div class="settings-row"><span>Welcome Message</span><label class="toggle"><input type="checkbox" checked><span class="toggle-slider"></span></label></div>
+        </div>
+        <div id="settingsAbout" class="settings-pane">
+          <h2>About This Portfolio</h2>
+          <div class="about-settings-row"><span>Version</span><span>2.0.0</span></div>
+          <div class="about-settings-row"><span>Built by</span><span>S. Prajwall Narayana</span></div>
+          <div class="about-settings-row"><span>Framework</span><span>Vanilla JS</span></div>
+          <div class="about-settings-row"><span>Themes</span><span>5 OS themes</span></div>
+          <div class="about-settings-row"><span>Contact</span><span>sprajwalln@gmail.com</span></div>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)">
+            <button onclick="window.location.href='index.html'" style="width:100%;padding:12px;background:var(--accent);border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:500;cursor:pointer;font-family:var(--font)">
+              <i class="fa fa-arrow-left"></i> Switch to Classic Portfolio
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OS Switcher -->
+  <div class="win-window" id="win-osswitcher">
+    <div class="titlebar" data-win="win-osswitcher">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-osswitcher')"></span>
+        <span class="tl min" onclick="minWin('win-osswitcher')"></span>
+        <span class="tl max" onclick="maxWin('win-osswitcher')"></span>
+      </div>
+      <div class="win-title">OS Switcher</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body" style="padding:20px;flex:1;overflow-y:auto">
+      <h2 style="margin-bottom:16px;font-size:16px">Choose Operating System</h2>
+      <p style="color:var(--text2);margin-bottom:20px;font-size:13px">Switch between different OS themes</p>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
+        <div class="os-theme-btn" onclick="setTheme('theme-macos')" style="padding:16px;text-align:center">
+          <i class="fab fa-apple" style="font-size:28px;color:var(--accent);margin-bottom:8px"></i>
+          <div style="font-size:13px">macOS</div>
+        </div>
+        <div class="os-theme-btn" onclick="setTheme('theme-windows')" style="padding:16px;text-align:center">
+          <i class="fab fa-windows" style="font-size:28px;color:var(--accent);margin-bottom:8px"></i>
+          <div style="font-size:13px">Windows 11</div>
+        </div>
+        <div class="os-theme-btn" onclick="setTheme('theme-kali')" style="padding:16px;text-align:center">
+          <i class="fa fa-terminal" style="font-size:28px;color:#00ff41;margin-bottom:8px"></i>
+          <div style="font-size:13px">Kali Linux</div>
+        </div>
+        <div class="os-theme-btn" onclick="setTheme('theme-ios')" style="padding:16px;text-align:center">
+          <i class="fa fa-mobile-screen" style="font-size:28px;color:var(--accent);margin-bottom:8px"></i>
+          <div style="font-size:13px">iOS</div>
+        </div>
+        <div class="os-theme-btn" onclick="setTheme('theme-android')" style="padding:16px;text-align:center">
+          <i class="fab fa-android" style="font-size:28px;color:#3ddc84;margin-bottom:8px"></i>
+          <div style="font-size:13px">Android</div>
+        </div>
+        <div class="os-theme-btn" onclick="window.location.href='index.html'" style="padding:16px;text-align:center">
+          <i class="fa fa-arrow-left" style="font-size:28px;color:var(--accent);margin-bottom:8px"></i>
+          <div style="font-size:13px">Classic View</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preview / PDF Viewer -->
+  <div class="win-window" id="win-preview">
+    <div class="titlebar" data-win="win-preview">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-preview')"></span>
+        <span class="tl min" onclick="minWin('win-preview')"></span>
+        <span class="tl max" onclick="maxWin('win-preview')"></span>
+      </div>
+      <div class="win-title">Resume - S. Prajwall Narayana</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body" style="padding:0;flex:1;display:flex;flex-direction:column">
+      <div style="padding:12px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:8px">
+        <button onclick="window.open('assets/images/resume.pdf','_blank')" style="padding:8px 16px;background:var(--accent);border:none;border-radius:6px;color:#fff;cursor:pointer;font-size:13px">
+          <i class="fa fa-download"></i> Download Resume
+        </button>
+      </div>
+      <iframe src="assets/images/resume.pdf" style="flex:1;border:none;width:100%" title="Resume PDF"></iframe>
+    </div>
+  </div>
+
+  <!-- GitHub Stats -->
+  <div class="win-window" id="win-github">
+    <div class="titlebar" data-win="win-github">
+      <div class="traffic-lights">
+        <span class="tl close" onclick="closeWin('win-github')"></span>
+        <span class="tl min" onclick="minWin('win-github')"></span>
+        <span class="tl max" onclick="maxWin('win-github')"></span>
+      </div>
+      <div class="win-title">GitHub Stats - @developer1010x</div>
+      <div class="win-title-right"></div>
+    </div>
+    <div class="win-body" style="padding:20px;flex:1;overflow-y:auto;background:#0d1117">
+      <div id="github-stats">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+          <img src="https://github.com/developer1010x.png" style="width:60px;height:60px;border-radius:50%" alt="GitHub Avatar">
+          <div>
+            <h3 style="font-size:18px;margin-bottom:4px">S. Prajwall Narayana</h3>
+            <a href="https://github.com/developer1010x" target="_blank" style="color:var(--accent);text-decoration:none;font-size:14px">@developer1010x</a>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
+          <div style="background:#161b22;padding:16px;border-radius:8px;text-align:center">
+            <div id="gh-repos" style="font-size:24px;font-weight:700;color:#fff">--</div>
+            <div style="font-size:12px;color:#8b949e">Repositories</div>
+          </div>
+          <div style="background:#161b22;padding:16px;border-radius:8px;text-align:center">
+            <div id="gh-followers" style="font-size:24px;font-weight:700;color:#fff">--</div>
+            <div style="font-size:12px;color:#8b949e">Followers</div>
+          </div>
+          <div style="background:#161b22;padding:16px;border-radius:8px;text-align:center">
+            <div id="gh-following" style="font-size:24px;font-weight:700;color:#fff">--</div>
+            <div style="font-size:12px;color:#8b949e">Following</div>
+          </div>
+        </div>
+        <div style="background:#161b22;padding:16px;border-radius:8px;margin-bottom:20px">
+          <h4 style="font-size:14px;color:#c9d1d9;margin-bottom:12px">Most Used Languages</h4>
+          <div id="gh-langs" style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="padding:6px 12px;background:#2f81f7;border-radius:20px;font-size:12px;color:#fff">Python</span>
+            <span style="padding:6px 12px;background:#3178c6;border-radius:20px;font-size:12px;color:#fff">TypeScript</span>
+            <span style="padding:6px 12px;background:#e34c26;border-radius:20px;font-size:12px;color:#fff">JavaScript</span>
+          </div>
+        </div>
+        <div style="background:#161b22;padding:16px;border-radius:8px">
+          <h4 style="font-size:14px;color:#c9d1d9;margin-bottom:12px">Contributions (Last Year)</h4>
+          <div id="gh-contributions" style="display:flex;gap:3px;flex-wrap:wrap;max-width:300px">
+            <!-- GitHub contribution graph placeholder -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /desktop -->
+
+<!-- ===== CONTEXT MENU ===== -->
+<div id="contextMenu">
+  <div class="ctx-item" onclick="openWallpaperPicker()"><i class="fa fa-image"></i> Change Wallpaper...</div>
+  <div class="ctx-item" onclick="createDesktopFolder()"><i class="fa fa-folder-plus"></i> New Folder</div>
+  <div class="ctx-item" onclick="openApp('notes')"><i class="fa fa-file-lines"></i> New Note</div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" onclick="hideCtx()"><i class="fa fa-rotate-right"></i> Refresh Desktop</div>
+  <div class="ctx-item" onclick="hideCtx()"><i class="fa fa-circle-info"></i> Get Info</div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" onclick="window.location.href='index.html'"><i class="fa fa-arrow-left"></i> Switch to Classic Portfolio</div>
+  <div class="ctx-item ctx-has-sub">
+    <i class="fa fa-sort"></i> Sort By
+    <i class="fa fa-chevron-right" style="margin-left:auto"></i>
+    <div class="ctx-sub">
+      <div class="ctx-item" onclick="hideCtx()">Name</div>
+      <div class="ctx-item" onclick="hideCtx()">Date</div>
+      <div class="ctx-item" onclick="hideCtx()">Size</div>
+    </div>
+  </div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" onclick="openApp('settings')"><i class="fa fa-laptop"></i> About This Portfolio</div>
+</div>
+
+<!-- ===== WALLPAPER PICKER ===== -->
+<div id="wallpaperPicker">
+  <div class="wp-modal">
+    <div class="wp-header">
+      <h2>Choose Wallpaper</h2>
+      <button onclick="closeWallpaperPicker()" class="wp-close"><i class="fa fa-xmark"></i></button>
+    </div>
+    <div class="wp-grid" id="wallpaperGrid"></div>
+  </div>
+</div>
+
+<!-- ===== SPOTLIGHT ===== -->
+<div id="spotlight">
+  <div class="spotlight-box">
+    <div class="spotlight-input-wrap">
+      <i class="fa fa-magnifying-glass spotlight-icon"></i>
+      <input type="text" id="spotlightInput" placeholder="Spotlight Search" autocomplete="off">
+    </div>
+    <div id="spotlightResults"></div>
+  </div>
+</div>
+
+<!-- ===== NOTIFICATION ===== -->
+<div id="notification">
+  <div class="notif-icon"><i class="fa fa-hand-wave"></i></div>
+  <div class="notif-content">
+    <div class="notif-title">Welcome back!</div>
+    <div class="notif-body">Click any app icon to explore</div>
+  </div>
+</div>
+
+<script src="assets/js/terminal.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

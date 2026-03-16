@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-os",
+  "version": "1.0.0",
+  "description": "OS-themed portfolio website",
+  "scripts": {
+    "build": "echo 'Static site - nothing to build'",
+    "start": "npx serve .",
+    "lint": "echo 'No lint configured'"
+  },
+  "keywords": ["portfolio", "os-theme", "html", "css", "javascript"],
+  "author": "S Prajwall Narayana",
+  "license": "MIT"
+}
