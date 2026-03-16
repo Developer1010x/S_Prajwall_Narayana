@@ -1,9 +1,9 @@
 {
   "personal": {
     "name": "S Prajwall Narayana",
-    "title": "AI Engineer & Full-Stack Developer",
+    "title": "AI Engineer, Full-Stack & DevOps Engineer",
     "tagline": "Building autonomous app-generation systems and self-healing deployment infrastructure",
-    "email": "sprajwalln@gmail.com",
+    "email": "prajwallspambox@gmail.com",
     "linkedin": "https://www.linkedin.com/in/sprajwallnarayana",
     "github": "https://github.com/developer1010x",
     "location": "Bengaluru, Karnataka, India",
@@ -16,7 +16,8 @@
   "roles": [
     "AI Engineer",
     "Prompt Engineering Researcher",
-    "Full-Stack Developer"
+    "Full-Stack Developer",
+    "DevOps & Infra Engineer"
   ],
 
   "stats": [
@@ -93,7 +94,7 @@
       "id": 1,
       "phase": "Phase 1",
       "date": "Nov 2024 - Present",
-      "title": "AI Engineer & Prompt Engineering Researcher",
+      "title": "AI Engineer, Prompt Engineering Researcher & DevOps/Infra",
       "company": "Colligence Research",
       "location": "Bengaluru, IN",
       "description": "Architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines. Building DevOps infrastructure using Docker, Ansible, OpenTofu, and Linode with microfrontend architecture and Citadel auth.",
@@ -140,16 +141,6 @@
   ],
 
   "projects": [
-    {
-      "id": 1,
-      "title": "OS Portfolio Website",
-      "subtitle": "This Portfolio",
-      "description": "This OS-themed portfolio website built with vanilla JS featuring macOS, Windows, Kali Linux, iOS, and Android themes.",
-      "icon": "fa-desktop",
-      "color": "#007AFF",
-      "tags": ["HTML", "CSS", "JavaScript"],
-      "url": "https://github.com/Developer1010x/S_Prajwall_Narayana"
-    },
     {
       "id": 2,
       "title": "Deepfake Detection",
@@ -205,23 +196,34 @@
     },
     {
       "id": 7,
-      "title": "Open Source Project 1",
+      "title": "Browser Game",
+      "subtitle": "Open Source",
+      "description": "A browser-based game built and deployed on GitHub Pages. Play it live!",
+      "icon": "fa-gamepad",
+      "color": "#FF9500",
+      "tags": ["JavaScript", "HTML", "CSS", "Game"],
+      "url": "https://github.com/Developer1010x/game",
+      "demo": "https://developer1010x.github.io/game/"
+    },
+    {
+      "id": 9,
+      "title": "OpenPresser",
       "subtitle": "Coming Soon",
-      "description": "Coming soon to GitHub - Stay tuned!",
+      "description": "An open source project coming soon to GitHub. Stay tuned!",
       "icon": "fa-code",
       "color": "#FF9500",
-      "tags": ["TBD"],
+      "tags": ["Open Source"],
       "url": "https://github.com/Developer1010x",
       "comingSoon": true
     },
     {
-      "id": 8,
-      "title": "Open Source Project 2",
+      "id": 10,
+      "title": "OpenPlay",
       "subtitle": "Coming Soon",
-      "description": "Coming soon to GitHub - Stay tuned!",
+      "description": "An open source project coming soon to GitHub. Stay tuned!",
       "icon": "fa-rocket",
       "color": "#FF3B30",
-      "tags": ["TBD"],
+      "tags": ["Open Source"],
       "url": "https://github.com/Developer1010x",
       "comingSoon": true
     }
