@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>S. Prajwall Narayana | AI Engineer & Full-Stack Developer</title>
+<title>S. Prajwall Narayana | AI Engineer, Full-Stack & DevOps Engineer</title>
 <!-- Preconnect for faster resource loading -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
 <meta name="keywords" content="AI Engineer, Full Stack Developer, Machine Learning, Python, React, TensorFlow, PyTorch, Prompt Engineering">
 <meta name="author" content="S. Prajwall Narayana">
 <!-- Open Graph Meta Tags -->
-<meta property="og:title" content="S. Prajwall Narayana | AI Engineer & Full-Stack Developer">
+<meta property="og:title" content="S. Prajwall Narayana | AI Engineer, Full-Stack & DevOps Engineer">
 <meta property="og:description" content="AI Engineer at Colligence Research. Building intelligent solutions with cutting-edge AI/ML technologies.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sprajwallnarayana.com">
@@ -1725,20 +1725,6 @@ text-transform: uppercase;
 z-index: 2;
 }
 
-.project-waterfall-card.featured::after {
-content: 'Featured';
-position: absolute;
-top: 1rem;
-left: 1rem;
-background: var(--gradient-success);
-color: white;
-padding: 0.25rem 0.75rem;
-border-radius: 20px;
-font-size: 0.7rem;
-font-weight: 700;
-text-transform: uppercase;
-z-index: 2;
-}
 
 .project-waterfall-card:hover {
 transform: translateY(-10px);
@@ -2067,9 +2053,9 @@ margin-bottom: 0.5rem;
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
-<li><a href="#experience">Experience</a></li>
+<li><a href="#work-experience">Experience</a></li>
+<li><a href="#education">Education</a></li>
 <li><a href="#projects">Projects</a></li>
-<li><a href="#achievements">Achievements</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 <div class="nav-dropdown">
@@ -2198,7 +2184,7 @@ document.addEventListener('click',function(e){
           <div class="flip-card-front" style="text-align: center;">
             <img src="assets/images/S_Prajwall_Narayana.jpg" alt="S. Prajwall Narayana - AI Engineer" class="profile-image" loading="lazy">
             <h3>S. Prajwall Narayana</h3>
-            <p style="color: var(--text-secondary); margin: 0.5rem 0;">AI Engineer & Full-Stack Developer</p>
+            <p style="color: var(--text-secondary); margin: 0.5rem 0;">AI Engineer, Full-Stack & DevOps Engineer</p>
             <div class="status-badge">
               <div class="status-dot"></div>
               Currently @ Colligence
@@ -2373,7 +2359,7 @@ document.addEventListener('click',function(e){
                 Professional roles where I've contributed to cutting-edge projects.
             </p>
         </div>
-        <div id="work-container" class="cards-grid">
+        <div id="work-container" class="skills-grid stagger-children">
             <!-- Will be populated by JavaScript from data.json -->
         </div>
     </section>
@@ -2386,7 +2372,7 @@ document.addEventListener('click',function(e){
                 Academic background and qualifications.
             </p>
         </div>
-        <div id="education-container" class="cards-grid">
+        <div id="education-container" class="skills-grid stagger-children">
             <!-- Will be populated by JavaScript from data.json -->
         </div>
     </section>
@@ -2407,21 +2393,6 @@ document.addEventListener('click',function(e){
     </div>
 </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" class="section reveal">
-        <div class="section-header">
-            <h2 class="section-title">Achievements & Recognition</h2>
-            <p class="section-subtitle">
-                Milestones and recognition that highlight my commitment to excellence in technology.
-            </p>
-        </div>
-        <div id="achievements-container" class="achievements-waterfall">
-            <!-- Will be populated by JavaScript from data.json -->
-            <div class="skeleton" style="height: 200px;"></div>
-            <div class="skeleton" style="height: 200px;"></div>
-            <div class="skeleton" style="height: 200px;"></div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section reveal">
@@ -2439,7 +2410,7 @@ document.addEventListener('click',function(e){
                     </div>
                     <div class="contact-details">
                         <h4>Email</h4>
-                        <p><a href="mailto:sprajwalln@gmail.com">sprajwalln@gmail.com</a></p>
+                        <p><a href="mailto:prajwallspambox@gmail.com">prajwallspambox@gmail.com</a></p>
                     </div>
                 </div>
 
@@ -2498,7 +2469,7 @@ document.addEventListener('click',function(e){
                 <a href="https://www.linkedin.com/in/sprajwallnarayana" target="_blank" rel="noopener noreferrer" class="social-link">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="mailto:sprajwalln@gmail.com" class="social-link">
+                <a href="mailto:prajwallspambox@gmail.com" class="social-link">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -2928,22 +2899,23 @@ document.addEventListener('click',function(e){
         }
 
         // ==================== EMBEDDED DATA (Fallback for file:// protocol) ====================
+        // This mirrors the structure of assets/data.json — edit data.json for live updates
         const portfolioData = {
             experience: [
                 {
                     id: 1, phase: "Phase 1", date: "Nov 2024 - Present",
-                    title: "AI Engineer & Prompt Engineering Researcher",
+                    title: "AI Engineer, Prompt Engineering Researcher & DevOps/Infra",
                     company: "Colligence Research", location: "Bengaluru, IN",
-                    description: "Contributing to a state-of-the-art virtual communication platform leveraging advanced technologies. Focused on seamless integration of best-in-class features for unified and comprehensive communication and collaboration solutions.",
-                    tags: ["AI/ML", "Prompt Engineering", "LLMs", "Research"],
+                    description: "Architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines. Building DevOps infrastructure using Docker, Ansible, OpenTofu, and Linode with microfrontend architecture and Citadel auth.",
+                    tags: ["FastAPI", "React", "Claude Code", "Docker", "Ansible", "OpenTofu", "Linode", "PostgreSQL"],
                     type: "work", current: true
                 },
                 {
                     id: 2, phase: "Phase 2", date: "Oct 2024 - Nov 2024",
                     title: "Student Intern - AI Research",
                     company: "RVCE Centre of Excellence", location: "Bengaluru, IN",
-                    description: "Developed a prototype model for AI-generated content and deepfake detection using CNN-based architectures. Achieved 92.3% accuracy, 90.7% precision, and 91.5% recall on benchmark deepfake datasets.",
-                    tags: ["Deep Learning", "CNN", "TensorFlow", "PyTorch"],
+                    description: "Developed deepfake detection model using CNN architectures achieving 92.3% accuracy, 90.7% precision, and 91.5% recall on FaceForensics++ and DFDC benchmarks.",
+                    tags: ["Deep Learning", "CNN", "TensorFlow", "PyTorch", "FaceForensics++", "DFDC"],
                     type: "work"
                 },
                 {
@@ -2953,22 +2925,6 @@ document.addEventListener('click',function(e){
                     description: "Gained expertise in Enterprise Security Architecture and Cybersecurity through work on the IFTAS Cloud project. Applied the SABSA Framework for risk-driven design, cloud security, IAM, and regulatory compliance.",
                     tags: ["Cybersecurity", "Cloud Security", "SABSA", "IAM"],
                     type: "work"
-                },
-                {
-                    id: 4, phase: "Phase 4", date: "2023 - 2024",
-                    title: "Research & Development Projects",
-                    company: "Academic Projects", location: "RVCE",
-                    description: "Led multiple research projects including IoT rover development with YOLO-based object detection and plant disease classification using ResNet50. Published research papers in IEEE conferences.",
-                    tags: ["IoT", "YOLO", "ResNet50", "IEEE"],
-                    type: "research"
-                },
-                {
-                    id: 5, phase: "Phase 5", date: "2022 - 2024",
-                    title: "Open Source Contributor",
-                    company: "GitHub Community", location: "Remote",
-                    description: "Actively contributed to open-source projects and maintained personal repositories. Developed tools like sqlite2sql converter and KnotesCentral platform.",
-                    tags: ["Open Source", "Git", "Community"],
-                    type: "contribution"
                 }
             ],
             education: [
@@ -2976,84 +2932,58 @@ document.addEventListener('click',function(e){
                     id: 1, phase: "Foundation", date: "2021 - 2025",
                     title: "Bachelor of Engineering - Computer Science",
                     institution: "R V College of Engineering", location: "Bengaluru, Karnataka, India",
-                    description: "Completed comprehensive coursework in Data Structures, Algorithms, Database Management, Software Engineering, and Computer Networks. Maintained strong academic performance while actively participating in coding competitions.",
+                    description: "Computer Science graduate from RVCE. Completed coursework in Data Structures, Algorithms, Database Management, Software Engineering, and Computer Networks.",
                     tags: ["Computer Science", "DSA", "Software Engineering"],
                     type: "education"
                 }
             ],
             projects: [
                 {
-                    id: 1, 
-                    title: "Autonomous App-Generation System", 
-                    subtitle: "Colligence Research - Production",
-                    description: "Production autonomous compiler generating full-stack applications from structured inputs. Integrated Claude Code as self-healing agent for runtime failure detection and automated recovery. Architected DevOps infrastructure with microfrontend architecture and Citadel auth.",
-                    icon: "fa-cogs", 
-                    tags: ["FastAPI", "React", "Claude Code", "Docker", "Ansible", "OpenTofu", "Linode", "PostgreSQL"],
-                    proprietary: true,
-                    featured: true,
-                    metrics: "Self-healing deployment pipeline, predictive error modeling, zero-downtime recovery"
+                    id: 2, title: "Deepfake Detection", subtitle: "AI Research",
+                    description: "AI-generated content detection using CNN - 92.3% accuracy, 90.7% precision, 91.5% recall on FaceForensics++ and DFDC benchmarks.",
+                    icon: "fa-shield-halved", color: "#AF52DE",
+                    tags: ["Python", "TensorFlow", "PyTorch", "CNN"],
+                    url: "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
                 },
                 {
-                    id: 2, 
-                    title: "Arogya-Sathi", 
-                    subtitle: "AI Healthcare Platform",
-                    description: "Multilingual healthcare platform with symptom checker, X-ray analyzer, report summarizer, and wellness chatbot supporting 30 languages (22 Indian + 8 international). Real-time hospital locator with OpenStreetMap integration.",
-                    icon: "fa-heartbeat", 
-                    tags: ["Streamlit", "LangChain", "LLaMA 3.2", "YOLOv8", "OCR", "Ollama", "OpenStreetMap"],
-                    github: "https://github.com/Developer1010x/Arogya-Sathi.git",
-                    featured: true,
-                    metrics: "93% symptom detection accuracy, 30 languages supported"
-                },
-                {
-                    id: 3, 
-                    title: "KnotesCentral", 
-                    subtitle: "Academic Resource Platform",
-                    description: "Centralized platform for academic resources (notes, question papers, lab manuals) serving RVCE student community. Eliminated fragmented resource access across campus.",
-                    icon: "fa-graduation-cap", 
+                    id: 3, title: "KnotesCentral", subtitle: "Academic Platform",
+                    description: "Academic resource platform serving 800-1000 RVCE students with centralized notes and past papers.",
+                    icon: "fa-graduation-cap", color: "#FF9F0A",
                     tags: ["TypeScript", "React", "HTML/CSS"],
-                    github: "https://github.com/Developer1010x/KnotesCentral-Source-Code",
-                    demo: "https://knotescentral.vercel.app",
-                    featured: true,
-                    metrics: "800-1,000 active students"
+                    url: "https://github.com/Developer1010x/KnotesCentral-Source-Code",
+                    demo: "https://knotescentral.vercel.app"
                 },
                 {
-                    id: 4, 
-                    title: "Deepfake Detection Model", 
-                    subtitle: "RVCE Research",
-                    description: "AI-generated content detection system using CNN architectures trained on industry-standard benchmarks. Research conducted at RVCE Centre of Excellence.",
-                    icon: "fa-shield-alt", 
-                    tags: ["CNN", "TensorFlow", "PyTorch", "FaceForensics++", "DFDC"],
-                    featured: false,
-                    metrics: "92.3% accuracy, 90.7% precision, 91.5% recall"
+                    id: 4, title: "Web-Server Controlled Rover", subtitle: "IEEE Publication",
+                    description: "LAN-controlled modular rover with YOLOv3 object detection and 4-DOF robotic arm - IEEE Xplore published.",
+                    icon: "fa-robot", color: "#34C759",
+                    tags: ["YOLOv3", "Python", "ESP32", "C++"],
+                    url: "https://github.com/Developer1010x/Robotic_rover",
+                    publication: "https://ieeexplore.ieee.org/document/10816816"
                 },
                 {
-                    id: 5, 
-                    title: "Web-Server Controlled Rover", 
-                    subtitle: "IEEE Xplore Publication",
-                    description: "LAN-controlled modular rover with YOLOv3 object detection, 4-DOF robotic arm, and real-time video streaming. Complete hardware-software integration for autonomous navigation.",
-                    icon: "fa-robot", 
-                    tags: ["YOLOv3", "Python", "ESP32", "Robotics", "OpenCV"],
-                    publication: "https://ieeexplore.ieee.org/document/10816816",
-                    featured: false,
-                    metrics: "Published in IEEE Xplore (Nov 2024)"
+                    id: 5, title: "Plant Disease Classification", subtitle: "IEEE Publication",
+                    description: "ResNet50-based deep learning system for classifying plant diseases from leaf images - IEEE Xplore published.",
+                    icon: "fa-leaf", color: "#30D158",
+                    tags: ["ResNet50", "TensorFlow", "PyTorch"],
+                    url: "https://github.com/Developer1010x/Plant-Disease-Detection",
+                    publication: "https://ieeexplore.ieee.org/document/10816835"
                 },
                 {
-                    id: 6, 
-                    title: "Plant Disease Classification", 
-                    subtitle: "IEEE Xplore Publication",
-                    description: "Empirical study standardizing hyperparameter benchmarks for ResNet50 across multiple plant disease datasets. Improved model generalization for real-world agricultural applications.",
-                    icon: "fa-leaf", 
-                    tags: ["ResNet50", "TensorFlow", "PyTorch", "Transfer Learning"],
-                    publication: "https://ieeexplore.ieee.org/document/10816835",
-                    featured: false,
-                    metrics: "Published in IEEE Xplore (Nov 2024)"
+                    id: 6, title: "LLM Terminal", subtitle: "Open Source",
+                    description: "Terminal-based application integrating with LLMs for conversational AI assistance from command line.",
+                    icon: "fa-terminal", color: "#00ff41",
+                    tags: ["Python", "LLM", "CLI"],
+                    url: "https://github.com/Developer1010x/LLM_Terminal"
+                },
+                {
+                    id: 7, title: "Browser Game", subtitle: "Open Source",
+                    description: "A browser-based game built and deployed on GitHub Pages. Play it live!",
+                    icon: "fa-gamepad", color: "#FF9500",
+                    tags: ["JavaScript", "HTML", "CSS", "Game"],
+                    url: "https://github.com/Developer1010x/game",
+                    demo: "https://developer1010x.github.io/game/"
                 }
-            ],
-            achievements: [
-                { id: 1, icon: "fa-file-alt", title: "2 IEEE Xplore Publications", description: "Peer-reviewed papers on robotics (YOLOv3 rover with 4-DOF arm) and ML (ResNet50 hyperparameter optimization)", year: "Nov 2024", link: "https://ieeexplore.ieee.org/document/10816816" },
-                { id: 2, icon: "fa-users", title: "1,000+ Active Users", description: "KnotesCentral platform serving RVCE student community with centralized academic resources", year: "2024", link: "https://knotescentral.vercel.app" },
-                { id: 3, icon: "fa-bullseye", title: "93% Detection Accuracy", description: "Deepfake detection model on FaceForensics++ and DFDC benchmarks - 90.7% precision, 91.5% recall", year: "2024" },
-                { id: 4, icon: "fa-server", title: "Production Deployment", description: "Autonomous systems and DevOps infrastructure at Colligence Research with self-healing pipelines", year: "2024" }
             ]
         };
 
@@ -3063,7 +2993,7 @@ document.addEventListener('click',function(e){
 
             try {
                 // Try to fetch from JSON file (works on web servers)
-                const response = await fetch('data.json');
+                const response = await fetch('assets/data.json');
                 if (response.ok) {
                     data = await response.json();
                 }
@@ -3071,9 +3001,9 @@ document.addEventListener('click',function(e){
                 console.log('Using embedded data (file:// protocol detected)');
             }
 
-            renderExperience(data.experience, data.education);
+            renderWorkExperience(data.experience);
+            renderEducation(data.education);
             renderProjects(data.projects);
-            renderAchievements(data.achievements);
 
             // Re-initialize effects for new elements
             setTimeout(() => {
@@ -3082,50 +3012,47 @@ document.addEventListener('click',function(e){
             }, 100);
         }
 
-        function renderExperience(experience, education) {
-            const container = document.getElementById('experience-container');
+        function renderCards(items, containerId) {
+            const container = document.getElementById(containerId);
             if (!container) return;
 
-            // Combine experience and education, sorted by most recent first
-            const allItems = [...experience, ...education];
+            // newest first
+            const sorted = [...items].sort((a, b) => b.id - a.id);
 
-            let html = '';
-
-            allItems.forEach((item, index) => {
-                const isEven = index % 2 === 1;
-                const phaseNumber = index + 1;
-                const isCurrent = item.current ? 'current' : '';
-                const typeClass = item.type === 'education' ? 'education' : item.type === 'research' ? 'research' : '';
-
-                html += `
-                <div class="waterfall-step ${isEven ? 'even' : ''}" style="animation-delay: ${index * 0.1}s;">
-                    <div class="waterfall-phase">
-                        <div class="phase-number ${isCurrent}">${phaseNumber}</div>
-                        <div class="waterfall-connector"></div>
+            container.innerHTML = sorted.map((item, index) => {
+                const iconClass = item.type === 'education' ? 'fa-graduation-cap' : 'fa-building';
+                const nameOrInstitution = item.company || item.institution || '';
+                return `
+                <div class="skill-category tilt-card glow-border" style="animation-delay: ${index * 0.1}s; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; flex-wrap: wrap;">
+                        <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin: 0;">
+                            ${item.title}
+                        </h3>
+                        <span style="background: ${item.current ? 'var(--success-color)' : 'var(--bg-tertiary)'}; color: ${item.current ? '#fff' : 'var(--primary-color)'}; padding: 0.2rem 0.65rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; flex-shrink: 0;">
+                            ${item.date}
+                        </span>
                     </div>
-                    <div class="waterfall-content">
-                        <div class="waterfall-card ${typeClass} tilt-card">
-                            <div class="waterfall-card-header">
-                                <span class="phase-label">${item.phase || 'Phase ' + phaseNumber}</span>
-                                <span class="phase-date">${item.date}</span>
-                            </div>
-                            <h3 class="waterfall-title">${item.title}</h3>
-                            <p class="waterfall-company">
-                                <i class="fas ${item.type === 'education' ? 'fa-graduation-cap' : 'fa-building'}"></i>
-                                ${item.company || item.institution} • ${item.location}
-                            </p>
-                            <p class="waterfall-description">${item.description}</p>
-                            <div class="waterfall-tags">
-                                ${item.tags.map(tag => `<span class="waterfall-tag">${tag}</span>`).join('')}
-                            </div>
-                            ${item.current ? '<div class="current-badge"><i class="fas fa-circle"></i> Currently Here</div>' : ''}
-                        </div>
+                    <p style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; margin: 0; display: flex; align-items: center; gap: 0.4rem;">
+                        <i class="fas ${iconClass}" style="font-size: 0.8rem;"></i>
+                        ${nameOrInstitution}${item.location ? ' &bull; ' + item.location : ''}
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.7; font-size: 0.9rem; margin: 0;">
+                        ${item.description}
+                    </p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto;">
+                        ${(item.tags || []).map(tag => `<span class="skill-tag" style="font-size: 0.75rem; padding: 0.3rem 0.7rem;">${tag}</span>`).join('')}
                     </div>
-                </div>
-                `;
-            });
+                    ${item.current ? '<div class="current-badge" style="align-self: flex-start;"><i class="fas fa-circle"></i> Currently Here</div>' : ''}
+                </div>`;
+            }).join('');
+        }
 
-            container.innerHTML = html;
+        function renderWorkExperience(experience) {
+            renderCards(experience || [], 'work-container');
+        }
+
+        function renderEducation(education) {
+            renderCards(education || [], 'education-container');
         }
 
         function renderProjects(projects) {
@@ -3134,29 +3061,24 @@ document.addEventListener('click',function(e){
 
             let html = '';
 
-            projects.forEach((project, index) => {
-                const featuredClass = project.featured ? 'featured' : '';
-                const awardClass = project.award ? 'award' : '';
+            (projects || []).forEach((project, index) => {
+                const comingSoonClass = project.comingSoon ? 'coming-soon' : '';
+                const iconColor = project.color ? `color: ${project.color}` : '';
 
                 html += `
-                <div class="project-waterfall-card ${featuredClass} ${awardClass}" style="animation-delay: ${index * 0.1}s;">
-                    ${project.proprietary ? '<span class="project-phase-badge" style="position: absolute; top: 1rem; right: 1rem; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; z-index: 2;">Production • Proprietary</span>' : ''}
-                    <div class="project-icon">
-                        <i class="fas ${project.icon}"></i>
+                <div class="project-waterfall-card ${comingSoonClass}" style="animation-delay: ${index * 0.1}s;">
+                    <div class="project-icon" style="background: ${project.color ? project.color + '22' : 'rgba(59,130,246,0.1)'}">
+                        <i class="fas ${project.icon}" style="${iconColor}"></i>
                     </div>
                     <h3 class="project-title">${project.title}</h3>
-                    <p class="project-subtitle">${project.subtitle}</p>
+                    <p class="project-subtitle">${project.subtitle || ''}</p>
                     <p class="project-description">${project.description}</p>
-                    ${project.metrics ? `<div class="project-metrics" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%); padding: 0.75rem; border-radius: 8px; margin-bottom: 1rem; border-left: 3px solid var(--success-color);">
-                        <i class="fas fa-chart-line" style="color: var(--success-color); margin-right: 0.5rem;"></i>
-                        <span style="color: var(--text-primary); font-size: 0.85rem; font-weight: 600;">${project.metrics}</span>
-                    </div>` : ''}
                     <div class="project-tags">
-                        ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                        ${(project.tags || []).map(tag => `<span class="project-tag">${tag}</span>`).join('')}
                     </div>
                     <div class="project-links">
-                        ${project.proprietary ? '<span class="project-link" style="background: var(--bg-tertiary); color: var(--text-muted); cursor: not-allowed; opacity: 0.7;"><i class="fas fa-lock"></i> Company Property</span>' : ''}
-                        ${project.github && !project.proprietary ? `<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> Code</a>` : ''}
+                        ${project.comingSoon ? '<span class="project-link" style="background: var(--bg-tertiary); color: var(--text-muted); opacity: 0.7;"><i class="fas fa-clock"></i> Coming Soon</span>' : ''}
+                        ${project.url && !project.comingSoon ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> Code</a>` : ''}
                         ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="project-link demo"><i class="fas fa-external-link-alt"></i> Demo</a>` : ''}
                         ${project.publication ? `<a href="${project.publication}" target="_blank" rel="noopener noreferrer" class="project-link publication"><i class="fas fa-file-alt"></i> IEEE Paper</a>` : ''}
                     </div>
@@ -3167,28 +3089,6 @@ document.addEventListener('click',function(e){
             container.innerHTML = html;
         }
 
-        function renderAchievements(achievements) {
-            const container = document.getElementById('achievements-container');
-            if (!container) return;
-
-            let html = '';
-
-            achievements.forEach((achievement, index) => {
-                html += `
-                <div class="achievement-waterfall-card" style="animation-delay: ${index * 0.1}s;">
-                    <span class="achievement-year">${achievement.year}</span>
-                    <div class="achievement-icon">
-                        <i class="fas ${achievement.icon}"></i>
-                    </div>
-                    <h3 class="achievement-title">${achievement.title}</h3>
-                    <p class="achievement-description">${achievement.description}</p>
-                    ${achievement.link ? `<a href="${achievement.link}" target="_blank" rel="noopener noreferrer" class="achievement-link" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: var(--primary-color); text-decoration: none; font-weight: 600; font-size: 0.85rem;"><i class="fas fa-external-link-alt"></i> View</a>` : ''}
-                </div>
-                `;
-            });
-
-            container.innerHTML = html;
-        }
 
         // ==================== INITIALIZE EVERYTHING ====================
         document.addEventListener('DOMContentLoaded', function() {
@@ -3209,6 +3109,7 @@ document.addEventListener('click',function(e){
                 const words = [
                     'AI Engineer',
                     'Full-Stack Developer',
+                    'DevOps & Infra Engineer',
                     'Prompt Engineering Researcher',
                     'IoT Innovator',
                     'Open Source Contributor'
@@ -3245,7 +3146,7 @@ document.addEventListener('click',function(e){
         // Console Easter Egg
         console.log('%c Hey there! 👋', 'font-size: 24px; font-weight: bold; color: #3b82f6;');
         console.log('%c Looking for a passionate AI Engineer? Let\'s connect!', 'font-size: 14px; color: #06b6d4;');
-        console.log('%c Email: sprajwalln@gmail.com', 'font-size: 12px; color: #a0aec0;');
+        console.log('%c Email: prajwallspambox@gmail.com', 'font-size: 12px; color: #a0aec0;');
     </script>
     <script src="assets/js/app.js"></script>
 </body>
