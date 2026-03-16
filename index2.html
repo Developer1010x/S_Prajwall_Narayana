@@ -344,7 +344,7 @@
                 <a href="https://www.linkedin.com/in/sprajwallnarayana" target="_blank" class="about-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/developer1010x" target="_blank" class="about-link"><i class="fab fa-github"></i> GitHub</a>
               </div>
-              <a href="assets/images/resume.pdf" target="_blank" class="about-resume-btn"><i class="fa fa-file-pdf"></i> View Resume</a>
+              <a href="assets/resume.pdf" target="_blank" class="about-resume-btn"><i class="fa fa-file-pdf"></i> View Resume</a>
             </div>
           </div>
           <div class="about-bio">
@@ -758,7 +758,7 @@
           <div class="mail-links">
             <a href="https://www.linkedin.com/in/sprajwallnarayana" target="_blank" class="mail-link-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
             <a href="https://github.com/developer1010x" target="_blank" class="mail-link-btn"><i class="fab fa-github"></i> GitHub</a>
-            <a href="assets/images/resume.pdf" target="_blank" class="mail-link-btn"><i class="fa fa-file-pdf"></i> Resume</a>
+            <a href="assets/resume.pdf" target="_blank" class="mail-link-btn"><i class="fa fa-file-pdf"></i> Resume</a>
           </div>
         </div>
       </div>
@@ -925,11 +925,15 @@
     </div>
     <div class="win-body" style="padding:0;flex:1;display:flex;flex-direction:column">
       <div style="padding:12px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.1);display:flex;gap:8px">
-        <button onclick="window.open('assets/images/resume.pdf','_blank')" style="padding:8px 16px;background:var(--accent);border:none;border-radius:6px;color:#fff;cursor:pointer;font-size:13px">
+        <button id="os-resume-dl-btn" onclick="window.open('assets/resume.pdf','_blank')" style="padding:8px 16px;background:var(--accent);border:none;border-radius:6px;color:#fff;cursor:pointer;font-size:13px">
           <i class="fa fa-download"></i> Download Resume
         </button>
       </div>
-      <iframe src="assets/images/resume.pdf" style="flex:1;border:none;width:100%" title="Resume PDF"></iframe>
+      <iframe id="os-resume-iframe" src="" style="flex:1;border:none;width:100%;display:none;" title="Resume PDF"></iframe>
+      <div id="os-resume-updating" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:32px;color:var(--text2)">
+        <i class="fa fa-spinner fa-spin" style="font-size:28px"></i>
+        <span style="font-size:14px">Loading resume...</span>
+      </div>
     </div>
   </div>
 
@@ -1187,7 +1191,45 @@ function escStr(s) {
   return (s || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
 }
 
-document.addEventListener('DOMContentLoaded', loadOSPortfolioData);
+function loadOSResume() {
+  const iframe = document.getElementById('os-resume-iframe');
+  const updating = document.getElementById('os-resume-updating');
+  const dlBtn = document.getElementById('os-resume-dl-btn');
+  if (!iframe) return;
+  fetch('assets/resume.pdf', { method: 'HEAD' })
+    .then(r => {
+      if (r.ok) {
+        iframe.src = 'assets/resume.pdf';
+        iframe.style.display = 'block';
+        updating.style.display = 'none';
+      } else { showOSResumeUpdating(); }
+    })
+    .catch(showOSResumeUpdating);
+}
+function showOSResumeUpdating() {
+  const iframe = document.getElementById('os-resume-iframe');
+  const updating = document.getElementById('os-resume-updating');
+  const dlBtn = document.getElementById('os-resume-dl-btn');
+  if (iframe) iframe.style.display = 'none';
+  if (dlBtn) dlBtn.style.display = 'none';
+  if (updating) {
+    updating.style.display = 'flex';
+    updating.innerHTML = '<i class="fa fa-file-pdf" style="font-size:36px;color:var(--text3)"></i><div style="font-size:15px;font-weight:600">Resume is being updated</div><div style="font-size:13px">Check back soon or reach out directly.</div>';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadOSPortfolioData();
+  // Load resume when Preview window is opened
+  const observer = new MutationObserver(() => {
+    const previewWin = document.getElementById('win-preview');
+    if (previewWin && previewWin.style.display !== 'none' && !document.getElementById('os-resume-iframe').src) {
+      loadOSResume();
+    }
+  });
+  const previewWin = document.getElementById('win-preview');
+  if (previewWin) observer.observe(previewWin, { attributes: true, attributeFilter: ['style'] });
+});
 </script>
 </body>
 </html>
