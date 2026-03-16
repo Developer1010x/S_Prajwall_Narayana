@@ -12,8 +12,7 @@
   let topZ = 200;
   let isDragging = false;
   let dragWin = null, dragOX = 0, dragOY = 0;
-  let isWidgetDragging = false;
-  let dragWidget = null, dragWX = 0, dragWY = 0;
+
   let maximizedWins = new Set();
   let musicPlaying = false;
   let musicCurrentSong = 0;
@@ -81,7 +80,7 @@
     detectAndSetTheme();
     buildWallpaperGrids();
     initClock();
-    initWidgets();
+
     initDock();
     initWindows();
     initContextMenu();
@@ -89,7 +88,7 @@
     initCalendar();
     initNotepad();
     initCalculator();
-    initGithubWidget();
+
     initAndroidNavbar();
     initMatrixRain();
     initOsSwitcher();
@@ -251,196 +250,6 @@
     const aClock = document.getElementById('androidTime');
     if (aClock) aClock.textContent = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: false });
 
-    // Windows widgets clock
-    const wwTime = document.getElementById('ww-time');
-    if (wwTime) wwTime.textContent = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-    const wwDate = document.getElementById('ww-date-full');
-    if (wwDate) wwDate.textContent = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-
-    // Analog clock
-    drawAnalogClock(now);
-
-    // Digital clock in widget
-    const digitalClock = document.getElementById('digitalClock');
-    if (digitalClock) {
-      digitalClock.textContent = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
-    }
-  }
-
-  function drawAnalogClock(now) {
-    const canvas = document.getElementById('analogClock');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const w = canvas.width, h = canvas.height;
-    const cx = w / 2, cy = h / 2;
-    const r = cx - 6;
-
-    ctx.clearRect(0, 0, w, h);
-
-    // Face
-    ctx.beginPath();
-    ctx.arc(cx, cy, r, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(255,255,255,0.05)';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(255,255,255,0.2)';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    // Hour marks
-    for (let i = 0; i < 12; i++) {
-      const a = (i / 12) * Math.PI * 2 - Math.PI / 2;
-      const inner = r - 8, outer = r - 2;
-      ctx.beginPath();
-      ctx.moveTo(cx + Math.cos(a) * inner, cy + Math.sin(a) * inner);
-      ctx.lineTo(cx + Math.cos(a) * outer, cy + Math.sin(a) * outer);
-      ctx.strokeStyle = 'rgba(255,255,255,0.5)';
-      ctx.lineWidth = i % 3 === 0 ? 2 : 1;
-      ctx.stroke();
-    }
-
-    const hrs = now.getHours() % 12, mins = now.getMinutes(), secs = now.getSeconds();
-
-    // Hour hand
-    const ha = ((hrs + mins / 60) / 12) * Math.PI * 2 - Math.PI / 2;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(cx + Math.cos(ha) * r * 0.55, cy + Math.sin(ha) * r * 0.55);
-    ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 3;
-    ctx.lineCap = 'round';
-    ctx.stroke();
-
-    // Minute hand
-    const ma = ((mins + secs / 60) / 60) * Math.PI * 2 - Math.PI / 2;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(cx + Math.cos(ma) * r * 0.75, cy + Math.sin(ma) * r * 0.75);
-    ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    // Second hand
-    const sa = (secs / 60) * Math.PI * 2 - Math.PI / 2;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(cx + Math.cos(sa) * r * 0.85, cy + Math.sin(sa) * r * 0.85);
-    ctx.strokeStyle = '#FF3B30';
-    ctx.lineWidth = 1;
-    ctx.stroke();
-
-    // Center dot
-    ctx.beginPath();
-    ctx.arc(cx, cy, 3, 0, Math.PI * 2);
-    ctx.fillStyle = '#FF3B30';
-    ctx.fill();
-  }
-
-  /* ================================================================
-     WIDGETS
-  ================================================================ */
-  let currentWidgetIndex = 0;
-  const widgetIds = ['clockWidget', 'calendarWidget', 'weatherWidget', 'blogWidget', 'githubWidget'];
-  
-  function initWidgets() {
-    initMiniCalendar();
-    makeWidgetsDraggable();
-    startWidgetRotation();
-  }
-
-  function startWidgetRotation() {
-    const container = document.getElementById('widgets-container');
-    if (!container) return;
-
-    // Hide all widgets initially except first
-    widgetIds.forEach((id, i) => {
-      const w = document.getElementById(id);
-      if (w) {
-        w.style.display = i === 0 ? 'block' : 'none';
-      }
-    });
-
-    // Rotate every 8 seconds
-    setInterval(() => {
-      if (currentTheme === 'theme-ios' || currentTheme === 'theme-android') return;
-      
-      const currentWidget = document.getElementById(widgetIds[currentWidgetIndex]);
-      if (currentWidget) {
-        currentWidget.style.display = 'none';
-      }
-      
-      currentWidgetIndex = (currentWidgetIndex + 1) % widgetIds.length;
-      
-      const nextWidget = document.getElementById(widgetIds[currentWidgetIndex]);
-      if (nextWidget) {
-        nextWidget.style.display = 'block';
-      }
-    }, 8000);
-  }
-
-  function initMiniCalendar() {
-    const now = new Date();
-    calYear = now.getFullYear();
-    calMonth = now.getMonth();
-    renderMiniCal();
-
-    document.getElementById('calPrev').addEventListener('click', () => { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderMiniCal(); });
-    document.getElementById('calNext').addEventListener('click', () => { calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderMiniCal(); });
-  }
-
-  function renderMiniCal() {
-    const el = document.getElementById('miniCal');
-    if (!el) return;
-    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-    const dayNames = ['Su','Mo','Tu','We','Th','Fr','Sa'];
-    const now = new Date();
-
-    const titleEl = document.getElementById('calTitle');
-    if (titleEl) titleEl.textContent = `${months[calMonth]} ${calYear}`;
-
-    let html = '<div class="mini-cal-header">' + dayNames.map(d => `<div>${d}</div>`).join('') + '</div>';
-    html += '<div class="mini-cal-grid">';
-
-    const first = new Date(calYear, calMonth, 1).getDay();
-    const last = new Date(calYear, calMonth + 1, 0).getDate();
-
-    for (let i = 0; i < first; i++) html += '<div class="mini-day other"></div>';
-    for (let d = 1; d <= last; d++) {
-      const isToday = d === now.getDate() && calMonth === now.getMonth() && calYear === now.getFullYear();
-      html += `<div class="mini-day${isToday ? ' today' : ''}">${d}</div>`;
-    }
-
-    html += '</div>';
-    el.innerHTML = html;
-  }
-
-  function initGithubWidget() {
-    const el = document.getElementById('ghContrib');
-    if (!el) return;
-    const levels = ['', 'l1', 'l2', 'l3', 'l4'];
-    let html = '';
-    for (let i = 0; i < 52; i++) {
-      const level = Math.random() < 0.3 ? '' : levels[Math.floor(Math.random() * levels.length)];
-      html += `<div class="gc-square ${level}"></div>`;
-    }
-    el.innerHTML = html;
-  }
-
-  function makeWidgetsDraggable() {
-    document.querySelectorAll('.widget').forEach(widget => {
-      widget.addEventListener('mousedown', startWidgetDrag);
-    });
-  }
-
-  function startWidgetDrag(e) {
-    if (e.target.classList.contains('widget-close') || e.target.classList.contains('widget-nav')) return;
-    isWidgetDragging = true;
-    dragWidget = e.currentTarget;
-    const rect = dragWidget.getBoundingClientRect();
-    dragWX = e.clientX - rect.left;
-    dragWY = e.clientY - rect.top;
-    dragWidget.style.zIndex = ++topZ;
-    e.preventDefault();
-  }
 
   /* ================================================================
      DOCK & APP ICONS
@@ -641,18 +450,11 @@
       dragWin.style.top = y + 'px';
     }
 
-    if (isWidgetDragging && dragWidget) {
-      dragWidget.style.position = 'fixed';
-      dragWidget.style.left = (e.clientX - dragWX) + 'px';
-      dragWidget.style.top = (e.clientY - dragWY) + 'px';
-    }
   });
 
   document.addEventListener('mouseup', function() {
     isDragging = false;
     dragWin = null;
-    isWidgetDragging = false;
-    dragWidget = null;
   });
 
   function bringToFront(win) {
