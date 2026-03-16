@@ -12,25 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Lint and typecheck
-        run: |
-          echo "Checking for linting issues..."
-          # Add lint commands if needed
-
-      - name: Build project
-        run: npm run build
-        env:
-          CI: false
-
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
         with:
