@@ -1,0 +1,254 @@
+{
+  "personal": {
+    "name": "S Prajwall Narayana",
+    "title": "AI Engineer & Full-Stack Developer",
+    "tagline": "Building autonomous app-generation systems and self-healing deployment infrastructure",
+    "email": "sprajwalln@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/sprajwallnarayana",
+    "github": "https://github.com/developer1010x",
+    "location": "Bengaluru, Karnataka, India",
+    "availability": "Working Full Time",
+    "profileImage": "S_Prajwall_Narayana.jpg",
+    "logo": "logo.jpg",
+    "resume": "resume.pdf"
+  },
+
+  "roles": [
+    "AI Engineer",
+    "Prompt Engineering Researcher",
+    "Full-Stack Developer"
+  ],
+
+  "stats": [
+    { "count": 2, "label": "IEEE Papers" },
+    { "count": 5, "label": "Projects" },
+    { "count": 3, "label": "Internships" }
+  ],
+
+  "about": [
+    {
+      "icon": "fa-cogs",
+      "title": "Current Work",
+      "description": "AI Engineer at <strong>Colligence Research</strong> architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines. Building DevOps infrastructure using Docker, Ansible, OpenTofu, and Linode with microfrontend architecture and Citadel auth."
+    },
+    {
+      "icon": "fa-briefcase",
+      "title": "Research",
+      "description": "<strong>2 IEEE Publications</strong> on robotics and ML. Built YOLOv3 rover with 4-DOF robotic arm (published IEEE Xplore Nov 2024) and ResNet50 hyperparameter optimization for plant disease classification."
+    },
+    {
+      "icon": "fa-rocket",
+      "title": "Impact",
+      "description": "Platforms serving <strong>1,000+ students</strong> (KnotesCentral). 93% accuracy deepfake detection on FaceForensics++ and DFDC benchmarks. <strong>30-language healthcare system</strong> (Arogya-Sathi) with symptom checker and X-ray analyzer."
+    }
+  ],
+
+  "skills": [
+    {
+      "category": "Autonomous Systems & LLM Infrastructure",
+      "icon": "fa-robot",
+      "items": [
+        { "name": "Claude Code", "level": 90 },
+        { "name": "FastAPI", "level": 88 },
+        { "name": "LangChain", "level": 85 },
+        { "name": "Prompt Engineering", "level": 92 }
+      ]
+    },
+    {
+      "category": "DevOps & Cloud Architecture",
+      "icon": "fa-cloud",
+      "items": [
+        { "name": "Docker", "level": 88 },
+        { "name": "Ansible", "level": 85 },
+        { "name": "OpenTofu", "level": 82 },
+        { "name": "Linode", "level": 80 },
+        { "name": "PostgreSQL", "level": 85 }
+      ]
+    },
+    {
+      "category": "AI/ML Research",
+      "icon": "fa-brain",
+      "items": [
+        { "name": "PyTorch", "level": 88, "highlight": true },
+        { "name": "TensorFlow", "level": 85, "highlight": true },
+        { "name": "YOLOv3/v8", "level": 82 },
+        { "name": "CNN", "level": 85 },
+        { "name": "ResNet50", "level": 80 }
+      ]
+    },
+    {
+      "category": "Full-Stack Development",
+      "icon": "fa-laptop-code",
+      "items": [
+        { "name": "React", "level": 90 },
+        { "name": "TypeScript", "level": 88 },
+        { "name": "Node.js", "level": 85 },
+        { "name": "HTML/CSS", "level": 95 }
+      ]
+    }
+  ],
+
+  "experience": [
+    {
+      "id": 1,
+      "phase": "Phase 1",
+      "date": "Nov 2024 - Present",
+      "title": "AI Engineer & Prompt Engineering Researcher",
+      "company": "Colligence Research",
+      "location": "Bengaluru, IN",
+      "description": "Architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines. Building DevOps infrastructure using Docker, Ansible, OpenTofu, and Linode with microfrontend architecture and Citadel auth.",
+      "tags": ["FastAPI", "React", "Claude Code", "Docker", "Ansible", "OpenTofu", "Linode", "PostgreSQL"],
+      "type": "work",
+      "current": true
+    },
+    {
+      "id": 2,
+      "phase": "Phase 2",
+      "date": "Oct 2024 - Nov 2024",
+      "title": "Student Intern - AI Research",
+      "company": "RVCE Centre of Excellence",
+      "location": "Bengaluru, IN",
+      "description": "Developed deepfake detection model using CNN architectures achieving 92.3% accuracy, 90.7% precision, and 91.5% recall on FaceForensics++ and DFDC benchmarks.",
+      "tags": ["Deep Learning", "CNN", "TensorFlow", "PyTorch", "FaceForensics++", "DFDC"],
+      "type": "work"
+    },
+    {
+      "id": 3,
+      "phase": "Phase 3",
+      "date": "Aug 2024 - Sep 2024",
+      "title": "Associate Consultant Intern",
+      "company": "Ernst & Young India",
+      "location": "Bengaluru, IN",
+      "description": "Gained expertise in Enterprise Security Architecture and Cybersecurity through work on the IFTAS Cloud project. Applied the SABSA Framework for risk-driven design, cloud security, IAM, and regulatory compliance.",
+      "tags": ["Cybersecurity", "Cloud Security", "SABSA", "IAM"],
+      "type": "work"
+    }
+  ],
+
+  "education": [
+    {
+      "id": 1,
+      "phase": "Foundation",
+      "date": "2021 - 2025",
+      "title": "Bachelor of Engineering - Computer Science",
+      "institution": "R V College of Engineering",
+      "location": "Bengaluru, Karnataka, India",
+      "description": "Computer Science graduate from RVCE. Completed coursework in Data Structures, Algorithms, Database Management, Software Engineering, and Computer Networks.",
+      "tags": ["Computer Science", "DSA", "Software Engineering"],
+      "type": "education"
+    }
+  ],
+
+  "projects": [
+    {
+      "id": 1,
+      "title": "OS Portfolio Website",
+      "subtitle": "This Portfolio",
+      "description": "This OS-themed portfolio website built with vanilla JS featuring macOS, Windows, Kali Linux, iOS, and Android themes.",
+      "icon": "fa-desktop",
+      "color": "#007AFF",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "url": "https://github.com/Developer1010x/S_Prajwall_Narayana"
+    },
+    {
+      "id": 2,
+      "title": "Deepfake Detection",
+      "subtitle": "AI Research",
+      "description": "AI-generated content detection using CNN - 92.3% accuracy, 90.7% precision, 91.5% recall on FaceForensics++ and DFDC benchmarks.",
+      "icon": "fa-shield-halved",
+      "color": "#AF52DE",
+      "tags": ["Python", "TensorFlow", "PyTorch", "CNN"],
+      "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
+    },
+    {
+      "id": 3,
+      "title": "KnotesCentral",
+      "subtitle": "Academic Platform",
+      "description": "Academic resource platform serving 800-1000 RVCE students with centralized notes and past papers.",
+      "icon": "fa-graduation-cap",
+      "color": "#FF9F0A",
+      "tags": ["TypeScript", "React", "HTML/CSS"],
+      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code",
+      "demo": "https://knotescentral.vercel.app"
+    },
+    {
+      "id": 4,
+      "title": "Web-Server Controlled Rover",
+      "subtitle": "IEEE Publication",
+      "description": "LAN-controlled modular rover with YOLOv3 object detection and 4-DOF robotic arm - IEEE Xplore published.",
+      "icon": "fa-robot",
+      "color": "#34C759",
+      "tags": ["YOLOv3", "Python", "ESP32", "C++"],
+      "url": "https://github.com/Developer1010x/Robotic_rover",
+      "publication": "https://ieeexplore.ieee.org/document/10816816"
+    },
+    {
+      "id": 5,
+      "title": "Plant Disease Classification",
+      "subtitle": "IEEE Publication",
+      "description": "ResNet50-based deep learning system for classifying plant diseases from leaf images - IEEE Xplore published.",
+      "icon": "fa-leaf",
+      "color": "#30D158",
+      "tags": ["ResNet50", "TensorFlow", "PyTorch"],
+      "url": "https://github.com/Developer1010x/Plant-Disease-Detection",
+      "publication": "https://ieeexplore.ieee.org/document/10816835"
+    },
+    {
+      "id": 6,
+      "title": "LLM Terminal",
+      "subtitle": "Open Source",
+      "description": "Terminal-based application integrating with LLMs for conversational AI assistance from command line.",
+      "icon": "fa-terminal",
+      "color": "#00ff41",
+      "tags": ["Python", "LLM", "CLI"],
+      "url": "https://github.com/Developer1010x/LLM_Terminal"
+    },
+    {
+      "id": 7,
+      "title": "Open Source Project 1",
+      "subtitle": "Coming Soon",
+      "description": "Coming soon to GitHub - Stay tuned!",
+      "icon": "fa-code",
+      "color": "#FF9500",
+      "tags": ["TBD"],
+      "url": "https://github.com/Developer1010x",
+      "comingSoon": true
+    },
+    {
+      "id": 8,
+      "title": "Open Source Project 2",
+      "subtitle": "Coming Soon",
+      "description": "Coming soon to GitHub - Stay tuned!",
+      "icon": "fa-rocket",
+      "color": "#FF3B30",
+      "tags": ["TBD"],
+      "url": "https://github.com/Developer1010x",
+      "comingSoon": true
+    }
+  ],
+
+  "achievements": [
+    {
+      "id": 2,
+      "icon": "fa-users",
+      "title": "1,000+ Active Users",
+      "description": "KnotesCentral platform serving RVCE student community with centralized academic resources",
+      "year": "2024",
+      "link": "https://knotescentral.vercel.app"
+    },
+    {
+      "id": 3,
+      "icon": "fa-bullseye",
+      "title": "93% Detection Accuracy",
+      "description": "Deepfake detection model on FaceForensics++ and DFDC benchmarks - 90.7% precision, 91.5% recall",
+      "year": "2024"
+    }
+  ],
+
+  "techStack": [
+    "Python", "React", "FastAPI", "Claude Code", "LangChain",
+    "Docker", "Ansible", "OpenTofu", "Linode", "PostgreSQL",
+    "TensorFlow", "PyTorch", "YOLO", "CNN", "ResNet50",
+    "TypeScript", "Node.js", "ESP32", "OpenCV"
+  ]
+}

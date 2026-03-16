@@ -27,8 +27,8 @@
 <meta name="twitter:title" content="S. Prajwall Narayana | AI Engineer">
 <meta name="twitter:description" content="AI Engineer at Colligence Research. Building intelligent solutions.">
 <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="logo.jpg">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/logo.jpg">
 <style>
 :root {
 --primary-color: #3b82f6;
@@ -157,21 +157,42 @@ padding: 0 2rem;
 display: flex;
 justify-content: space-between;
 align-items: center;
- }
+  }
 .logo {
 font-size: 1.4rem;
 font-weight: 800;
+font-family: 'Poppins', sans-serif;
+letter-spacing: -0.5px;
+transition: transform 0.3s ease;
+display: flex;
+align-items: center;
+gap: 10px;
+cursor: pointer;
+ }
+.logo:hover {
+transform: scale(1.05);
+ }
+.logo-icon {
+width: 28px;
+height: 28px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 14px;
+background: var(--gradient-primary);
+-webkit-text-fill-color: initial;
+transition: all 0.3s ease;
+ }
+.logo:hover .logo-icon {
+transform: rotate(360deg);
+ }
+.logo-text {
 background: var(--gradient-primary);
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
-font-family: 'Poppins', sans-serif;
-letter-spacing: -0.5px;
-transition: transform 0.3s ease;
-}
-.logo:hover {
-transform: scale(1.05);
-}
+ }
 .nav-links {
 display: flex;
 list-style: none;
@@ -222,6 +243,55 @@ justify-content: center;
 .theme-toggle:hover {
 background: var(--bg-hover);
 transform: scale(1.1);
+ }
+.os-dropdown-btn {
+  width: auto;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #0f3460;
+  color: #e94560;
+  font-weight: 600;
+  font-size: 13px;
+  gap: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(233, 69, 96, 0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+  margin: 0 4px;
+  vertical-align: middle;
+ }
+.os-dropdown-btn:hover {
+  background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+  border-color: #e94560;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+ }
+.os-dropdown-btn .fa-chevron-down {
+  transition: transform 0.3s ease;
+ }
+.os-dropdown-btn:hover .fa-chevron-down {
+  transform: rotate(180deg);
+ }
+.nav-dropdown {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 4px;
+ }
+@media (max-width: 768px) {
+  .os-dropdown-btn {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 11px;
+    margin: 0 2px;
+  }
+  .nav-dropdown {
+    margin: 0 2px;
+  }
  }
 /* Hero Section */
 .hero {
@@ -487,6 +557,21 @@ font-size: 1.1rem;
 color: var(--text-muted);
 max-width: 600px;
 margin: 0 auto;
+ }
+.exp-badge {
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+padding: 4px 10px;
+border-radius: 12px;
+font-size: 10px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+ }
+.cards-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 20px;
  }
 /* Skills Section */
 .skills-grid {
@@ -1977,7 +2062,7 @@ margin-bottom: 0.5rem;
 <!-- Navigation -->
 <nav class="navbar">
 <div class="nav-container">
-<div class="logo">S. Prajwall Narayana</div>
+<div class="logo" onclick="toggleTheme()"><span class="logo-icon" id="logoIcon">☀️</span><span class="logo-text">S. Prajwall Narayana</span></div>
 <ul class="nav-links">
 <li><a href="#home">Home</a></li>
 <li><a href="#about">About</a></li>
@@ -1987,9 +2072,64 @@ margin-bottom: 0.5rem;
 <li><a href="#achievements">Achievements</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-<button class="theme-toggle" onclick="toggleTheme()">
-<i class="fas fa-moon" id="theme-icon"></i>
-</button>
+<div class="nav-dropdown">
+  <button class="theme-toggle os-dropdown-btn" onclick="toggleDropdown('desktopDropdown');return false">
+    <i class="fas fa-desktop" style="margin-right:6px"></i> Desktop View <i class="fas fa-chevron-down" style="margin-left:6px;font-size:10px"></i>
+  </button>
+  <div id="desktopDropdown" class="dropdown-content">
+    <a href="javascript:void(0)" onclick="switchToOs('theme-macos')"><i class="fab fa-apple"></i> macOS</a>
+    <a href="javascript:void(0)" onclick="switchToOs('theme-windows')"><i class="fab fa-windows"></i> Windows</a>
+    <a href="javascript:void(0)" onclick="switchToOs('theme-kali')"><i class="fas fa-terminal"></i> Kali Linux</a>
+  </div>
+</div>
+<div class="nav-dropdown">
+  <button class="theme-toggle os-dropdown-btn" onclick="toggleDropdown('mobileDropdown');return false">
+    <i class="fas fa-mobile-alt" style="margin-right:6px"></i> Mobile View <i class="fas fa-chevron-down" style="margin-left:6px;font-size:10px"></i>
+  </button>
+  <div id="mobileDropdown" class="dropdown-content">
+    <a href="javascript:void(0)" onclick="switchToOs('theme-ios')"><i class="fas fa-mobile-screen"></i> iOS</a>
+    <a href="javascript:void(0)" onclick="switchToOs('theme-android')"><i class="fab fa-android"></i> Android</a>
+  </div>
+</div>
+<style>
+.nav-dropdown{position:relative;display:inline-block}
+.dropdown-content{display:none;position:absolute;right:0;min-width:160px;background:rgba(30,30,40,.98);border:1px solid rgba(255,255,255,.15);border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.4);z-index:1000;margin-top:8px}
+.dropdown-content a{display:block;padding:10px 16px;color:#fff;text-decoration:none;font-size:13px;transition:background .2s}
+.dropdown-content a:hover{background:rgba(255,255,255,.1)}
+.dropdown-content a i{margin-right:10px;width:16px}
+.dropdown-content.show{display:block}
+</style>
+<script>
+function toggleDropdown(id){
+  document.querySelectorAll('.dropdown-content').forEach(function(d){
+    if(d.id!==id)d.classList.remove('show')
+  });
+  var el=document.getElementById(id);
+  if(el)el.classList.toggle('show');
+}
+function toggleTheme(){
+  var icon = document.getElementById('logoIcon');
+  var isDark = document.body.classList.contains('dark-mode');
+  if(isDark){
+    document.body.classList.remove('dark-mode');
+    icon.textContent = '☀️';
+    localStorage.setItem('theme', 'light');
+  } else {
+    document.body.classList.add('dark-mode');
+    icon.textContent = '🌙';
+    localStorage.setItem('theme', 'dark');
+  }
+}
+function switchToOs(theme){
+  localStorage.setItem('portfolio-theme',theme);
+  window.location.href='index2.html';
+}
+document.addEventListener('click',function(e){
+  if(!e.target.closest('.nav-dropdown')){
+    document.querySelectorAll('.dropdown-content').forEach(function(d){d.classList.remove('show')});
+  }
+});
+</script>
 <div class="hamburger" onclick="toggleMobileMenu()">
 <span></span>
 <span></span>
@@ -2056,7 +2196,7 @@ margin-bottom: 0.5rem;
 
           <!-- Front Side -->
           <div class="flip-card-front" style="text-align: center;">
-            <img src="S_Prajwall_Narayana.jpg" alt="S. Prajwall Narayana - AI Engineer" class="profile-image" loading="lazy">
+            <img src="assets/images/S_Prajwall_Narayana.jpg" alt="S. Prajwall Narayana - AI Engineer" class="profile-image" loading="lazy">
             <h3>S. Prajwall Narayana</h3>
             <p style="color: var(--text-secondary); margin: 0.5rem 0;">AI Engineer & Full-Stack Developer</p>
             <div class="status-badge">
@@ -2067,7 +2207,7 @@ margin-bottom: 0.5rem;
 
           <!-- Back Side -->
           <div class="flip-card-back" style="text-align: center; color: white;">
-            <img src="logo.jpg" alt="Developer Logo" class="profile-image" style="margin-bottom: 1rem;" loading="lazy">
+            <img src="assets/images/logo.jpg" alt="Developer Logo" class="profile-image" style="margin-bottom: 1rem;" loading="lazy">
             <i class="fas fa-robot" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
             <h3>@developer1010x</h3>
             <p style="color: rgba(255,255,255,0.9); margin: 0.5rem 0;">Building AI for Impact</p>
@@ -2086,26 +2226,26 @@ margin-bottom: 0.5rem;
 <!-- Tech Stack Marquee -->
 <div class="tech-marquee">
     <div class="tech-marquee-content">
-        <span><i class="fab fa-python"></i> Python</span>
-        <span><i class="fab fa-react"></i> React</span>
-        <span><i class="fab fa-node-js"></i> Node.js</span>
-        <span><i class="fas fa-brain"></i> TensorFlow</span>
-        <span><i class="fas fa-fire"></i> PyTorch</span>
-        <span><i class="fab fa-docker"></i> Docker</span>
-        <span><i class="fab fa-aws"></i> AWS</span>
-        <span><i class="fas fa-database"></i> MongoDB</span>
-        <span><i class="fab fa-git-alt"></i> Git</span>
-        <span><i class="fas fa-robot"></i> LLMs</span>
-        <span><i class="fab fa-python"></i> Python</span>
-        <span><i class="fab fa-react"></i> React</span>
-        <span><i class="fab fa-node-js"></i> Node.js</span>
-        <span><i class="fas fa-brain"></i> TensorFlow</span>
-        <span><i class="fas fa-fire"></i> PyTorch</span>
-        <span><i class="fab fa-docker"></i> Docker</span>
-        <span><i class="fab fa-aws"></i> AWS</span>
-        <span><i class="fas fa-database"></i> MongoDB</span>
-        <span><i class="fab fa-git-alt"></i> Git</span>
-        <span><i class="fas fa-robot"></i> LLMs</span>
+        <span style="color: #3776AB; font-weight: bold;"><i class="fab fa-python"></i> Python</span>
+        <span style="color: #61DAFB; font-weight: bold;"><i class="fab fa-react"></i> React</span>
+        <span style="color: #68A063; font-weight: bold;"><i class="fab fa-node-js"></i> Node.js</span>
+        <span style="color: #FF6F00; font-weight: bold;">TensorFlow</span>
+        <span style="color: #EE4C2C; font-weight: bold;">PyTorch</span>
+        <span style="color: #2496ED; font-weight: bold;"><i class="fab fa-docker"></i> Docker</span>
+        <span style="color: #FF9900; font-weight: bold;"><i class="fab fa-aws"></i> AWS</span>
+        <span style="color: #47A248; font-weight: bold;"><i class="fas fa-database"></i> MongoDB</span>
+        <span style="color: #F05032; font-weight: bold;"><i class="fab fa-git-alt"></i> Git</span>
+        <span style="color: #9333EA; font-weight: bold;"><i class="fas fa-robot"></i> LLMs</span>
+        <span style="color: #3776AB; font-weight: bold;"><i class="fab fa-python"></i> Python</span>
+        <span style="color: #61DAFB; font-weight: bold;"><i class="fab fa-react"></i> React</span>
+        <span style="color: #68A063; font-weight: bold;"><i class="fab fa-node-js"></i> Node.js</span>
+        <span style="color: #FF6F00; font-weight: bold;">TensorFlow</span>
+        <span style="color: #EE4C2C; font-weight: bold;">PyTorch</span>
+        <span style="color: #2496ED; font-weight: bold;"><i class="fab fa-docker"></i> Docker</span>
+        <span style="color: #FF9900; font-weight: bold;"><i class="fab fa-aws"></i> AWS</span>
+        <span style="color: #47A248; font-weight: bold;"><i class="fas fa-database"></i> MongoDB</span>
+        <span style="color: #F05032; font-weight: bold;"><i class="fab fa-git-alt"></i> Git</span>
+        <span style="color: #9333EA; font-weight: bold;"><i class="fas fa-robot"></i> LLMs</span>
     </div>
 </div>
 
@@ -2154,90 +2294,107 @@ margin-bottom: 0.5rem;
             <div class="skill-category tilt-card glow-border">
                 <h3><i class="fas fa-code"></i> Programming Languages</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag tooltip" data-tooltip="Systems Programming">C</span>
-                    <span class="skill-tag tooltip" data-tooltip="OOP & DSA">C++</span>
-                    <span class="skill-tag tooltip" data-tooltip="Primary Language">Python</span>
-                    <span class="skill-tag tooltip" data-tooltip="Full-Stack">JavaScript</span>
-                    <span class="skill-tag tooltip" data-tooltip="iOS Dev">Swift</span>
-                    <span class="skill-tag tooltip" data-tooltip="Enterprise Apps">Java</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">C</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">C++</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Python</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">JavaScript</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Swift</span>
+                </div>
+            </div>
+            <div class="skill-category tilt-card glow-border">
+                <h3><i class="fas fa-trophy"></i> Coding Profiles</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag" style="color: #FFA116; font-weight: bold;"><i class="fab fa-codeforces"></i> LeetCode</span>
+                    <span class="skill-tag" style="color: #00EC97; font-weight: bold;"><i class="fas fa-code"></i> HackerRank</span>
                 </div>
             </div>
             <div class="skill-category tilt-card glow-border">
                 <h3><i class="fas fa-laptop-code"></i> Web Development</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">React.js</span>
-                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">HTML5</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">CSS3</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">TypeScript</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">React.js</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Node.js</span>
 
                 </div>
             </div>
             <div class="skill-category tilt-card glow-border">
                 <h3><i class="fas fa-database"></i> Database & Backend</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">MongoDB</span>
-                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">MySQL</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">MongoDB</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">PostgreSQL</span>
                 </div>
             </div>
             <div class="skill-category tilt-card glow-border">
                 <h3><i class="fas fa-tools"></i> DevOps & Tools</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">Linux</span>
-                    <span class="skill-tag">CI/CD</span>
-                    <span class="skill-tag">Vercel</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Git</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Docker</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">AWS</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Linux</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">CI/CD</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Vercel</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Ansible</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">OpenTofu</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Linode</span>
                 </div>
             </div>
             <div class="skill-category tilt-card glow-border">
                 <h3><i class="fas fa-brain"></i> AI/ML & LLMs</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag" style="background: var(--gradient-primary); color: white;">PyTorch</span>
-                    <span class="skill-tag" style="background: var(--gradient-accent); color: white;">TensorFlow</span>
-                    <span class="skill-tag">Claude Code</span>
-                    <span class="skill-tag">OpenCV</span>
-                    <span class="skill-tag">YOLO</span>
-                    <span class="skill-tag">Prompt Engineering</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">PyTorch</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">TensorFlow</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Claude Code</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">OpenCV</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">YOLO</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Prompt Engineering</span>
                 </div>
             </div>
             <div class="skill-category tilt-card glow-border">
                 <h3><i class="fas fa-robot"></i> IoT & Embedded</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Arduino</span>
-                    <span class="skill-tag">Raspberry Pi</span>
-                    <span class="skill-tag">ESP32</span>
-                    <span class="skill-tag">Sensors</span>
-                    <span class="skill-tag">Robotics</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Arduino</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Raspberry Pi</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">ESP32</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Sensors</span>
+                    <span class="skill-tag" style="color: #FF6F00; font-weight: bold;">Robotics</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience & Education Section - WATERFALL SDLC STYLE -->
-    <section id="experience" class="section reveal">
+    <!-- Work Experience Section -->
+    <section id="work-experience" class="section reveal">
         <div class="section-header">
-            <h2 class="section-title">Experience & Education</h2>
+            <h2 class="section-title">Work Experience</h2>
             <p class="section-subtitle">
-                My professional journey visualized as an SDLC waterfall - each phase building on the last.
+                Professional roles where I've contributed to cutting-edge projects.
             </p>
         </div>
-        <div class="waterfall-timeline">
-            <div id="experience-container" class="waterfall-container">
-                <!-- Will be populated by JavaScript from data.json -->
-                <div class="skeleton skeleton-title"></div>
-                <div class="skeleton skeleton-text"></div>
-                <div class="skeleton skeleton-text"></div>
-            </div>
+        <div id="work-container" class="cards-grid">
+            <!-- Will be populated by JavaScript from data.json -->
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section reveal">
+        <div class="section-header">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">
+                Academic background and qualifications.
+            </p>
+        </div>
+        <div id="education-container" class="cards-grid">
+            <!-- Will be populated by JavaScript from data.json -->
         </div>
     </section>
 
 <!-- Projects Section -->
 <section id="projects" class="section reveal">
     <div class="section-header">
-        <h2 class="section-title">Featured Projects</h2>
+        <h2 class="section-title">Projects</h2>
         <p class="section-subtitle">
             A showcase of my technical projects - from AI/ML to full-stack applications.
         </p>
@@ -3090,6 +3247,7 @@ margin-bottom: 0.5rem;
         console.log('%c Looking for a passionate AI Engineer? Let\'s connect!', 'font-size: 14px; color: #06b6d4;');
         console.log('%c Email: sprajwalln@gmail.com', 'font-size: 12px; color: #a0aec0;');
     </script>
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
