@@ -29,9 +29,6 @@
       <span class="mb-item">Help</span>
     </div>
     <div class="mb-right">
-      <span class="mb-item mb-os-selector" id="osSelectorBtn" onclick="toggleOsMenu()">
-        <i class="fa fa-desktop"></i> <span id="currentOsName">macOS</span>
-      </span>
       <span class="mb-item"><i class="fa fa-bell"></i></span>
       <span class="mb-item" id="spotlightBtn"><i class="fa fa-magnifying-glass"></i></span>
       <span class="mb-item" id="ctrlCenterBtn"><i class="fa fa-table-cells"></i></span>
@@ -39,192 +36,6 @@
       <span class="mb-item"><i class="fa fa-wifi"></i></span>
       <span class="mb-item" id="menuClock">Mon Mar 16  3:45 PM</span>
     </div>
-  </div>
-
-  <!-- OS Dropdown Menu -->
-  <div id="osDropdown" class="os-dropdown">
-    <div class="os-dropdown-header">Choose Operating System</div>
-    <div class="os-dropdown-item active" data-theme="theme-macos" onclick="setTheme('theme-macos')">
-      <i class="fab fa-apple"></i><span>macOS</span>
-    </div>
-    <div class="os-dropdown-item" data-theme="theme-windows" onclick="setTheme('theme-windows')">
-      <i class="fab fa-windows"></i><span>Windows 11</span>
-    </div>
-    <div class="os-dropdown-item" data-theme="theme-kali" onclick="setTheme('theme-kali')">
-      <i class="fa fa-terminal"></i><span>Kali Linux</span>
-    </div>
-    <div class="os-dropdown-item" data-theme="theme-ios" onclick="setTheme('theme-ios')">
-      <i class="fa fa-mobile-screen"></i><span>iOS</span>
-    </div>
-    <div class="os-dropdown-item" data-theme="theme-android" onclick="setTheme('theme-android')">
-      <i class="fab fa-android"></i><span>Android</span>
-    </div>
-  </div>
-
-  <!-- Windows Taskbar -->
-  <div id="taskbar" class="windows-only">
-    <div id="taskbar-start">
-      <div class="tb-icon" id="startBtn" title="Start">
-        <svg viewBox="0 0 24 24" fill="#60cdff"><path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/></svg>
-      </div>
-      <div class="tb-icon tb-os-selector" id="winOsBtn" onclick="toggleOsMenu()" title="Switch OS">
-        <i class="fa fa-desktop" style="font-size:16px"></i>
-      </div>
-      <div class="tb-icon" onclick="window.location.href='index.html'" title="Classic Portfolio">
-        <i class="fa fa-arrow-left" style="font-size:16px;color:var(--accent)"></i>
-      </div>
-    </div>
-    <div id="taskbar-center">
-      <div class="tb-icon" data-app="finder" title="File Explorer">
-        <i class="fa fa-folder" style="color:#FFD700;font-size:20px"></i>
-        <span class="tb-label">File Explorer</span>
-      </div>
-      <div class="tb-icon" data-app="safari" title="Edge">
-        <i class="fa fa-globe" style="color:#0078D4;font-size:20px"></i>
-        <span class="tb-label">Edge</span>
-      </div>
-      <div class="tb-icon" data-app="terminal" title="PowerShell">
-        <i class="fa fa-terminal" style="color:#012456;font-size:18px;background:#012456;color:#fff;padding:2px;border-radius:3px"></i>
-        <span class="tb-label">PowerShell</span>
-      </div>
-      <div class="tb-icon" data-app="notes" title="Notepad">
-        <i class="fa fa-file-lines" style="color:#fff;font-size:20px"></i>
-        <span class="tb-label">Notepad</span>
-      </div>
-      <div class="tb-icon" data-app="calendar" title="Calendar">
-        <i class="fa fa-calendar" style="color:#60cdff;font-size:20px"></i>
-        <span class="tb-label">Calendar</span>
-      </div>
-      <div class="tb-icon" data-app="mail" title="Mail">
-        <i class="fa fa-envelope" style="color:#0078D4;font-size:20px"></i>
-        <span class="tb-label">Mail</span>
-      </div>
-      <div class="tb-sep"></div>
-      <div class="tb-icon" onclick="window.open('https://www.linkedin.com/in/sprajwallnarayana','_blank')" title="LinkedIn">
-        <i class="fab fa-linkedin" style="color:#0A66C2;font-size:20px"></i>
-        <span class="tb-label">LinkedIn</span>
-      </div>
-      <div class="tb-icon" onclick="window.open('https://github.com/developer1010x','_blank')" title="GitHub">
-        <i class="fab fa-github" style="color:#fff;font-size:20px"></i>
-        <span class="tb-label">GitHub</span>
-      </div>
-    </div>
-    <div id="taskbar-right">
-      <span><i class="fa fa-wifi"></i></span>
-      <span><i class="fa fa-volume-high"></i></span>
-      <span><i class="fa fa-battery-full"></i></span>
-      <div id="winClock" style="text-align:right;line-height:1.3">
-        <div id="winTime">3:45 PM</div>
-        <div id="winDate">3/16/2026</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Kali Top Panel -->
-  <div id="toppanel" class="kali-only">
-    <div class="kp-left">
-      <span class="kp-item kp-logo">&#x1F409; Kali Linux</span>
-      <span class="kp-item kp-os-selector" onclick="toggleOsMenu()"><i class="fa fa-desktop"></i> OS</span>
-      <span class="kp-item" onclick="window.location.href='index.html'"><i class="fa fa-arrow-left"></i> Classic Portfolio</span>
-      <span class="kp-item">Applications <span class="kp-arrow">&#x25BE;</span></span>
-      <span class="kp-item">Places <span class="kp-arrow">&#x25BE;</span></span>
-      <span class="kp-item">System <span class="kp-arrow">&#x25BE;</span></span>
-    </div>
-    <div class="kp-center" id="kaliClock">Mon 16 Mar, 15:45:00</div>
-    <div class="kp-right">
-      <span class="kp-icon"><i class="fa fa-network-wired"></i></span>
-      <span class="kp-icon"><i class="fa fa-volume-high"></i></span>
-      <span class="kp-icon"><i class="fa fa-power-off"></i></span>
-    </div>
-  </div>
-
-  <!-- Kali Left Dock -->
-  <div id="kalidock" class="kali-only">
-    <div class="kd-icon" data-app="finder" title="Files"><i class="fa fa-folder-open" style="color:#00ff41"></i><span class="kd-label">Files</span></div>
-    <div class="kd-icon" data-app="safari" title="Firefox"><i class="fab fa-firefox-browser" style="color:#FF6611"></i><span class="kd-label">Firefox</span></div>
-    <div class="kd-icon kd-active" data-app="terminal" title="Terminal"><i class="fa fa-terminal" style="color:#00ff41"></i><span class="kd-label">Terminal</span></div>
-    <div class="kd-icon" data-app="appstore" title="Tools"><i class="fa fa-shield-halved" style="color:#7B2FBE"></i><span class="kd-label">Metasploit</span></div>
-    <div class="kd-icon" data-app="notes" title="Wireshark"><i class="fa fa-fish" style="color:#1BA3E5"></i><span class="kd-label">Wireshark</span></div>
-    <div class="kd-icon" data-app="settings" title="Settings"><i class="fa fa-gear" style="color:#aaa"></i><span class="kd-label">Settings</span></div>
-  </div>
-
-  <!-- iOS Status Bar -->
-  <div id="ios-statusbar" class="ios-only">
-    <div class="ios-sb-left">
-      <span>&#x2022;&#x2022;&#x2022;&#x2022; Carrier</span>
-    </div>
-    <div class="ios-sb-center" id="iosClock">3:45</div>
-    <div class="ios-sb-right">
-      <i class="fa fa-wifi"></i>
-      <i class="fa fa-battery-full"></i>
-    </div>
-  </div>
-
-  <!-- Android Status Bar -->
-  <div id="android-statusbar" class="android-only">
-    <div id="androidTime">3:45</div>
-    <div class="android-sb-right">
-      <i class="fa fa-wifi"></i>
-      <i class="fa fa-signal"></i>
-      <i class="fa fa-battery-full"></i>
-      <span>100%</span>
-    </div>
-  </div>
-
-  <!-- Android Search Bar -->
-  <div id="android-searchbar" class="android-only">
-    <i class="fa fa-magnifying-glass" style="color:#aaa"></i>
-    <span style="color:#aaa">Search apps and web</span>
-    <img src="assets/images/S_Prajwall_Narayana.jpg" alt="G" style="width:24px;height:24px;border-radius:50%;margin-left:auto;object-fit:cover">
-  </div>
-
-  <!-- iOS App Grid -->
-  <div id="ios-appgrid" class="ios-only">
-    <!-- Row 1 -->
-    <div class="ios-app" data-app="finder"><div class="ios-icon" style="background:linear-gradient(145deg,#1C8EF9,#34AADC)"><i class="fa fa-folder-open fa-lg" style="color:#fff"></i></div><span>About Me</span></div>
-    <div class="ios-app" data-app="safari"><div class="ios-icon" style="background:linear-gradient(145deg,#007AFF,#5AC8FA)"><i class="fa fa-globe fa-lg" style="color:#fff"></i></div><span>Projects</span></div>
-    <div class="ios-app" data-app="mail"><div class="ios-icon" style="background:linear-gradient(145deg,#007AFF,#34AADC)"><i class="fa fa-envelope fa-lg" style="color:#fff"></i></div><span>Mail</span></div>
-    <!-- Row 2 -->
-    <div class="ios-app" data-app="notes"><div class="ios-icon" style="background:linear-gradient(145deg,#FFD60A,#FF9F0A)"><i class="fa fa-file-lines fa-lg" style="color:#fff"></i></div><span>Experience</span></div>
-    <div class="ios-app" data-app="calendar"><div class="ios-icon" style="background:linear-gradient(145deg,#FF3B30,#FF9F0A)"><i class="fa fa-calendar fa-lg" style="color:#fff"></i></div><span>Calendar</span></div>
-    <div class="ios-app" data-app="music"><div class="ios-icon" style="background:linear-gradient(145deg,#FF2D55,#FF6B81)"><i class="fa fa-music fa-lg" style="color:#fff"></i></div><span>Music</span></div>
-    <!-- Row 3 -->
-    <div class="ios-app" data-app="appstore"><div class="ios-icon" style="background:linear-gradient(145deg,#007AFF,#5856D6)"><i class="fa fa-bag-shopping fa-lg" style="color:#fff"></i></div><span>App Store</span></div>
-    <div class="ios-app" data-app="osswitcher"><div class="ios-icon" style="background:linear-gradient(145deg,#6A1B9A,#9C27B0)"><i class="fa fa-desktop fa-lg" style="color:#fff"></i></div><span>OS Switcher</span></div>
-    <div class="ios-app" data-app="github"><div class="ios-icon" style="background:#1C1C1E"><i class="fab fa-github fa-lg" style="color:#fff"></i></div><span>GitHub</span></div>
-    <div class="ios-app" data-app="preview"><div class="ios-icon" style="background:#E53935"><i class="fa fa-file-pdf fa-lg" style="color:#fff"></i></div><span>Resume</span></div>
-    </div>
-
-  <!-- Android App Grid -->
-  <div id="android-appgrid" class="android-only">
-    <div class="and-app" data-app="finder"><div class="and-icon" style="background:#1565C0"><i class="fa fa-folder-open fa-lg" style="color:#fff"></i></div><span>About Me</span></div>
-    <div class="and-app" data-app="safari"><div class="and-icon" style="background:#1B5E20"><i class="fa fa-globe fa-lg" style="color:#fff"></i></div><span>Projects</span></div>
-    <div class="and-app" data-app="notes"><div class="and-icon" style="background:#F57F17"><i class="fa fa-file-lines fa-lg" style="color:#fff"></i></div><span>Experience</span></div>
-    <div class="and-app" data-app="calendar"><div class="and-icon" style="background:#B71C1C"><i class="fa fa-calendar fa-lg" style="color:#fff"></i></div><span>Calendar</span></div>
-    <div class="and-app" data-app="mail"><div class="and-icon" style="background:#01579B"><i class="fa fa-envelope fa-lg" style="color:#fff"></i></div><span>Mail</span></div>
-    <div class="and-app" data-app="music"><div class="and-icon" style="background:#880E4F"><i class="fa fa-music fa-lg" style="color:#fff"></i></div><span>Music</span></div>
-    <div class="and-app" data-app="appstore"><div class="and-icon" style="background:#0D47A1"><i class="fa fa-bag-shopping fa-lg" style="color:#fff"></i></div><span>Play Store</span></div>
-    <div class="and-app" data-app="osswitcher"><div class="and-icon" style="background:#6A1B9A"><i class="fa fa-desktop fa-lg" style="color:#fff"></i></div><span>OS Switcher</span></div>
-    <div class="and-app" data-app="github"><div class="and-icon" style="background:#1C1C1E"><i class="fab fa-github fa-lg" style="color:#fff"></i></div><span>GitHub</span></div>
-    <div class="and-app" data-app="preview"><div class="and-icon" style="background:#E53935"><i class="fa fa-file-pdf fa-lg" style="color:#fff"></i></div><span>Resume</span></div>
-  </div>
-
-  <!-- iOS Dock -->
-  <div id="ios-dock" class="ios-only">
-    <div class="ios-app ios-dock-app" data-app="safari"><div class="ios-icon" style="background:linear-gradient(145deg,#007AFF,#5AC8FA)"><i class="fa fa-globe fa-lg" style="color:#fff"></i></div></div>
-    <div class="ios-app ios-dock-app" data-app="notes"><div class="ios-icon" style="background:linear-gradient(145deg,#FFD60A,#FF9F0A)"><i class="fa fa-file-lines fa-lg" style="color:#fff"></i></div></div>
-    <div class="ios-app ios-dock-app" data-app="finder"><div class="ios-icon" style="background:linear-gradient(145deg,#1C8EF9,#34AADC)"><i class="fa fa-folder-open fa-lg" style="color:#fff"></i></div></div>
-    <div class="ios-app ios-dock-app" data-app="mail"><div class="ios-icon" style="background:linear-gradient(145deg,#007AFF,#34AADC)"><i class="fa fa-envelope fa-lg" style="color:#fff"></i></div></div>
-  </div>
-
-  <!-- iOS Home Indicator -->
-  <div id="ios-home-indicator" class="ios-only"></div>
-
-  <!-- Android Nav Bar -->
-  <div id="android-navbar" class="android-only">
-    <span class="and-nav-btn" id="andBack">&#x25C1;</span>
-    <span class="and-nav-btn" id="andHome">&#x25CB;</span>
-    <span class="and-nav-btn" id="andRecent">&#x25A1;</span>
   </div>
 
   <!-- macOS Dock -->
@@ -244,10 +55,6 @@
     <div class="dock-icon" data-app="github"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%231C1C1E'/%3E%3Cpath d='M30 10 C18.95 10 10 18.95 10 30 C10 38.84 15.56 46.33 23.4 48.97 C24.4 49.16 24.75 48.54 24.75 48 L24.75 44.5 C19.28 45.69 18.13 42.04 18.13 42.04 C17.22 39.78 15.9 39.17 15.9 39.17 C14.07 37.94 16.04 37.97 16.04 37.97 C18.07 38.11 19.14 40.05 19.14 40.05 C20.94 43.09 23.86 42.21 24.87 41.7 C25.06 40.41 25.58 39.53 26.15 39.03 C21.78 38.52 17.19 36.83 17.19 29.34 C17.19 27.21 17.97 25.47 19.17 24.1 C18.97 23.59 18.28 21.6 19.37 18.94 C19.37 18.94 21.07 18.41 24.74 20.91 C26.27 20.47 27.9 20.25 29.53 20.24 C31.16 20.25 32.79 20.47 34.32 20.91 C37.99 18.41 39.69 18.94 39.69 18.94 C40.78 21.6 40.09 23.59 39.89 24.1 C41.1 25.47 41.87 27.21 41.87 29.34 C41.87 36.85 37.27 38.51 32.89 39.01 C33.61 39.63 34.25 40.85 34.25 42.72 L34.25 48 C34.25 48.54 34.6 49.17 35.62 48.97 C43.45 46.32 49 38.83 49 30 C49 18.95 40.05 10 30 10 Z' fill='%23fff'/%3E%3C/svg%3E" alt="GitHub"><span class="dock-label">GitHub</span><div class="dock-dot"></div></div>
     <div class="dock-icon" data-app="settings"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='13' fill='%238E8E93'/%3E%3Ccircle cx='30' cy='30' r='10' stroke='%23fff' stroke-width='3' fill='none'/%3E%3Cpath d='M30 12 L30 18 M30 42 L30 48 M12 30 L18 30 M42 30 L48 30' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" alt="Settings"><span class="dock-label">Settings</span></div>
   </div>
-
-  <!-- Kali Matrix Rain Canvas -->
-  <canvas id="matrixCanvas" class="kali-only"></canvas>
-
 
   <!-- ===== APP WINDOWS ===== -->
 
@@ -805,49 +612,6 @@
               <i class="fa fa-arrow-left"></i> Switch to Classic Portfolio
             </button>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- OS Switcher -->
-  <div class="win-window" id="win-osswitcher">
-    <div class="titlebar" data-win="win-osswitcher">
-      <div class="traffic-lights">
-        <span class="tl close" onclick="closeWin('win-osswitcher')"></span>
-        <span class="tl min" onclick="minWin('win-osswitcher')"></span>
-        <span class="tl max" onclick="maxWin('win-osswitcher')"></span>
-      </div>
-      <div class="win-title">OS Switcher</div>
-      <div class="win-title-right"></div>
-    </div>
-    <div class="win-body" style="padding:20px;flex:1;overflow-y:auto">
-      <h2 style="margin-bottom:16px;font-size:16px">Choose Operating System</h2>
-      <p style="color:var(--text2);margin-bottom:20px;font-size:13px">Switch between different OS themes</p>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
-        <div class="os-theme-btn" onclick="setTheme('theme-macos')" style="padding:16px;text-align:center">
-          <i class="fab fa-apple" style="font-size:28px;color:var(--accent);margin-bottom:8px"></i>
-          <div style="font-size:13px">macOS</div>
-        </div>
-        <div class="os-theme-btn" onclick="setTheme('theme-windows')" style="padding:16px;text-align:center">
-          <i class="fab fa-windows" style="font-size:28px;color:var(--accent);margin-bottom:8px"></i>
-          <div style="font-size:13px">Windows 11</div>
-        </div>
-        <div class="os-theme-btn" onclick="setTheme('theme-kali')" style="padding:16px;text-align:center">
-          <i class="fa fa-terminal" style="font-size:28px;color:#00ff41;margin-bottom:8px"></i>
-          <div style="font-size:13px">Kali Linux</div>
-        </div>
-        <div class="os-theme-btn" onclick="setTheme('theme-ios')" style="padding:16px;text-align:center">
-          <i class="fa fa-mobile-screen" style="font-size:28px;color:var(--accent);margin-bottom:8px"></i>
-          <div style="font-size:13px">iOS</div>
-        </div>
-        <div class="os-theme-btn" onclick="setTheme('theme-android')" style="padding:16px;text-align:center">
-          <i class="fab fa-android" style="font-size:28px;color:#3ddc84;margin-bottom:8px"></i>
-          <div style="font-size:13px">Android</div>
-        </div>
-        <div class="os-theme-btn" onclick="window.location.href='index.html'" style="padding:16px;text-align:center">
-          <i class="fa fa-arrow-left" style="font-size:28px;color:var(--accent);margin-bottom:8px"></i>
-          <div style="font-size:13px">Classic View</div>
         </div>
       </div>
     </div>

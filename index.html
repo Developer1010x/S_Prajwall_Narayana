@@ -2076,35 +2076,9 @@ margin-bottom: 0.5rem;
 <li class="nav-os-mobile"><a href="javascript:void(0)" onclick="switchToOs('theme-ios');toggleMobileMenu()"><i class="fas fa-mobile-screen"></i> iOS</a></li>
 <li class="nav-os-mobile"><a href="javascript:void(0)" onclick="switchToOs('theme-android');toggleMobileMenu()"><i class="fab fa-android"></i> Android</a></li>
 </ul>
-<div class="nav-dropdown" id="desktopViewDropdown">
-  <button class="theme-toggle os-dropdown-btn" onclick="toggleDropdown('desktopDropdown');return false">
-    <i class="fas fa-desktop" style="margin-right:6px"></i> Desktop View <i class="fas fa-chevron-down" style="margin-left:6px;font-size:10px"></i>
-  </button>
-  <div id="desktopDropdown" class="dropdown-content">
-    <a href="javascript:void(0)" onclick="switchToOs('theme-macos')"><i class="fab fa-apple"></i> macOS</a>
-    <a href="javascript:void(0)" onclick="switchToOs('theme-windows')"><i class="fab fa-windows"></i> Windows</a>
-    <a href="javascript:void(0)" onclick="switchToOs('theme-kali')"><i class="fas fa-terminal"></i> Kali Linux</a>
-  </div>
-</div>
-<script>
-  // Hide Desktop View button on real touch mobile devices
-  (function(){
-    var isTouchMobile = /Mobi|Android|iPhone|iPod/i.test(navigator.userAgent) && 'ontouchstart' in window;
-    if(isTouchMobile){
-      var el = document.getElementById('desktopViewDropdown');
-      if(el) el.style.display = 'none';
-    }
-  })();
-</script>
-<div class="nav-dropdown">
-  <button class="theme-toggle os-dropdown-btn" onclick="toggleDropdown('mobileDropdown');return false">
-    <i class="fas fa-tablet-alt" style="margin-right:6px"></i> Tablet View <i class="fas fa-chevron-down" style="margin-left:6px;font-size:10px"></i>
-  </button>
-  <div id="mobileDropdown" class="dropdown-content">
-    <a href="javascript:void(0)" onclick="switchToOs('theme-ios')"><i class="fas fa-mobile-screen"></i> iOS</a>
-    <a href="javascript:void(0)" onclick="switchToOs('theme-android')"><i class="fab fa-android"></i> Android</a>
-  </div>
-</div>
+<button class="theme-toggle os-dropdown-btn" onclick="window.location.href='index2.html'" style="cursor:pointer">
+  <i class="fas fa-desktop" style="margin-right:6px"></i> OS View
+</button>
 <style>
 .nav-dropdown{position:relative;display:inline-block}
 .dropdown-content{display:none;position:absolute;right:0;min-width:160px;background:rgba(30,30,40,.98);border:1px solid rgba(255,255,255,.15);border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.4);z-index:1000;margin-top:8px}
