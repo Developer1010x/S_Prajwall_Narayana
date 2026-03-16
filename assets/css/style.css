@@ -824,103 +824,6 @@ input,textarea,button{font-family:var(--font)}
 .about-settings-row span:last-child{color:var(--text2)}
 
 /* ===================================================================
-   DESKTOP WIDGETS (All OS)
-   =================================================================== */
-#widgets-container{
-  position:fixed;top:50px;left:20px;display:flex;flex-direction:column;gap:12px;z-index:50;
-  pointer-events:none;
-}
-.theme-kali #widgets-container{left:72px}
-.theme-ios #widgets-container,
-.theme-android #widgets-container{
-  top:80px;left:10px;right:10px;
-  flex-direction:row;flex-wrap:wrap;justify-content:center;
-}
-.theme-ios #widgets-container .widget,
-.theme-android #widgets-container .widget{
-  min-width:140px;max-width:180px;pointer-events:all;
-}
-
-.widget{
-  background:rgba(30,30,40,.75);backdrop-filter:blur(20px) saturate(1.5);
-  -webkit-backdrop-filter:blur(20px) saturate(1.5);
-  border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px;
-  min-width:200px;pointer-events:all;cursor:move;box-shadow:0 8px 32px rgba(0,0,0,.4);
-}
-.theme-kali .widget{
-  background:rgba(10,0,20,.8);border-color:rgba(0,255,65,.2);
-  box-shadow:0 0 20px rgba(0,255,65,.05);
-}
-.widget-header{
-  display:flex;align-items:center;justify-content:space-between;
-  font-size:12px;font-weight:600;color:var(--text2);margin-bottom:10px;
-}
-.widget-close{
-  width:18px;height:18px;border-radius:50%;border:none;background:rgba(255,255,255,.1);
-  color:var(--text3);cursor:pointer;font-size:10px;display:flex;align-items:center;justify-content:center;
-  transition:background .15s;
-}
-.widget-close:hover{background:var(--red);color:#fff}
-.widget-nav{
-  width:20px;height:20px;border-radius:50%;border:none;background:rgba(255,255,255,.08);
-  color:var(--text2);cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;
-  transition:background .15s;
-}
-.widget-nav:hover{background:rgba(255,255,255,.15)}
-
-/* Clock widget */
-#analogClock{display:block;margin:0 auto 8px}
-.digital-clock{text-align:center;font-size:20px;font-weight:700;font-family:monospace;margin-bottom:4px}
-.theme-kali .digital-clock{color:#00ff41}
-
-/* Calendar widget */
-#miniCal{font-size:11px}
-
-/* Weather widget */
-.weather-city{font-size:12px;color:var(--text2);margin-bottom:4px}
-.weather-main{font-size:28px;font-weight:300;margin-bottom:4px}
-.weather-sub{font-size:11px;color:var(--text2);margin-bottom:6px}
-.weather-row{display:flex;gap:12px;font-size:11px;color:var(--text3);margin-bottom:8px}
-.weather-forecast{display:flex;gap:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.08)}
-.wf-day{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:var(--text2);flex:1;text-align:center}
-
-/* Blog widget */
-.blog-post{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.blog-post:last-of-type{border-bottom:none}
-.blog-tag{font-size:9px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}
-.blog-title{font-size:11px;color:var(--text2);line-height:1.4}
-.blog-subscribe{
-  margin-top:8px;width:100%;padding:6px;background:rgba(0,122,255,.3);border:none;
-  border-radius:6px;color:#fff;font-size:11px;cursor:pointer;font-family:var(--font);
-  transition:background .15s;
-}
-.blog-subscribe:hover{background:rgba(0,122,255,.5)}
-
-/* GitHub widget */
-.gh-user{font-size:12px;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.gh-stats{display:flex;gap:8px;margin-bottom:10px}
-.gh-stat{text-align:center;flex:1}
-.gh-num{font-size:18px;font-weight:700;color:var(--green)}
-.gh-stat div:last-child{font-size:10px;color:var(--text3)}
-#ghContrib{display:grid;grid-template-columns:repeat(13,1fr);gap:2px}
-.gc-square{width:10px;height:10px;border-radius:2px;background:rgba(52,199,89,0.15)}
-.gc-square.l1{background:rgba(52,199,89,.3)}
-.gc-square.l2{background:rgba(52,199,89,.5)}
-.gc-square.l3{background:rgba(52,199,89,.7)}
-.gc-square.l4{background:rgba(52,199,89,1)}
-
-/* Windows Widgets Panel */
-#win-widgets{
-  position:fixed;right:20px;top:68px;display:flex;flex-direction:column;gap:12px;z-index:50;
-  width:280px;
-}
-.win-widget-card{
-  background:rgba(30,30,30,.75);backdrop-filter:blur(20px);border-radius:12px;
-  border:1px solid rgba(255,255,255,.1);padding:16px;
-}
-#ww-time{font-size:28px;font-weight:200}
-#ww-date-full{font-size:12px;color:var(--text2);margin-top:4px}
-
 /* ===================================================================
    RIGHT-CLICK CONTEXT MENU
    =================================================================== */
@@ -1163,15 +1066,6 @@ input,textarea,button{font-family:var(--font)}
   .dock-label{display:none}
   #dock .dock-sep{display:none}
 
-  /* Widgets */
-  #widgets-container{display:flex!important;position:fixed;top:auto;bottom:72px;left:0;right:0;flex-wrap:wrap;justify-content:center;gap:6px;padding:0 6px;pointer-events:none}
-  #widgets-container .widget{min-width:110px;max-width:140px;padding:8px;border-radius:12px;pointer-events:all}
-  #widgets-container .widget canvas{width:50px!important;height:50px!important}
-  #widgets-container .digital-clock{font-size:13px}
-  #widgets-container .weather-main{font-size:15px}
-  #widgets-container .weather-forecast{display:none}
-  #widgets-container .blogWidget{display:none}
-  #win-widgets{display:none!important}
 
   /* App content layouts — stack vertically */
   .finder-layout,.notes-layout,.photos-layout,.appstore-layout,.cal-layout,.mail-layout{
