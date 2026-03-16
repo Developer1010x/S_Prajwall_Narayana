@@ -89,9 +89,6 @@
     initNotepad();
     initCalculator();
 
-    initAndroidNavbar();
-    initMatrixRain();
-    initOsSwitcher();
     loadDataFromJSON();
 
     // Load saved preferences
@@ -109,27 +106,7 @@
      OS DETECTION
   ================================================================ */
   function detectAndSetTheme() {
-    const ua = navigator.userAgent.toLowerCase();
-    const platform = (navigator.platform || '').toLowerCase();
-
-    let theme = 'theme-macos';
-    if (/iphone|ipad|ipod/.test(ua) || /iphone|ipad/.test(platform)) {
-      theme = 'theme-ios';
-    } else if (/android/.test(ua)) {
-      theme = 'theme-android';
-    } else if (/kali|linux/.test(ua) && !/android/.test(ua)) {
-      theme = 'theme-kali';
-    } else if (/windows/.test(ua) || /win/.test(platform)) {
-      theme = 'theme-windows';
-    } else if (/mac/.test(ua) || /mac/.test(platform)) {
-      theme = 'theme-macos';
-    }
-
-    // Check localStorage override
-    const saved = localStorage.getItem('portfolio-theme');
-    if (saved) theme = saved;
-
-    setTheme(theme, false);
+    setTheme('theme-macos', false);
   }
 
   window.setTheme = function(theme, save = true) {
@@ -630,23 +607,30 @@
 
   function toggleSpotlight() {
     const overlay = document.getElementById('spotlight');
+    if (!overlay) return;
     const isShown = overlay.classList.contains('show');
     if (isShown) closeSpotlight();
     else {
       overlay.classList.add('show');
-      setTimeout(() => document.getElementById('spotlightInput').focus(), 100);
+      const inp = document.getElementById('spotlightInput');
+      if (inp) setTimeout(() => inp.focus(), 100);
     }
   }
 
   function closeSpotlight() {
-    document.getElementById('spotlight').classList.remove('show');
-    document.getElementById('spotlightInput').value = '';
-    document.getElementById('spotlightResults').innerHTML = '';
+    const overlay = document.getElementById('spotlight');
+    const inp = document.getElementById('spotlightInput');
+    const res = document.getElementById('spotlightResults');
+    if (overlay) overlay.classList.remove('show');
+    if (inp) inp.value = '';
+    if (res) res.innerHTML = '';
   }
 
   function updateSpotlightResults() {
-    const q = document.getElementById('spotlightInput').value.toLowerCase();
+    const inp = document.getElementById('spotlightInput');
     const resultsEl = document.getElementById('spotlightResults');
+    if (!inp || !resultsEl) return;
+    const q = inp.value.toLowerCase();
     if (!q) { resultsEl.innerHTML = ''; return; }
 
     const items = [
@@ -679,6 +663,7 @@
   ================================================================ */
   function showNotification() {
     const notif = document.getElementById('notification');
+    if (!notif) return;
     notif.classList.add('show');
     setTimeout(() => notif.classList.remove('show'), 4000);
   }
@@ -844,9 +829,12 @@
     calSidebarYear = now.getFullYear();
     calSidebarMonth = now.getMonth();
 
-    document.getElementById('calMainPrev').addEventListener('click', () => { calSidebarMonth--; if (calSidebarMonth < 0) { calSidebarMonth = 11; calSidebarYear--; } renderFullCalendar(); });
-    document.getElementById('calMainNext').addEventListener('click', () => { calSidebarMonth++; if (calSidebarMonth > 11) { calSidebarMonth = 0; calSidebarYear++; } renderFullCalendar(); });
-    document.getElementById('calTodayBtn').addEventListener('click', () => { const n = new Date(); calSidebarYear = n.getFullYear(); calSidebarMonth = n.getMonth(); renderFullCalendar(); });
+    const calPrev = document.getElementById('calMainPrev');
+    const calNext = document.getElementById('calMainNext');
+    const calToday = document.getElementById('calTodayBtn');
+    if (calPrev) calPrev.addEventListener('click', () => { calSidebarMonth--; if (calSidebarMonth < 0) { calSidebarMonth = 11; calSidebarYear--; } renderFullCalendar(); });
+    if (calNext) calNext.addEventListener('click', () => { calSidebarMonth++; if (calSidebarMonth > 11) { calSidebarMonth = 0; calSidebarYear++; } renderFullCalendar(); });
+    if (calToday) calToday.addEventListener('click', () => { const n = new Date(); calSidebarYear = n.getFullYear(); calSidebarMonth = n.getMonth(); renderFullCalendar(); });
   }
 
   function renderFullCalendar() {
@@ -1399,16 +1387,6 @@
     });
   });
 
-  /* ================================================================
-     SPOTLIGHT — global closeSpotlight ref
-  ================================================================ */
-  window.closeSpotlight = function() {
-    document.getElementById('spotlight').classList.remove('show');
-    const inp = document.getElementById('spotlightInput');
-    if (inp) inp.value = '';
-    const res = document.getElementById('spotlightResults');
-    if (res) res.innerHTML = '';
-  };
 
   /* ================================================================
      TOUCH SUPPORT (iOS / Android)
