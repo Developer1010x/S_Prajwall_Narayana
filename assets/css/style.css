@@ -1080,73 +1080,177 @@ input,textarea,button{font-family:var(--font)}
    RESPONSIVE - All Devices: Mobile, Tablet, Laptop, Touch & Non-Touch
    =================================================================== */
 
-/* Tablet Portrait */
+/* ===================================================================
+   RESPONSIVE — TABLET & MOBILE
+   =================================================================== */
+
+/* ── Tablet Portrait (≤1024px portrait) ── */
 @media (max-width:1024px) and (orientation:portrait){
-  .win-window{width:95%!important;height:75%!important;left:2.5%!important;top:12%!important;border-radius:16px!important}
+  .win-window{width:94%!important;height:76%!important;left:3%!important;top:11%!important;border-radius:16px!important}
+  #dock{gap:6px;padding:6px 12px 4px}
+  .dock-icon{width:52px;height:52px}
+  #menubar .mb-right .mb-item:not(#menuClock):not(#spotlightBtn):not(#ctrlCenterBtn){display:none}
 }
 
-/* Tablet Landscape */
+/* ── Tablet Landscape (≤1024px landscape) ── */
 @media (max-width:1024px) and (orientation:landscape){
-  .win-window{width:80%!important;height:80%!important;left:10%!important;top:10%!important}
+  .win-window{width:82%!important;height:80%!important;left:9%!important;top:9%!important}
 }
 
-/* Mobile */
+/* ── Mobile (≤768px) ── */
 @media (max-width:768px){
-  .win-window{width:100%!important;height:70%!important;left:0!important;top:auto!important;bottom:0!important;border-radius:20px 20px 0 0!important}
-  .theme-android .win-window,.theme-ios .win-window{width:95%!important;height:85%!important;left:2.5%!important;bottom:80px!important;border-radius:16px!important}
-  .theme-android #win-preview,.theme-ios #win-preview{width:100%!important;height:90%!important;left:0!important;bottom:0!important;border-radius:0!important}
-  .theme-android #win-preview .win-body,.theme-ios #win-preview .win-body{height:calc(100% - 40px)!important}
-  #widgets-container{display:flex!important;top:auto;bottom:100px;left:0;right:0;flex-wrap:wrap;justify-content:center;gap:8px;padding:0 8px}
-  #widgets-container .widget{min-width:120px;max-width:150px;padding:10px;border-radius:12px}
-  #widgets-container .widget canvas{width:60px!important;height:60px!important}
-  #widgets-container .digital-clock{font-size:14px}
-  #widgets-container .weather-main{font-size:16px}
+
+  /* Windows — bottom-sheet style for all themes */
+  .win-window{
+    width:100%!important;height:78%!important;
+    left:0!important;right:0!important;
+    top:auto!important;bottom:0!important;
+    border-radius:20px 20px 0 0!important;
+    min-width:0!important;
+  }
+  /* iOS/Android windows sit above their bottom bar */
+  .theme-ios .win-window,.theme-android .win-window{
+    width:100%!important;height:80%!important;
+    left:0!important;bottom:0!important;
+    border-radius:20px 20px 0 0!important;
+  }
+  /* Preview (resume) goes full screen on mobile */
+  #win-preview{
+    height:92%!important;border-radius:12px 12px 0 0!important;
+  }
+  #win-preview .win-body{height:calc(100% - 40px)!important}
+
+  /* Win-body scrollable */
+  .win-body{overflow-y:auto!important;-webkit-overflow-scrolling:touch}
+
+  /* ── macOS menu bar: keep visible, hide excess items ── */
+  #menubar{font-size:11px;padding:0 8px;height:26px}
+  #menubar .mb-left .mb-item:not(.mb-apple):not([id="activeAppName"]):not([onclick*="index.html"]){display:none}
+  #menubar .mb-right .mb-item:not(#menuClock):not(#spotlightBtn){display:none}
+
+  /* ── Theme-aware bottom bars ── */
+  /* macOS: force taskbar hidden, menubar+dock visible */
+  .theme-macos #taskbar{display:none!important}
+  .theme-macos #menubar{display:flex!important}
+  .theme-macos #dock{display:flex!important}
+
+  /* Windows: taskbar visible, scaled down */
+  .theme-windows #taskbar{display:flex!important;height:44px}
+  .theme-windows #menubar{display:none!important}
+  .theme-windows .tb-icon{width:36px;height:36px}
+  .theme-windows .tb-label{display:none}
+  .theme-windows #taskbar-center{gap:4px}
+
+  /* Kali: hide toppanel (too wide), show kalidock only */
+  .theme-kali #toppanel{display:none!important}
+  .theme-kali #kalidock{display:flex!important;left:0;top:auto;bottom:0;width:100%;height:52px;flex-direction:row;justify-content:center;gap:4px;padding:4px 8px;border-radius:0}
+  .theme-kali .kali-icon{width:40px;height:40px}
+  .theme-kali .kali-label{display:none}
+  .theme-kali .win-window.maximized{top:0!important;left:0!important;bottom:52px!important;width:100%!important;height:calc(100% - 52px)!important}
+  .theme-kali #matrixCanvas{opacity:.04}
+
+  /* macOS dock: horizontal scroll on mobile */
+  #dock{
+    padding:5px 10px 4px;gap:5px;
+    max-width:100%;overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    border-radius:16px;
+    bottom:6px;
+  }
+  #dock::-webkit-scrollbar{display:none}
+  .dock-icon{width:46px;height:46px;flex-shrink:0}
+  .dock-label{display:none}
+  #dock .dock-sep{display:none}
+
+  /* Widgets */
+  #widgets-container{display:flex!important;position:fixed;top:auto;bottom:72px;left:0;right:0;flex-wrap:wrap;justify-content:center;gap:6px;padding:0 6px;pointer-events:none}
+  #widgets-container .widget{min-width:110px;max-width:140px;padding:8px;border-radius:12px;pointer-events:all}
+  #widgets-container .widget canvas{width:50px!important;height:50px!important}
+  #widgets-container .digital-clock{font-size:13px}
+  #widgets-container .weather-main{font-size:15px}
   #widgets-container .weather-forecast{display:none}
   #widgets-container .blogWidget{display:none}
   #win-widgets{display:none!important}
-  .projects-grid{grid-template-columns:1fr}
+
+  /* App content layouts — stack vertically */
+  .finder-layout,.notes-layout,.photos-layout,.appstore-layout,.cal-layout,.mail-layout{
+    flex-direction:column!important;
+  }
+  .finder-sidebar,.notes-sidebar,.cal-sidebar,.mail-sidebar{
+    width:100%!important;height:auto!important;flex-shrink:0;
+    flex-direction:row!important;overflow-x:auto;gap:6px;padding:8px!important;
+    border-right:none!important;border-bottom:1px solid rgba(255,255,255,.1)!important;
+  }
+  .finder-sidebar .sidebar-item,.notes-sidebar .sidebar-item,.cal-sidebar .cal-month-nav,
+  .mail-sidebar .sidebar-item{
+    white-space:nowrap;flex-shrink:0;padding:6px 12px!important;border-radius:20px;
+    background:rgba(255,255,255,.07);
+  }
+  .notes-content,.cal-main,.finder-main,.mail-main{flex:1;min-height:0;overflow-y:auto}
+
+  .finder-tabs{display:flex;overflow-x:auto;gap:6px;padding:8px;scrollbar-width:none}
+  .finder-tabs::-webkit-scrollbar{display:none}
+  .finder-tab-btn{padding:6px 12px;font-size:12px;white-space:nowrap;flex-shrink:0}
+
+  /* Projects grid */
+  .projects-grid{grid-template-columns:1fr!important}
+  .proj-card{padding:14px}
+
+  /* About */
   .about-hero{flex-direction:column;align-items:center;text-align:center}
-  .about-links{justify-content:center}
-  .dock{flex-wrap:wrap;justify-content:center;padding:8px 12px;gap:8px}
-  .dock-icon{width:48px;height:48px}
-  .dock-label{display:none}
-  #menubar{display:none!important}
-  #taskbar{display:flex!important}
-  #toppanel{display:none!important}
-  .ios-appgrid,.android-appgrid{padding:16px}
-  .ios-app,.and-app{width:65px;height:65px}
-  .ios-app span,.and-app span{font-size:11px}
-}
+  .about-links{justify-content:center;flex-wrap:wrap}
 
-/* Small Mobile */
-@media (max-width:480px){
+  /* Skills grid */
+  .skills-grid{grid-template-columns:1fr!important}
+
+  /* Timeline */
+  .timeline{padding-left:16px}
+  .tl-content{font-size:13px}
+
+  /* iOS/Android grids */
+  .ios-appgrid,.android-appgrid{padding:12px 8px}
+  .ios-app,.and-app{width:64px;height:64px}
   .ios-app span,.and-app span{font-size:10px}
-  .ios-icon{width:52px;height:52px}
-  .and-icon{width:50px;height:50px}
-  #ios-appgrid{gap:12px 8px;padding:12px}
-  .win-window{height:80%!important}
-  .finder-tabs{display:flex;overflow-x:auto;gap:8px;padding:8px}
-  .finder-tab-btn{padding:8px 12px;font-size:12px;white-space:nowrap}
-  .notes-layout,.photos-layout,.appstore-layout,.cal-layout{flex-direction:column}
-  .notes-sidebar,.cal-sidebar{width:100%;flex-direction:row;overflow-x:auto;gap:8px;padding:8px}
-  .notes-content,.cal-main{flex:1;min-height:0}
 }
 
-/* Touch Device Enhancements */
+/* ── Small Mobile (≤480px) ── */
+@media (max-width:480px){
+  .win-window{height:82%!important}
+  #win-preview{height:90%!important}
+
+  .ios-icon{width:52px!important;height:52px!important}
+  .and-icon{width:50px!important;height:50px!important}
+  .ios-app span,.and-app span{font-size:10px}
+  #ios-appgrid{gap:10px 6px;padding:10px 6px}
+  #android-appgrid{gap:10px 4px;padding:8px 4px}
+
+  #menubar .mb-right #menuClock{font-size:10px}
+
+  .tl-company{font-size:13px}
+  .tl-role{font-size:12px}
+  .proj-card h3{font-size:13px}
+  .win-title{font-size:12px}
+}
+
+/* ── Touch enhancements ── */
 @media (hover:none) and (pointer:coarse){
-  .dock-icon:active{transform:scale(0.95)}
-  .win-window:active{opacity:0.98}
-  .ios-app:active,.and-app:active{transform:scale(0.95)}
-  button,input,textarea,select{min-height:44px}
+  .dock-icon:active{transform:scale(0.92)}
+  .ios-app:active,.and-app:active{transform:scale(0.92)}
+  .kali-icon:active,.tb-icon:active{opacity:0.7}
+  button,input,textarea,select{min-height:40px}
   .ctx-item{padding:12px 16px}
+  .sidebar-item{min-height:36px;display:flex;align-items:center}
+  /* Disable drag on touch - windows use touch handlers instead */
+  .win-titlebar{cursor:default}
 }
 
-/* High DPI / Retina */
+/* ── High DPI / Retina ── */
 @media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){
   .dock-icon img,.ios-icon,.and-icon{image-rendering:-webkit-optimize-contrast}
 }
 
-/* Reduce Motion */
+/* ── Reduce Motion ── */
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
 }

@@ -533,10 +533,29 @@
   function positionNewWindow(win) {
     const theme = currentTheme;
     const sw = window.innerWidth, sh = window.innerHeight;
-    const ww = Math.min(800, sw * 0.8);
-    const wh = Math.min(550, sh * 0.75);
+    const isMobile = sw <= 768;
+    const isTablet = sw > 768 && sw <= 1024;
+
+    // On mobile — CSS handles positioning via media queries, just clear inline styles
+    if (isMobile) {
+      win.style.left = '';
+      win.style.top = '';
+      win.style.width = '';
+      win.style.height = '';
+      return;
+    }
+
     const topOff = theme === 'theme-macos' ? 28 : theme === 'theme-kali' ? 30 : 0;
     const botOff = theme === 'theme-windows' ? 48 : theme === 'theme-ios' ? 100 : theme === 'theme-android' ? 60 : 80;
+
+    let ww, wh;
+    if (isTablet) {
+      ww = sw * 0.88;
+      wh = sh * 0.76;
+    } else {
+      ww = Math.min(800, sw * 0.8);
+      wh = Math.min(550, sh * 0.75);
+    }
 
     const left = (sw - ww) / 2;
     const top = topOff + ((sh - topOff - botOff - wh) / 2);
@@ -546,19 +565,19 @@
     win.style.width = ww + 'px';
     win.style.height = wh + 'px';
 
-    // Per-app size overrides
+    // Per-app size overrides (desktop/tablet only)
     const sizeMap = {
-      'win-music': { w: 680, h: 420 },
+      'win-music':      { w: 680, h: 420 },
       'win-osswitcher': { w: 400, h: 450 },
-      'win-preview': { w: 750, h: 850 },
-      'win-github': { w: 800, h: 600 },
+      'win-preview':    { w: 750, h: 850 },
+      'win-github':     { w: 800, h: 600 },
     };
     const id = win.id;
     if (sizeMap[id]) {
-      win.style.width = Math.min(sizeMap[id].w, sw * 0.9) + 'px';
+      win.style.width  = Math.min(sizeMap[id].w, sw * 0.9) + 'px';
       win.style.height = Math.min(sizeMap[id].h, sh * 0.85) + 'px';
-      win.style.left = ((sw - parseInt(win.style.width)) / 2) + 'px';
-      win.style.top = Math.max(topOff + 4, (sh - parseInt(win.style.height)) / 2) + 'px';
+      win.style.left   = ((sw - parseInt(win.style.width)) / 2) + 'px';
+      win.style.top    = Math.max(topOff + 4, (sh - parseInt(win.style.height)) / 2) + 'px';
     }
   }
 
