@@ -8,8 +8,7 @@
 ## 🚀 About Me
 ✨ Building autonomous systems and self-healing deployment infrastructure.
 
-- 🔭 Currently at **[Colligence Research](https://colligence.in)** — architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines
-- 🛠 Building DevOps infrastructure with **Docker, Ansible, OpenTofu, and Linode**
+- 🛠 Building DevOps infrastructure with **Docker, Ansible, OpenTofu, and Linode** at **[Colligence Research](https://colligence.in)**
 - 📄 **2× IEEE Xplore Published** — robotics (YOLOv3 rover + 4-DOF arm) and ML (ResNet50 hyperparameter optimization)
 - 🎓 B.E. Computer Science, **RV College of Engineering** (2021–2025)
 - 🌱 Currently exploring **autonomous AI agents** and **LLM infrastructure**
