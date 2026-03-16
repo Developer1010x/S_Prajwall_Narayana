@@ -975,10 +975,21 @@ padding-right: 1.5rem;
 }
 }
 
+/* Nav OS mobile-only items: hidden by default */
+.nav-os-mobile { display: none !important; }
+.nav-os-divider { border-top: 1px solid var(--border-color); margin: 0.25rem 0; padding: 0 !important; }
+.nav-os-label { font-size: 0.75rem; color: var(--text-muted); padding: 0.25rem 1rem !important; text-transform: uppercase; letter-spacing: 0.05em; pointer-events: none; }
+
 /* Responsive Design - Mobile Landscape & Tablet Portrait */
 @media (max-width: 768px) {
 .hamburger {
 display: flex;
+}
+.nav-dropdown {
+display: none !important;
+}
+.nav-os-mobile {
+display: list-item !important;
 }
 .nav-links {
 display: none;
@@ -2057,6 +2068,13 @@ margin-bottom: 0.5rem;
 <li><a href="#education">Education</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#contact">Contact</a></li>
+<li class="nav-os-mobile nav-os-divider"></li>
+<li class="nav-os-mobile nav-os-label">Switch Theme</li>
+<li class="nav-os-mobile"><a href="javascript:void(0)" onclick="switchToOs('theme-macos');toggleMobileMenu()"><i class="fab fa-apple"></i> macOS</a></li>
+<li class="nav-os-mobile"><a href="javascript:void(0)" onclick="switchToOs('theme-windows');toggleMobileMenu()"><i class="fab fa-windows"></i> Windows</a></li>
+<li class="nav-os-mobile"><a href="javascript:void(0)" onclick="switchToOs('theme-kali');toggleMobileMenu()"><i class="fas fa-terminal"></i> Kali Linux</a></li>
+<li class="nav-os-mobile"><a href="javascript:void(0)" onclick="switchToOs('theme-ios');toggleMobileMenu()"><i class="fas fa-mobile-screen"></i> iOS</a></li>
+<li class="nav-os-mobile"><a href="javascript:void(0)" onclick="switchToOs('theme-android');toggleMobileMenu()"><i class="fab fa-android"></i> Android</a></li>
 </ul>
 <div class="nav-dropdown">
   <button class="theme-toggle os-dropdown-btn" onclick="toggleDropdown('desktopDropdown');return false">
@@ -2307,7 +2325,7 @@ document.addEventListener('click',function(e){
             <div class="skill-category glow-border">
                 <h3><i class="fas fa-user-astronaut"></i> Current Work</h3>
                 <p style="color: var(--text-muted); line-height: 1.8;">
-                    <a href="https://colligence.in" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none;"><strong>AI Engineer at Colligence Research</strong></a> architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines. Building DevOps infrastructure using Docker, Ansible, OpenTofu, and Linode with microfrontend architecture and Citadel auth.
+                    <a href="https://colligence.in" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none;"><strong>AI Engineer at Colligence Research</strong></a> architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines. Building DevOps infrastructure using Docker, Ansible, OpenTofu, and Linode with microfrontend architecture and Zitadel auth.
                 </p>
             </div>
             <div class="skill-category glow-border">
@@ -2963,7 +2981,7 @@ document.addEventListener('click',function(e){
                     id: 1, phase: "Phase 1", date: "Nov 2024 - Present",
                     title: "AI Engineer, Prompt Engineering Researcher & DevOps/Infra",
                     company: "Colligence Research", location: "Bengaluru, IN",
-                    description: "Architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines. Building DevOps infrastructure using Docker, Ansible, OpenTofu, and Linode with microfrontend architecture and Citadel auth.",
+                    description: "Architecting autonomous compilers with Claude Code integration for self-healing deployment pipelines. Building DevOps infrastructure using Docker, Ansible, OpenTofu, and Linode with microfrontend architecture and Zitadel auth.",
                     tags: ["FastAPI", "React", "Claude Code", "Docker", "Ansible", "OpenTofu", "Linode", "PostgreSQL"],
                     type: "work", current: true
                 },
