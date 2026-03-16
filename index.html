@@ -2209,15 +2209,11 @@ document.addEventListener('click',function(e){
           const modal = document.getElementById('resume-modal');
           modal.style.display = 'flex';
           document.body.style.overflow = 'hidden';
-          fetch('assets/resume.pdf', { method: 'HEAD' })
-            .then(r => {
-              if (r.ok) {
-                document.getElementById('resume-iframe').src = 'assets/resume.pdf';
-                document.getElementById('resume-iframe').style.display = 'block';
-                document.getElementById('resume-updating').style.display = 'none';
-              } else { showResumeUpdating(); }
-            })
-            .catch(showResumeUpdating);
+          const iframe = document.getElementById('resume-iframe');
+          iframe.src = 'assets/resume.pdf';
+          iframe.style.display = 'block';
+          document.getElementById('resume-updating').style.display = 'none';
+          document.getElementById('resume-download-btn').style.display = '';
         }
         function showResumeUpdating() {
           document.getElementById('resume-iframe').style.display = 'none';
