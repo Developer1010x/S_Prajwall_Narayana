@@ -1196,15 +1196,10 @@ function loadOSResume() {
   const updating = document.getElementById('os-resume-updating');
   const dlBtn = document.getElementById('os-resume-dl-btn');
   if (!iframe) return;
-  fetch('assets/resume.pdf', { method: 'HEAD' })
-    .then(r => {
-      if (r.ok) {
-        iframe.src = 'assets/resume.pdf';
-        iframe.style.display = 'block';
-        updating.style.display = 'none';
-      } else { showOSResumeUpdating(); }
-    })
-    .catch(showOSResumeUpdating);
+  iframe.src = 'assets/resume.pdf';
+  iframe.style.display = 'block';
+  updating.style.display = 'none';
+  if (dlBtn) dlBtn.style.display = '';
 }
 function showOSResumeUpdating() {
   const iframe = document.getElementById('os-resume-iframe');
@@ -1223,7 +1218,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load resume when Preview window is opened
   const observer = new MutationObserver(() => {
     const previewWin = document.getElementById('win-preview');
-    if (previewWin && previewWin.style.display !== 'none' && !document.getElementById('os-resume-iframe').src) {
+    if (previewWin && previewWin.style.display !== 'none') {
       loadOSResume();
     }
   });
