@@ -226,7 +226,7 @@
     if (iClock) iClock.textContent = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: false });
     const aClock = document.getElementById('androidTime');
     if (aClock) aClock.textContent = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: false });
-
+  }
 
   /* ================================================================
      DOCK & APP ICONS
