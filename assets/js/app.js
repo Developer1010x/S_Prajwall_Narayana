@@ -1216,23 +1216,30 @@
   function loadProjects(projects) {
     const grid = document.querySelector('.projects-waterfall');
     if (!grid || !projects) return;
-    
+
     // Sort by id descending (newest first)
     projects.sort((a, b) => b.id - a.id);
-    
+
     grid.innerHTML = projects.map(project => {
-      const tags = project.tags.map(tag => `<span>${tag}</span>`).join('');
-      const buttonText = project.comingSoon ? 'Coming Soon <i class="fa fa-clock"></i>' : 'Open <i class="fa fa-arrow-right"></i>';
-      const subtitle = project.subtitle ? `<p style="font-size:11px;color:var(--accent);margin-bottom:4px">${project.subtitle}</p>` : '';
-      
+      const tags = project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('');
+      const iconColor = project.color ? `color: ${project.color}` : '';
+      const iconBg = project.color ? project.color + '22' : 'rgba(59,130,246,0.1)';
+
       return `
-        <div class="proj-card" onclick="openProject('${project.url}','${project.title}','${project.description}')">
-          <div class="proj-icon"><i class="fa ${project.icon}" style="color: ${project.color || '#007AFF'}"></i></div>
-          <h3>${project.title}</h3>
-          ${subtitle}
-          <p>${project.description}</p>
-          <div class="proj-tags">${tags}</div>
-          <button class="proj-open">${buttonText}</button>
+        <div class="project-waterfall-card">
+          <div class="project-icon" style="background: ${iconBg}">
+            <i class="fas ${project.icon}" style="${iconColor}"></i>
+          </div>
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-subtitle">${project.subtitle || ''}</p>
+          <p class="project-description">${project.description}</p>
+          <div class="project-tags">${tags}</div>
+          <div class="project-links">
+            ${project.comingSoon ? '<span class="project-link" style="background: var(--bg-tertiary); color: var(--text-muted); opacity: 0.7;"><i class="fas fa-clock"></i> Coming Soon</span>' : ''}
+            ${project.url && !project.comingSoon ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github"></i> Code</a>` : ''}
+            ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="project-link demo"><i class="fas fa-external-link-alt"></i> Demo</a>` : ''}
+            ${project.publication ? `<a href="${project.publication}" target="_blank" rel="noopener noreferrer" class="project-link publication"><i class="fas fa-file-alt"></i> IEEE Paper</a>` : ''}
+          </div>
         </div>
       `;
     }).join('');
@@ -1308,17 +1315,13 @@
   function loadSkills(skills) {
     const skillsGrid = document.querySelector('.skills-grid');
     if (!skillsGrid || !skills) return;
-    
+
     skillsGrid.innerHTML = skills.map(skillCat => `
-      <div class="skill-cat">
-        <h3>${skillCat.category}</h3>
-        ${skillCat.items.map(item => `
-          <div class="skill-bar">
-            <span>${item.name}</span>
-            <div class="bar"><div class="bar-fill" style="width:${item.level}%"></div></div>
-            <span>${item.level}%</span>
-          </div>
-        `).join('')}
+      <div class="skill-category tilt-card glow-border">
+        <h3><i class="fas ${skillCat.icon || 'fa-code'}"></i> ${skillCat.category}</h3>
+        <div class="skill-tags">
+          ${skillCat.items.map(item => `<span class="skill-tag" style="color: #FF6F00; font-weight: bold;">${item.name}</span>`).join('')}
+        </div>
       </div>
     `).join('');
   }
