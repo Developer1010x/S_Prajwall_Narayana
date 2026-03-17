@@ -206,6 +206,16 @@
       "demo": "https://developer1010x.github.io/game/"
     },
     {
+      "id": 8,
+      "title": "Arogya-Sathi",
+      "subtitle": "AI Healthcare",
+      "description": "Multilingual healthcare platform with symptom checker, X-ray analyzer supporting 30 languages.",
+      "icon": "fa-heartbeat",
+      "color": "#FF3B30",
+      "tags": ["Streamlit", "LangChain", "LLaMA 3.2", "YOLOv8", "OCR"],
+      "url": "https://github.com/Developer1010x/Arogya-Sathi"
+    },
+    {
       "id": 9,
       "title": "OpenPresser",
       "subtitle": "Coming Soon",
