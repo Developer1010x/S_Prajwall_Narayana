@@ -2179,18 +2179,18 @@ document.addEventListener('click',function(e){
           <iframe id="resume-iframe" src="" style="flex:1;border:none;width:100%;" title="Resume PDF"></iframe>
         </div>
         <!-- Mobile view: compact centered card -->
-        <div id="resume-modal-mobile" style="display:none;background:var(--bg-card);border-radius:16px;padding:1.5rem;flex-direction:column;align-items:center;gap:0.75rem;width:85%;max-width:320px;border:1px solid var(--border-color);">
-          <i class="fas fa-file-pdf" style="font-size:2rem;color:#e74c3c;"></i>
-          <h3 style="color:var(--text-primary);font-size:1rem;margin:0;">Resume</h3>
+        <div id="resume-modal-mobile" style="display:none;background:var(--bg-card);border-radius:16px;padding:1.25rem;flex-direction:column;align-items:center;gap:0.75rem;width:80%;max-width:300px;border:1px solid var(--border-color);box-sizing:border-box;overflow:hidden;">
+          <i class="fas fa-file-pdf" style="font-size:1.8rem;color:#e74c3c;"></i>
+          <h3 style="color:var(--text-primary);font-size:0.95rem;margin:0;">Resume</h3>
           <p style="color:var(--text-muted);font-size:0.8rem;margin:0;">S. Prajwall Narayana</p>
-          <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
-            <a href="assets/resume.pdf" download style="display:flex;align-items:center;justify-content:center;gap:0.35rem;padding:0.55rem 0.9rem;font-size:0.8rem;border-radius:10px;background:var(--primary-color,#007AFF);color:#fff;text-decoration:none;font-weight:600;">
+          <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.4rem;justify-content:center;width:100%;">
+            <a href="assets/resume.pdf" download style="display:inline-flex;align-items:center;gap:0.3rem;padding:0.45rem 0.7rem;font-size:0.75rem;border-radius:8px;background:var(--primary-color,#007AFF);color:#fff;text-decoration:none;font-weight:600;white-space:nowrap;">
               <i class="fas fa-download"></i> Download
             </a>
-            <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;gap:0.35rem;padding:0.55rem 0.9rem;font-size:0.8rem;border-radius:10px;background:var(--bg-tertiary);color:var(--text-primary);text-decoration:none;font-weight:500;">
+            <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.3rem;padding:0.45rem 0.7rem;font-size:0.75rem;border-radius:8px;background:var(--bg-tertiary);color:var(--text-primary);text-decoration:none;font-weight:500;white-space:nowrap;">
               <i class="fas fa-external-link-alt"></i> Open
             </a>
-            <button onclick="closeResume()" style="padding:0.55rem 0.9rem;font-size:0.8rem;border-radius:10px;background:none;border:1px solid var(--border-color);color:var(--text-muted);cursor:pointer;font-weight:500;">
+            <button onclick="closeResume()" style="display:inline-flex;align-items:center;gap:0.3rem;padding:0.45rem 0.7rem;font-size:0.75rem;border-radius:8px;background:none;border:1px solid var(--border-color);color:var(--text-muted);cursor:pointer;font-weight:500;white-space:nowrap;">
               <i class="fas fa-times"></i> Close
             </button>
           </div>
