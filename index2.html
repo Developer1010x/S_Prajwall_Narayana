@@ -106,32 +106,48 @@
         </div>
         <div id="finderSkills" class="finder-tab">
           <h2 style="margin-bottom:20px">Skills</h2>
-          <div class="skills-grid">
-            <div class="skill-cat"><h3>Autonomous Systems & LLM Infrastructure</h3>
-              <div class="skill-bar"><span>Claude Code</span><div class="bar"><div class="bar-fill" style="width:90%"></div></div><span>90%</span></div>
-              <div class="skill-bar"><span>FastAPI</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div><span>88%</span></div>
-              <div class="skill-bar"><span>LangChain</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
-              <div class="skill-bar"><span>Prompt Engineering</span><div class="bar"><div class="bar-fill" style="width:92%"></div></div><span>92%</span></div>
+          <div class="skills-card-grid">
+            <div class="skill-card">
+              <div class="skill-card-icon"><i class="fa fa-robot"></i></div>
+              <h3>Autonomous Systems & LLM Infrastructure</h3>
+              <div class="skill-card-tags">
+                <span class="skill-chip">Claude Code</span>
+                <span class="skill-chip">FastAPI</span>
+                <span class="skill-chip">LangChain</span>
+                <span class="skill-chip">Prompt Engineering</span>
+              </div>
             </div>
-            <div class="skill-cat"><h3>DevOps & Cloud Architecture</h3>
-              <div class="skill-bar"><span>Docker</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div><span>88%</span></div>
-              <div class="skill-bar"><span>Ansible</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
-              <div class="skill-bar"><span>OpenTofu</span><div class="bar"><div class="bar-fill" style="width:82%"></div></div><span>82%</span></div>
-              <div class="skill-bar"><span>Linode</span><div class="bar"><div class="bar-fill" style="width:80%"></div></div><span>80%</span></div>
-              <div class="skill-bar"><span>PostgreSQL</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
+            <div class="skill-card">
+              <div class="skill-card-icon"><i class="fa fa-cloud"></i></div>
+              <h3>DevOps & Cloud Architecture</h3>
+              <div class="skill-card-tags">
+                <span class="skill-chip">Docker</span>
+                <span class="skill-chip">Ansible</span>
+                <span class="skill-chip">OpenTofu</span>
+                <span class="skill-chip">Linode</span>
+                <span class="skill-chip">PostgreSQL</span>
+              </div>
             </div>
-            <div class="skill-cat"><h3>AI/ML Research</h3>
-              <div class="skill-bar"><span>PyTorch</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div><span>88%</span></div>
-              <div class="skill-bar"><span>TensorFlow</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
-              <div class="skill-bar"><span>YOLOv3/v8</span><div class="bar"><div class="bar-fill" style="width:82%"></div></div><span>82%</span></div>
-              <div class="skill-bar"><span>CNN</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
-              <div class="skill-bar"><span>ResNet50</span><div class="bar"><div class="bar-fill" style="width:80%"></div></div><span>80%</span></div>
+            <div class="skill-card">
+              <div class="skill-card-icon"><i class="fa fa-brain"></i></div>
+              <h3>AI/ML Research</h3>
+              <div class="skill-card-tags">
+                <span class="skill-chip">PyTorch</span>
+                <span class="skill-chip">TensorFlow</span>
+                <span class="skill-chip">YOLOv3/v8</span>
+                <span class="skill-chip">CNN</span>
+                <span class="skill-chip">ResNet50</span>
+              </div>
             </div>
-            <div class="skill-cat"><h3>Full-Stack Development</h3>
-              <div class="skill-bar"><span>React</span><div class="bar"><div class="bar-fill" style="width:90%"></div></div><span>90%</span></div>
-              <div class="skill-bar"><span>TypeScript</span><div class="bar"><div class="bar-fill" style="width:88%"></div></div><span>88%</span></div>
-              <div class="skill-bar"><span>Node.js</span><div class="bar"><div class="bar-fill" style="width:85%"></div></div><span>85%</span></div>
-              <div class="skill-bar"><span>HTML/CSS</span><div class="bar"><div class="bar-fill" style="width:95%"></div></div><span>95%</span></div>
+            <div class="skill-card">
+              <div class="skill-card-icon"><i class="fa fa-laptop-code"></i></div>
+              <h3>Full-Stack Development</h3>
+              <div class="skill-card-tags">
+                <span class="skill-chip">React</span>
+                <span class="skill-chip">TypeScript</span>
+                <span class="skill-chip">Node.js</span>
+                <span class="skill-chip">HTML/CSS</span>
+              </div>
             </div>
           </div>
         </div>
@@ -216,53 +232,32 @@
             <div class="proj-tags"><span>Python</span><span>LLM</span><span>CLI</span></div>
             <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
           </div>
-          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x','Open Source Project 1','Coming soon to GitHub - Stay tuned!')">
-            <div class="proj-icon"><i class="fa fa-code" style="color:#FF9500"></i></div>
-            <h3>Open Source Project 1</h3>
-            <p>Coming soon - Currently in development</p>
-            <div class="proj-tags"><span>TBD</span></div>
-            <button class="proj-open">Coming Soon <i class="fa fa-clock"></i></button>
+          <div class="proj-card" onclick="openProject('https://developer1010x.github.io/game/','Browser Game','A browser-based game built and deployed on GitHub Pages. Play it live!')">
+            <div class="proj-icon"><i class="fa fa-gamepad" style="color:#FF9500"></i></div>
+            <h3>Browser Game</h3>
+            <p>A browser-based game built and deployed on GitHub Pages. Play it live!</p>
+            <div class="proj-tags"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Game</span></div>
+            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
           </div>
-          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x','Open Source Project 2','Coming soon to GitHub - Stay tuned!')">
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x','OpenPresser','An open source project coming soon to GitHub. Stay tuned!')">
+            <div class="proj-icon"><i class="fa fa-code" style="color:#FF9500"></i></div>
+            <h3>OpenPresser</h3>
+            <p>An open source project coming soon to GitHub. Stay tuned!</p>
+            <div class="proj-tags"><span>Open Source</span><span>Coming Soon</span></div>
+            <button class="proj-open" style="opacity:0.6;cursor:default">Coming Soon <i class="fa fa-clock"></i></button>
+          </div>
+          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x','OpenPlay','An open source project coming soon to GitHub. Stay tuned!')">
             <div class="proj-icon"><i class="fa fa-rocket" style="color:#FF3B30"></i></div>
-            <h3>Open Source Project 2</h3>
-            <p>Coming soon - Currently in development</p>
-            <div class="proj-tags"><span>TBD</span></div>
-            <button class="proj-open">Coming Soon <i class="fa fa-clock"></i></button>
+            <h3>OpenPlay</h3>
+            <p>An open source project coming soon to GitHub. Stay tuned!</p>
+            <div class="proj-tags"><span>Open Source</span><span>Coming Soon</span></div>
+            <button class="proj-open" style="opacity:0.6;cursor:default">Coming Soon <i class="fa fa-clock"></i></button>
           </div>
           <div class="proj-card" onclick="openProject('https://github.com/Developer1010x/Arogya-Sathi','Arogya-Sathi','Multilingual healthcare platform with symptom checker, X-ray analyzer in 30 languages.')">
             <div class="proj-icon"><i class="fa fa-heartbeat" style="color:#FF3B30"></i></div>
             <h3>Arogya-Sathi</h3>
             <p>AI healthcare platform with symptom checker, X-ray analyzer supporting 30 languages</p>
             <div class="proj-tags"><span>Streamlit</span><span>LangChain</span><span>LLaMA 3.2</span><span>YOLOv8</span><span>OCR</span></div>
-            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
-          </div>
-          <div class="proj-card" onclick="openProject('https://github.com/Developer1010x/KnotesCentral-Source-Code','KnotesCentral','Centralized academic platform serving 800-1000 RVCE students.')">
-            <div class="proj-icon"><i class="fa fa-graduation-cap" style="color:#FF9F0A"></i></div>
-            <h3>KnotesCentral</h3>
-            <p>Academic resource platform serving 800-1000+ RVCE students</p>
-            <div class="proj-tags"><span>TypeScript</span><span>React</span><span>HTML/CSS</span></div>
-            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
-          </div>
-          <div class="proj-card" onclick="openProject('https://github.com/developer1010x/Deepfake-Detection','Deepfake Detection','CNN-based deepfake detection with 92.3% accuracy on FaceForensics++ and DFDC.')">
-            <div class="proj-icon"><i class="fa fa-shield-halved" style="color:#AF52DE"></i></div>
-            <h3>Deepfake Detection Model</h3>
-            <p>CNN-based deepfake detection - 92.3% accuracy, 90.7% precision, 91.5% recall</p>
-            <div class="proj-tags"><span>CNN</span><span>TensorFlow</span><span>PyTorch</span><span>FaceForensics++</span><span>DFDC</span></div>
-            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
-          </div>
-          <div class="proj-card" onclick="openProject('https://github.com/developer1010x/YOLOv3-Rover','Web-Server Controlled Rover','LAN-controlled modular rover with YOLOv3 and 4-DOF robotic arm, IEEE published.')">
-            <div class="proj-icon"><i class="fa fa-robot" style="color:#34C759"></i></div>
-            <h3>Web-Server Controlled Rover</h3>
-            <p>LAN-controlled rover with YOLOv3 object detection and 4-DOF robotic arm</p>
-            <div class="proj-tags"><span>YOLOv3</span><span>Python</span><span>ESP32</span><span>Robotics</span><span>OpenCV</span></div>
-            <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
-          </div>
-          <div class="proj-card" onclick="openProject('https://github.com/developer1010x/Plant-Disease-Classification','Plant Disease Classification','ResNet50 hyperparameter optimization for plant disease classification, IEEE published.')">
-            <div class="proj-icon"><i class="fa fa-leaf" style="color:#30D158"></i></div>
-            <h3>Plant Disease Classification</h3>
-            <p>Empirical study standardizing ResNet50 hyperparameter benchmarks for plant diseases</p>
-            <div class="proj-tags"><span>ResNet50</span><span>TensorFlow</span><span>PyTorch</span><span>Transfer Learning</span></div>
             <button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>
           </div>
         </div>
@@ -780,11 +775,16 @@ function populateOSProjects(projects) {
     <div class="proj-card" onclick="openProject('${p.url}','${escStr(p.title)}','${escStr(p.description)}')">
       <div class="proj-icon"><i class="fa ${p.icon}" style="color:${p.color || '#007AFF'}"></i></div>
       <h3>${p.title}</h3>
+      <p class="proj-subtitle">${p.subtitle || ''}</p>
       <p>${p.description}</p>
       <div class="proj-tags">${(p.tags || []).map(t => `<span>${t}</span>`).join('')}</div>
-      ${p.comingSoon
-        ? `<button class="proj-open" style="opacity:0.6;cursor:default">Coming Soon <i class="fa fa-clock"></i></button>`
-        : `<button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>`}
+      <div class="proj-links">
+        ${p.comingSoon
+          ? `<button class="proj-open" style="opacity:0.6;cursor:default">Coming Soon <i class="fa fa-clock"></i></button>`
+          : `<button class="proj-open">Open <i class="fa fa-arrow-right"></i></button>`}
+        ${p.demo ? `<button class="proj-open proj-demo" onclick="event.stopPropagation();window.open('${p.demo}','_blank')"><i class="fa fa-external-link"></i> Demo</button>` : ''}
+        ${p.publication ? `<button class="proj-open proj-pub" onclick="event.stopPropagation();window.open('${p.publication}','_blank')"><i class="fa fa-file-alt"></i> IEEE</button>` : ''}
+      </div>
     </div>
   `).join('');
 }
@@ -824,18 +824,15 @@ function populateOSEducation(education) {
 }
 
 function populateOSSkills(skills) {
-  const grid = document.querySelector('#finderSkills .skills-grid');
+  const grid = document.querySelector('#finderSkills .skills-card-grid');
   if (!grid) return;
   grid.innerHTML = skills.map(cat => `
-    <div class="skill-cat">
+    <div class="skill-card">
+      <div class="skill-card-icon"><i class="fa ${cat.icon || 'fa-code'}"></i></div>
       <h3>${cat.category}</h3>
-      ${(cat.items || []).map(item => `
-        <div class="skill-bar">
-          <span>${item.name}</span>
-          <div class="bar"><div class="bar-fill" style="width:${item.level}%"></div></div>
-          <span>${item.level}%</span>
-        </div>
-      `).join('')}
+      <div class="skill-card-tags">
+        ${(cat.items || []).map(item => `<span class="skill-chip">${item.name}</span>`).join('')}
+      </div>
     </div>
   `).join('');
 }
