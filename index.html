@@ -2017,6 +2017,16 @@ font-size: 0.65rem;
 }
 }
 
+/* Resume modal mobile */
+@media (max-width: 768px) {
+  #resume-modal-inner {
+    width: 92% !important;
+    height: auto !important;
+    max-height: 70vh !important;
+    border-radius: 20px !important;
+  }
+}
+
 /* Loading skeleton */
 .skeleton {
 background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-hover) 50%, var(--bg-tertiary) 75%);
@@ -2167,18 +2177,29 @@ document.addEventListener('click',function(e){
 
       <!-- Resume Modal -->
       <div id="resume-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9999;align-items:center;justify-content:center;padding:1rem;">
-        <div style="background:var(--bg-card);border-radius:16px;width:min(900px,100%);height:90vh;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--border-color);">
+        <div id="resume-modal-inner" style="background:var(--bg-card);border-radius:16px;width:min(900px,100%);height:90vh;display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--border-color);position:relative;">
           <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;border-bottom:1px solid var(--border-color);flex-shrink:0;">
             <span style="font-weight:600;">Resume — S. Prajwall Narayana</span>
-            <div style="display:flex;gap:0.75rem;align-items:center;">
-              <a id="resume-download-btn" href="assets/resume.pdf" download class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.85rem;">
-                <i class="fas fa-download"></i> Download
-              </a>
-              <button onclick="closeResume()" style="background:none;border:none;color:var(--text-primary);cursor:pointer;font-size:1.2rem;padding:0.25rem;">&#x2715;</button>
-            </div>
+            <button onclick="closeResume()" style="background:none;border:none;color:var(--text-primary);cursor:pointer;font-size:1.5rem;padding:0.25rem 0.5rem;line-height:1;" aria-label="Close">&#x2715;</button>
           </div>
           <div id="resume-body" style="flex:1;overflow:hidden;display:flex;flex-direction:column;">
+            <!-- Desktop: iframe PDF viewer -->
             <iframe id="resume-iframe" src="" style="flex:1;border:none;width:100%;display:none;" title="Resume PDF"></iframe>
+            <!-- Mobile: clean card instead of iframe -->
+            <div id="resume-mobile" style="display:none;flex:1;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;text-align:center;padding:2rem;">
+              <i class="fas fa-file-pdf" style="font-size:4rem;color:#e74c3c;"></i>
+              <h3 style="color:var(--text-primary);font-size:1.3rem;">S. Prajwall Narayana</h3>
+              <p style="color:var(--text-muted);max-width:300px;line-height:1.6;">AI Engineer | Full-Stack & DevOps Engineer</p>
+              <div style="display:flex;flex-direction:column;gap:0.75rem;width:100%;max-width:280px;">
+                <a href="assets/resume.pdf" download class="btn btn-primary" style="padding:0.75rem 1.5rem;font-size:1rem;text-align:center;border-radius:12px;">
+                  <i class="fas fa-download"></i> Download Resume
+                </a>
+                <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.75rem 1.5rem;font-size:1rem;text-align:center;border-radius:12px;background:var(--bg-tertiary);color:var(--text-primary);text-decoration:none;">
+                  <i class="fas fa-external-link-alt"></i> Open in Browser
+                </a>
+              </div>
+            </div>
+            <!-- Updating state -->
             <div id="resume-updating" style="display:none;flex:1;align-items:center;justify-content:center;flex-direction:column;gap:1rem;text-align:center;padding:2rem;">
               <i class="fas fa-file-pdf" style="font-size:3rem;color:var(--text-muted);"></i>
               <h3 style="color:var(--text-primary);">Resume is being updated</h3>
@@ -2189,28 +2210,44 @@ document.addEventListener('click',function(e){
         </div>
       </div>
       <script>
+        function isMobileDevice() {
+          return window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
         function openResume() {
           const modal = document.getElementById('resume-modal');
           modal.style.display = 'flex';
           document.body.style.overflow = 'hidden';
-          const iframe = document.getElementById('resume-iframe');
-          iframe.src = 'assets/resume.pdf';
-          iframe.style.display = 'block';
           document.getElementById('resume-updating').style.display = 'none';
-          document.getElementById('resume-download-btn').style.display = '';
+
+          if (isMobileDevice()) {
+            document.getElementById('resume-iframe').style.display = 'none';
+            document.getElementById('resume-mobile').style.display = 'flex';
+          } else {
+            document.getElementById('resume-mobile').style.display = 'none';
+            const iframe = document.getElementById('resume-iframe');
+            iframe.src = 'assets/resume.pdf';
+            iframe.style.display = 'block';
+          }
         }
         function showResumeUpdating() {
           document.getElementById('resume-iframe').style.display = 'none';
+          document.getElementById('resume-mobile').style.display = 'none';
           document.getElementById('resume-updating').style.display = 'flex';
-          document.getElementById('resume-download-btn').style.display = 'none';
         }
         function closeResume() {
           document.getElementById('resume-modal').style.display = 'none';
           document.body.style.overflow = '';
           document.getElementById('resume-iframe').src = '';
         }
+        // Close on backdrop click
         document.getElementById('resume-modal').addEventListener('click', function(e) {
           if (e.target === this) closeResume();
+        });
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && document.getElementById('resume-modal').style.display === 'flex') {
+            closeResume();
+          }
         });
       </script>
       <!-- Quick Stats -->
