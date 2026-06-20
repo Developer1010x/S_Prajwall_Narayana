@@ -123,6 +123,17 @@
       "description": "Gained expertise in Enterprise Security Architecture and Cybersecurity through work on the IFTAS Cloud project. Applied the SABSA Framework for risk-driven design, cloud security, IAM, and regulatory compliance.",
       "tags": ["Cybersecurity", "Cloud Security", "SABSA", "IAM"],
       "type": "work"
+    },
+    {
+      "id": 0,
+      "phase": "Phase 4",
+      "date": "Dec 2024 - Oct 2025",
+      "title": "Managing Intern - Operations & Coordination",
+      "company": "Multi Tech",
+      "location": "Bengaluru, IN",
+      "description": "Short hands-on management internship coordinating day-to-day operations and a small team of four interns — onboarding, task assignment, and communication between the team and management.",
+      "tags": ["Operations", "Team Coordination", "Onboarding"],
+      "type": "work"
     }
   ],
 
