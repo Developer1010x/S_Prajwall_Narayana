@@ -1252,7 +1252,7 @@
     const workExp = experience.filter(exp => exp.type === 'work');
     
     container.innerHTML = workExp.map(exp => {
-      const tags = exp.tags ? exp.tags.map(tag => `<span style="color: #FF6F00; font-weight: bold;">${tag}</span>`).join(' ') : '';
+      const tags = exp.tags ? exp.tags.map(tag => `<span style="color: #60a5fa; font-weight: 600;">${tag}</span>`).join(' ') : '';
       const currentBadge = exp.current ? '<span class="exp-badge">Currently Here</span>' : '';
       
       return `
@@ -1279,7 +1279,7 @@
     if (!container || !education) return;
     
     container.innerHTML = education.map(edu => {
-      const tags = edu.tags ? edu.tags.map(tag => `<span style="color: #FF6F00; font-weight: bold;">${tag}</span>`).join(' ') : '';
+      const tags = edu.tags ? edu.tags.map(tag => `<span style="color: #60a5fa; font-weight: 600;">${tag}</span>`).join(' ') : '';
       
       return `
         <div class="edu-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; margin-bottom: 16px;">
@@ -1320,7 +1320,7 @@
       <div class="skill-category tilt-card glow-border">
         <h3><i class="fas ${skillCat.icon || 'fa-code'}"></i> ${skillCat.category}</h3>
         <div class="skill-tags">
-          ${skillCat.items.map(item => `<span class="skill-tag" style="color: #FF6F00; font-weight: bold;">${item.name}</span>`).join('')}
+          ${skillCat.items.map(item => `<span class="skill-tag" style="color: #60a5fa; font-weight: 600;">${item.name}</span>`).join('')}
         </div>
       </div>
     `).join('');
