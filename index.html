@@ -576,7 +576,7 @@ gap: 20px;
 /* Skills Section */
 .skills-grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
 gap: 2rem;
  }
 .skill-category {
@@ -793,14 +793,17 @@ font-size: 0.875rem;
 /* Contact Section */
 .contact-grid {
 display: grid;
-grid-template-columns: 1fr 1fr;
+grid-template-columns: 1fr;
 gap: 4rem;
 align-items: start;
+max-width: 680px;
+margin-left: auto;
+margin-right: auto;
  }
 .contact-info {
-display: flex;
-flex-direction: column;
-gap: 2rem;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.25rem;
  }
 .contact-item {
 display: flex;
@@ -2577,7 +2580,7 @@ document.addEventListener('click',function(e){
                     </div>
                     <div class="contact-details">
                         <h4>Availability</h4>
-                        <p>Hired</p>
+                        <p>Open to opportunities</p>
                     </div>
                 </div>
             </div>
