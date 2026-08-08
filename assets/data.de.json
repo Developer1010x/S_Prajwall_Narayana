@@ -1,14 +1,426 @@
 {
-  "_readme": "Germany overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md.",
+  "_readme": "Deutschland-Overrides. Nur Schlüssel, die von data.base.json abweichen. Siehe DATA-CONTRACT.md.",
+
+  "_readme_language": "This region is fully localised into German, so meta.lang is de-DE. The strings.* block, the hero copy and the content arrays (about/skills/experience/education/projects) are all translated. Job titles are deliberately NOT translated: 'AI Engineer', 'Associate AI Engineer', 'Associate AI Engineer Intern', 'Research Intern', 'Associate Consultant Intern' are the titles as issued by the employers (the Colligence one is the offer-letter title) and a German Lebenslauf keeps original title wording. Technology names stay in English for the same reason.",
+
+  "_readme_arrays": "Arrays replace wholesale (contract rule 3), so the translated arrays are complete copies with German prose. The order/hide block below is therefore redundant for ordering but is kept on purpose: it makes the intended emphasis explicit and the build validates every id, so a typo in a translated array fails loudly instead of silently reordering the page.",
+
+  "_readme_grade": "flags.showGrade stays false for Germany even though a German Lebenslauf normally carries the Abschlussnote. The German grading scale runs 1,0 (best) to 5,0 (fail); an Indian CGPA of  out of 10 printed on a German-language page reads as a catastrophic fail to a German recruiter. It is shown nowhere until a proper conversion exists — see the TODO below.",
+
   "_todo": [
-    "TODO(de): set cv.href to the Germany CV PDF once it exists (e.g. assets/cv/de.pdf).",
-    "TODO(de): meta.lang is 'en' until strings.* are localised into German. Change it to 'de' in the same commit that localises them, not before."
+    "TODO(de): cv.href points at assets/cv/de.pdf, which does not exist yet. Until the PDF is on disk the build warns and omits the CV button from /de/ — it will not ship a 404. Export the Lebenslauf from Sources (HTML & LaTeX)/Country/de/lebenslauf_de.html to that path.",
+    "TODO(de): German language level. No CEFR level (A1-C2) is claimed anywhere on this page or in the Lebenslauf because none is known. Add a Sprachkenntnisse line only once Prajwall states his actual level.",
+    "TODO(de): English language level. Same rule — no CEFR level claimed. Degree and publications are in English, which is context, not a certified level.",
+    "TODO(de): Abschlussnote. CGPA  is not rendered (see _readme_grade). If a German equivalent is wanted, get it converted (anabin / uni-assist / the modified Bavarian formula) and only then decide whether to show it.",
+    "TODO(de): date and place of birth are conventional in a German Lebenslauf and are NOT in the factual base — only 'under 26 as of 2026'. Left as a placeholder in the Lebenslauf, not invented, and not put on this page at all.",
+    "TODO(de): full postal address. A German Lebenslauf and Anschreiben both carry one; only 'Bengaluru, India' is known. Placeholder in the documents.",
+    "TODO(de): salary expectation (Gehaltsvorstellung). German Anschreiben often ask for one; none is known, so the Anschreiben carries a placeholder.",
+    "TODO(de): confirm the Blaue-Karte-EU wording in workAuthorisation with Prajwall before it goes live. It states the route and that the IT shortage-occupation threshold is lower; it deliberately states no figure, because thresholds change yearly."
   ],
+
   "meta": {
     "cc": "de",
-    "label": "Germany",
-    "lang": "en",
+    "label": "Deutschland",
+    "lang": "de-DE",
     "dir": "ltr",
-    "spelling": "en-GB"
+    "spelling": "de-DE"
+  },
+
+  "personal": {
+    "location": "Bengaluru, Indien",
+    "relocation": "Umzug nach Deutschland möglich",
+    "profileImageAlt": "Stilisierter, kontrastreicher Avatar von S Prajwall Narayana"
+  },
+
+  "flags": {
+    "showPhone": true,
+    "showGrade": false,
+    "showPublications": true
+  },
+
+  "seo": {
+    "title": "S. Prajwall Narayana — AI Engineer für Produkt und Plattform",
+    "description": "AI Engineer im Gründungsteam von Colligence Research: agentische und LLM-Pipelines, Backend-APIs sowie CI/CD, Infrastructure-as-Code und Betrieb der Plattform darunter."
+  },
+
+  "headline": "AI Engineer — Produktentwicklung und Plattformbetrieb",
+
+  "summary": "AI Engineer im Gründungsteam von Colligence Research in Bengaluru. Ich entwickle das Produkt — agentische und LLM-Pipelines, einen Code-Generierungsdienst, Backend-APIs — und verantworte zugleich die Plattform, auf der es läuft: CI/CD, Infrastructure-as-Code, Observability, Incident Response und Authentifizierung. Beides gehört zusammen: **Wer den Agenten-Workflow ausliefert, übernimmt auch die Rufbereitschaft dafür.** Abgeschlossenes Ingenieurstudium der Informatik (B.E., R V College of Engineering, VTU) und drei begutachtete Veröffentlichungen bei Springer und IEEE.",
+
+  "workAuthorisation": "Für eine Anstellung in Deutschland ist eine Arbeitserlaubnis erforderlich. Als Hochschulabsolvent der Informatik kommt die **Blaue Karte EU** in Betracht; für IT-Engpassberufe gilt eine abgesenkte Gehaltsschwelle. Umzug nach Deutschland möglich.",
+
+  "typedPhrases": [
+    "agentische und LLM-Pipelines",
+    "CI/CD und Infrastructure-as-Code",
+    "Multi-Agenten-Workflows über MCP",
+    "Observability und Incident Response",
+    "Code-Generierungsdienste",
+    "Authentifizierung, RBAC und Plattformsicherheit"
+  ],
+
+  "cv": {
+    "href": "assets/cv/de.pdf",
+    "label": "Lebenslauf",
+    "downloadName": "Lebenslauf-S-Prajwall-Narayana.pdf"
+  },
+
+  "order": {
+    "about": ["product", "platform", "research"],
+    "skills": ["ai", "infra", "ml", "backend"],
+    "experience": ["colligence", "rvce-coe", "ey"],
+    "projects": ["arogya-sathi", "agentic-devops", "audio-deepfake", "pybridge", "knotes-central", "llm-terminal"]
+  },
+
+  "hide": {
+    "projects": [],
+    "skills": []
+  },
+
+  "stats": [
+    { "value": 3, "suffix": "", "label": "Begutachtete Veröffentlichungen" },
+    { "value": 6, "suffix": "", "label": "Umgesetzte Projekte" },
+    { "value": 12, "suffix": "+", "label": "Fachbereiche nutzen Knotes Central" }
+  ],
+
+  "about": [
+    {
+      "id": "product",
+      "icon": "fa-diagram-project",
+      "title": "Was ich entwickle",
+      "body": "Multi-Agenten-LLM-Pipelines für die ERP-Automatisierung über MCP, einen Code-Generierungsdienst, der strukturierte Eingabespezifikationen in einsatzfertige Webanwendungen überführt, und die Backend-APIs dahinter. Langlaufende, mehrstufige Agenten-Workflows, die ohne menschliches Eingreifen auf Kurs bleiben."
+    },
+    {
+      "id": "platform",
+      "icon": "fa-server",
+      "title": "Was ich betreibe",
+      "body": "Die Plattform, auf der diese Systeme laufen. Bei Colligence Research habe ich die DevOps-/SRE-Funktion von Grund auf aufgebaut und leite sie seitdem: CI/CD, Infrastructure-as-Code mit OpenTofu und Ansible auf Linode, Docker, Zitadel für SSO und RBAC, Observability, Alerting und Incident-Runbooks."
+    },
+    {
+      "id": "research",
+      "icon": "fa-flask",
+      "title": "Forschung und Veröffentlichungen",
+      "body": "Drei begutachtete Beiträge — einer auf der Springer ICTIS 2025 in Bangkok, zwei auf IEEE Xplore — zu Schulverwaltungssystemen, ResNet50-Hyperparameter-Tuning und einem webservergesteuerten Rover mit Objekterkennung. Zwei weitere befinden sich im Begutachtungsverfahren."
+    }
+  ],
+
+  "skills": [
+    {
+      "id": "ai",
+      "title": "KI- und LLM-Systeme",
+      "icon": "fa-robot",
+      "items": [
+        "Agentische Systeme",
+        "MCP-Orchestrierung",
+        "Multi-Agenten-Workflows",
+        "RAG",
+        "LangChain",
+        "LangGraph",
+        "Claude API",
+        "LLM-Integration",
+        "Evaluation Harnesses"
+      ]
+    },
+    {
+      "id": "infra",
+      "title": "Infrastruktur und DevOps",
+      "icon": "fa-server",
+      "items": [
+        "CI/CD",
+        "OpenTofu (IaC)",
+        "Ansible",
+        "Docker",
+        "Linux",
+        "Linode",
+        "Observability und Alerting",
+        "Incident-Runbooks",
+        "Zitadel (SSO/IAM)",
+        "RBAC",
+        "Git"
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "Machine Learning und Computer Vision",
+      "icon": "fa-brain",
+      "items": [
+        "PyTorch",
+        "TensorFlow",
+        "YOLOv8",
+        "OpenCV",
+        "CNN",
+        "ResNet",
+        "Deployment quantisierter Modelle"
+      ]
+    },
+    {
+      "id": "backend",
+      "title": "Sprachen und Backend",
+      "icon": "fa-code",
+      "items": [
+        "Python",
+        "FastAPI",
+        "REST-APIs",
+        "PostgreSQL",
+        "SQL",
+        "Swift",
+        "Rust",
+        "Shell-Skripting"
+      ]
+    }
+  ],
+
+  "experience": [
+    {
+      "id": "colligence",
+      "title": "AI Engineer",
+      "org": "Colligence Research",
+      "location": "Bengaluru, Indien",
+      "date": "Nov. 2025 – heute",
+      "current": true,
+      "note": "Gründungsteam.",
+      "roles": [
+        {
+          "title": "AI Engineer",
+          "date": "Feb. 2026 – heute",
+          "bullets": [
+            "Tätigkeit auf beiden Seiten des Produkts: KI- und Produktentwicklung ebenso wie durchgängige Verantwortung für die Plattform, auf der sie läuft.",
+            "Aufbau der DevOps-/SRE-Funktion von Grund auf und seitdem deren Leitung: CI/CD, Infrastructure-as-Code mit OpenTofu und Ansible auf Linode, Observability, Alerting und Incident-Runbooks.",
+            "Ablösung der manuellen GitHub-Deploy-Workflows und dadurch weniger Deployment-Fehler für ein vierköpfiges Gründungsteam.",
+            "Durchgängiger Betrieb des Produktionsstacks: Docker, Authentifizierung über Zitadel, überwachte Deployments mit selbstheilendem Alerting.",
+            "Verantwortung für die Systemarchitektur über Infrastruktur und Tooling hinweg."
+          ]
+        },
+        {
+          "title": "Associate AI Engineer",
+          "date": "Dez. 2025 – Feb. 2026",
+          "bullets": [
+            "Leitung eines kleinen Teams beim Aufbau der ersten Multi-Agenten-LLM-Pipeline des Unternehmens für die ERP-Automatisierung über MCP; langlaufende, mehrstufige Workflows bleiben ohne menschliches Eingreifen auf Kurs.",
+            "Entwicklung eines Code-Generierungsdienstes, der strukturierte Eingabespezifikationen einliest und einsatzfertige Webanwendungen erzeugt."
+          ]
+        },
+        {
+          "title": "Associate AI Engineer Intern",
+          "date": "Nov. 2025 – Dez. 2025",
+          "bullets": [
+            "Prototyping der ersten LLM-Integrationen und Agenten-Workflows."
+          ]
+        }
+      ],
+      "tags": [
+        "Agentische Systeme",
+        "MCP",
+        "LangGraph",
+        "FastAPI",
+        "OpenTofu",
+        "Ansible",
+        "Docker",
+        "Linode",
+        "Zitadel",
+        "CI/CD"
+      ]
+    },
+    {
+      "id": "rvce-coe",
+      "title": "Research Intern, AI and Deep Learning",
+      "org": "RVCE Centre of Excellence",
+      "location": "Remote",
+      "date": "Okt. 2024 – Dez. 2024",
+      "current": false,
+      "bullets": [
+        "Entwicklung eines Modells zur Deepfake-Erkennung von Grund auf für Videos mit manipulierten Gesichtern, ohne externe Erkennungs-APIs.",
+        "Training und Evaluation auf den Datensätzen FaceForensics++ und DFDC."
+      ],
+      "tags": ["PyTorch", "TensorFlow", "CNN", "FaceForensics++", "DFDC"]
+    },
+    {
+      "id": "ey",
+      "title": "Associate Consultant Intern, Enterprise Cybersecurity",
+      "org": "Ernst & Young India",
+      "location": "Bengaluru, Indien",
+      "date": "Aug. 2024 – Sept. 2024",
+      "current": false,
+      "bullets": [
+        "Begleitung von Senior Consultants bei Projekten zu Cloud-Sicherheit sowie Identitäts- und Zugriffsmanagement.",
+        "Berührungspunkte mit den Frameworks TOGAF und IFTAS."
+      ],
+      "tags": ["Cloud-Sicherheit", "IAM", "TOGAF", "IFTAS"]
+    }
+  ],
+
+  "education": [
+    {
+      "id": "rvce",
+      "title": "B.E. Informatik (Computer Science and Engineering)",
+      "org": "R V College of Engineering (VTU)",
+      "location": "Bengaluru, Indien",
+      "date": "Dez. 2021 – Aug. 2025",
+      "grade": "CGPA ",
+      "bullets": []
+    }
+  ],
+
+  "publications": [
+    {
+      "id": "educonnect",
+      "title": "EduConnect: A Smart Solution for Streamlined School Administrations",
+      "venue": "Springer ICTIS 2025, Bangkok — ICT for Intelligent Systems, Bd. 9",
+      "url": null
+    },
+    {
+      "id": "resnet50",
+      "title": "An Empirical Study of ResNet50 Hyperparameter Tuning for Plant Disease Classification",
+      "venue": "IEEE Xplore, November 2024",
+      "url": "https://ieeexplore.ieee.org/document/10816835"
+    },
+    {
+      "id": "rover",
+      "title": "Web-Server Controlled Rover with Robotic Arm and Object Detection",
+      "venue": "IEEE Xplore, November 2024",
+      "url": "https://ieeexplore.ieee.org/document/10816816"
+    }
+  ],
+
+  "publicationsNote": "Zwei weitere Beiträge befinden sich im Begutachtungsverfahren.",
+
+  "projects": [
+    {
+      "id": "arogya-sathi",
+      "title": "Arogya-Sathi",
+      "subtitle": "Offlinefähige, mehrsprachige KI-Gesundheitsplattform",
+      "icon": "fa-heart-pulse",
+      "color": "#FF3B30",
+      "description": "Symptomprüfung, Erkennung von Frakturen auf Röntgenbildern, Zusammenfassung von Rezepten und ein Wellness-Chatbot — vollständig offline auf quantisierten Modellen, vorgeführt auf einem Raspberry Pi. Darunter liegt eine deterministische, regelbasierte Sicherheitsschicht für Arzneimittelwechselwirkungen und Krisenerkennung, die das LLM nicht übergehen kann. Ein Evaluation Harness mit 62 gelabelten Fällen bewertet diese Sicherheitsschichten und läuft als Merge-Gate in der CI bei einem Recall von 1,00; beim Aufbau wurde eine tatsächlich übersehene Äußerung zur Selbstgefährdung gefunden. Eine LangGraph-Pipeline überführt einen hochgeladenen medizinischen Befund in eine verständliche Erklärung in der Sprache der Patientin oder des Patienten, mit einer Selbstverifikationsschleife; Anfragen werden über mehrere lokale Ollama-Modelle geroutet. Dritter Platz beim Abschlussprojekt-Wettbewerb der Hochschule.",
+      "metrics": [
+        "Krisenerkennung: Recall 1,00 / Precision 0,93",
+        "Notfallerkennung: 1,00 / 1,00",
+        "Arzneimittel-Screening: 1,00 / 1,00"
+      ],
+      "tags": ["LangGraph", "Ollama", "Quantisierte Modelle", "Evaluation Harness", "CI-Gate", "Raspberry Pi"],
+      "url": "https://github.com/Developer1010x/Arogya-Sathi",
+      "date": "Jan. 2025 – Juni 2025"
+    },
+    {
+      "id": "agentic-devops",
+      "title": "agentic-devops",
+      "subtitle": "KI-gestützter Generator und Monitor für CI/CD-Pipelines",
+      "icon": "fa-code-branch",
+      "color": "#3b82f6",
+      "description": "Erzeugt und überwacht CI/CD-Pipelines für Repositories auf GitHub und GitLab.",
+      "metrics": [],
+      "tags": ["CI/CD", "GitHub", "GitLab", "Agenten"],
+      "url": "https://github.com/Developer1010x/agentic-devops"
+    },
+    {
+      "id": "audio-deepfake",
+      "title": "Audio Deepfake Detection",
+      "subtitle": "Erkennung synthetischer Sprache",
+      "icon": "fa-wave-square",
+      "color": "#AF52DE",
+      "description": "Erkennt KI-synthetisierte oder geklonte Sprache.",
+      "metrics": [],
+      "tags": ["PyTorch", "Audio", "Klassifikation"],
+      "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
+    },
+    {
+      "id": "pybridge",
+      "title": "pybridge.ai",
+      "subtitle": "KI-Zugang vom Smartphone",
+      "icon": "fa-comments",
+      "color": "#06b6d4",
+      "description": "Routet den Zugang zu KI-Diensten über WhatsApp, Telegram und E-Mail, sodass sie sich vom Smartphone aus steuern lassen.",
+      "metrics": [],
+      "tags": ["Python", "Messaging", "LLM-Integration"],
+      "url": "https://github.com/Developer1010x/pybridge.ai"
+    },
+    {
+      "id": "knotes-central",
+      "title": "Knotes Central",
+      "subtitle": "Plattform für studentische Lernressourcen",
+      "icon": "fa-graduation-cap",
+      "color": "#FF9F0A",
+      "description": "Eine Plattform für studentische Lernressourcen, eingesetzt in über 12 Fachbereichen.",
+      "metrics": [],
+      "tags": ["Webplattform"],
+      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
+    },
+    {
+      "id": "llm-terminal",
+      "title": "LLM Terminal",
+      "subtitle": "LLM-Assistent für das Terminal",
+      "icon": "fa-terminal",
+      "color": "#10b981",
+      "description": "Ein schlanker Assistent für die Arbeit mit LLMs auf der Kommandozeile.",
+      "metrics": [],
+      "tags": ["Python", "CLI", "LLM-Integration"],
+      "url": "https://github.com/Developer1010x/LLM_Terminal"
+    }
+  ],
+
+  "strings": {
+    "skipToContent": "Zum Inhalt springen",
+    "projectCode": "Quellcode",
+    "projectDemo": "Demo",
+    "publicationsLink": "Zur Veröffentlichung",
+    "regionNames": {
+      "uk": "Vereinigtes Königreich",
+      "in": "Indien",
+      "us": "Vereinigte Staaten",
+      "jp": "Japan",
+      "de": "Deutschland"
+    },
+    "nav": {
+      "about": "Über mich",
+      "skills": "Kenntnisse",
+      "experience": "Berufserfahrung",
+      "education": "Ausbildung",
+      "projects": "Projekte",
+      "publications": "Veröffentlichungen",
+      "contact": "Kontakt"
+    },
+    "hero": {
+      "greeting": "Hallo, ich bin",
+      "contactCta": "Kontakt aufnehmen",
+      "githubCta": "GitHub",
+      "cvCta": "Lebenslauf"
+    },
+    "sections": {
+      "aboutTitle": "Über mich",
+      "aboutSubtitle": "Ein AI Engineer, der das Produkt entwickelt und die Plattform darunter betreibt.",
+      "skillsTitle": "Kenntnisse",
+      "skillsSubtitle": "KI- und LLM-Systeme und die Infrastruktur, auf der sie laufen — zu gleichen Teilen.",
+      "experienceTitle": "Berufserfahrung",
+      "experienceSubtitle": "Stationen in umgekehrt chronologischer Reihenfolge.",
+      "educationTitle": "Ausbildung",
+      "educationSubtitle": "Akademischer Werdegang.",
+      "projectsTitle": "Projekte",
+      "projectsSubtitle": "End-to-End umgesetzt, überwiegend quelloffen.",
+      "publicationsTitle": "Veröffentlichungen",
+      "publicationsSubtitle": "Begutachtete Beiträge.",
+      "contactTitle": "Kontakt",
+      "contactSubtitle": "Am schnellsten erreichen Sie mich per E-Mail."
+    },
+    "contact": {
+      "emailLabel": "E-Mail",
+      "phoneLabel": "Telefon",
+      "githubLabel": "GitHub",
+      "locationLabel": "Standort",
+      "authorisationLabel": "Arbeitserlaubnis"
+    },
+    "region": {
+      "notice": "Sie sehen die Fassung dieser Seite für {region}.",
+      "switchLabel": "Region",
+      "switchHelp": "Region wechseln"
+    },
+    "cv": {
+      "modalTitle": "Lebenslauf",
+      "download": "Herunterladen",
+      "open": "In neuem Tab öffnen",
+      "close": "Schließen",
+      "loadNote": "Das PDF wird erst beim Öffnen geladen."
+    },
+    "footer": {
+      "rights": "Alle Rechte vorbehalten.",
+      "builtNote": "Statische Website, ein gemeinsames Template, fünf regionale Builds."
+    }
   }
 }
