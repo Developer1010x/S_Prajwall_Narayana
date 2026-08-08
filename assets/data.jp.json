@@ -1,0 +1,14 @@
+{
+  "_readme": "Japan overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md.",
+  "_todo": [
+    "TODO(jp): set cv.href to the Japan CV PDF once it exists (e.g. assets/cv/jp.pdf).",
+    "TODO(jp): meta.lang is 'en' until strings.* are localised into Japanese. Change it to 'ja' in the same commit that localises them, not before."
+  ],
+  "meta": {
+    "cc": "jp",
+    "label": "Japan",
+    "lang": "en",
+    "dir": "ltr",
+    "spelling": "en-GB"
+  }
+}

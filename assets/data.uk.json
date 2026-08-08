@@ -1,0 +1,14 @@
+{
+  "_readme": "United Kingdom overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md.",
+  "_todo": [
+    "TODO(uk): set cv.href to the UK CV PDF once it exists (e.g. assets/cv/uk.pdf). Until a file is on disk the build omits the CV button from this page.",
+    "TODO(uk): confirm the work authorisation wording with Prajwall before it goes live."
+  ],
+  "meta": {
+    "cc": "uk",
+    "label": "United Kingdom",
+    "lang": "en-GB",
+    "dir": "ltr",
+    "spelling": "en-GB"
+  }
+}

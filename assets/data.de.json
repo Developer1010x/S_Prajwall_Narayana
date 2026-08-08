@@ -1,0 +1,14 @@
+{
+  "_readme": "Germany overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md.",
+  "_todo": [
+    "TODO(de): set cv.href to the Germany CV PDF once it exists (e.g. assets/cv/de.pdf).",
+    "TODO(de): meta.lang is 'en' until strings.* are localised into German. Change it to 'de' in the same commit that localises them, not before."
+  ],
+  "meta": {
+    "cc": "de",
+    "label": "Germany",
+    "lang": "en",
+    "dir": "ltr",
+    "spelling": "en-GB"
+  }
+}
