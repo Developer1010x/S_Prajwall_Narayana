@@ -1,14 +1,199 @@
 {
-  "_readme": "United States overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md.",
+  "_readme": "United States overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. Two arrays are replaced wholesale on purpose: `skills` (item-level re-emphasis for the US market) and `projects` (US spelling — the base copy says 'summarisation' and 'AI-synthesised', which a US reader notices). Nothing else is duplicated. `about` and `experience` are deliberately NOT overridden: the base copy already contains no British spellings and is balanced. If the base skills or projects change, this file must be re-synced.",
   "_todo": [
-    "TODO(us): set cv.href to the US resume PDF once it exists (e.g. assets/cv/us.pdf).",
-    "TODO(us): work authorisation line needs Prajwall's actual visa position. Do not guess."
+    "TODO(us): assets/cv/us.pdf does not exist yet. Print '01 CV & Resumes/Sources (HTML & LaTeX)/Country/us/resume_us.html' to PDF at US Letter and drop it in. Until then the build warns and omits the Resume button from /us/ — it does not ship a 404.",
+    "TODO(us): confirm the portfolio domain. The resume HTML and this data file both assume https://sprajwallnarayana.com (matching site.origin, sitemap.xml and the canonical in index.html). The older resume_uk.html in the CV folder printed https://sprajwallnarayana.vercel.app. One of the two is stale — check DNS before this URL goes on a document a US recruiter clicks.",
+    "TODO(us): the work-authorisation line states he requires sponsorship (H-1B, or F-1/OPT if he studies in the US). Confirm the exact wording with Prajwall before it goes live — the factual base does not record any current US status, petition or lottery history, and none has been invented here.",
+    "TODO(us): flags.showGrade is left at the base default of false. US anti-discrimination practice plus a 6.66 CGPA both point the same way — deliberate, not an omission.",
+    "TODO(us): personal.profileImageAlt in data.base.json reads 'Stylised' (en-GB). personal.* is shared and must not be overridden per the contract, so it is flagged here for the shell owner rather than patched."
   ],
+
   "meta": {
     "cc": "us",
     "label": "United States",
     "lang": "en-US",
     "dir": "ltr",
     "spelling": "en-US"
+  },
+
+  "headline": "AI Engineer — LLM product engineering and platform ownership",
+
+  "summary": "AI Engineer on the founding team at Colligence Research. I build the product — agentic and LLM pipelines, multi-agent workflows over MCP, a code-generation service that emits deployment-ready applications, backend APIs — and I own the platform it runs on: CI/CD, infrastructure-as-code, observability, incident response and authentication. Most recent proof of both halves at once: a deterministic safety layer under a healthcare LLM, scored by a 62-case labeled evaluation harness that runs as a **CI merge gate at recall 1.00**. The engineer who ships the agent workflow is the engineer who carries the pager for it.",
+
+  "workAuthorisation": "**Requires US visa sponsorship** — H-1B, or an F-1/OPT route if studying in the US. Based in Bengaluru, India and open to relocation.",
+
+  "typedPhrases": [
+    "agentic and LLM pipelines",
+    "CI/CD and infrastructure-as-code",
+    "multi-agent workflows over MCP",
+    "observability and incident response",
+    "evaluation harnesses wired into CI",
+    "authentication, RBAC and platform security"
+  ],
+
+  "cv": {
+    "href": "assets/cv/us.pdf",
+    "label": "Resume",
+    "downloadName": "S-Prajwall-Narayana-Resume.pdf"
+  },
+
+  "seo": {
+    "title": "S Prajwall Narayana — AI Engineer (LLM systems and platform)",
+    "description": "AI Engineer on the founding team at Colligence Research: agentic and LLM pipelines, multi-agent workflows over MCP, and the CI/CD, infrastructure-as-code and observability platform underneath them. Three peer-reviewed papers. Requires US visa sponsorship."
+  },
+
+  "skills": [
+    {
+      "id": "ai",
+      "title": "AI and LLM systems",
+      "icon": "fa-robot",
+      "items": [
+        "Agentic systems",
+        "Multi-agent workflows",
+        "MCP orchestration",
+        "LangGraph",
+        "LangChain",
+        "Claude API",
+        "Evaluation harnesses",
+        "RAG",
+        "LLM integration"
+      ]
+    },
+    {
+      "id": "infra",
+      "title": "Infrastructure and DevOps",
+      "icon": "fa-server",
+      "items": [
+        "CI/CD",
+        "OpenTofu (IaC)",
+        "Ansible",
+        "Docker",
+        "Observability and alerting",
+        "Incident runbooks",
+        "Zitadel (SSO/IAM)",
+        "RBAC",
+        "Linux",
+        "Linode",
+        "Git"
+      ]
+    },
+    {
+      "id": "backend",
+      "title": "Languages and backend",
+      "icon": "fa-code",
+      "items": [
+        "Python",
+        "FastAPI",
+        "REST APIs",
+        "PostgreSQL",
+        "SQL",
+        "Shell scripting",
+        "Rust",
+        "Swift"
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "Machine learning and vision",
+      "icon": "fa-brain",
+      "items": [
+        "PyTorch",
+        "TensorFlow",
+        "Quantized model deployment",
+        "YOLOv8",
+        "OpenCV",
+        "CNN",
+        "ResNet"
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "id": "arogya-sathi",
+      "title": "Arogya-Sathi",
+      "subtitle": "Offline-capable multilingual AI healthcare platform",
+      "icon": "fa-heart-pulse",
+      "color": "#FF3B30",
+      "description": "Symptom checking, X-ray fracture detection, prescription summarization and a wellness chatbot, running fully offline on quantized models — demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62-case labeled evaluation harness scores those safety layers and runs as a CI merge gate at recall 1.00; building it found a real missed self-harm disclosure. A LangGraph pipeline turns an uploaded medical report into a plain-language explanation in the patient's own language, with a self-verification loop, and requests are routed across local Ollama models. Third place, college final-year showcase.",
+      "metrics": [
+        "Crisis detection: recall 1.00 / precision 0.93",
+        "Emergency: 1.00 / 1.00",
+        "Drug screening: 1.00 / 1.00"
+      ],
+      "tags": ["LangGraph", "Ollama", "Quantized models", "Evaluation harness", "CI gate", "Raspberry Pi"],
+      "url": "https://github.com/Developer1010x/Arogya-Sathi",
+      "date": "Jan 2025 — Jun 2025"
+    },
+    {
+      "id": "agentic-devops",
+      "title": "agentic-devops",
+      "subtitle": "AI-powered CI/CD pipeline generator and monitor",
+      "icon": "fa-code-branch",
+      "color": "#3b82f6",
+      "description": "Generates and monitors CI/CD pipelines for GitHub and GitLab repositories.",
+      "metrics": [],
+      "tags": ["CI/CD", "GitHub", "GitLab", "Agents"],
+      "url": "https://github.com/Developer1010x/agentic-devops"
+    },
+    {
+      "id": "pybridge",
+      "title": "pybridge.ai",
+      "subtitle": "AI access from a phone",
+      "icon": "fa-comments",
+      "color": "#06b6d4",
+      "description": "Routes AI access across WhatsApp, Telegram and email so it can be driven from a phone.",
+      "metrics": [],
+      "tags": ["Python", "Messaging", "LLM integration"],
+      "url": "https://github.com/Developer1010x/pybridge.ai"
+    },
+    {
+      "id": "llm-terminal",
+      "title": "LLM Terminal",
+      "subtitle": "Terminal-based LLM assistant",
+      "icon": "fa-terminal",
+      "color": "#10b981",
+      "description": "A lightweight terminal-based assistant for working with LLMs from the command line.",
+      "metrics": [],
+      "tags": ["Python", "CLI", "LLM integration"],
+      "url": "https://github.com/Developer1010x/LLM_Terminal"
+    },
+    {
+      "id": "audio-deepfake",
+      "title": "Audio Deepfake Detection",
+      "subtitle": "Synthetic speech detection",
+      "icon": "fa-wave-square",
+      "color": "#AF52DE",
+      "description": "Flags AI-synthesized or cloned speech.",
+      "metrics": [],
+      "tags": ["PyTorch", "Audio", "Classification"],
+      "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
+    },
+    {
+      "id": "knotes-central",
+      "title": "Knotes Central",
+      "subtitle": "Student resource platform",
+      "icon": "fa-graduation-cap",
+      "color": "#FF9F0A",
+      "description": "A student resource platform, adopted across 12+ departments.",
+      "metrics": [],
+      "tags": ["Web platform"],
+      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
+    }
+  ],
+
+  "strings": {
+    "hero": {
+      "cvCta": "Resume"
+    },
+    "cv": {
+      "modalTitle": "Resume"
+    },
+    "contact": {
+      "authorisationLabel": "Work authorization"
+    },
+    "sections": {
+      "projectsSubtitle": "Built end to end, mostly in the open. Metrics are measured, not estimated."
+    }
   }
 }
