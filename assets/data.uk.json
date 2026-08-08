@@ -3,8 +3,8 @@
 
   "_todo": [
     "TODO(uk): cv.href points at assets/cv/uk.pdf. Print the UK CV source to PDF and drop it there; until the file exists the build warns and omits the CV button from /uk/.",
-    "TODO(uk): the portfolio URL used on the printed UK CV is sprajwallnarayana.vercel.app (the one every existing CV carries). If https://sprajwallnarayana.com is live, switch the CV to https://sprajwallnarayana.com/uk/?region=uk and keep this file's site.origin as-is.",
-    "TODO(uk): personal.location is set to West Kirby, Wirral per the UK brief (a real address he can receive post at). Confirm with Prajwall that he is happy for it to be public on the site as well as on the CV.",
+    "TODO(uk): RESOLVED 2026-08 — sprajwallnarayana.com does not resolve in DNS; sprajwallnarayana.vercel.app does. The printed CVs use the vercel.app URL. site.origin still says sprajwallnarayana.com; see the TODO in data.base.json.",
+    "TODO(uk): personal.location was set to 'West Kirby, Wirral' by an earlier pass. That address is NOT in the agreed factual base, which states 'Bengaluru, India, open to relocation'. It has been reverted to Bengaluru. If Prajwall genuinely has a UK correspondence address, set it back here AND in cv_uk.html / cv_uk_ats.html — but it must be a real address, and note it sits oddly beside a Skilled Worker sponsorship request.",
     "TODO(uk): flags.showGrade is left false. UK employers expect a degree classification (2:1 etc.), not a VTU CGPA;  has no honest UK equivalent and converting it would be a fabrication. A human must decide whether to state the CGPA verbatim or say nothing.",
     "TODO(uk): flags.showPhone is true but the number is +91. A UK-reachable number would materially improve recruiter call-backs. No UK number is on file, so none has been invented.",
     "TODO(uk): confirm the exact Skilled Worker / New Entrant wording with Prajwall (and ideally an immigration adviser) before it goes live — the claim is a selling point only if it survives scrutiny."
@@ -19,8 +19,8 @@
   },
 
   "personal": {
-    "location": "West Kirby, Wirral",
-    "relocation": "Open to relocation across the UK"
+    "location": "Bengaluru, India",
+    "relocation": "Open to relocation to the UK"
   },
 
   "headline": "AI Engineer — agentic systems and the platform underneath them",
@@ -64,7 +64,7 @@
 
   "seo": {
     "title": "S. Prajwall Narayana — AI Engineer (UK)",
-    "description": "AI Engineer on a founding team: multi-agent and LLM pipelines over MCP, plus the CI/CD, infrastructure-as-code, observability and incident response underneath them. Based in West Kirby, Wirral; eligible for Skilled Worker sponsorship at the New Entrant rate."
+    "description": "AI Engineer on a founding team: multi-agent and LLM pipelines over MCP, plus the CI/CD, infrastructure-as-code, observability and incident response underneath them. Based in Bengaluru and open to relocation to the UK; eligible for Skilled Worker sponsorship at the New Entrant rate."
   },
 
   "strings": {

@@ -2,6 +2,10 @@
   "schemaVersion": 1,
   "_readme": "Shared content for every region. Country files (data.<cc>.json) override keys in here. See assets/DATA-CONTRACT.md before editing.",
 
+  "_todo": [
+    "TODO(site.origin) — BLOCKING FOR SEO. Checked 2026-08: sprajwallnarayana.com does NOT resolve in DNS (neither does www.). sprajwallnarayana.vercel.app DOES resolve. site.origin below is used for every page's rel=canonical, og:url, sitemap.xml and the robots.txt Sitemap line, so today every page canonicalises to a hostname that does not exist and Google can index none of it. Either point the custom domain at the Vercel project, or change origin to https://sprajwallnarayana.vercel.app and rebuild. The printed CVs have already been switched to the vercel.app URL because a dead link on a CV is worse than an ugly one. Left unchanged here rather than guessed at, because changing it silently rewrites the site's public identity."
+  ],
+
   "site": {
     "origin": "https://sprajwallnarayana.com",
     "defaultRegion": "uk",

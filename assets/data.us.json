@@ -5,7 +5,7 @@
     "TODO(us): confirm the portfolio domain. The resume HTML and this data file both assume https://sprajwallnarayana.com (matching site.origin, sitemap.xml and the canonical in index.html). The older resume_uk.html in the CV folder printed https://sprajwallnarayana.vercel.app. One of the two is stale — check DNS before this URL goes on a document a US recruiter clicks.",
     "TODO(us): the work-authorisation line states he requires sponsorship (H-1B, or F-1/OPT if he studies in the US). Confirm the exact wording with Prajwall before it goes live — the factual base does not record any current US status, petition or lottery history, and none has been invented here.",
     "TODO(us): flags.showGrade is left at the base default of false. US anti-discrimination practice plus a  CGPA both point the same way — deliberate, not an omission.",
-    "TODO(us): personal.profileImageAlt in data.base.json reads 'Stylised' (en-GB). personal.* is shared and must not be overridden per the contract, so it is flagged here for the shell owner rather than patched."
+    "TODO(us): RESOLVED — personal.profileImageAlt now carries the US spelling via the personal override below. data.de.json already overrides personal.*, so the contract permits it."
   ],
 
   "meta": {
@@ -14,6 +14,10 @@
     "lang": "en-US",
     "dir": "ltr",
     "spelling": "en-US"
+  },
+
+  "personal": {
+    "profileImageAlt": "Stylized high-contrast avatar used by S Prajwall Narayana"
   },
 
   "headline": "AI Engineer — LLM product engineering and platform ownership",
