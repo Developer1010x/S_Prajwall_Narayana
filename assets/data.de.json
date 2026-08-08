@@ -368,13 +368,14 @@
       "jp": "Japan",
       "de": "Deutschland"
     },
+    "_readme_nav": "Short nav labels on purpose. The German words are much longer than the English ones and 'Berufserfahrung' + 'Veroeffentlichungen' pushed the nav into the logo at 1280px. The full words are kept where they matter, in strings.sections.*Title.",
     "nav": {
       "about": "Über mich",
       "skills": "Kenntnisse",
-      "experience": "Berufserfahrung",
+      "experience": "Erfahrung",
       "education": "Ausbildung",
       "projects": "Projekte",
-      "publications": "Veröffentlichungen",
+      "publications": "Publikationen",
       "contact": "Kontakt"
     },
     "hero": {
