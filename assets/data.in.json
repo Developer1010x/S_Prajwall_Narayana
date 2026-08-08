@@ -1,8 +1,11 @@
 {
-  "_readme": "India overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md.",
+  "_readme": "India overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. India tuning = Indian English (British spelling), 'Resume' rather than 'CV', named-stack keyword density for keyword-driven recruiter and ATS screens, CGPA shown because the Indian convention expects it, and publications given prominence because IEEE/Springer carry real weight in this market. Notice period and current/expected CTC are deliberately NOT on the public site - they belong in the resume and the recruiter conversation, not on a public page. They are placeholders in the resume source instead.",
   "_todo": [
-    "TODO(in): set cv.href to the India CV PDF once it exists (e.g. assets/cv/in.pdf)."
+    "TODO(in): set cv.href to assets/cv/in.pdf once the India resume PDF is exported from Country/in/resume_in.html. Until the file is on disk the build omits the resume button from this page - that is the intended fail-safe, not a bug.",
+    "TODO(in): decide with Prajwall whether CGPA  should stay visible. flags.showGrade is true here because the Indian convention expects a CGPA and omitting it reads as concealment, but some product companies screen on it. Setting it to false is a one-line change.",
+    "TODO(in): confirm https://sprajwallnarayana.com is live before the resume PDF ships - the older UK resume pointed at sprajwallnarayana.vercel.app."
   ],
+
   "meta": {
     "cc": "in",
     "label": "India",
@@ -10,8 +13,56 @@
     "dir": "ltr",
     "spelling": "en-IN"
   },
+
   "flags": {
     "showGrade": true,
-    "showPhone": true
+    "showPhone": true,
+    "showPublications": true
+  },
+
+  "headline": "AI Engineer — agentic and LLM systems, and the platform they run on",
+
+  "summary": "AI Engineer on the founding team at **Colligence Research**, Bengaluru. I work across both halves of the stack: I build the product — multi-agent and LLM pipelines over **MCP**, a code-generation service, **Python** and **FastAPI** backends — and I own the platform it runs on, having set up **CI/CD**, infrastructure-as-code with **OpenTofu** and **Ansible**, **Docker**, **Zitadel** authentication, observability and incident response from scratch. **IEEE- and Springer-published**, with three peer-reviewed papers and two more under review.",
+
+  "typedPhrases": [
+    "agentic and LLM pipelines over MCP",
+    "CI/CD and infrastructure-as-code",
+    "LangGraph, RAG and multi-agent workflows",
+    "Docker, OpenTofu and Ansible on Linode",
+    "Python and FastAPI backends",
+    "observability, alerting and incident response"
+  ],
+
+  "order": {
+    "skills": ["ai", "infra", "backend", "ml"],
+    "projects": ["arogya-sathi", "agentic-devops", "knotes-central", "pybridge"],
+    "about": ["product", "platform", "research"],
+    "experience": ["colligence", "rvce-coe", "ey"]
+  },
+
+  "cv": {
+    "href": "assets/cv/in.pdf",
+    "label": "Resume",
+    "downloadName": "S-Prajwall-Narayana-Resume-India.pdf"
+  },
+
+  "seo": {
+    "title": "S. Prajwall Narayana — AI Engineer (agentic and LLM systems, DevOps) | Bengaluru",
+    "description": "AI Engineer on the founding team at Colligence Research, Bengaluru. Multi-agent and LLM pipelines over MCP, LangGraph, Python and FastAPI, alongside CI/CD, OpenTofu, Ansible, Docker and Zitadel. IEEE- and Springer-published."
+  },
+
+  "strings": {
+    "hero": {
+      "cvCta": "Resume"
+    },
+    "cv": {
+      "modalTitle": "Resume",
+      "loadNote": "The PDF loads only when you open it."
+    },
+    "sections": {
+      "skillsSubtitle": "AI and LLM systems and the infrastructure they run on, in equal measure.",
+      "publicationsSubtitle": "Peer-reviewed work — IEEE Xplore and Springer.",
+      "educationSubtitle": "Academic background."
+    }
   }
 }
