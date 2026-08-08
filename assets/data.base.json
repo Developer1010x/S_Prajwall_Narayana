@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "_readme": "Shared content for every region. Country files (data.<cc>.json) override keys in here. See assets/DATA-CONTRACT.md before editing.",
+
+  "site": {
+    "origin": "https://sprajwallnarayana.com",
+    "defaultRegion": "uk",
+    "regions": [
+      { "cc": "uk", "label": "United Kingdom", "lang": "en-GB" },
+      { "cc": "in", "label": "India", "lang": "en-IN" },
+      { "cc": "us", "label": "United States", "lang": "en-US" },
+      { "cc": "jp", "label": "Japan", "lang": "ja" },
+      { "cc": "de", "label": "Germany", "lang": "de" }
+    ]
+  },
+
+  "meta": {
+    "cc": "base",
+    "label": "International",
+    "lang": "en",
+    "dir": "ltr",
+    "spelling": "en-GB"
+  },
+
+  "personal": {
+    "name": "S Prajwall Narayana",
+    "displayName": "S. Prajwall Narayana",
+    "title": "AI Engineer",
+    "email": "prajwallnarayana@gmail.com",
+    "phone": "+91 7760604439",
+    "github": "https://github.com/Developer1010x",
+    "githubHandle": "Developer1010x",
+    "location": "Bengaluru, India",
+    "relocation": "Open to relocation",
+    "employer": "Colligence Research",
+    "profileImage": "assets/images/S_Prajwall_Narayana.jpg",
+    "profileImageAlt": "Stylised high-contrast avatar used by S Prajwall Narayana"
+  },
+
+  "flags": {
+    "showPhone": true,
+    "showGrade": false,
+    "showPublications": true,
+    "noindex": null
+  },
+
+  "seo": {
+    "title": null,
+    "description": null
+  },
+
+  "headline": "AI Engineer — product and platform",
+
+  "summary": "AI Engineer on the founding team at Colligence Research in Bengaluru. I build the product — agentic and LLM pipelines, code-generation services, backend APIs — and I own the platform it runs on: CI/CD, infrastructure-as-code, observability, incident response and auth. The combination is the point: the person who ships the agent workflow is the person who carries the pager for it.",
+
+  "typedPhrases": [
+    "agentic and LLM pipelines",
+    "CI/CD and infrastructure-as-code",
+    "multi-agent workflows over MCP",
+    "observability and incident response",
+    "code-generation services",
+    "authentication, RBAC and platform security"
+  ],
+
+  "cv": {
+    "_todo": "TODO: no CV PDF is committed. Put the per-country CV at assets/cv/<cc>.pdf and set cv.href in that country's data file. Until a file exists the build omits the CV button entirely - it will not ship a stale or missing PDF.",
+    "href": "assets/cv/cv.pdf",
+    "label": "CV",
+    "downloadName": "S-Prajwall-Narayana-CV.pdf"
+  },
+
+  "workAuthorisation": null,
+
+  "stats": [
+    { "value": 3, "suffix": "", "label": "Peer-reviewed papers" },
+    { "value": 6, "suffix": "", "label": "Shipped projects" },
+    { "value": 12, "suffix": "+", "label": "Departments using Knotes Central" }
+  ],
+
+  "about": [
+    {
+      "id": "product",
+      "icon": "fa-diagram-project",
+      "title": "What I build",
+      "body": "Multi-agent LLM pipelines for ERP automation over MCP, a code-generation service that turns structured input specs into deployment-ready web applications, and the backend APIs behind them. Long-running, multi-step agent workflows that stay on track without a human babysitting them."
+    },
+    {
+      "id": "platform",
+      "icon": "fa-server",
+      "title": "What I run",
+      "body": "The platform those systems run on. I established the DevOps/SRE function at Colligence Research from scratch and lead it: CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, Docker, Zitadel for SSO and RBAC, observability, alerting and incident runbooks."
+    },
+    {
+      "id": "research",
+      "icon": "fa-flask",
+      "title": "Research and publications",
+      "body": "Three peer-reviewed papers — one at Springer ICTIS 2025 in Bangkok and two on IEEE Xplore — covering school administration systems, ResNet50 hyperparameter tuning and a web-server controlled rover with object detection. Two more are under review."
+    }
+  ],
+
+  "skills": [
+    {
+      "id": "ai",
+      "title": "AI and LLM systems",
+      "icon": "fa-robot",
+      "items": [
+        "Agentic systems",
+        "MCP orchestration",
+        "Multi-agent workflows",
+        "RAG",
+        "LangChain",
+        "LangGraph",
+        "Claude API",
+        "LLM integration",
+        "Evaluation harnesses"
+      ]
+    },
+    {
+      "id": "infra",
+      "title": "Infrastructure and DevOps",
+      "icon": "fa-server",
+      "items": [
+        "CI/CD",
+        "OpenTofu (IaC)",
+        "Ansible",
+        "Docker",
+        "Linux",
+        "Linode",
+        "Observability and alerting",
+        "Incident runbooks",
+        "Zitadel (SSO/IAM)",
+        "RBAC",
+        "Git"
+      ]
+    },
+    {
+      "id": "backend",
+      "title": "Languages and backend",
+      "icon": "fa-code",
+      "items": [
+        "Python",
+        "FastAPI",
+        "REST APIs",
+        "PostgreSQL",
+        "SQL",
+        "Swift",
+        "Rust",
+        "Shell scripting"
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "Machine learning and vision",
+      "icon": "fa-brain",
+      "items": [
+        "PyTorch",
+        "TensorFlow",
+        "YOLOv8",
+        "OpenCV",
+        "CNN",
+        "ResNet",
+        "Quantized model deployment"
+      ]
+    }
+  ],
+
+  "experience": [
+    {
+      "id": "colligence",
+      "title": "AI Engineer",
+      "org": "Colligence Research",
+      "location": "Bengaluru, India",
+      "date": "Nov 2025 — present",
+      "current": true,
+      "note": "Founding team.",
+      "roles": [
+        {
+          "title": "AI Engineer",
+          "date": "Feb 2026 — present",
+          "bullets": [
+            "Works across both halves of the product: the AI and product engineering below, plus end-to-end ownership of the platform it runs on.",
+            "Established the DevOps/SRE function from scratch and now leads it — CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.",
+            "Replaced manual GitHub deploy workflows, cutting deployment errors for a four-person founding team.",
+            "Operates the production stack end to end: Docker, Zitadel authentication, monitored deployments with self-healing alerting.",
+            "Owns system architecture across infrastructure and tooling."
+          ]
+        },
+        {
+          "title": "Associate AI Engineer",
+          "date": "Dec 2025 — Feb 2026",
+          "bullets": [
+            "Led a small team building the company's first multi-agent LLM pipeline for ERP automation over MCP, keeping long-running multi-step workflows on track without human intervention.",
+            "Built a code-generation service that parses structured input specs and emits deployment-ready web applications."
+          ]
+        },
+        {
+          "title": "Associate AI Engineer Intern",
+          "date": "Nov 2025 — Dec 2025",
+          "bullets": [
+            "Prototyped the first LLM integrations and agent workflows."
+          ]
+        }
+      ],
+      "tags": [
+        "Agentic systems",
+        "MCP",
+        "LangGraph",
+        "FastAPI",
+        "OpenTofu",
+        "Ansible",
+        "Docker",
+        "Linode",
+        "Zitadel",
+        "CI/CD"
+      ]
+    },
+    {
+      "id": "rvce-coe",
+      "title": "Research Intern, AI and Deep Learning",
+      "org": "RVCE Centre of Excellence",
+      "location": "Remote",
+      "date": "Oct 2024 — Dec 2024",
+      "current": false,
+      "bullets": [
+        "Built a deepfake-detection model from scratch for manipulated-face video, using no external detection APIs.",
+        "Trained and evaluated on the FaceForensics++ and DFDC datasets."
+      ],
+      "tags": ["PyTorch", "TensorFlow", "CNN", "FaceForensics++", "DFDC"]
+    },
+    {
+      "id": "ey",
+      "title": "Associate Consultant Intern, Enterprise Cybersecurity",
+      "org": "Ernst & Young India",
+      "location": "Bengaluru, India",
+      "date": "Aug 2024 — Sep 2024",
+      "current": false,
+      "bullets": [
+        "Shadowed senior consultants on cloud-security and identity and access management work.",
+        "Exposure to the TOGAF and IFTAS frameworks."
+      ],
+      "tags": ["Cloud security", "IAM", "TOGAF", "IFTAS"]
+    }
+  ],
+
+  "education": [
+    {
+      "id": "rvce",
+      "title": "B.E. Computer Science and Engineering",
+      "org": "R V College of Engineering (VTU)",
+      "location": "Bengaluru, India",
+      "date": "Dec 2021 — Aug 2025",
+      "grade": "CGPA ",
+      "bullets": []
+    }
+  ],
+
+  "publications": [
+    {
+      "id": "educonnect",
+      "title": "EduConnect: A Smart Solution for Streamlined School Administrations",
+      "venue": "Springer ICTIS 2025, Bangkok — ICT for Intelligent Systems, Vol. 9",
+      "url": null
+    },
+    {
+      "id": "resnet50",
+      "title": "An Empirical Study of ResNet50 Hyperparameter Tuning for Plant Disease Classification",
+      "venue": "IEEE Xplore, November 2024",
+      "url": "https://ieeexplore.ieee.org/document/10816835"
+    },
+    {
+      "id": "rover",
+      "title": "Web-Server Controlled Rover with Robotic Arm and Object Detection",
+      "venue": "IEEE Xplore, November 2024",
+      "url": "https://ieeexplore.ieee.org/document/10816816"
+    }
+  ],
+
+  "publicationsNote": "Two further papers are under review.",
+
+  "projects": [
+    {
+      "id": "arogya-sathi",
+      "title": "Arogya-Sathi",
+      "subtitle": "Offline-capable multilingual AI healthcare platform",
+      "icon": "fa-heart-pulse",
+      "color": "#FF3B30",
+      "description": "Symptom checking, X-ray fracture detection, prescription summarisation and a wellness chatbot, running fully offline on quantized models — demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62-case labelled evaluation harness scores those safety layers and runs as a CI merge gate at recall 1.00; building it found a real missed self-harm disclosure. A LangGraph pipeline turns an uploaded medical report into a plain-language explanation in the patient's own language, with a self-verification loop, and requests are routed across local Ollama models. Third place, college final-year showcase.",
+      "metrics": [
+        "Crisis detection: recall 1.00 / precision 0.93",
+        "Emergency: 1.00 / 1.00",
+        "Drug screening: 1.00 / 1.00"
+      ],
+      "tags": ["LangGraph", "Ollama", "Quantized models", "Evaluation harness", "CI gate", "Raspberry Pi"],
+      "url": "https://github.com/Developer1010x/Arogya-Sathi",
+      "date": "Jan 2025 — Jun 2025"
+    },
+    {
+      "id": "agentic-devops",
+      "title": "agentic-devops",
+      "subtitle": "AI-powered CI/CD pipeline generator and monitor",
+      "icon": "fa-code-branch",
+      "color": "#3b82f6",
+      "description": "Generates and monitors CI/CD pipelines for GitHub and GitLab repositories.",
+      "metrics": [],
+      "tags": ["CI/CD", "GitHub", "GitLab", "Agents"],
+      "url": "https://github.com/Developer1010x/agentic-devops"
+    },
+    {
+      "id": "pybridge",
+      "title": "pybridge.ai",
+      "subtitle": "AI access from a phone",
+      "icon": "fa-comments",
+      "color": "#06b6d4",
+      "description": "Routes AI access across WhatsApp, Telegram and email so it can be driven from a phone.",
+      "metrics": [],
+      "tags": ["Python", "Messaging", "LLM integration"],
+      "url": "https://github.com/Developer1010x/pybridge.ai"
+    },
+    {
+      "id": "knotes-central",
+      "title": "Knotes Central",
+      "subtitle": "Student resource platform",
+      "icon": "fa-graduation-cap",
+      "color": "#FF9F0A",
+      "description": "A student resource platform, adopted across 12+ departments.",
+      "metrics": [],
+      "tags": ["Web platform"],
+      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
+    },
+    {
+      "id": "llm-terminal",
+      "title": "LLM Terminal",
+      "subtitle": "Terminal-based LLM assistant",
+      "icon": "fa-terminal",
+      "color": "#10b981",
+      "description": "A lightweight terminal-based assistant for working with LLMs from the command line.",
+      "metrics": [],
+      "tags": ["Python", "CLI", "LLM integration"],
+      "url": "https://github.com/Developer1010x/LLM_Terminal"
+    },
+    {
+      "id": "audio-deepfake",
+      "title": "Audio Deepfake Detection",
+      "subtitle": "Synthetic speech detection",
+      "icon": "fa-wave-square",
+      "color": "#AF52DE",
+      "description": "Flags AI-synthesised or cloned speech.",
+      "metrics": [],
+      "tags": ["PyTorch", "Audio", "Classification"],
+      "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
+    }
+  ],
+
+  "strings": {
+    "skipToContent": "Skip to content",
+    "projectCode": "Code",
+    "projectDemo": "Demo",
+    "publicationsLink": "Read the paper",
+    "regionNames": {
+      "uk": "United Kingdom",
+      "in": "India",
+      "us": "United States",
+      "jp": "Japan",
+      "de": "Germany"
+    },
+    "nav": {
+      "about": "About",
+      "skills": "Skills",
+      "experience": "Experience",
+      "education": "Education",
+      "projects": "Projects",
+      "publications": "Publications",
+      "contact": "Contact"
+    },
+    "hero": {
+      "greeting": "Hello, I'm",
+      "contactCta": "Get in touch",
+      "githubCta": "GitHub",
+      "cvCta": "CV"
+    },
+    "sections": {
+      "aboutTitle": "About",
+      "aboutSubtitle": "An AI Engineer who ships the product and runs the platform underneath it.",
+      "skillsTitle": "Skills",
+      "skillsSubtitle": "AI and LLM systems and the infrastructure they run on, in equal measure.",
+      "experienceTitle": "Experience",
+      "experienceSubtitle": "Where the work has happened.",
+      "educationTitle": "Education",
+      "educationSubtitle": "Academic background.",
+      "projectsTitle": "Projects",
+      "projectsSubtitle": "Things built end to end, mostly in the open.",
+      "publicationsTitle": "Publications",
+      "publicationsSubtitle": "Peer-reviewed work.",
+      "contactTitle": "Contact",
+      "contactSubtitle": "The fastest way to reach me is email."
+    },
+    "contact": {
+      "emailLabel": "Email",
+      "phoneLabel": "Phone",
+      "githubLabel": "GitHub",
+      "locationLabel": "Location",
+      "authorisationLabel": "Work authorisation"
+    },
+    "region": {
+      "notice": "You are viewing the {region} version of this site.",
+      "switchLabel": "Region",
+      "switchHelp": "Switch region"
+    },
+    "cv": {
+      "modalTitle": "CV",
+      "download": "Download",
+      "open": "Open in a new tab",
+      "close": "Close",
+      "loadNote": "The PDF loads only when you open it."
+    },
+    "footer": {
+      "rights": "All rights reserved.",
+      "builtNote": "Static site, one shared template, five regional builds."
+    }
+  }
+}

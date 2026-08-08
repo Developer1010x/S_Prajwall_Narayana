@@ -1,0 +1,14 @@
+{
+  "_readme": "United States overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md.",
+  "_todo": [
+    "TODO(us): set cv.href to the US resume PDF once it exists (e.g. assets/cv/us.pdf).",
+    "TODO(us): work authorisation line needs Prajwall's actual visa position. Do not guess."
+  ],
+  "meta": {
+    "cc": "us",
+    "label": "United States",
+    "lang": "en-US",
+    "dir": "ltr",
+    "spelling": "en-US"
+  }
+}

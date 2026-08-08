@@ -1,0 +1,8 @@
+# Crawling is allowed everywhere on purpose: the non-default regional pages
+# carry <meta name="robots" content="noindex,follow">, and a crawler has to be
+# able to fetch a page to see that tag. Disallowing them here would keep the
+# noindex from ever being read.
+User-agent: *
+Allow: /
+
+Sitemap: https://sprajwallnarayana.com/sitemap.xml

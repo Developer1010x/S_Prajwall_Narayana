@@ -1,0 +1,17 @@
+{
+  "_readme": "India overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md.",
+  "_todo": [
+    "TODO(in): set cv.href to the India CV PDF once it exists (e.g. assets/cv/in.pdf)."
+  ],
+  "meta": {
+    "cc": "in",
+    "label": "India",
+    "lang": "en-IN",
+    "dir": "ltr",
+    "spelling": "en-IN"
+  },
+  "flags": {
+    "showGrade": true,
+    "showPhone": true
+  }
+}
