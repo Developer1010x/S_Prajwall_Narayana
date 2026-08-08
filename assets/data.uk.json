@@ -1,14 +1,81 @@
 {
-  "_readme": "United Kingdom overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md.",
+  "_readme": "United Kingdom overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. Register: British English (-ise), UK platform/SRE vocabulary used only where it is factually accurate. Product and platform are held at equal weight — order.skills is deliberately NOT set so ai and infra keep their base side-by-side positions.",
+
   "_todo": [
-    "TODO(uk): set cv.href to the UK CV PDF once it exists (e.g. assets/cv/uk.pdf). Until a file is on disk the build omits the CV button from this page.",
-    "TODO(uk): confirm the work authorisation wording with Prajwall before it goes live."
+    "TODO(uk): cv.href points at assets/cv/uk.pdf. Print the UK CV source to PDF and drop it there; until the file exists the build warns and omits the CV button from /uk/.",
+    "TODO(uk): the portfolio URL used on the printed UK CV is sprajwallnarayana.vercel.app (the one every existing CV carries). If https://sprajwallnarayana.com is live, switch the CV to https://sprajwallnarayana.com/uk/?region=uk and keep this file's site.origin as-is.",
+    "TODO(uk): personal.location is set to West Kirby, Wirral per the UK brief (a real address he can receive post at). Confirm with Prajwall that he is happy for it to be public on the site as well as on the CV.",
+    "TODO(uk): flags.showGrade is left false. UK employers expect a degree classification (2:1 etc.), not a VTU CGPA;  has no honest UK equivalent and converting it would be a fabrication. A human must decide whether to state the CGPA verbatim or say nothing.",
+    "TODO(uk): flags.showPhone is true but the number is +91. A UK-reachable number would materially improve recruiter call-backs. No UK number is on file, so none has been invented.",
+    "TODO(uk): confirm the exact Skilled Worker / New Entrant wording with Prajwall (and ideally an immigration adviser) before it goes live — the claim is a selling point only if it survives scrutiny."
   ],
+
   "meta": {
     "cc": "uk",
     "label": "United Kingdom",
     "lang": "en-GB",
     "dir": "ltr",
     "spelling": "en-GB"
+  },
+
+  "personal": {
+    "location": "West Kirby, Wirral",
+    "relocation": "Open to relocation across the UK"
+  },
+
+  "headline": "AI Engineer — agentic systems and the platform underneath them",
+
+  "summary": "AI Engineer on the founding team at Colligence Research. I build the product — multi-agent and LLM pipelines over MCP, a code-generation service, the backend APIs behind them — and I own the platform it runs on: CI/CD, infrastructure-as-code with OpenTofu and Ansible, observability, alerting, incident response and authentication. The two halves are one job: the engineer who ships the agent workflow is the engineer who carries the pager for it.",
+
+  "typedPhrases": [
+    "multi-agent workflows over MCP",
+    "CI/CD and infrastructure-as-code",
+    "agentic and LLM pipelines",
+    "observability and incident response",
+    "code-generation services",
+    "authentication, RBAC and platform security"
+  ],
+
+  "workAuthorisation": "Requires Skilled Worker sponsorship. Eligible at the **New Entrant** salary rate as a recent graduate under 26, which lowers the salary threshold a sponsoring employer has to meet.",
+
+  "order": {
+    "projects": [
+      "arogya-sathi",
+      "agentic-devops",
+      "pybridge",
+      "knotes-central",
+      "audio-deepfake",
+      "llm-terminal"
+    ]
+  },
+
+  "cv": {
+    "href": "assets/cv/uk.pdf",
+    "label": "CV",
+    "downloadName": "S-Prajwall-Narayana-CV-UK.pdf"
+  },
+
+  "flags": {
+    "showPhone": true,
+    "showGrade": false,
+    "showPublications": true,
+    "noindex": null
+  },
+
+  "seo": {
+    "title": "S. Prajwall Narayana — AI Engineer (UK)",
+    "description": "AI Engineer on a founding team: multi-agent and LLM pipelines over MCP, plus the CI/CD, infrastructure-as-code, observability and incident response underneath them. Based in West Kirby, Wirral; eligible for Skilled Worker sponsorship at the New Entrant rate."
+  },
+
+  "strings": {
+    "sections": {
+      "aboutSubtitle": "An AI Engineer who ships the product and runs the platform underneath it.",
+      "skillsSubtitle": "AI and LLM systems, and the infrastructure they run on, in equal measure.",
+      "projectsSubtitle": "Systems built end to end, mostly in the open.",
+      "contactSubtitle": "Email is the fastest way to reach me."
+    },
+    "contact": {
+      "authorisationLabel": "Right to work"
+    }
   }
 }
