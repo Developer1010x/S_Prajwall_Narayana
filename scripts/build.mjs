@@ -352,7 +352,12 @@ function renderContact(data) {
 /* page assembly                                                       */
 /* ------------------------------------------------------------------ */
 
-function buildRegion(cc, base, template) {
+function buildRegion(cc, base, template, lang = null) {
+  // `lang` builds a language variant of a region — e.g. /in/hi/ — by layering
+  // data.<cc>.<lang>.json on top of data.<cc>.json. The geo routing is unchanged
+  // by this: a country still maps to one region, and the region's default page is
+  // still the one the edge redirects to. Languages are a choice inside a region,
+  // not a new region.
   const countryPath = join(ROOT, 'assets', `data.${cc}.json`);
   if (!existsSync(countryPath)) {
     fail(`assets/data.${cc}.json is missing. Every region listed in site.regions needs one.`);
@@ -367,7 +372,22 @@ function buildRegion(cc, base, template) {
     return null;
   }
 
-  const data = deepMerge(base, country);
+  let data = deepMerge(base, country);
+
+  // Language variant: data.<cc>.<lang>.json layers on top of the region's own file.
+  if (lang) {
+    const langPath = join(ROOT, 'assets', `data.${cc}.${lang}.json`);
+    if (!existsSync(langPath)) {
+      fail(`assets/data.${cc}.${lang}.json is missing but ${cc} lists ${lang} in its languages.`);
+      return null;
+    }
+    try {
+      data = deepMerge(data, JSON.parse(readFileSync(langPath, 'utf8')));
+    } catch (err) {
+      fail(`assets/data.${cc}.${lang}.json is not valid JSON: ${err.message}`);
+      return null;
+    }
+  }
 
   // ordering / hiding by id, applied after the merge
   data.skills = applyHide(applyOrder(data.skills, country.order?.skills, 'order.skills', cc), country.hide?.skills, 'hide.skills', cc);
@@ -428,6 +448,22 @@ function buildRegion(cc, base, template) {
   const regionLabel = data.strings?.regionNames?.[cc] || data.meta.label;
   const notice = (data.strings.region.notice || '').replace('{region}', regionLabel);
 
+  // Language switcher — rendered only for a region that declares more than one
+  // language (India). Plain links rather than a <select>, so it works with no
+  // JavaScript and from file://, and so each language has a real URL to share.
+  const regionCfg = base.site.regions.find((r) => r.cc === cc) || {};
+  const langs = regionCfg.languages || [];
+  const languageSwitcher = langs.length > 1
+    ? `      <span class="lang-switcher" aria-label="${esc(data.strings?.language?.label || 'Language')}">\n` +
+      langs.map((l) => {
+        const href = l.default ? `../${cc}/` : `../${cc}/${l.code}/`;
+        const current = (l.default && !lang) || l.code === lang;
+        return current
+          ? `        <span class="lang-current" aria-current="true">${esc(l.label)}</span>`
+          : `        <a href="${href}" hreflang="${esc(l.code)}">${esc(l.label)}</a>`;
+      }).join('\n') + `\n      </span>`
+    : '';
+
   const options = base.site.regions
     .map(
       (r) =>
@@ -453,7 +489,8 @@ function buildRegion(cc, base, template) {
       )}</span></p>`
     : '';
 
-  const A = '../assets/';
+  // One extra level up for a language variant, which sits at /<cc>/<lang>/.
+  const A = lang ? '../../assets/' : '../assets/';
 
   const html = applySpelling(fillTokens(template, {
     LANG: esc(data.meta.lang),
@@ -481,6 +518,7 @@ function buildRegion(cc, base, template) {
     TYPED_FIRST: esc(data.typedPhrases[0] || ''),
     REGION_NOTICE: esc(notice),
     REGION_OPTIONS: options,
+    LANGUAGE_SWITCHER: languageSwitcher,
     REGION_NOSCRIPT: noscriptLinks,
     REGIONS_JSON: JSON.stringify({
       current: cc,
@@ -520,7 +558,7 @@ function buildRegion(cc, base, template) {
     S_RIGHTS: esc(data.strings.footer.rights),
   }), data.meta.spelling);
 
-  return { cc, html, noindex, canonical };
+  return { cc, lang, outDir: lang ? `${cc}/${lang}` : cc, html, noindex, canonical };
 }
 
 function navLinks(data) {
@@ -550,6 +588,12 @@ function main() {
   for (const region of base.site.regions) {
     const page = buildRegion(region.cc, base, template);
     if (page) built.push(page);
+    // Extra languages for this region. The first entry is the default and is the
+    // page already built above, so it is not rebuilt here.
+    for (const l of (region.languages || []).filter((x) => !x.default)) {
+      const variant = buildRegion(region.cc, base, template, l.code);
+      if (variant) built.push(variant);
+    }
   }
 
   if (problems.length) {
@@ -565,10 +609,10 @@ function main() {
   }
 
   for (const page of built) {
-    const dir = join(ROOT, page.cc);
+    const dir = join(ROOT, page.outDir);
     mkdirSync(dir, { recursive: true });
     writeFileSync(join(dir, 'index.html'), page.html, 'utf8');
-    console.log(`  wrote ${page.cc}/index.html  (${(page.html.length / 1024).toFixed(1)} KB)${page.noindex ? '  [noindex]' : '  [indexable]'}`);
+    console.log(`  wrote ${page.outDir}/index.html  (${(page.html.length / 1024).toFixed(1)} KB)${page.noindex ? '  [noindex]' : '  [indexable]'}`);
   }
 
   const indexable = built.filter((p) => !p.noindex).map((p) => p.canonical);

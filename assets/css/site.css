@@ -2736,3 +2736,42 @@ html {
 .project-metrics {
     margin-bottom: 0.5rem;
 }
+
+/* ── Language switcher ─────────────────────────────────────────────────────
+   Only rendered for a region that declares more than one language (India).
+   Plain links, not a <select>: each language keeps a real shareable URL and it
+   works with JavaScript disabled. */
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-left: 0.85rem;
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--border-color, rgba(148, 163, 184, 0.3));
+  flex-wrap: wrap;
+}
+.lang-switcher a,
+.lang-switcher .lang-current {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.lang-switcher a {
+  color: var(--text-secondary, #94a3b8);
+}
+.lang-switcher a:hover,
+.lang-switcher a:focus-visible {
+  color: var(--primary-color, #3b82f6);
+  background: rgba(59, 130, 246, 0.1);
+}
+.lang-switcher .lang-current {
+  color: var(--text-primary, #e2e8f0);
+  font-weight: 600;
+  background: rgba(148, 163, 184, 0.14);
+}
+@media (max-width: 640px) {
+  .lang-switcher { margin-left: 0; padding-left: 0; border-left: 0; width: 100%; }
+}

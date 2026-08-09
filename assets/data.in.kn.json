@@ -1,0 +1,82 @@
+{
+  "_todo": [
+    "TODO: this translation was written by Claude and has NOT been reviewed by a native speaker. Have someone read it before the page is used in an application."
+  ],
+  "meta": {
+    "cc": "in",
+    "label": "India",
+    "lang": "kn-IN",
+    "dir": "ltr",
+    "spelling": "en-IN"
+  },
+  "strings": {
+    "skipToContent": "ಮುಖ್ಯ ವಿಷಯಕ್ಕೆ ಹೋಗಿ",
+    "projectCode": "ಕೋಡ್",
+    "projectDemo": "ಡೆಮೊ",
+    "publicationsLink": "ಪ್ರಬಂಧ ಓದಿ",
+    "language": {
+      "label": "ಭಾಷೆ"
+    },
+    "nav": {
+      "about": "ಪರಿಚಯ",
+      "skills": "ಕೌಶಲ್ಯಗಳು",
+      "experience": "ಅನುಭವ",
+      "education": "ವಿದ್ಯಾಭ್ಯಾಸ",
+      "projects": "ಯೋಜನೆಗಳು",
+      "publications": "ಪ್ರಕಟಣೆಗಳು",
+      "contact": "ಸಂಪರ್ಕ"
+    },
+    "hero": {
+      "greeting": "ನಮಸ್ಕಾರ, ನಾನು",
+      "contactCta": "ಸಂಪರ್ಕಿಸಿ",
+      "githubCta": "GitHub",
+      "cvCta": "ಬಯೋಡೇಟಾ"
+    },
+    "sections": {
+      "aboutTitle": "ಪರಿಚಯ",
+      "aboutSubtitle": "ಉತ್ಪನ್ನವನ್ನೂ ನಿರ್ಮಿಸಿ, ಅದು ಚಲಿಸುವ ವೇದಿಕೆಯನ್ನೂ ನಿರ್ವಹಿಸುವ AI ಇಂಜಿನಿಯರ್.",
+      "skillsTitle": "ಕೌಶಲ್ಯಗಳು",
+      "skillsSubtitle": "AI ಮತ್ತು LLM ವ್ಯವಸ್ಥೆಗಳು, ಹಾಗೂ ಅವು ಚಲಿಸುವ ಮೂಲಸೌಕರ್ಯ — ಸಮಾನ ಪ್ರಮಾಣದಲ್ಲಿ.",
+      "experienceTitle": "ಅನುಭವ",
+      "experienceSubtitle": "ಇದುವರೆಗಿನ ಕೆಲಸ.",
+      "educationTitle": "ವಿದ್ಯಾಭ್ಯಾಸ",
+      "educationSubtitle": "ಶೈಕ್ಷಣಿಕ ಹಿನ್ನೆಲೆ.",
+      "projectsTitle": "ಯೋಜನೆಗಳು",
+      "projectsSubtitle": "ಆರಂಭದಿಂದ ಕೊನೆಯವರೆಗೆ ನಿರ್ಮಿಸಿದವು, ಬಹುಪಾಲು ಮುಕ್ತವಾಗಿ.",
+      "publicationsTitle": "ಪ್ರಕಟಣೆಗಳು",
+      "publicationsSubtitle": "ಪೀರ್-ರಿವ್ಯೂ ಆದ ಕೆಲಸ. ಮೂರು ಪ್ರಕಟಿತ, ಎರಡು ಪರಿಶೀಲನೆಯಲ್ಲಿ.",
+      "contactTitle": "ಸಂಪರ್ಕ",
+      "contactSubtitle": "ಇಮೇಲ್ ಅತ್ಯಂತ ವೇಗದ ಮಾರ್ಗ."
+    },
+    "contact": {
+      "emailLabel": "ಇಮೇಲ್",
+      "phoneLabel": "ದೂರವಾಣಿ",
+      "githubLabel": "GitHub",
+      "locationLabel": "ಸ್ಥಳ",
+      "authorisationLabel": "ಕೆಲಸದ ಅನುಮತಿ"
+    },
+    "region": {
+      "notice": "ನೀವು ಈ ತಾಣದ {region} ಆವೃತ್ತಿಯನ್ನು ನೋಡುತ್ತಿದ್ದೀರಿ.",
+      "switchLabel": "ಪ್ರದೇಶ",
+      "switchHelp": "ಪ್ರದೇಶ ಬದಲಿಸಿ"
+    },
+    "cv": {
+      "modalTitle": "ಬಯೋಡೇಟಾ",
+      "download": "ಡೌನ್‌ಲೋಡ್",
+      "open": "ಹೊಸ ಟ್ಯಾಬ್‌ನಲ್ಲಿ ತೆರೆಯಿರಿ",
+      "close": "ಮುಚ್ಚಿ",
+      "loadNote": "PDF ತೆರೆದಾಗ ಮಾತ್ರ ಲೋಡ್ ಆಗುತ್ತದೆ."
+    },
+    "footer": {
+      "rights": "ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
+      "builtNote": "ಸ್ಥಿರ ತಾಣ — ಒಂದು ಟೆಂಪ್ಲೇಟ್, ಐದು ಪ್ರಾದೇಶಿಕ ಆವೃತ್ತಿಗಳು."
+    },
+    "regionNames": {
+      "uk": "ಯುನೈಟೆಡ್ ಕಿಂಗ್‌ಡಂ",
+      "in": "ಭಾರತ",
+      "us": "ಅಮೆರಿಕ",
+      "jp": "ಜಪಾನ್",
+      "de": "ಜರ್ಮನಿ"
+    }
+  }
+}
