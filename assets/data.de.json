@@ -1,12 +1,8 @@
 {
   "_readme": "Deutschland-Overrides. Nur Schlüssel, die von data.base.json abweichen. Siehe DATA-CONTRACT.md.",
-
   "_readme_language": "This region is fully localised into German, so meta.lang is de-DE. The strings.* block, the hero copy and the content arrays (about/skills/experience/education/projects) are all translated. Job titles are deliberately NOT translated: 'AI Engineer', 'Associate AI Engineer', 'Associate AI Engineer Intern', 'Research Intern', 'Associate Consultant Intern' are the titles as issued by the employers (the Colligence one is the offer-letter title) and a German Lebenslauf keeps original title wording. Technology names stay in English for the same reason.",
-
   "_readme_arrays": "Arrays replace wholesale (contract rule 3), so the translated arrays are complete copies with German prose. The order/hide block below is therefore redundant for ordering but is kept on purpose: it makes the intended emphasis explicit and the build validates every id, so a typo in a translated array fails loudly instead of silently reordering the page.",
-
   "_readme_grade": "flags.showGrade stays false for Germany even though a German Lebenslauf normally carries the Abschlussnote. The German grading scale runs 1,0 (best) to 5,0 (fail); an Indian CGPA of 6.66 out of 10 printed on a German-language page reads as a catastrophic fail to a German recruiter. It is shown nowhere until a proper conversion exists — see the TODO below.",
-
   "_todo": [
     "TODO(de): cv.href points at assets/cv/de.pdf, which does not exist yet. Until the PDF is on disk the build warns and omits the CV button from /de/ — it will not ship a 404. Export the Lebenslauf from Sources (HTML & LaTeX)/Country/de/lebenslauf_de.html to that path.",
     "TODO(de): German language level. No CEFR level (A1-C2) is claimed anywhere on this page or in the Lebenslauf because none is known. Add a Sprachkenntnisse line only once Prajwall states his actual level.",
@@ -17,7 +13,6 @@
     "TODO(de): salary expectation (Gehaltsvorstellung). German Anschreiben often ask for one; none is known, so the Anschreiben carries a placeholder.",
     "TODO(de): confirm the Blaue-Karte-EU wording in workAuthorisation with Prajwall before it goes live. It states the route and that the IT shortage-occupation threshold is lower; it deliberately states no figure, because thresholds change yearly."
   ],
-
   "meta": {
     "cc": "de",
     "label": "Deutschland",
@@ -25,30 +20,23 @@
     "dir": "ltr",
     "spelling": "de-DE"
   },
-
   "personal": {
     "location": "Bengaluru, Indien",
     "relocation": "Umzug nach Deutschland möglich",
     "profileImageAlt": "Stilisierter, kontrastreicher Avatar von S Prajwall Narayana"
   },
-
   "flags": {
     "showPhone": true,
     "showGrade": false,
     "showPublications": true
   },
-
   "seo": {
     "title": "S. Prajwall Narayana — AI Engineer für Produkt und Plattform",
     "description": "AI Engineer im Gründungsteam von Colligence Research: agentische und LLM-Pipelines, Backend-APIs sowie CI/CD, Infrastructure-as-Code und Betrieb der Plattform darunter."
   },
-
   "headline": "AI Engineer — Produktentwicklung und Plattformbetrieb",
-
   "summary": "AI Engineer im Gründungsteam von Colligence Research in Bengaluru. Ich entwickle das Produkt — agentische und LLM-Pipelines, einen Code-Generierungsdienst, Backend-APIs — und verantworte zugleich die Plattform, auf der es läuft: CI/CD, Infrastructure-as-Code, Observability, Incident Response und Authentifizierung. Beides gehört zusammen: **Wer den Agenten-Workflow ausliefert, übernimmt auch die Rufbereitschaft dafür.** Abgeschlossenes Ingenieurstudium der Informatik (B.E., R V College of Engineering, VTU) und drei begutachtete Veröffentlichungen bei Springer und IEEE.",
-
   "workAuthorisation": "Für eine Anstellung in Deutschland ist eine Arbeitserlaubnis erforderlich. Als Hochschulabsolvent der Informatik kommt die **Blaue Karte EU** in Betracht; für IT-Engpassberufe gilt eine abgesenkte Gehaltsschwelle. Umzug nach Deutschland möglich.",
-
   "typedPhrases": [
     "agentische und LLM-Pipelines",
     "CI/CD und Infrastructure-as-Code",
@@ -57,31 +45,58 @@
     "Code-Generierungsdienste",
     "Authentifizierung, RBAC und Plattformsicherheit"
   ],
-
   "cv": {
     "href": "assets/cv/de.pdf",
     "label": "Lebenslauf",
     "downloadName": "Lebenslauf-S-Prajwall-Narayana.pdf"
   },
-
   "order": {
-    "about": ["product", "platform", "research"],
-    "skills": ["ai", "infra", "ml", "backend"],
-    "experience": ["colligence", "rvce-coe", "ey"],
-    "projects": ["arogya-sathi", "agentic-devops", "audio-deepfake", "pybridge", "knotes-central", "llm-terminal"]
+    "about": [
+      "product",
+      "platform",
+      "research"
+    ],
+    "skills": [
+      "ai",
+      "infra",
+      "ml",
+      "backend"
+    ],
+    "experience": [
+      "colligence",
+      "rvce-coe",
+      "ey"
+    ],
+    "projects": [
+      "arogya-sathi",
+      "agentic-devops",
+      "audio-deepfake",
+      "pybridge",
+      "knotes-central",
+      "llm-terminal"
+    ]
   },
-
   "hide": {
     "projects": [],
     "skills": []
   },
-
   "stats": [
-    { "value": 3, "suffix": "", "label": "Begutachtete Veröffentlichungen" },
-    { "value": 6, "suffix": "", "label": "Umgesetzte Projekte" },
-    { "value": 12, "suffix": "+", "label": "Fachbereiche nutzen Knotes Central" }
+    {
+      "value": 3,
+      "suffix": "",
+      "label": "Begutachtete Veröffentlichungen"
+    },
+    {
+      "value": 6,
+      "suffix": "",
+      "label": "Umgesetzte Projekte"
+    },
+    {
+      "value": 12,
+      "suffix": "+",
+      "label": "Fachbereiche nutzen Knotes Central"
+    }
   ],
-
   "about": [
     {
       "id": "product",
@@ -102,7 +117,6 @@
       "body": "Drei begutachtete Beiträge — einer auf der Springer ICTIS 2025 in Bangkok, zwei auf IEEE Xplore — zu Schulverwaltungssystemen, ResNet50-Hyperparameter-Tuning und einem webservergesteuerten Rover mit Objekterkennung. Zwei weitere befinden sich im Begutachtungsverfahren."
     }
   ],
-
   "skills": [
     {
       "id": "ai",
@@ -168,7 +182,6 @@
       ]
     }
   ],
-
   "experience": [
     {
       "id": "colligence",
@@ -185,6 +198,7 @@
           "bullets": [
             "Tätigkeit auf beiden Seiten des Produkts: KI- und Produktentwicklung ebenso wie durchgängige Verantwortung für die Plattform, auf der sie läuft.",
             "Aufbau der DevOps-/SRE-Funktion von Grund auf und seitdem deren Leitung: CI/CD, Infrastructure-as-Code mit OpenTofu und Ansible auf Linode, Observability, Alerting und Incident-Runbooks.",
+            "Baut derzeit ein retrieval-gestütztes System direkt in die Infrastrukturebene ein, damit Infrastructure-as-Code und SRE-Arbeit — Runbook-Recherche, Änderungskontext, Incident Response — auf der eigenen Konfiguration und Historie der Organisation beruhen statt auf mitgetragenem Wissen. In Arbeit.",
             "Ablösung der manuellen GitHub-Deploy-Workflows und dadurch weniger Deployment-Fehler für ein vierköpfiges Gründungsteam.",
             "Durchgängiger Betrieb des Produktionsstacks: Docker, Authentifizierung über Zitadel, überwachte Deployments mit selbstheilendem Alerting.",
             "Verantwortung für die Systemarchitektur über Infrastruktur und Tooling hinweg."
@@ -230,7 +244,13 @@
         "Entwicklung eines Modells zur Deepfake-Erkennung von Grund auf für Videos mit manipulierten Gesichtern, ohne externe Erkennungs-APIs.",
         "Training und Evaluation auf den Datensätzen FaceForensics++ und DFDC."
       ],
-      "tags": ["PyTorch", "TensorFlow", "CNN", "FaceForensics++", "DFDC"]
+      "tags": [
+        "PyTorch",
+        "TensorFlow",
+        "CNN",
+        "FaceForensics++",
+        "DFDC"
+      ]
     },
     {
       "id": "ey",
@@ -243,10 +263,14 @@
         "Begleitung von Senior Consultants bei Projekten zu Cloud-Sicherheit sowie Identitäts- und Zugriffsmanagement.",
         "Berührungspunkte mit den Frameworks TOGAF und IFTAS."
       ],
-      "tags": ["Cloud-Sicherheit", "IAM", "TOGAF", "IFTAS"]
+      "tags": [
+        "Cloud-Sicherheit",
+        "IAM",
+        "TOGAF",
+        "IFTAS"
+      ]
     }
   ],
-
   "education": [
     {
       "id": "rvce",
@@ -258,7 +282,6 @@
       "bullets": []
     }
   ],
-
   "publications": [
     {
       "id": "educonnect",
@@ -279,9 +302,7 @@
       "url": "https://ieeexplore.ieee.org/document/10816816"
     }
   ],
-
   "publicationsNote": "Zwei weitere Beiträge befinden sich im Begutachtungsverfahren.",
-
   "projects": [
     {
       "id": "arogya-sathi",
@@ -295,7 +316,14 @@
         "Notfallerkennung: 1,00 / 1,00",
         "Arzneimittel-Screening: 1,00 / 1,00"
       ],
-      "tags": ["LangGraph", "Ollama", "Quantisierte Modelle", "Evaluation Harness", "CI-Gate", "Raspberry Pi"],
+      "tags": [
+        "LangGraph",
+        "Ollama",
+        "Quantisierte Modelle",
+        "Evaluation Harness",
+        "CI-Gate",
+        "Raspberry Pi"
+      ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
       "date": "Jan. 2025 – Juni 2025"
     },
@@ -307,7 +335,12 @@
       "color": "#3b82f6",
       "description": "Erzeugt und überwacht CI/CD-Pipelines für Repositories auf GitHub und GitLab.",
       "metrics": [],
-      "tags": ["CI/CD", "GitHub", "GitLab", "Agenten"],
+      "tags": [
+        "CI/CD",
+        "GitHub",
+        "GitLab",
+        "Agenten"
+      ],
       "url": "https://github.com/Developer1010x/agentic-devops"
     },
     {
@@ -318,7 +351,11 @@
       "color": "#AF52DE",
       "description": "Erkennt KI-synthetisierte oder geklonte Sprache.",
       "metrics": [],
-      "tags": ["PyTorch", "Audio", "Klassifikation"],
+      "tags": [
+        "PyTorch",
+        "Audio",
+        "Klassifikation"
+      ],
       "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
     },
     {
@@ -329,7 +366,11 @@
       "color": "#06b6d4",
       "description": "Routet den Zugang zu KI-Diensten über WhatsApp, Telegram und E-Mail, sodass sie sich vom Smartphone aus steuern lassen.",
       "metrics": [],
-      "tags": ["Python", "Messaging", "LLM-Integration"],
+      "tags": [
+        "Python",
+        "Messaging",
+        "LLM-Integration"
+      ],
       "url": "https://github.com/Developer1010x/pybridge.ai"
     },
     {
@@ -340,7 +381,9 @@
       "color": "#FF9F0A",
       "description": "Eine Plattform für studentische Lernressourcen, eingesetzt in über 12 Fachbereichen.",
       "metrics": [],
-      "tags": ["Webplattform"],
+      "tags": [
+        "Webplattform"
+      ],
       "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
     },
     {
@@ -351,11 +394,14 @@
       "color": "#10b981",
       "description": "Ein schlanker Assistent für die Arbeit mit LLMs auf der Kommandozeile.",
       "metrics": [],
-      "tags": ["Python", "CLI", "LLM-Integration"],
+      "tags": [
+        "Python",
+        "CLI",
+        "LLM-Integration"
+      ],
       "url": "https://github.com/Developer1010x/LLM_Terminal"
     }
   ],
-
   "strings": {
     "skipToContent": "Zum Inhalt springen",
     "projectCode": "Quellcode",
