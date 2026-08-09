@@ -263,7 +263,13 @@ transform: scale(1.1);
  }
 /* Hero Section */
 .hero {
-min-height: 100vh;
+/* Fill the viewport that is actually left under the region bar and nav, and stop
+   there. Plain 100vh measured the whole window, so on a tall monitor the hero grew
+   to the full screen height on top of the ~140px of chrome above it and centred a
+   fixed amount of content inside all of it — fine at 900px, a screenful of empty
+   starfield at 1600px+. svh also avoids the mobile URL-bar resize jump. */
+min-height: min(calc(100svh - 8.75rem), 60rem);
+padding-block: clamp(1.5rem, 4vh, 3.5rem);
 display: flex;
 align-items: center;
 justify-content: center;

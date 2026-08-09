@@ -1,23 +1,40 @@
 {
   "schemaVersion": 1,
   "_readme": "Shared content for every region. Country files (data.<cc>.json) override keys in here. See assets/DATA-CONTRACT.md before editing.",
-
   "_todo": [
-    "TODO(site.origin) — BLOCKING FOR SEO. Checked 2026-08: sprajwallnarayana.com does NOT resolve in DNS (neither does www.). sprajwallnarayana.vercel.app DOES resolve. site.origin below is used for every page's rel=canonical, og:url, sitemap.xml and the robots.txt Sitemap line, so today every page canonicalises to a hostname that does not exist and Google can index none of it. Either point the custom domain at the Vercel project, or change origin to https://sprajwallnarayana.vercel.app and rebuild. The printed CVs have already been switched to the vercel.app URL because a dead link on a CV is worse than an ugly one. Left unchanged here rather than guessed at, because changing it silently rewrites the site's public identity."
+    "site.origin points at https://sprajwallnarayana.vercel.app because sprajwallnarayana.com does not resolve in DNS (checked again 2026-08-09: no A record for the apex or www). origin drives every rel=canonical, og:url, the sitemap and the robots.txt Sitemap line, so pointing it at a dead hostname meant nothing could be indexed. If the custom domain is ever pointed at this Vercel project, change this one value and rebuild — nothing else needs editing."
   ],
-
   "site": {
-    "origin": "https://sprajwallnarayana.com",
+    "origin": "https://sprajwallnarayana.vercel.app",
     "defaultRegion": "uk",
     "regions": [
-      { "cc": "uk", "label": "United Kingdom", "lang": "en-GB" },
-      { "cc": "in", "label": "India", "lang": "en-IN" },
-      { "cc": "us", "label": "United States", "lang": "en-US" },
-      { "cc": "jp", "label": "Japan", "lang": "ja" },
-      { "cc": "de", "label": "Germany", "lang": "de" }
+      {
+        "cc": "uk",
+        "label": "United Kingdom",
+        "lang": "en-GB"
+      },
+      {
+        "cc": "in",
+        "label": "India",
+        "lang": "en-IN"
+      },
+      {
+        "cc": "us",
+        "label": "United States",
+        "lang": "en-US"
+      },
+      {
+        "cc": "jp",
+        "label": "Japan",
+        "lang": "ja"
+      },
+      {
+        "cc": "de",
+        "label": "Germany",
+        "lang": "de"
+      }
     ]
   },
-
   "meta": {
     "cc": "base",
     "label": "International",
@@ -25,7 +42,6 @@
     "dir": "ltr",
     "spelling": "en-GB"
   },
-
   "personal": {
     "name": "S Prajwall Narayana",
     "displayName": "S. Prajwall Narayana",
@@ -40,23 +56,18 @@
     "profileImage": "assets/images/S_Prajwall_Narayana.jpg",
     "profileImageAlt": "Stylised high-contrast avatar used by S Prajwall Narayana"
   },
-
   "flags": {
     "showPhone": true,
     "showGrade": false,
     "showPublications": true,
     "noindex": null
   },
-
   "seo": {
     "title": null,
     "description": null
   },
-
   "headline": "AI Engineer — product and platform",
-
   "summary": "AI Engineer on the founding team at Colligence Research in Bengaluru. I build the product — agentic and LLM pipelines, code-generation services, backend APIs — and I own the platform it runs on: CI/CD, infrastructure-as-code, observability, incident response and auth. The combination is the point: the person who ships the agent workflow is the person who carries the pager for it.",
-
   "typedPhrases": [
     "agentic and LLM pipelines",
     "CI/CD and infrastructure-as-code",
@@ -65,22 +76,30 @@
     "code-generation services",
     "authentication, RBAC and platform security"
   ],
-
   "cv": {
     "_todo": "TODO: no CV PDF is committed. Put the per-country CV at assets/cv/<cc>.pdf and set cv.href in that country's data file. Until a file exists the build omits the CV button entirely - it will not ship a stale or missing PDF.",
     "href": "assets/cv/cv.pdf",
     "label": "CV",
     "downloadName": "S-Prajwall-Narayana-CV.pdf"
   },
-
   "workAuthorisation": null,
-
   "stats": [
-    { "value": 3, "suffix": "", "label": "Peer-reviewed papers" },
-    { "value": 6, "suffix": "", "label": "Shipped projects" },
-    { "value": 12, "suffix": "+", "label": "Departments using Knotes Central" }
+    {
+      "value": 3,
+      "suffix": "",
+      "label": "Peer-reviewed papers"
+    },
+    {
+      "value": 6,
+      "suffix": "",
+      "label": "Shipped projects"
+    },
+    {
+      "value": 12,
+      "suffix": "+",
+      "label": "Departments using Knotes Central"
+    }
   ],
-
   "about": [
     {
       "id": "product",
@@ -101,7 +120,6 @@
       "body": "Three peer-reviewed papers — one at Springer ICTIS 2025 in Bangkok and two on IEEE Xplore — covering school administration systems, ResNet50 hyperparameter tuning and a web-server controlled rover with object detection. Two more are under review."
     }
   ],
-
   "skills": [
     {
       "id": "ai",
@@ -167,7 +185,6 @@
       ]
     }
   ],
-
   "experience": [
     {
       "id": "colligence",
@@ -229,7 +246,13 @@
         "Built a deepfake-detection model from scratch for manipulated-face video, using no external detection APIs.",
         "Trained and evaluated on the FaceForensics++ and DFDC datasets."
       ],
-      "tags": ["PyTorch", "TensorFlow", "CNN", "FaceForensics++", "DFDC"]
+      "tags": [
+        "PyTorch",
+        "TensorFlow",
+        "CNN",
+        "FaceForensics++",
+        "DFDC"
+      ]
     },
     {
       "id": "ey",
@@ -242,10 +265,14 @@
         "Shadowed senior consultants on cloud-security and identity and access management work.",
         "Exposure to the TOGAF and IFTAS frameworks."
       ],
-      "tags": ["Cloud security", "IAM", "TOGAF", "IFTAS"]
+      "tags": [
+        "Cloud security",
+        "IAM",
+        "TOGAF",
+        "IFTAS"
+      ]
     }
   ],
-
   "education": [
     {
       "id": "rvce",
@@ -257,7 +284,6 @@
       "bullets": []
     }
   ],
-
   "publications": [
     {
       "id": "educonnect",
@@ -278,9 +304,7 @@
       "url": "https://ieeexplore.ieee.org/document/10816816"
     }
   ],
-
   "publicationsNote": "Two further papers are under review.",
-
   "projects": [
     {
       "id": "arogya-sathi",
@@ -294,7 +318,14 @@
         "Emergency: 1.00 / 1.00",
         "Drug screening: 1.00 / 1.00"
       ],
-      "tags": ["LangGraph", "Ollama", "Quantized models", "Evaluation harness", "CI gate", "Raspberry Pi"],
+      "tags": [
+        "LangGraph",
+        "Ollama",
+        "Quantized models",
+        "Evaluation harness",
+        "CI gate",
+        "Raspberry Pi"
+      ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
       "date": "Jan 2025 — Jun 2025"
     },
@@ -306,7 +337,12 @@
       "color": "#3b82f6",
       "description": "Generates and monitors CI/CD pipelines for GitHub and GitLab repositories.",
       "metrics": [],
-      "tags": ["CI/CD", "GitHub", "GitLab", "Agents"],
+      "tags": [
+        "CI/CD",
+        "GitHub",
+        "GitLab",
+        "Agents"
+      ],
       "url": "https://github.com/Developer1010x/agentic-devops"
     },
     {
@@ -317,7 +353,11 @@
       "color": "#06b6d4",
       "description": "Routes AI access across WhatsApp, Telegram and email so it can be driven from a phone.",
       "metrics": [],
-      "tags": ["Python", "Messaging", "LLM integration"],
+      "tags": [
+        "Python",
+        "Messaging",
+        "LLM integration"
+      ],
       "url": "https://github.com/Developer1010x/pybridge.ai"
     },
     {
@@ -328,7 +368,9 @@
       "color": "#FF9F0A",
       "description": "A student resource platform, adopted across 12+ departments.",
       "metrics": [],
-      "tags": ["Web platform"],
+      "tags": [
+        "Web platform"
+      ],
       "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
     },
     {
@@ -339,7 +381,11 @@
       "color": "#10b981",
       "description": "A lightweight terminal-based assistant for working with LLMs from the command line.",
       "metrics": [],
-      "tags": ["Python", "CLI", "LLM integration"],
+      "tags": [
+        "Python",
+        "CLI",
+        "LLM integration"
+      ],
       "url": "https://github.com/Developer1010x/LLM_Terminal"
     },
     {
@@ -350,11 +396,14 @@
       "color": "#AF52DE",
       "description": "Flags AI-synthesised or cloned speech.",
       "metrics": [],
-      "tags": ["PyTorch", "Audio", "Classification"],
+      "tags": [
+        "PyTorch",
+        "Audio",
+        "Classification"
+      ],
       "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
     }
   ],
-
   "strings": {
     "skipToContent": "Skip to content",
     "projectCode": "Code",

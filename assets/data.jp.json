@@ -1,15 +1,12 @@
 {
   "_readme": "Japan overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. Japan uses TWO application documents: 'rirekisho' (a standardised personal-history form, photo and date of birth expected) and 'shokumu keirekisho' (a detailed reverse-chronological career-history document). The shell links one PDF, so cv.href points at the shokumu keirekisho — the rirekisho is sent with it, not instead of it. Both HTML sources live in '01 CV & Resumes/Sources (HTML & LaTeX)/Country/jp/'.",
-
   "_todo": [
     "TODO(jp): no Japanese-language ability is stated anywhere on this page or in either document, because none has been supplied. Add a JLPT level (or 'no Japanese yet, studying') only after Prajwall confirms it. Japanese ability is screened on for almost every role in Japan, including English-speaking ones.",
     "TODO(jp): set cv.href to assets/cv/jp-shokumu-keirekisho.pdf once the PDF is exported from Country/jp/shokumu_keirekisho_jp.html. Until the file is on disk the build omits the CV button from /jp/ rather than shipping a 404.",
     "TODO(jp): the rirekisho needs a photo, a date of birth and a full postal address. None of the three are on this page (the site does not need them) but the printed rirekisho does. See Country/jp/NOTES-jp.md.",
     "TODO(jp): meta.lang stays 'en' because strings.* are still English. Japanese section headings exist in the two printed documents, where the markup can carry lang='ja' on the Japanese runs. Do not put Japanese into strings.* here until (a) a native speaker has reviewed it and (b) meta.lang flips to 'ja' in the same commit — mixed-script text under lang='en' is read out wrongly by screen readers.",
-    "TODO(jp): confirm the portfolio/site origin used on the printed documents (site.origin says sprajwallnarayana.com; the older UK resume prints sprajwallnarayana.vercel.app). One of the two is stale.",
     "TODO(jp): decide a salary expectation before applying. Japanese applications ask for it in the rirekisho's preferences box; it is currently left as an explicit placeholder."
   ],
-
   "meta": {
     "cc": "jp",
     "label": "Japan",
@@ -17,13 +14,9 @@
     "dir": "ltr",
     "spelling": "en-GB"
   },
-
   "headline": "AI Engineer — product development and platform operations",
-
   "summary": "AI Engineer on the founding team at Colligence Research in Bengaluru. The work covers both halves of the system: the product — agentic and LLM pipelines, a code-generation service and the backend APIs behind them — and the platform it runs on, where I established the DevOps/SRE function and now lead it: CI/CD, infrastructure-as-code, observability, incident response and authentication. I continue to ship product features alongside that. I am looking for an engineering role in Japan and would need **visa sponsorship**; the two Japanese application documents, rirekisho and shokumu keirekisho, are available on request.",
-
   "workAuthorisation": "Currently based in Bengaluru, India, with no existing right to work in Japan. The applicable status of residence is **Engineer / Specialist in Humanities / International Services**, the standard category for software engineers hired from overseas; a B.E. in Computer Science is a qualifying degree for it, and the Certificate of Eligibility is filed by the sponsoring employer.",
-
   "typedPhrases": [
     "agentic and LLM pipelines",
     "CI/CD and infrastructure-as-code",
@@ -32,25 +25,41 @@
     "evaluation harnesses as CI merge gates",
     "authentication, RBAC and platform security"
   ],
-
   "cv": {
     "href": "assets/cv/jp-shokumu-keirekisho.pdf",
     "label": "Career history",
     "downloadName": "S-Prajwall-Narayana-Shokumu-Keirekisho.pdf"
   },
-
   "order": {
-    "skills": ["ai", "infra", "backend", "ml"],
-    "projects": ["arogya-sathi", "agentic-devops", "knotes-central", "pybridge", "llm-terminal", "audio-deepfake"],
-    "about": ["product", "platform", "research"],
-    "experience": ["colligence", "rvce-coe", "ey"]
+    "skills": [
+      "ai",
+      "infra",
+      "backend",
+      "ml"
+    ],
+    "projects": [
+      "arogya-sathi",
+      "agentic-devops",
+      "knotes-central",
+      "pybridge",
+      "llm-terminal",
+      "audio-deepfake"
+    ],
+    "about": [
+      "product",
+      "platform",
+      "research"
+    ],
+    "experience": [
+      "colligence",
+      "rvce-coe",
+      "ey"
+    ]
   },
-
   "seo": {
     "title": "S. Prajwall Narayana — AI Engineer (product and platform), Japan",
     "description": "AI Engineer on a founding team in Bengaluru: agentic and LLM pipelines, code generation and backend APIs, plus the CI/CD, IaC and observability platform underneath. Seeking a role in Japan with visa sponsorship."
   },
-
   "strings": {
     "sections": {
       "aboutSubtitle": "An AI Engineer who builds the product and operates the platform it runs on.",

@@ -5,4 +5,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sprajwallnarayana.com/sitemap.xml
+Sitemap: https://sprajwallnarayana.vercel.app/sitemap.xml
