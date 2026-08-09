@@ -125,6 +125,53 @@ const tagList = (tags) =>
         .map((t) => `<span class="skill-tag">${esc(t)}</span>`)
         .join('')}</div>\n`;
 
+/*
+ * Spelling variants.
+ *
+ * `meta.spelling` was declared per region from the start but nothing ever applied
+ * it, so the US page shipped "organisation" — inherited from the shared base copy,
+ * which is written in en-GB. A US recruiter reads British spelling as either
+ * careless or as a copy-paste from someone else's CV.
+ *
+ * This is a curated word list, deliberately not a blanket s->z rule. "analyse"
+ * becomes "analyze", but "analysis" must not become "analyzis", and a naive regex
+ * would also mangle surprise, precise, expertise, enterprise and promise. Only
+ * words that genuinely differ are listed, each in the casings that actually occur.
+ */
+const EN_US_SPELLINGS = [
+  ['organisation', 'organization'], ['Organisation', 'Organization'],
+  ['organisational', 'organizational'],
+  ['optimise', 'optimize'], ['optimised', 'optimized'], ['optimising', 'optimizing'],
+  ['optimisation', 'optimization'], ['Optimisation', 'Optimization'],
+  ['prioritise', 'prioritize'], ['prioritised', 'prioritized'],
+  ['standardise', 'standardize'], ['standardised', 'standardized'],
+  ['specialise', 'specialize'], ['specialised', 'specialized'],
+  ['analyse', 'analyze'], ['analysed', 'analyzed'], ['analysing', 'analyzing'],
+  ['modelling', 'modeling'], ['modelled', 'modeled'],
+  ['labelling', 'labeling'], ['labelled', 'labeled'],
+  ['catalogue', 'catalog'], ['centre', 'center'], ['Centre', 'Center'],
+  ['licence', 'license'], ['defence', 'defense'],
+  ['behaviour', 'behavior'], ['Behaviour', 'Behavior'],
+  ['favour', 'favor'], ['colour', 'color'],
+  ['recognise', 'recognize'], ['recognised', 'recognized'],
+  ['utilise', 'utilize'], ['utilised', 'utilized'],
+  ['minimise', 'minimize'], ['maximise', 'maximize'],
+  ['normalise', 'normalize'], ['normalised', 'normalized'],
+  ['serialise', 'serialize'], ['serialised', 'serialized'],
+  ['fulfil', 'fulfill'], ['enrolment', 'enrollment'],
+  ['programme', 'program'], ['Programme', 'Program'],
+];
+
+/** Apply the region's spelling to rendered HTML. en-GB and en-IN are the source form. */
+function applySpelling(html, spelling) {
+  if (spelling !== 'en-US') return html;
+  let out = html;
+  for (const [gb, us] of EN_US_SPELLINGS) {
+    out = out.replace(new RegExp(`\\b${gb}\\b`, 'g'), us);
+  }
+  return out;
+}
+
 function renderStats(stats) {
   return (stats || [])
     .map(
@@ -375,7 +422,10 @@ function buildRegion(cc, base, template) {
   const seoTitle = data.seo?.title || `${data.personal.displayName} — ${data.personal.title}`;
   const seoDescription = data.seo?.description || truncate(data.summary.replace(/\s+/g, ' '), 158);
 
-  const regionLabel = data.meta.label;
+  // Prefer the region's own localised name for its own notice: the Japanese page
+  // said "このサイトのJapan版" because meta.label is the English label used in the
+  // build log and the switcher list. strings.regionNames is already localised.
+  const regionLabel = data.strings?.regionNames?.[cc] || data.meta.label;
   const notice = (data.strings.region.notice || '').replace('{region}', regionLabel);
 
   const options = base.site.regions
@@ -405,7 +455,7 @@ function buildRegion(cc, base, template) {
 
   const A = '../assets/';
 
-  const html = fillTokens(template, {
+  const html = applySpelling(fillTokens(template, {
     LANG: esc(data.meta.lang),
     DIR: esc(data.meta.dir || 'ltr'),
     CC: esc(cc),
@@ -468,7 +518,7 @@ function buildRegion(cc, base, template) {
     S_CONTACT_TITLE: esc(data.strings.sections.contactTitle),
     S_CONTACT_SUBTITLE: esc(data.strings.sections.contactSubtitle),
     S_RIGHTS: esc(data.strings.footer.rights),
-  });
+  }), data.meta.spelling);
 
   return { cc, html, noindex, canonical };
 }
