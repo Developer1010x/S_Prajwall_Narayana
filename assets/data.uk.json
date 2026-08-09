@@ -15,8 +15,8 @@
     "spelling": "en-GB"
   },
   "personal": {
-    "location": "Bengaluru, India",
-    "relocation": "Open to relocation to the UK"
+    "location": "West Kirby, Wirral — Liverpool City Region",
+    "relocation": "Currently in Bengaluru, India; relocating to the UK"
   },
   "headline": "AI Engineer — agentic systems and the platform underneath them",
   "summary": "AI Engineer on the founding team at Colligence Research. I build the product — multi-agent and LLM pipelines over MCP, a code-generation service, the backend APIs behind them — and I own the platform it runs on: CI/CD, infrastructure-as-code with OpenTofu and Ansible, observability, alerting, incident response and authentication. The two halves are one job: the engineer who ships the agent workflow is the engineer who carries the pager for it.",
@@ -52,7 +52,7 @@
   },
   "seo": {
     "title": "S. Prajwall Narayana — AI Engineer (UK)",
-    "description": "AI Engineer on a founding team: multi-agent and LLM pipelines over MCP, plus the CI/CD, infrastructure-as-code, observability and incident response underneath them. Based in Bengaluru and open to relocation to the UK; eligible for Skilled Worker sponsorship at the New Entrant rate."
+    "description": "AI Engineer on a founding team: multi-agent and LLM pipelines over MCP, plus the CI/CD, infrastructure-as-code, observability and incident response underneath them. UK address in West Kirby, Wirral (Liverpool City Region); currently in Bengaluru; eligible for Skilled Worker sponsorship at the New Entrant rate."
   },
   "strings": {
     "sections": {
