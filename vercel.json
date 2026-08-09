@@ -1,43 +1,42 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "echo 'Static site - no build required'",
+  "buildCommand": "node scripts/build.mjs",
   "outputDirectory": ".",
   "framework": null,
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/$1"
-    }
-  ],
+  "trailingSlash": true,
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/(uk|in|us|jp|de)/(.*)",
+      "headers": [
         {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
         },
+        { "key": "Vary", "value": "Cookie" }
+      ]
+    },
+    {
+      "source": "/assets/(css|js|images)/(.*)",
+      "headers": [
         {
-          "key": "X-Frame-Options",
-          "value": "SAMEORIGIN"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
         }
       ]
     },
     {
-      "source": "/assets/(.*).pdf",
+      "source": "/assets/cv/(.*).pdf",
       "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/pdf"
-        },
-        {
-          "key": "Content-Disposition",
-          "value": "inline"
-        }
+        { "key": "Content-Type", "value": "application/pdf" },
+        { "key": "Content-Disposition", "value": "inline" }
       ]
     }
   ]

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--
+  GENERATED FILE — DO NOT EDIT BY HAND.
+  Source template: templates/page.html
+  Source data:     assets/data.base.json + assets/data.<cc>.json
+  Rebuild with:    npm run build   (also runs automatically on every Vercel deploy)
+-->
+<html lang="{{LANG}}" dir="{{DIR}}" data-region="{{CC}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<meta name="author" content="{{NAME}}">
+{{ROBOTS}}<link rel="canonical" href="{{CANONICAL}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="{{CANONICAL}}">
+<meta property="og:locale" content="{{OG_LOCALE}}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{{TITLE}}">
+<meta name="twitter:description" content="{{DESCRIPTION}}">
+<meta name="theme-color" content="#0a0e27">
+<script>document.documentElement.className+=' js';</script>
+<link rel="icon" href="{{ASSETS}}favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="{{ASSETS}}favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="{{ASSETS}}images/S_Prajwall_Narayana.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ASSETS}}css/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+</head>
+<body>
+<a class="skip-link" href="#main">{{S_SKIP}}</a>
+
+<!-- Region bar: escape hatch (b). Always visible, never a dead end. -->
+<div class="region-bar" id="region-bar">
+  <div class="region-bar-inner">
+    <p class="region-bar-text">{{REGION_NOTICE}}</p>
+    <div class="region-switcher">
+      <label for="region-select">{{S_REGION_LABEL}}</label>
+      <select id="region-select" aria-describedby="region-help">
+{{REGION_OPTIONS}}
+      </select>
+      <span id="region-help" class="visually-hidden">{{S_REGION_HELP}}</span>
+      <noscript>
+{{REGION_NOSCRIPT}}
+      </noscript>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar" aria-label="Primary">
+  <div class="nav-container">
+    <a class="logo" href="#home">
+      <span class="logo-text">{{DISPLAY_NAME}}</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+{{NAV_LINKS}}
+    </ul>
+    <button class="theme-toggle" type="button" id="theme-toggle" aria-pressed="false">
+      <i class="fas fa-moon" id="theme-icon" aria-hidden="true"></i>
+      <span class="visually-hidden">Toggle light and dark theme</span>
+    </button>
+    <button class="hamburger" type="button" id="hamburger" aria-controls="nav-links" aria-expanded="false">
+      <span></span><span></span><span></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+
+<section id="home" class="hero">
+  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-greeting"><i class="fas fa-terminal" aria-hidden="true"></i> {{S_GREETING}}</p>
+      <h1 class="glow-text">{{DISPLAY_NAME}}</h1>
+      <p class="subtitle"><strong>{{JOB_TITLE}}</strong> &mdash; <span id="typed-text">{{TYPED_FIRST}}</span><span class="typing-cursor" aria-hidden="true"></span></p>
+      <p class="description">{{SUMMARY}}</p>
+{{WORK_AUTH}}
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary magnetic-btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> {{S_CONTACT_CTA}}</a>
+        <a href="{{GITHUB}}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-btn"><i class="fab fa-github" aria-hidden="true"></i> {{S_GITHUB_CTA}}</a>
+{{CV_BUTTON}}
+      </div>
+      <dl class="hero-stats">
+{{STATS}}
+      </dl>
+    </div>
+    <div class="hero-visual float">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="{{ASSETS}}images/S_Prajwall_Narayana.jpg" alt="{{PHOTO_ALT}}" class="profile-image" width="150" height="150" loading="lazy" decoding="async">
+            <p class="flip-name">{{DISPLAY_NAME}}</p>
+            <p>{{JOB_TITLE}}</p>
+            <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> {{EMPLOYER_BADGE}}</div>
+          </div>
+          <div class="flip-card-back">
+            <i class="fas fa-terminal" aria-hidden="true" style="font-size:2rem;margin-bottom:0.75rem;"></i>
+            <p class="flip-name">@{{GITHUB_HANDLE}}</p>
+            <p>{{HEADLINE}}</p>
+            <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> {{LOCATION}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">{{S_ABOUT_TITLE}}</h2>
+    <p class="section-subtitle">{{S_ABOUT_SUBTITLE}}</p>
+  </div>
+  <div class="skills-grid stagger-children">
+{{ABOUT}}
+  </div>
+</section>
+
+<section id="skills" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">{{S_SKILLS_TITLE}}</h2>
+    <p class="section-subtitle">{{S_SKILLS_SUBTITLE}}</p>
+  </div>
+  <div class="skills-grid stagger-children">
+{{SKILLS}}
+  </div>
+</section>
+
+<section id="experience" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">{{S_EXPERIENCE_TITLE}}</h2>
+    <p class="section-subtitle">{{S_EXPERIENCE_SUBTITLE}}</p>
+  </div>
+  <div class="skills-grid stagger-children">
+{{EXPERIENCE}}
+  </div>
+</section>
+
+<section id="education" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">{{S_EDUCATION_TITLE}}</h2>
+    <p class="section-subtitle">{{S_EDUCATION_SUBTITLE}}</p>
+  </div>
+  <div class="skills-grid stagger-children">
+{{EDUCATION}}
+  </div>
+</section>
+
+<section id="projects" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">{{S_PROJECTS_TITLE}}</h2>
+    <p class="section-subtitle">{{S_PROJECTS_SUBTITLE}}</p>
+  </div>
+  <div class="projects-waterfall">
+{{PROJECTS}}
+  </div>
+</section>
+
+{{PUBLICATIONS}}
+
+<section id="contact" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">{{S_CONTACT_TITLE}}</h2>
+    <p class="section-subtitle">{{S_CONTACT_SUBTITLE}}</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+{{CONTACT}}
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="social-links">
+      <a href="{{GITHUB}}" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="mailto:{{EMAIL}}" class="social-link" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+    </div>
+    <p class="footer-text">&copy; {{YEAR}} {{NAME}}. {{S_RIGHTS}}</p>
+  </div>
+</footer>
+
+{{CV_MODAL}}
+
+<button class="back-to-top" type="button" id="back-to-top"><i class="fas fa-arrow-up" aria-hidden="true"></i><span class="visually-hidden">Back to top</span></button>
+
+<script>window.SITE_REGIONS = {{REGIONS_JSON}};</script>
+<script src="{{ASSETS}}js/site.js" defer></script>
+</body>
+</html>

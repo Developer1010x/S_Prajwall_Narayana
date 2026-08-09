@@ -1,13 +1,15 @@
 {
-  "name": "portfolio-os",
-  "version": "1.0.0",
-  "description": "OS-themed portfolio website",
+  "name": "sprajwallnarayana-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Country-aware static portfolio: one template, one stylesheet, five regional builds",
+  "type": "module",
   "scripts": {
-    "build": "echo 'Static site - nothing to build'",
-    "start": "npx serve .",
-    "lint": "echo 'No lint configured'"
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "start": "npx serve ."
   },
-  "keywords": ["portfolio", "os-theme", "html", "css", "javascript"],
+  "keywords": ["portfolio", "static-site", "vercel", "edge-middleware"],
   "author": "S Prajwall Narayana",
   "license": "MIT"
 }
