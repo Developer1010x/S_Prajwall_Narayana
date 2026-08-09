@@ -4,6 +4,7 @@
   "_readme_arrays": "Arrays replace wholesale (contract rule 3), so the translated arrays are complete copies with German prose. The order/hide block below is therefore redundant for ordering but is kept on purpose: it makes the intended emphasis explicit and the build validates every id, so a typo in a translated array fails loudly instead of silently reordering the page.",
   "_readme_grade": "flags.showGrade stays false for Germany even though a German Lebenslauf normally carries the Abschlussnote. The German grading scale runs 1,0 (best) to 5,0 (fail); an Indian CGPA of  out of 10 printed on a German-language page reads as a catastrophic fail to a German recruiter. It is shown nowhere until a proper conversion exists — see the TODO below.",
   "_todo": [
+    "TODO(de): the German translation on this page has NOT been reviewed by a native speaker. Every string in this file — summary, headline, workAuthorisation, strings.*, about, skills titles, experience, education and projects — was translated by an AI agent and proofread only by that agent. It reads as competent professional German, but idiom, register and the Blaue-Karte-EU wording should be checked by a native speaker before this page is treated as final.",
     "TODO(de): cv.href points at assets/cv/de.pdf, which does not exist yet. Until the PDF is on disk the build warns and omits the CV button from /de/ — it will not ship a 404. Export the Lebenslauf from Sources (HTML & LaTeX)/Country/de/lebenslauf_de.html to that path.",
     "TODO(de): German language level. No CEFR level (A1-C2) is claimed anywhere on this page or in the Lebenslauf because none is known. Add a Sprachkenntnisse line only once Prajwall states his actual level.",
     "TODO(de): English language level. Same rule — no CEFR level claimed. Degree and publications are in English, which is context, not a certified level.",
@@ -282,26 +283,7 @@
       "bullets": []
     }
   ],
-  "publications": [
-    {
-      "id": "educonnect",
-      "title": "EduConnect: A Smart Solution for Streamlined School Administrations",
-      "venue": "Springer ICTIS 2025, Bangkok — ICT for Intelligent Systems, Bd. 9",
-      "url": null
-    },
-    {
-      "id": "resnet50",
-      "title": "An Empirical Study of ResNet50 Hyperparameter Tuning for Plant Disease Classification",
-      "venue": "IEEE Xplore, November 2024",
-      "url": "https://ieeexplore.ieee.org/document/10816835"
-    },
-    {
-      "id": "rover",
-      "title": "Web-Server Controlled Rover with Robotic Arm and Object Detection",
-      "venue": "IEEE Xplore, November 2024",
-      "url": "https://ieeexplore.ieee.org/document/10816816"
-    }
-  ],
+  "_readme_publications": "The publications array is deliberately NOT overridden here, so the base entries are used verbatim. Paper titles and venue strings are published bibliographic records: a German rendering is not findable in a catalogue search and is factually wrong on a CV. An earlier revision of this file localised the Springer volume to 'Bd. 9'; that has been removed so the printed 'Vol. 9' stands. Only publicationsNote below, which is prose rather than a record, is translated.",
   "publicationsNote": "Zwei weitere Beiträge befinden sich im Begutachtungsverfahren.",
   "projects": [
     {

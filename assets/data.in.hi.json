@@ -1,6 +1,10 @@
 {
   "_todo": [
-    "TODO: this translation was written by Claude and has NOT been reviewed by a native speaker. Have someone read it before the page is used in an application."
+    "TODO: this translation was written by Claude and has NOT been reviewed by a native speaker. Have someone read it before the page is used in an application.",
+    "TODO(hi): experience[] is now overridden here in full (all three employers, all three Colligence roles, same id order as data.base.json), with the prose and the location strings in Hindi. Like the rest of this file it has NOT been checked by a native speaker — the timeline is what a recruiter reads most closely, so have it read before the page is used in an application.",
+    "NOTE(hi): inside experience[] the job titles (AI Engineer, Associate AI Engineer, Associate AI Engineer Intern, Research Intern, Associate Consultant Intern), the employer names and the technology names are deliberately left in English. The Colligence title is the offer-letter wording and must match it in every language; an Indian CV keeps English job titles and tool names in any case, and a Devanagari rendering of a tool name is not searchable.",
+    "TODO(hi): publications[] is intentionally left in English. Paper titles and venues are published records and a translated title is not findable. publicationsNote is prose and is translated.",
+    "TODO(hi): seo.title / seo.description are inherited from data.in.json and are still in English. That is a deliberate choice for search in India, but if the Hindi page should rank on Hindi queries these need Hindi versions."
   ],
   "meta": {
     "cc": "in",
@@ -9,6 +13,310 @@
     "dir": "ltr",
     "spelling": "en-IN"
   },
+  "headline": "AI इंजीनियर — एजेंटिक और LLM सिस्टम, और उन्हें चलाने वाला प्लेटफ़ॉर्म",
+  "summary": "**Colligence Research**, बेंगलुरु की फ़ाउंडिंग टीम में AI इंजीनियर। मैं स्टैक के दोनों हिस्सों पर काम करता हूँ: एक ओर प्रोडक्ट बनाता हूँ — **MCP** पर मल्टी-एजेंट और LLM पाइपलाइन, एक कोड-जनरेशन सर्विस, **Python** और **FastAPI** बैकएंड — और दूसरी ओर उसे चलाने वाला प्लेटफ़ॉर्म भी मेरे ही ज़िम्मे है: **CI/CD**, **OpenTofu** और **Ansible** के साथ infrastructure-as-code, **Docker**, **Zitadel** ऑथेंटिकेशन, ऑब्ज़र्वेबिलिटी और इंसिडेंट रिस्पॉन्स — यह सब मैंने शुरू से खड़ा किया। **IEEE और Springer में प्रकाशित**, तीन सहकर्मी-समीक्षित शोध-पत्र और दो अन्य समीक्षाधीन।",
+  "stats": [
+    {
+      "value": 3,
+      "suffix": "",
+      "label": "सहकर्मी-समीक्षित शोध-पत्र"
+    },
+    {
+      "value": 6,
+      "suffix": "",
+      "label": "पूरी की गई परियोजनाएँ"
+    },
+    {
+      "value": 12,
+      "suffix": "+",
+      "label": "विभाग Knotes Central का उपयोग कर रहे हैं"
+    }
+  ],
+  "about": [
+    {
+      "id": "product",
+      "icon": "fa-diagram-project",
+      "title": "मैं क्या बनाता हूँ",
+      "body": "MCP पर ERP ऑटोमेशन के लिए मल्टी-एजेंट LLM पाइपलाइन, एक कोड-जनरेशन सर्विस जो स्ट्रक्चर्ड इनपुट स्पेसिफ़िकेशन को डिप्लॉयमेंट-रेडी वेब ऐप्लिकेशन में बदल देती है, और उनके पीछे के बैकएंड API। लंबे समय तक चलने वाले, कई चरणों वाले एजेंट वर्कफ़्लो — जो बिना किसी इंसान की लगातार निगरानी के भी पटरी पर बने रहते हैं।"
+    },
+    {
+      "id": "platform",
+      "icon": "fa-server",
+      "title": "मैं क्या चलाता हूँ",
+      "body": "वह प्लेटफ़ॉर्म जिस पर ये सिस्टम चलते हैं। मैंने Colligence Research में DevOps/SRE फ़ंक्शन शून्य से खड़ा किया और अब उसका नेतृत्व करता हूँ: CI/CD, Linode पर OpenTofu और Ansible के साथ infrastructure-as-code, Docker, SSO और RBAC के लिए Zitadel, ऑब्ज़र्वेबिलिटी, अलर्टिंग और इंसिडेंट रनबुक।"
+    },
+    {
+      "id": "research",
+      "icon": "fa-flask",
+      "title": "शोध और प्रकाशन",
+      "body": "तीन सहकर्मी-समीक्षित शोध-पत्र — एक बैंकॉक में Springer ICTIS 2025 में और दो IEEE Xplore पर — जो स्कूल प्रशासन प्रणालियों, ResNet50 हाइपरपैरामीटर ट्यूनिंग, और ऑब्जेक्ट डिटेक्शन वाले वेब-सर्वर नियंत्रित रोवर पर हैं। दो और समीक्षाधीन हैं।"
+    }
+  ],
+  "skills": [
+    {
+      "id": "ai",
+      "title": "AI और LLM सिस्टम",
+      "icon": "fa-robot",
+      "items": [
+        "Agentic systems",
+        "MCP orchestration",
+        "Multi-agent workflows",
+        "RAG",
+        "LangChain",
+        "LangGraph",
+        "Claude API",
+        "LLM integration",
+        "Evaluation harnesses"
+      ]
+    },
+    {
+      "id": "infra",
+      "title": "इंफ़्रास्ट्रक्चर और DevOps",
+      "icon": "fa-server",
+      "items": [
+        "CI/CD",
+        "OpenTofu (IaC)",
+        "Ansible",
+        "Docker",
+        "Linux",
+        "Linode",
+        "Observability and alerting",
+        "Incident runbooks",
+        "Zitadel (SSO/IAM)",
+        "RBAC",
+        "Git"
+      ]
+    },
+    {
+      "id": "backend",
+      "title": "प्रोग्रामिंग भाषाएँ और बैकएंड",
+      "icon": "fa-code",
+      "items": [
+        "Python",
+        "FastAPI",
+        "REST APIs",
+        "PostgreSQL",
+        "SQL",
+        "Swift",
+        "Rust",
+        "Shell scripting"
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "मशीन लर्निंग और कंप्यूटर विज़न",
+      "icon": "fa-brain",
+      "items": [
+        "PyTorch",
+        "TensorFlow",
+        "YOLOv8",
+        "OpenCV",
+        "CNN",
+        "ResNet",
+        "Quantized model deployment"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "colligence",
+      "title": "AI Engineer",
+      "org": "Colligence Research",
+      "location": "बेंगलुरु, भारत",
+      "date": "नवंबर 2025 — वर्तमान",
+      "current": true,
+      "note": "फ़ाउंडिंग टीम।",
+      "roles": [
+        {
+          "title": "AI Engineer",
+          "date": "फ़रवरी 2026 — वर्तमान",
+          "bullets": [
+            "प्रोडक्ट के दोनों हिस्सों पर काम: नीचे दी गई AI और प्रोडक्ट इंजीनियरिंग, और साथ ही उसे चलाने वाले प्लेटफ़ॉर्म की शुरू से आख़िर तक ज़िम्मेदारी।",
+            "DevOps/SRE फ़ंक्शन शून्य से खड़ा किया और अब उसका नेतृत्व करता हूँ — CI/CD, Linode पर OpenTofu और Ansible के साथ infrastructure-as-code, ऑब्ज़र्वेबिलिटी, अलर्टिंग और इंसिडेंट रनबुक।",
+            "इंफ़्रास्ट्रक्चर परत में ही एक retrieval-augmented (RAG) सिस्टम बना रहा हूँ, ताकि infrastructure-as-code और SRE का काम — रनबुक खोजना, बदलावों का संदर्भ, इंसिडेंट रिस्पॉन्स — किसी एक व्यक्ति के दिमाग़ में रखे ज्ञान के बजाय संगठन के अपने कॉन्फ़िगरेशन और इतिहास पर आधारित हो। यह काम अभी प्रगति पर है।",
+            "मैनुअल GitHub डिप्लॉय वर्कफ़्लो की जगह ली, जिससे चार लोगों की फ़ाउंडिंग टीम के लिए डिप्लॉयमेंट में होने वाली ग़लतियाँ कम हुईं।",
+            "प्रोडक्शन स्टैक को शुरू से आख़िर तक चलाता हूँ: Docker, Zitadel ऑथेंटिकेशन, और सेल्फ़-हीलिंग अलर्टिंग के साथ मॉनिटर किए जाने वाले डिप्लॉयमेंट।",
+            "इंफ़्रास्ट्रक्चर और टूलिंग — दोनों में सिस्टम आर्किटेक्चर की ज़िम्मेदारी।"
+          ]
+        },
+        {
+          "title": "Associate AI Engineer",
+          "date": "दिसंबर 2025 — फ़रवरी 2026",
+          "bullets": [
+            "MCP पर ERP ऑटोमेशन के लिए कंपनी की पहली मल्टी-एजेंट LLM पाइपलाइन बनाने वाली एक छोटी टीम का नेतृत्व किया; लंबे समय तक चलने वाले, कई चरणों वाले वर्कफ़्लो बिना मानवीय हस्तक्षेप के पटरी पर बने रहते हैं।",
+            "एक कोड-जनरेशन सर्विस बनाई जो स्ट्रक्चर्ड इनपुट स्पेसिफ़िकेशन को पढ़कर डिप्लॉयमेंट-रेडी वेब ऐप्लिकेशन तैयार करती है।"
+          ]
+        },
+        {
+          "title": "Associate AI Engineer Intern",
+          "date": "नवंबर 2025 — दिसंबर 2025",
+          "bullets": [
+            "पहले LLM इंटीग्रेशन और एजेंट वर्कफ़्लो के प्रोटोटाइप बनाए।"
+          ]
+        }
+      ],
+      "tags": [
+        "Agentic systems",
+        "MCP",
+        "LangGraph",
+        "FastAPI",
+        "OpenTofu",
+        "Ansible",
+        "Docker",
+        "Linode",
+        "Zitadel",
+        "CI/CD"
+      ]
+    },
+    {
+      "id": "rvce-coe",
+      "title": "Research Intern, AI and Deep Learning",
+      "org": "RVCE Centre of Excellence",
+      "location": "रिमोट",
+      "date": "अक्टूबर 2024 — दिसंबर 2024",
+      "current": false,
+      "bullets": [
+        "छेड़छाड़ किए गए चेहरों वाले वीडियो के लिए शून्य से एक डीपफ़ेक-डिटेक्शन मॉडल बनाया, बिना किसी बाहरी डिटेक्शन API का उपयोग किए।",
+        "FaceForensics++ और DFDC डेटासेट पर ट्रेनिंग और मूल्यांकन किया।"
+      ],
+      "tags": [
+        "PyTorch",
+        "TensorFlow",
+        "CNN",
+        "FaceForensics++",
+        "DFDC"
+      ]
+    },
+    {
+      "id": "ey",
+      "title": "Associate Consultant Intern, Enterprise Cybersecurity",
+      "org": "Ernst & Young India",
+      "location": "बेंगलुरु, भारत",
+      "date": "अगस्त 2024 — सितंबर 2024",
+      "current": false,
+      "bullets": [
+        "क्लाउड सुरक्षा तथा आइडेंटिटी एंड ऐक्सेस मैनेजमेंट के काम में सीनियर कंसल्टेंट्स के साथ रहकर उनका काम नज़दीक से देखा।",
+        "TOGAF और IFTAS फ़्रेमवर्क से परिचय हुआ।"
+      ],
+      "tags": [
+        "Cloud security",
+        "IAM",
+        "TOGAF",
+        "IFTAS"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "rvce",
+      "title": "बी.ई. कंप्यूटर साइंस एंड इंजीनियरिंग",
+      "org": "R V College of Engineering (VTU)",
+      "location": "बेंगलुरु, भारत",
+      "date": "दिसंबर 2021 — अगस्त 2025",
+      "grade": "CGPA ",
+      "bullets": []
+    }
+  ],
+  "publicationsNote": "दो और शोध-पत्र समीक्षाधीन हैं।",
+  "projects": [
+    {
+      "id": "arogya-sathi",
+      "title": "Arogya-Sathi",
+      "subtitle": "ऑफ़लाइन चलने में सक्षम बहुभाषी AI हेल्थकेयर प्लेटफ़ॉर्म",
+      "icon": "fa-heart-pulse",
+      "color": "#FF3B30",
+      "description": "लक्षणों की जाँच, X-ray में फ़्रैक्चर की पहचान, प्रिस्क्रिप्शन का सारांश और एक वेलनेस चैटबॉट — सब कुछ क्वांटाइज़्ड मॉडलों पर पूरी तरह ऑफ़लाइन चलता है, जिसका प्रदर्शन एक Raspberry Pi पर किया गया। इसके नीचे दवाओं के आपसी असर और संकट की पहचान के लिए एक नियम-आधारित डिटरमिनिस्टिक सुरक्षा परत है, जिसे LLM ओवरराइड नहीं कर सकता। 62 लेबल किए गए मामलों वाला एक इवैल्यूएशन हार्नेस इन सुरक्षा परतों को स्कोर करता है और recall 1.00 पर CI में मर्ज गेट की तरह चलता है; इसे बनाते समय आत्म-नुकसान से जुड़ी एक ऐसी बात पकड़ में आई जो पहले छूट गई थी। एक LangGraph पाइपलाइन अपलोड की गई मेडिकल रिपोर्ट को मरीज़ की अपनी भाषा में सरल शब्दों की व्याख्या में बदल देती है, साथ में एक सेल्फ़-वेरिफ़िकेशन लूप भी चलता है, और अनुरोध स्थानीय Ollama मॉडलों के बीच रूट किए जाते हैं। कॉलेज के अंतिम-वर्ष प्रोजेक्ट प्रदर्शन में तीसरा स्थान।",
+      "metrics": [
+        "Crisis detection: recall 1.00 / precision 0.93",
+        "Emergency: 1.00 / 1.00",
+        "Drug screening: 1.00 / 1.00"
+      ],
+      "tags": [
+        "LangGraph",
+        "Ollama",
+        "Quantized models",
+        "Evaluation harness",
+        "CI gate",
+        "Raspberry Pi"
+      ],
+      "url": "https://github.com/Developer1010x/Arogya-Sathi",
+      "date": "जनवरी 2025 — जून 2025"
+    },
+    {
+      "id": "agentic-devops",
+      "title": "agentic-devops",
+      "subtitle": "AI-संचालित CI/CD पाइपलाइन जनरेटर और मॉनिटर",
+      "icon": "fa-code-branch",
+      "color": "#3b82f6",
+      "description": "GitHub और GitLab रिपॉज़िटरी के लिए CI/CD पाइपलाइन तैयार करता है और उनकी निगरानी करता है।",
+      "metrics": [],
+      "tags": [
+        "CI/CD",
+        "GitHub",
+        "GitLab",
+        "Agents"
+      ],
+      "url": "https://github.com/Developer1010x/agentic-devops"
+    },
+    {
+      "id": "pybridge",
+      "title": "pybridge.ai",
+      "subtitle": "फ़ोन से AI तक पहुँच",
+      "icon": "fa-comments",
+      "color": "#06b6d4",
+      "description": "WhatsApp, Telegram और ईमेल के ज़रिए AI तक पहुँच को रूट करता है, ताकि इसे फ़ोन से ही चलाया जा सके।",
+      "metrics": [],
+      "tags": [
+        "Python",
+        "Messaging",
+        "LLM integration"
+      ],
+      "url": "https://github.com/Developer1010x/pybridge.ai"
+    },
+    {
+      "id": "knotes-central",
+      "title": "Knotes Central",
+      "subtitle": "छात्रों के लिए संसाधन प्लेटफ़ॉर्म",
+      "icon": "fa-graduation-cap",
+      "color": "#FF9F0A",
+      "description": "छात्रों के लिए एक संसाधन प्लेटफ़ॉर्म, जिसे 12+ विभागों ने अपनाया।",
+      "metrics": [],
+      "tags": [
+        "Web platform"
+      ],
+      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
+    },
+    {
+      "id": "llm-terminal",
+      "title": "LLM Terminal",
+      "subtitle": "टर्मिनल-आधारित LLM असिस्टेंट",
+      "icon": "fa-terminal",
+      "color": "#10b981",
+      "description": "कमांड लाइन से LLM के साथ काम करने के लिए एक हल्का, टर्मिनल-आधारित असिस्टेंट।",
+      "metrics": [],
+      "tags": [
+        "Python",
+        "CLI",
+        "LLM integration"
+      ],
+      "url": "https://github.com/Developer1010x/LLM_Terminal"
+    },
+    {
+      "id": "audio-deepfake",
+      "title": "Audio Deepfake Detection",
+      "subtitle": "सिंथेटिक स्पीच की पहचान",
+      "icon": "fa-wave-square",
+      "color": "#AF52DE",
+      "description": "AI से बनाई गई या क्लोन की गई आवाज़ को चिह्नित करता है।",
+      "metrics": [],
+      "tags": [
+        "PyTorch",
+        "Audio",
+        "Classification"
+      ],
+      "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
+    }
+  ],
   "strings": {
     "skipToContent": "मुख्य सामग्री पर जाएँ",
     "projectCode": "कोड",
