@@ -4,19 +4,19 @@
     "TODO(jp): no Japanese-language ability is stated anywhere on this page or in either document, because none has been supplied. Add a JLPT level (or 'no Japanese yet, studying') only after Prajwall confirms it. Japanese ability is screened on for almost every role in Japan, including English-speaking ones.",
     "TODO(jp): set cv.href to assets/cv/jp-shokumu-keirekisho.pdf once the PDF is exported from Country/jp/shokumu_keirekisho_jp.html. Until the file is on disk the build omits the CV button from /jp/ rather than shipping a 404.",
     "TODO(jp): the rirekisho needs a photo, a date of birth and a full postal address. None of the three are on this page (the site does not need them) but the printed rirekisho does. See Country/jp/NOTES-jp.md.",
-    "TODO(jp): meta.lang stays 'en' because strings.* are still English. Japanese section headings exist in the two printed documents, where the markup can carry lang='ja' on the Japanese runs. Do not put Japanese into strings.* here until (a) a native speaker has reviewed it and (b) meta.lang flips to 'ja' in the same commit — mixed-script text under lang='en' is read out wrongly by screen readers.",
-    "TODO(jp): decide a salary expectation before applying. Japanese applications ask for it in the rirekisho's preferences box; it is currently left as an explicit placeholder."
+    "TODO(jp): decide a salary expectation before applying. Japanese applications ask for it in the rirekisho's preferences box; it is currently left as an explicit placeholder.",
+    "TODO(jp): the Japanese interface copy was written by Claude and has NOT been reviewed by a native speaker. Register is aimed at 丁寧語 suitable for a recruiter-facing page. Have a native speaker read it before this page is used in a real application — a register mistake reads worse in Japan than English would."
   ],
   "meta": {
     "cc": "jp",
     "label": "Japan",
-    "lang": "en",
+    "lang": "ja",
     "dir": "ltr",
     "spelling": "en-GB"
   },
   "headline": "AI Engineer — product development and platform operations",
-  "summary": "AI Engineer on the founding team at Colligence Research in Bengaluru. The work covers both halves of the system: the product — agentic and LLM pipelines, a code-generation service and the backend APIs behind them — and the platform it runs on, where I established the DevOps/SRE function and now lead it: CI/CD, infrastructure-as-code, observability, incident response and authentication. I continue to ship product features alongside that. I am looking for an engineering role in Japan and would need **visa sponsorship**; the two Japanese application documents, rirekisho and shokumu keirekisho, are available on request.",
-  "workAuthorisation": "Currently based in Bengaluru, India, with no existing right to work in Japan. The applicable status of residence is **Engineer / Specialist in Humanities / International Services**, the standard category for software engineers hired from overseas; a B.E. in Computer Science is a qualifying degree for it, and the Certificate of Eligibility is filed by the sponsoring employer.",
+  "summary": "インドのバンガロールにある Colligence Research の創業メンバーとして、AI エンジニアを務めています。プロダクト側では、MCP を用いたマルチエージェント・LLM パイプライン、コード生成サービス、およびそれらを支えるバックエンド API を開発しています。同時に、それが稼働するプラットフォームも担当しており、DevOps/SRE 機能を立ち上げ、現在も統括しています（CI/CD、Infrastructure as Code、監視・可観測性、インシデント対応、認証基盤）。**開発と運用は一つの仕事だと考えています。エージェント基盤を作った者が、その障害対応も担うべきだからです。**日本でのエンジニア職を希望しており、**就労ビザのサポート**が必要です。履歴書および職務経歴書は、ご依頼に応じてお送りいたします。",
+  "workAuthorisation": "現在はインド・バンガロール在住で、日本での就労資格は保有していません。該当する在留資格は **「技術・人文知識・国際業務」** で、海外から採用されるソフトウェアエンジニアの標準的な区分です。情報工学の学士号（B.E.）は要件を満たしており、在留資格認定証明書は受入企業側で申請いただく形になります。",
   "typedPhrases": [
     "agentic and LLM pipelines",
     "CI/CD and infrastructure-as-code",
@@ -62,20 +62,86 @@
   },
   "strings": {
     "sections": {
-      "aboutSubtitle": "An AI Engineer who builds the product and operates the platform it runs on.",
-      "skillsSubtitle": "AI and LLM systems, and the infrastructure they run on, in equal measure.",
-      "projectsSubtitle": "Work taken through to something that runs, and is kept running.",
-      "publicationsSubtitle": "Peer-reviewed work. Three published, two under review.",
-      "contactSubtitle": "Email is the fastest way to reach me. Japanese application documents are sent on request."
+      "aboutTitle": "紹介",
+      "aboutSubtitle": "プロダクトを開発し、それを動かす基盤も自ら運用する AI エンジニアです。",
+      "skillsTitle": "スキル",
+      "skillsSubtitle": "AI・LLM システムと、それを支えるインフラの両方を同じ比重で担当しています。",
+      "experienceTitle": "職務経歴",
+      "experienceSubtitle": "これまでの業務内容です。",
+      "educationTitle": "学歴",
+      "educationSubtitle": "学業の背景です。",
+      "projectsTitle": "制作物",
+      "projectsSubtitle": "設計から運用まで一貫して手がけたものです。",
+      "publicationsTitle": "論文",
+      "publicationsSubtitle": "査読付き論文。3 件が発表済み、2 件が査読中です。",
+      "contactTitle": "連絡先",
+      "contactSubtitle": "メールが最も確実です。日本語の応募書類（履歴書・職務経歴書）はご依頼に応じてお送りします。"
     },
     "hero": {
-      "cvCta": "Career history"
+      "greeting": "はじめまして",
+      "contactCta": "ご連絡",
+      "githubCta": "GitHub",
+      "cvCta": "職務経歴書"
     },
     "cv": {
-      "modalTitle": "Career history (shokumu keirekisho)"
+      "modalTitle": "職務経歴書",
+      "download": "ダウンロード",
+      "open": "新しいタブで開く",
+      "close": "閉じる",
+      "loadNote": "PDF は開いたときにのみ読み込まれます。"
     },
     "contact": {
-      "authorisationLabel": "Status of residence"
+      "emailLabel": "メール",
+      "phoneLabel": "電話",
+      "githubLabel": "GitHub",
+      "locationLabel": "現住所",
+      "authorisationLabel": "就労資格"
+    },
+    "skipToContent": "本文へスキップ",
+    "projectCode": "コード",
+    "projectDemo": "デモ",
+    "publicationsLink": "論文を読む",
+    "regionNames": {
+      "uk": "イギリス",
+      "in": "インド",
+      "us": "アメリカ",
+      "jp": "日本",
+      "de": "ドイツ"
+    },
+    "nav": {
+      "about": "紹介",
+      "skills": "スキル",
+      "experience": "職務経歴",
+      "education": "学歴",
+      "projects": "制作物",
+      "publications": "論文",
+      "contact": "連絡先"
+    },
+    "region": {
+      "notice": "このサイトの{region}版をご覧いただいています。",
+      "switchLabel": "地域",
+      "switchHelp": "地域を切り替える"
+    },
+    "footer": {
+      "rights": "All rights reserved.",
+      "builtNote": "静的サイト。共通テンプレート 1 つから 5 地域分を生成しています。"
     }
-  }
+  },
+  "stats": [
+    {
+      "value": 3,
+      "suffix": "",
+      "label": "査読付き論文"
+    },
+    {
+      "value": 6,
+      "suffix": "",
+      "label": "公開プロジェクト"
+    },
+    {
+      "value": 12,
+      "suffix": "+",
+      "label": "Knotes Central 導入学科数"
+    }
+  ]
 }
