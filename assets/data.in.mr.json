@@ -1,0 +1,82 @@
+{
+  "_todo": [
+    "TODO: this translation was written by Claude and has NOT been reviewed by a native speaker. Have someone read it before the page is used in an application."
+  ],
+  "meta": {
+    "cc": "in",
+    "label": "India",
+    "lang": "mr-IN",
+    "dir": "ltr",
+    "spelling": "en-IN"
+  },
+  "strings": {
+    "skipToContent": "मुख्य मजकुराकडे जा",
+    "projectCode": "कोड",
+    "projectDemo": "डेमो",
+    "publicationsLink": "शोधनिबंध वाचा",
+    "language": {
+      "label": "भाषा"
+    },
+    "nav": {
+      "about": "परिचय",
+      "skills": "कौशल्ये",
+      "experience": "अनुभव",
+      "education": "शिक्षण",
+      "projects": "प्रकल्प",
+      "publications": "प्रकाशने",
+      "contact": "संपर्क"
+    },
+    "hero": {
+      "greeting": "नमस्कार, मी",
+      "contactCta": "संपर्क साधा",
+      "githubCta": "GitHub",
+      "cvCta": "बायोडेटा"
+    },
+    "sections": {
+      "aboutTitle": "परिचय",
+      "aboutSubtitle": "उत्पादन घडवणारा आणि ते चालवणारे प्लॅटफॉर्मही सांभाळणारा AI अभियंता.",
+      "skillsTitle": "कौशल्ये",
+      "skillsSubtitle": "AI आणि LLM प्रणाली, आणि त्या चालवणारी पायाभूत सुविधा — दोन्ही समान प्रमाणात.",
+      "experienceTitle": "अनुभव",
+      "experienceSubtitle": "आजवरचे काम.",
+      "educationTitle": "शिक्षण",
+      "educationSubtitle": "शैक्षणिक पार्श्वभूमी.",
+      "projectsTitle": "प्रकल्प",
+      "projectsSubtitle": "सुरुवातीपासून शेवटपर्यंत घडवलेली कामे, बहुतांश खुली.",
+      "publicationsTitle": "प्रकाशने",
+      "publicationsSubtitle": "समकक्ष-परीक्षित काम. तीन प्रकाशित, दोन परीक्षणाधीन.",
+      "contactTitle": "संपर्क",
+      "contactSubtitle": "ईमेल हा सर्वात जलद मार्ग आहे."
+    },
+    "contact": {
+      "emailLabel": "ईमेल",
+      "phoneLabel": "दूरध्वनी",
+      "githubLabel": "GitHub",
+      "locationLabel": "ठिकाण",
+      "authorisationLabel": "कामाची परवानगी"
+    },
+    "region": {
+      "notice": "आपण या संकेतस्थळाची {region} आवृत्ती पाहत आहात.",
+      "switchLabel": "प्रदेश",
+      "switchHelp": "प्रदेश बदला"
+    },
+    "cv": {
+      "modalTitle": "बायोडेटा",
+      "download": "डाउनलोड करा",
+      "open": "नवीन टॅबमध्ये उघडा",
+      "close": "बंद करा",
+      "loadNote": "PDF उघडल्यावरच लोड होते."
+    },
+    "footer": {
+      "rights": "सर्व हक्क राखीव.",
+      "builtNote": "स्थिर संकेतस्थळ — एक टेम्पलेट, पाच प्रादेशिक आवृत्त्या."
+    },
+    "regionNames": {
+      "uk": "युनायटेड किंग्डम",
+      "in": "भारत",
+      "us": "अमेरिका",
+      "jp": "जपान",
+      "de": "जर्मनी"
+    }
+  }
+}

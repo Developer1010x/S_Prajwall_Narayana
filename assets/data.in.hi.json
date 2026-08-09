@@ -1,0 +1,82 @@
+{
+  "_todo": [
+    "TODO: this translation was written by Claude and has NOT been reviewed by a native speaker. Have someone read it before the page is used in an application."
+  ],
+  "meta": {
+    "cc": "in",
+    "label": "India",
+    "lang": "hi-IN",
+    "dir": "ltr",
+    "spelling": "en-IN"
+  },
+  "strings": {
+    "skipToContent": "मुख्य सामग्री पर जाएँ",
+    "projectCode": "कोड",
+    "projectDemo": "डेमो",
+    "publicationsLink": "शोध-पत्र पढ़ें",
+    "language": {
+      "label": "भाषा"
+    },
+    "nav": {
+      "about": "परिचय",
+      "skills": "कौशल",
+      "experience": "अनुभव",
+      "education": "शिक्षा",
+      "projects": "परियोजनाएँ",
+      "publications": "प्रकाशन",
+      "contact": "संपर्क"
+    },
+    "hero": {
+      "greeting": "नमस्ते, मैं हूँ",
+      "contactCta": "संपर्क करें",
+      "githubCta": "GitHub",
+      "cvCta": "बायोडाटा"
+    },
+    "sections": {
+      "aboutTitle": "परिचय",
+      "aboutSubtitle": "एक AI इंजीनियर जो प्रोडक्ट भी बनाता है और उसे चलाने वाला प्लेटफ़ॉर्म भी संभालता है।",
+      "skillsTitle": "कौशल",
+      "skillsSubtitle": "AI और LLM सिस्टम, और उन्हें चलाने वाला इंफ़्रास्ट्रक्चर — दोनों बराबर।",
+      "experienceTitle": "अनुभव",
+      "experienceSubtitle": "अब तक का कार्य।",
+      "educationTitle": "शिक्षा",
+      "educationSubtitle": "शैक्षणिक पृष्ठभूमि।",
+      "projectsTitle": "परियोजनाएँ",
+      "projectsSubtitle": "शुरू से अंत तक बनाई गई चीज़ें, अधिकतर सार्वजनिक रूप से।",
+      "publicationsTitle": "प्रकाशन",
+      "publicationsSubtitle": "सहकर्मी-समीक्षित कार्य। तीन प्रकाशित, दो समीक्षाधीन।",
+      "contactTitle": "संपर्क",
+      "contactSubtitle": "ईमेल सबसे तेज़ तरीका है।"
+    },
+    "contact": {
+      "emailLabel": "ईमेल",
+      "phoneLabel": "फ़ोन",
+      "githubLabel": "GitHub",
+      "locationLabel": "स्थान",
+      "authorisationLabel": "कार्य अनुमति"
+    },
+    "region": {
+      "notice": "आप इस साइट का {region} संस्करण देख रहे हैं।",
+      "switchLabel": "क्षेत्र",
+      "switchHelp": "क्षेत्र बदलें"
+    },
+    "cv": {
+      "modalTitle": "बायोडाटा",
+      "download": "डाउनलोड करें",
+      "open": "नए टैब में खोलें",
+      "close": "बंद करें",
+      "loadNote": "PDF केवल खोलने पर ही लोड होती है।"
+    },
+    "footer": {
+      "rights": "सर्वाधिकार सुरक्षित।",
+      "builtNote": "स्टैटिक साइट — एक साझा टेम्पलेट, पाँच क्षेत्रीय संस्करण।"
+    },
+    "regionNames": {
+      "uk": "यूनाइटेड किंगडम",
+      "in": "भारत",
+      "us": "संयुक्त राज्य अमेरिका",
+      "jp": "जापान",
+      "de": "जर्मनी"
+    }
+  }
+}

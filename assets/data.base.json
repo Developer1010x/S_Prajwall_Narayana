@@ -16,7 +16,26 @@
       {
         "cc": "in",
         "label": "India",
-        "lang": "en-IN"
+        "lang": "en-IN",
+        "languages": [
+          {
+            "code": "en",
+            "label": "English",
+            "default": true
+          },
+          {
+            "code": "hi",
+            "label": "हिन्दी"
+          },
+          {
+            "code": "kn",
+            "label": "ಕನ್ನಡ"
+          },
+          {
+            "code": "mr",
+            "label": "मराठी"
+          }
+        ]
       },
       {
         "cc": "us",
@@ -470,6 +489,9 @@
     "footer": {
       "rights": "All rights reserved.",
       "builtNote": "Static site, one shared template, five regional builds."
+    },
+    "language": {
+      "label": "Language"
     }
   }
 }
