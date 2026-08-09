@@ -285,117 +285,11 @@
     Array.prototype.forEach.call(counters, function (el) { observer.observe(el); });
   }
 
-  /* ---------- pointer sugar (desktop only) ---------- */
-
-  function isTouch() {
-    return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || window.innerWidth < 768;
-  }
-
-  function initTilt() {
-    if (isTouch() || reduceMotion) return;
-    Array.prototype.forEach.call(document.querySelectorAll('.tilt-card'), function (card) {
-      card.addEventListener('mousemove', function (e) {
-        var rect = card.getBoundingClientRect();
-        var rx = (e.clientY - rect.top - rect.height / 2) / 22;
-        var ry = (rect.width / 2 - (e.clientX - rect.left)) / 22;
-        card.style.transform = 'perspective(1000px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-6px)';
-      }, { passive: true });
-      card.addEventListener('mouseleave', function () { card.style.transform = ''; });
-    });
-  }
-
-  function initMagnetic() {
-    if (isTouch() || reduceMotion) return;
-    Array.prototype.forEach.call(document.querySelectorAll('.magnetic-btn'), function (btn) {
-      btn.addEventListener('mousemove', function (e) {
-        var rect = btn.getBoundingClientRect();
-        btn.style.transform = 'translate(' + (e.clientX - rect.left - rect.width / 2) * 0.18 + 'px,' +
-          (e.clientY - rect.top - rect.height / 2) * 0.18 + 'px)';
-      }, { passive: true });
-      btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
-    });
-  }
-
-  /* ---------- hero particles ---------- */
-
-  function initParticles() {
-    var canvas = document.getElementById('particles-canvas');
-    if (!canvas || reduceMotion || !canvas.getContext) return;
-    var ctx = canvas.getContext('2d');
-    var particles = [];
-    var frame = null;
-    var visible = true;
-
-    function resize() {
-      canvas.width = canvas.parentElement.offsetWidth;
-      canvas.height = canvas.parentElement.offsetHeight;
-    }
-
-    function seed() {
-      particles = [];
-      var max = window.innerWidth < 768 ? 26 : 55;
-      var count = Math.min(max, (canvas.width * canvas.height) / 16000);
-      for (var i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          size: Math.random() * 2.5 + 1,
-          dx: Math.random() * 0.5 - 0.25,
-          dy: Math.random() * 0.5 - 0.25,
-          alpha: Math.random() * 0.5 + 0.2
-        });
-      }
-    }
-
-    function draw() {
-      if (!visible) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        p.x += p.dx; p.y += p.dy;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.x < 0) p.x = canvas.width;
-        if (p.y > canvas.height) p.y = 0;
-        if (p.y < 0) p.y = canvas.height;
-        ctx.fillStyle = 'rgba(59, 130, 246, ' + p.alpha + ')';
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      var maxDist = window.innerWidth < 768 ? 80 : 120;
-      for (var a = 0; a < particles.length; a++) {
-        for (var b = a + 1; b < particles.length; b++) {
-          var ddx = particles[a].x - particles[b].x;
-          var ddy = particles[a].y - particles[b].y;
-          var d2 = ddx * ddx + ddy * ddy;
-          if (d2 >= maxDist * maxDist) continue;
-          ctx.strokeStyle = 'rgba(59, 130, 246, ' + (0.1 * (1 - Math.sqrt(d2) / maxDist)) + ')';
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.moveTo(particles[a].x, particles[a].y);
-          ctx.lineTo(particles[b].x, particles[b].y);
-          ctx.stroke();
-        }
-      }
-      frame = requestAnimationFrame(draw);
-    }
-
-    var hero = document.getElementById('home');
-    if (hero && 'IntersectionObserver' in window) {
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          visible = entry.isIntersecting;
-          if (visible && !frame) draw();
-          if (!visible && frame) { cancelAnimationFrame(frame); frame = null; }
-        });
-      }, { threshold: 0.05 }).observe(hero);
-    }
-
-    resize();
-    seed();
-    draw();
-    window.addEventListener('resize', debounce(function () { resize(); seed(); }, 250));
-  }
+  /* Removed 9 Aug 2026 — flat redesign.
+     initTilt (3D rotation on hover), initMagnetic (buttons pulled toward the cursor) and
+     initParticles (an animated starfield behind the hero) went with the gradients. They
+     competed with the content and made the page read as a template rather than a person.
+     #particles-canvas may still be emitted by the template; it is hidden in CSS. */
 
   /* ---------- CV modal: the PDF is requested only on open ---------- */
 
@@ -445,9 +339,6 @@
     initTypewriter();
     initReveal();
     initCounters();
-    initTilt();
-    initMagnetic();
-    initParticles();
     initCvModal();
   }
 
