@@ -5,8 +5,14 @@
     "TODO(jp): set cv.href to assets/cv/jp-shokumu-keirekisho.pdf once the PDF is exported from Country/jp/shokumu_keirekisho_jp.html. Until the file is on disk the build omits the CV button from /jp/ rather than shipping a 404.",
     "TODO(jp): the rirekisho needs a photo, a date of birth and a full postal address. None of the three are on this page (the site does not need them) but the printed rirekisho does. See Country/jp/NOTES-jp.md.",
     "TODO(jp): decide a salary expectation before applying. Japanese applications ask for it in the rirekisho's preferences box; it is currently left as an explicit placeholder.",
-    "TODO(jp): the Japanese interface copy was written by Claude and has NOT been reviewed by a native speaker. Register is aimed at 丁寧語 suitable for a recruiter-facing page. Have a native speaker read it before this page is used in a real application — a register mistake reads worse in Japan than English would."
+    "TODO(jp): the Japanese interface copy was written by Claude and has NOT been reviewed by a native speaker. Register is aimed at 丁寧語 suitable for a recruiter-facing page. Have a native speaker read it before this page is used in a real application — a register mistake reads worse in Japan than English would.",
+    "TODO(jp): the Japanese body content (about[], skills[].title, projects[].subtitle, projects[].description, education[].title) was translated by Claude from data.base.json and has NOT been reviewed by a native speaker. Nothing was added to or removed from the English claims, but wording, katakana choices and 丁寧語 consistency need a native-speaker pass before this page is used in a real application.",
+    "TODO(jp): projects[].metrics were deliberately left in English ('Crisis detection: recall 1.00 / precision 0.93' etc.) because they are evaluation-harness labels tied to measured figures. Decide with a native speaker whether Japanese labels would read better; if so, the numbers must stay untouched.",
+    "TODO(jp): experience[] was translated by Claude from data.base.json and has NOT been reviewed by a native speaker. Every employer, every role and every bullet from the base is present in the same order; no claim was added, dropped, strengthened or weakened. Two things specifically need a native-speaker check: whether 「現在進行中です」 reads as clearly not-yet-shipped for the RAG infrastructure bullet (it must — that system is unfinished), and whether 「現在も統括しています」 is the right weight for having founded and now leading the DevOps/SRE function (neither more nor less than the English).",
+    "TODO(jp): date format across the whole page. experience[].date, roles[].date, education[].date and projects[].date are all left in the English 'Nov 2025 — present' form so the page is internally consistent. A Japanese 職務経歴書 conventionally uses 2025年11月 — 現在. If that convention is wanted, change all four arrays together in one pass, not experience[] alone — the numbers must not change, only the month rendering.",
+    "TODO(jp): experience[].tags were left in English, matching skills[].items in this file. Two of them ('Agentic systems', 'Cloud security') are ordinary English phrases rather than product names and could be Japanese; the rest are technology names that must stay as they are. Decide once, for tags and skill items together."
   ],
+  "_readme_experience": "experience[] replaces the base array wholesale (contract rule 3), so this is a complete copy with Japanese prose. Translated: role bullets, the founding-team note and location strings. NOT translated, on purpose: job titles (AI Engineer / Associate AI Engineer / Associate AI Engineer Intern / Research Intern / Associate Consultant Intern are the titles as issued by the employers — the Colligence one is the offer-letter title — and a Japanese 職務経歴書 keeps the employer's own wording; katakana 'AI エンジニア' is common in Japanese job adverts but is not what the offer letter says, and half the titles have no established katakana form at all), employer names, technology names and every date and figure.",
   "meta": {
     "cc": "jp",
     "label": "Japan",
@@ -142,6 +148,290 @@
       "value": 12,
       "suffix": "+",
       "label": "Knotes Central 導入学科数"
+    }
+  ],
+  "about": [
+    {
+      "id": "product",
+      "icon": "fa-diagram-project",
+      "title": "開発しているもの",
+      "body": "MCP を介した ERP 自動化のためのマルチエージェント LLM パイプライン、構造化された入力仕様からデプロイ可能な Web アプリケーションを生成するコード生成サービス、そしてそれらを支えるバックエンド API です。人が逐一見張らなくても正しく進み続ける、長時間かつ多段階のエージェントワークフローを構築しています。"
+    },
+    {
+      "id": "platform",
+      "icon": "fa-server",
+      "title": "運用しているもの",
+      "body": "これらのシステムが稼働するプラットフォームです。Colligence Research では DevOps/SRE の機能をゼロから立ち上げ、現在も統括しています。CI/CD、Linode 上での OpenTofu と Ansible による Infrastructure as Code、Docker、SSO と RBAC のための Zitadel、可観測性、アラート、インシデント対応の Runbook を担当しています。"
+    },
+    {
+      "id": "research",
+      "icon": "fa-flask",
+      "title": "研究と論文",
+      "body": "査読付き論文が 3 件あります。1 件はバンコクで開催された Springer ICTIS 2025、2 件は IEEE Xplore に掲載されており、学校管理システム、ResNet50 のハイパーパラメータ調整、物体検出機能を備えた Web サーバ制御ローバーを扱っています。さらに 2 件が査読中です。"
+    }
+  ],
+  "skills": [
+    {
+      "id": "ai",
+      "title": "AI・LLM システム",
+      "icon": "fa-robot",
+      "items": [
+        "Agentic systems",
+        "MCP orchestration",
+        "Multi-agent workflows",
+        "RAG",
+        "LangChain",
+        "LangGraph",
+        "Claude API",
+        "LLM integration",
+        "Evaluation harnesses"
+      ]
+    },
+    {
+      "id": "infra",
+      "title": "インフラストラクチャと DevOps",
+      "icon": "fa-server",
+      "items": [
+        "CI/CD",
+        "OpenTofu (IaC)",
+        "Ansible",
+        "Docker",
+        "Linux",
+        "Linode",
+        "Observability and alerting",
+        "Incident runbooks",
+        "Zitadel (SSO/IAM)",
+        "RBAC",
+        "Git"
+      ]
+    },
+    {
+      "id": "backend",
+      "title": "プログラミング言語とバックエンド",
+      "icon": "fa-code",
+      "items": [
+        "Python",
+        "FastAPI",
+        "REST APIs",
+        "PostgreSQL",
+        "SQL",
+        "Swift",
+        "Rust",
+        "Shell scripting"
+      ]
+    },
+    {
+      "id": "ml",
+      "title": "機械学習とコンピュータビジョン",
+      "icon": "fa-brain",
+      "items": [
+        "PyTorch",
+        "TensorFlow",
+        "YOLOv8",
+        "OpenCV",
+        "CNN",
+        "ResNet",
+        "Quantized model deployment"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "colligence",
+      "title": "AI Engineer",
+      "org": "Colligence Research",
+      "location": "インド・バンガロール",
+      "date": "Nov 2025 — present",
+      "current": true,
+      "note": "創業メンバーです。",
+      "roles": [
+        {
+          "title": "AI Engineer",
+          "date": "Feb 2026 — present",
+          "bullets": [
+            "プロダクトの両面を担当しています。以下に挙げる AI・プロダクト開発に加え、それが稼働するプラットフォームについても一貫して責任を持っています。",
+            "DevOps/SRE 機能をゼロから立ち上げ、現在も統括しています。対象は CI/CD、Linode 上での OpenTofu と Ansible による Infrastructure as Code、可観測性、アラート、インシデント対応の Runbook です。",
+            "Infrastructure as Code と SRE の業務、すなわち Runbook の参照、変更経緯の把握、インシデント対応が、担当者個人の記憶ではなく組織自身の構成情報と履歴に基づいて行えるよう、RAG を用いた仕組みをインフラ層そのものに組み込んでいます。現在進行中です。",
+            "手作業による GitHub のデプロイ手順を置き換え、4 名の創業チームにおけるデプロイ時のミスを削減しました。",
+            "本番環境のスタックを一貫して運用しています。Docker、Zitadel による認証、自己修復型のアラートを備えた監視付きデプロイが対象です。",
+            "インフラとツール全体にわたるシステムアーキテクチャを担当しています。"
+          ]
+        },
+        {
+          "title": "Associate AI Engineer",
+          "date": "Dec 2025 — Feb 2026",
+          "bullets": [
+            "少人数のチームを率い、MCP を介した ERP 自動化のための社内初となるマルチエージェント LLM パイプラインを構築しました。長時間かつ多段階のワークフローが、人手を介さずに正しく進み続ける仕組みです。",
+            "構造化された入力仕様を解析し、デプロイ可能な Web アプリケーションを生成するコード生成サービスを構築しました。"
+          ]
+        },
+        {
+          "title": "Associate AI Engineer Intern",
+          "date": "Nov 2025 — Dec 2025",
+          "bullets": [
+            "最初期の LLM 連携とエージェントワークフローのプロトタイプを開発しました。"
+          ]
+        }
+      ],
+      "tags": [
+        "Agentic systems",
+        "MCP",
+        "LangGraph",
+        "FastAPI",
+        "OpenTofu",
+        "Ansible",
+        "Docker",
+        "Linode",
+        "Zitadel",
+        "CI/CD"
+      ]
+    },
+    {
+      "id": "rvce-coe",
+      "title": "Research Intern, AI and Deep Learning",
+      "org": "RVCE Centre of Excellence",
+      "location": "リモート",
+      "date": "Oct 2024 — Dec 2024",
+      "current": false,
+      "bullets": [
+        "顔を改変した動画を対象とするディープフェイク検出モデルを、外部の検出 API を一切使わずにゼロから構築しました。",
+        "FaceForensics++ および DFDC のデータセットを用いて学習と評価を行いました。"
+      ],
+      "tags": [
+        "PyTorch",
+        "TensorFlow",
+        "CNN",
+        "FaceForensics++",
+        "DFDC"
+      ]
+    },
+    {
+      "id": "ey",
+      "title": "Associate Consultant Intern, Enterprise Cybersecurity",
+      "org": "Ernst & Young India",
+      "location": "インド・バンガロール",
+      "date": "Aug 2024 — Sep 2024",
+      "current": false,
+      "bullets": [
+        "シニアコンサルタントの業務に同行し、クラウドセキュリティおよび ID・アクセス管理の案件を見学しました。",
+        "TOGAF および IFTAS のフレームワークに触れました。"
+      ],
+      "tags": [
+        "Cloud security",
+        "IAM",
+        "TOGAF",
+        "IFTAS"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": "rvce",
+      "title": "情報工学 学士（B.E. Computer Science and Engineering）",
+      "org": "R V College of Engineering (VTU)",
+      "location": "Bengaluru, India",
+      "date": "Dec 2021 — Aug 2025",
+      "grade": "CGPA 6.66",
+      "bullets": []
+    }
+  ],
+  "projects": [
+    {
+      "id": "arogya-sathi",
+      "title": "Arogya-Sathi",
+      "subtitle": "オフラインでも動作する多言語対応の AI ヘルスケアプラットフォーム",
+      "icon": "fa-heart-pulse",
+      "color": "#FF3B30",
+      "description": "症状チェック、X 線画像による骨折検出、処方箋の要約、健康相談チャットボットを、量子化モデル上で完全にオフラインで動作させます（Raspberry Pi 上でデモを実施）。その下層には、ルールベースで決定的に動作する薬物相互作用チェックと危機検知の安全層があり、LLM がこれを上書きすることはできません。62 件のラベル付きケースからなる評価ハーネスがこれらの安全層を採点し、recall 1.00 を条件とする CI のマージゲートとして動作します。この評価ハーネスの構築過程で、実際に見落とされていた自傷の申告が見つかりました。LangGraph によるパイプラインが、アップロードされた診断書を患者自身の言語による平易な説明に変換します。自己検証のループを備えており、リクエストはローカルの Ollama モデル間で振り分けられます。大学の最終学年成果発表会で第 3 位。",
+      "metrics": [
+        "Crisis detection: recall 1.00 / precision 0.93",
+        "Emergency: 1.00 / 1.00",
+        "Drug screening: 1.00 / 1.00"
+      ],
+      "tags": [
+        "LangGraph",
+        "Ollama",
+        "Quantized models",
+        "Evaluation harness",
+        "CI gate",
+        "Raspberry Pi"
+      ],
+      "url": "https://github.com/Developer1010x/Arogya-Sathi",
+      "date": "Jan 2025 — Jun 2025"
+    },
+    {
+      "id": "agentic-devops",
+      "title": "agentic-devops",
+      "subtitle": "AI による CI/CD パイプラインの生成・監視ツール",
+      "icon": "fa-code-branch",
+      "color": "#3b82f6",
+      "description": "GitHub および GitLab のリポジトリ向けに、CI/CD パイプラインを生成し、監視します。",
+      "metrics": [],
+      "tags": [
+        "CI/CD",
+        "GitHub",
+        "GitLab",
+        "Agents"
+      ],
+      "url": "https://github.com/Developer1010x/agentic-devops"
+    },
+    {
+      "id": "pybridge",
+      "title": "pybridge.ai",
+      "subtitle": "スマートフォンからの AI 利用",
+      "icon": "fa-comments",
+      "color": "#06b6d4",
+      "description": "WhatsApp、Telegram、メールをまたいで AI へのアクセスを中継し、スマートフォンから操作できるようにします。",
+      "metrics": [],
+      "tags": [
+        "Python",
+        "Messaging",
+        "LLM integration"
+      ],
+      "url": "https://github.com/Developer1010x/pybridge.ai"
+    },
+    {
+      "id": "knotes-central",
+      "title": "Knotes Central",
+      "subtitle": "学生向けリソースプラットフォーム",
+      "icon": "fa-graduation-cap",
+      "color": "#FF9F0A",
+      "description": "学生向けのリソースプラットフォームで、12 以上の学科で導入されています。",
+      "metrics": [],
+      "tags": [
+        "Web platform"
+      ],
+      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
+    },
+    {
+      "id": "llm-terminal",
+      "title": "LLM Terminal",
+      "subtitle": "ターミナルベースの LLM アシスタント",
+      "icon": "fa-terminal",
+      "color": "#10b981",
+      "description": "コマンドラインから LLM を扱うための、軽量なターミナルベースのアシスタントです。",
+      "metrics": [],
+      "tags": [
+        "Python",
+        "CLI",
+        "LLM integration"
+      ],
+      "url": "https://github.com/Developer1010x/LLM_Terminal"
+    },
+    {
+      "id": "audio-deepfake",
+      "title": "Audio Deepfake Detection",
+      "subtitle": "合成音声の検出",
+      "icon": "fa-wave-square",
+      "color": "#AF52DE",
+      "description": "AI によって合成された音声やクローン音声を検出します。",
+      "metrics": [],
+      "tags": [
+        "PyTorch",
+        "Audio",
+        "Classification"
+      ],
+      "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
     }
   ]
 }
