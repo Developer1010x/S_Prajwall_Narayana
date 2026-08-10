@@ -1,6 +1,7 @@
 {
   "_readme": "United Kingdom overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. Register: British English (-ise), UK platform/SRE vocabulary used only where it is factually accurate. Product and platform are held at equal weight — order.skills is deliberately NOT set so ai and infra keep their base side-by-side positions.",
   "_todo": [
+    "TODO(uk): the number shown is a +91 mobile. A UK-reachable number would materially improve recruiter call-backs - an Indian mobile signals \"not here yet\" before the CV is opened. No UK number is on file, so none has been invented.",
     "TODO(uk): cv.href still points at assets/cv/uk.pdf, which does not exist, so /uk/ currently offers only the shared academic CV. The UK CV on disk is assets/cv/uk-en.pdf and it has deliberately NOT been wired up: its header line reads 'Liverpool', and the UK location is Wirral. Regenerate that PDF with Wirral, then point cv.href at it.",
     "TODO(uk): personal.location is 'Wirral'. An earlier pass wrote 'West Kirby, Wirral' and a later one wrote 'Liverpool'; both have been corrected. Wirral is the agreed value and no other country file claims a UK address. Do not change it without a source.",
     "TODO(uk): confirm the exact Skilled Worker / New Entrant wording with Prajwall (and ideally an immigration adviser) before it goes live — the claim is a selling point only if it survives scrutiny."

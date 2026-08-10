@@ -77,8 +77,8 @@
     "profileImageAlt": "Stylised high-contrast avatar used by S Prajwall Narayana"
   },
   "flags": {
-    "_readme_showPhone": "OFF DELIBERATELY. A phone number in public HTML is harvested by scrapers within days and the result is call and SMS spam that cannot be undone - the number cannot be rotated the way an email alias can. Email is the contact route on the site; the number stays on the CV, which reaches a named recipient. Do not turn this on for any region.",
-    "showPhone": false,
+    "_readme_showPhone": "ON, by an explicit decision of his on 10 August 2026, taken after the trade-off was put to him. A number in public HTML does get harvested, and unlike an email alias a mobile number cannot be rotated once the spam starts - he judged reachability worth that. The email beside it is a throwaway alias for exactly this reason. If the SMS and call spam becomes a problem, this flag is the switch.",
+    "showPhone": true,
     "showGrade": false,
     "showPublications": true,
     "noindex": null
