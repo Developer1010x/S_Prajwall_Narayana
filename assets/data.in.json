@@ -12,7 +12,6 @@
   },
   "flags": {
     "showGrade": true,
-    "showPhone": true,
     "showPublications": true
   },
   "headline": "AI Engineer — agentic and LLM systems, and the platform they run on",

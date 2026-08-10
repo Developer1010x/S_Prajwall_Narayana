@@ -65,7 +65,8 @@
     "name": "S Prajwall Narayana",
     "displayName": "S. Prajwall Narayana",
     "title": "AI Engineer",
-    "email": "prajwallnarayana@gmail.com",
+    "_readme_email": "This is a spam-trap alias, not the personal address, and that is deliberate. Any address in public HTML is harvested; an alias can be abandoned and replaced, a personal address cannot. MONITOR IT - genuine recruiter mail arrives here too, and an unread trap inbox is worse than no address at all. The real address stays on the CV PDFs, which reach a named recipient.",
+    "email": "prajwallspambox@gmail.com",
     "phone": "+91 7760604439",
     "github": "https://github.com/Developer1010x",
     "githubHandle": "Developer1010x",
@@ -76,7 +77,8 @@
     "profileImageAlt": "Stylised high-contrast avatar used by S Prajwall Narayana"
   },
   "flags": {
-    "showPhone": true,
+    "_readme_showPhone": "OFF DELIBERATELY. A phone number in public HTML is harvested by scrapers within days and the result is call and SMS spam that cannot be undone - the number cannot be rotated the way an email alias can. Email is the contact route on the site; the number stays on the CV, which reaches a named recipient. Do not turn this on for any region.",
+    "showPhone": false,
     "showGrade": false,
     "showPublications": true,
     "noindex": null

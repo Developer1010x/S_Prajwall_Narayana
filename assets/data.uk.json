@@ -3,7 +3,6 @@
   "_todo": [
     "TODO(uk): cv.href still points at assets/cv/uk.pdf, which does not exist, so /uk/ currently offers only the shared academic CV. The UK CV on disk is assets/cv/uk-en.pdf and it has deliberately NOT been wired up: its header line reads 'Liverpool', and the UK location is Wirral. Regenerate that PDF with Wirral, then point cv.href at it.",
     "TODO(uk): personal.location is 'Wirral'. An earlier pass wrote 'West Kirby, Wirral' and a later one wrote 'Liverpool'; both have been corrected. Wirral is the agreed value and no other country file claims a UK address. Do not change it without a source.",
-    "TODO(uk): flags.showPhone is true but the number is +91. A UK-reachable number would materially improve recruiter call-backs. No UK number is on file, so none has been invented.",
     "TODO(uk): confirm the exact Skilled Worker / New Entrant wording with Prajwall (and ideally an immigration adviser) before it goes live — the claim is a selling point only if it survives scrutiny."
   ],
   "meta": {
@@ -43,7 +42,6 @@
     "downloadName": "S-Prajwall-Narayana-CV-UK.pdf"
   },
   "flags": {
-    "showPhone": true,
     "showGrade": true,
     "showPublications": true,
     "noindex": null
