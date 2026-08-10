@@ -77,8 +77,8 @@
     "profileImageAlt": "Stylised high-contrast avatar used by S Prajwall Narayana"
   },
   "flags": {
-    "_readme_showPhone": "ON, by an explicit decision of his on 10 August 2026, taken after the trade-off was put to him. A number in public HTML does get harvested, and unlike an email alias a mobile number cannot be rotated once the spam starts - he judged reachability worth that. The email beside it is a throwaway alias for exactly this reason. If the SMS and call spam becomes a problem, this flag is the switch.",
-    "showPhone": true,
+    "_readme_showPhone": "OFF, by his decision on 10 August 2026. It was briefly ON, but he chose to take the number off the public portfolio: a number in public HTML gets harvested, and unlike the throwaway email alias beside it, a mobile number cannot be rotated once the spam starts. The phone still appears on the CVs, which go to named recipients rather than the open web. Flip this back to true to restore it site-wide.",
+    "showPhone": false,
     "showGrade": false,
     "showPublications": true,
     "noindex": null
