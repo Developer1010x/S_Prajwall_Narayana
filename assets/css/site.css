@@ -582,3 +582,46 @@ li:last-child { margin-bottom: 0; }
   .section { padding: 1rem 0; break-inside: avoid; }
   a { color: #000; text-decoration: underline; }
 }
+
+/* ── Country backdrop ──────────────────────────────────────────────────────
+   A faded outline of the region's country behind the hero. Present on the UK,
+   US, Japan and Germany pages; India deliberately has none.
+
+   "Neon" here means a thin accent stroke, not a glow stack: one colour, one
+   stroke width, low opacity. Anything brighter competes with the text sitting
+   on top of it, which is the mistake the flat rewrite existed to undo. It is
+   decorative, so it is aria-hidden in the markup and hidden from print. */
+.country-map {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Centred behind the whole hero rather than tucked to one side. Offset to the
+     right it sat behind the profile card and only its edges showed, which read
+     as a stray shape rather than a country. */
+  width: clamp(320px, 46vw, 620px);
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.07;
+}
+.country-map path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* The hero already establishes a stacking context for it, and the content has
+   to sit above. */
+.hero { position: relative; overflow: hidden; }
+.hero-content { position: relative; z-index: 1; }
+
+@media (max-width: 880px) {
+  /* On a narrow screen the outline lands underneath the text rather than beside
+     it, so it is pushed further back. */
+  .country-map { opacity: 0.05; width: 74vw; }
+}
+
+@media print { .country-map { display: none; } }
