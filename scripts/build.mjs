@@ -587,12 +587,9 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
 
   const A = `${UP}assets/`;
 
-  // Faded country outline behind the hero. Decorative, so aria-hidden and unlabelled.
-  // India has no entry in assets/maps.json on purpose and renders without one.
-  const mapPath = (maps.paths || {})[cc];
-  const countryMap = mapPath
-    ? `  <svg class="country-map" viewBox="${esc(maps.viewBox || '0 0 1000 1000')}" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet"><path d="${mapPath}"/></svg>`
-    : '';
+  // Country-outline hero watermark removed on request. Kept the maps.json plumbing
+  // intact so it can be restored by reverting this one line if ever wanted.
+  const countryMap = '';
 
   const html = applySpelling(fillTokens(template, {
     LANG: esc(data.meta.lang),
