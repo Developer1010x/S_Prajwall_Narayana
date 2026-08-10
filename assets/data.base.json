@@ -97,16 +97,10 @@
   ],
   "cv": {
     "_todo": "TODO: no CV PDF is committed. Put the per-country CV at assets/cv/<cc>.pdf and set cv.href in that country's data file. Until a file exists the build omits that download entirely - it will not ship a stale or missing PDF.",
-    "_readme": "cv.href is the region's own CV. cv.documents holds anything offered alongside it, keyed by id, and merges key by key so a region can add or drop one without restating the rest. Labels live in strings.cv.labels so every language can translate them. See assets/DATA-CONTRACT.md.",
+    "_readme": "Only Japan and Germany offer a second document, and it is the same CV in the other language. Everywhere else offers one. The academic CV is not a download here; it is a different document for a different reader and lives in the CV repository.",
     "href": "assets/cv/cv.pdf",
     "label": "CV",
-    "downloadName": "S-Prajwall-Narayana-CV.pdf",
-    "documents": {
-      "academic": {
-        "href": "assets/cv/academic-en.pdf",
-        "downloadName": "S-Prajwall-Narayana-Academic-CV.pdf"
-      }
-    }
+    "downloadName": "S-Prajwall-Narayana-CV.pdf"
   },
   "workAuthorisation": null,
   "stats": [
