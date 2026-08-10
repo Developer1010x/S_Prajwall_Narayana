@@ -96,10 +96,17 @@
     "authentication, RBAC and platform security"
   ],
   "cv": {
-    "_todo": "TODO: no CV PDF is committed. Put the per-country CV at assets/cv/<cc>.pdf and set cv.href in that country's data file. Until a file exists the build omits the CV button entirely - it will not ship a stale or missing PDF.",
+    "_todo": "TODO: no CV PDF is committed. Put the per-country CV at assets/cv/<cc>.pdf and set cv.href in that country's data file. Until a file exists the build omits that download entirely - it will not ship a stale or missing PDF.",
+    "_readme": "cv.href is the region's own CV. cv.documents holds anything offered alongside it, keyed by id, and merges key by key so a region can add or drop one without restating the rest. Labels live in strings.cv.labels so every language can translate them. See assets/DATA-CONTRACT.md.",
     "href": "assets/cv/cv.pdf",
     "label": "CV",
-    "downloadName": "S-Prajwall-Narayana-CV.pdf"
+    "downloadName": "S-Prajwall-Narayana-CV.pdf",
+    "documents": {
+      "academic": {
+        "href": "assets/cv/academic-en.pdf",
+        "downloadName": "S-Prajwall-Narayana-Academic-CV.pdf"
+      }
+    }
   },
   "workAuthorisation": null,
   "stats": [
@@ -300,7 +307,7 @@
       "org": "R V College of Engineering (VTU)",
       "location": "Bengaluru, India",
       "date": "Dec 2021 — Aug 2025",
-      "grade": "CGPA ",
+      "grade": "First Class",
       "bullets": []
     }
   ],
@@ -484,7 +491,13 @@
       "download": "Download",
       "open": "Open in a new tab",
       "close": "Close",
-      "loadNote": "The PDF loads only when you open it."
+      "loadNote": "The PDF loads only when you open it.",
+      "labels": {
+        "_readme": "One label per id in cv.documents, shown on that document's download button. The region's own CV is the id \"primary\" and takes strings.hero.cvCta unless a label is set here. Every language file should translate these: an id with no label anywhere fails the build.",
+        "academic": "Academic CV",
+        "primary": "CV",
+        "english": "CV (English)"
+      }
     },
     "footer": {
       "rights": "All rights reserved.",

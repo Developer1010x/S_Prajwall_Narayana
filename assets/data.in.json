@@ -1,8 +1,7 @@
 {
   "_readme": "India overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. India tuning = Indian English (British spelling), 'Resume' rather than 'CV', named-stack keyword density for keyword-driven recruiter and ATS screens, CGPA shown because the Indian convention expects it, and publications given prominence because IEEE/Springer carry real weight in this market. Notice period and current/expected CTC are deliberately NOT on the public site - they belong in the resume and the recruiter conversation, not on a public page. They are placeholders in the resume source instead.",
   "_todo": [
-    "TODO(in): set cv.href to assets/cv/in.pdf once the India resume PDF is exported from Country/in/resume_in.html. Until the file is on disk the build omits the resume button from this page - that is the intended fail-safe, not a bug.",
-    "TODO(in): decide with Prajwall whether CGPA  should stay visible. flags.showGrade is true here because the Indian convention expects a CGPA and omitting it reads as concealment, but some product companies screen on it. Setting it to false is a one-line change."
+    "DONE(in): cv.href now points at assets/cv/in-en.pdf, which is on disk. The page offers it alongside the shared academic CV declared in data.base.json under cv.documents.academic."
   ],
   "meta": {
     "cc": "in",
@@ -51,8 +50,7 @@
     ]
   },
   "cv": {
-    "href": "assets/cv/in.pdf",
-    "label": "Resume",
+    "href": "assets/cv/in-en.pdf",
     "downloadName": "S-Prajwall-Narayana-Resume-India.pdf"
   },
   "seo": {
@@ -72,5 +70,6 @@
       "publicationsSubtitle": "Peer-reviewed work — IEEE Xplore and Springer.",
       "educationSubtitle": "Academic background."
     }
-  }
+  },
+  "_readme_grade": "Grade shown as 'First Class' per his VTU marks slip. Indian convention expects a grade and omitting it reads as concealment."
 }
