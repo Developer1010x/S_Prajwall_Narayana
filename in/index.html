@@ -106,10 +106,7 @@
       <div class="hero-buttons">
         <a href="#contact" class="btn btn-primary magnetic-btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> Get in touch</a>
         <a href="https://github.com/Developer1010x" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-btn"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-        <ul class="cv-downloads">
-          <li><a class="btn btn-secondary" href="../assets/cv/in-en.pdf" download="S-Prajwall-Narayana-Resume-India.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i> CV</a></li>
-          <li><a class="btn btn-secondary" href="../assets/cv/academic-en.pdf" download="S-Prajwall-Narayana-Academic-CV.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i> Academic CV</a></li>
-        </ul>
+        <button type="button" class="btn btn-secondary magnetic-btn" id="cv-open" data-cv="../assets/cv/in-en.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i> CV</button>
       </div>
       <dl class="hero-stats">
         <div class="stat-item">
@@ -454,7 +451,20 @@
   </div>
 </footer>
 
-
+<!-- CV modal. The PDF is fetched only when this is opened. -->
+<div id="cv-modal" class="cv-modal" hidden>
+  <div class="cv-modal-panel" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+    <div class="cv-modal-head">
+      <h2 id="cv-modal-title">Resume &mdash; S. Prajwall Narayana</h2>
+      <button type="button" id="cv-close" class="cv-modal-close" aria-label="Close">&#x2715;</button>
+    </div>
+    <iframe id="cv-frame" title="Resume" src="about:blank"></iframe>
+    <div class="cv-modal-actions">
+      <a id="cv-download" href="../assets/cv/in-en.pdf" download="S-Prajwall-Narayana-Resume-India.pdf" class="btn btn-primary"><i class="fas fa-download" aria-hidden="true"></i> Download</a>
+      <a id="cv-newtab" href="../assets/cv/in-en.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Open in a new tab</a>
+    </div>
+  </div>
+</div>
 
 <button class="back-to-top" type="button" id="back-to-top"><i class="fas fa-arrow-up" aria-hidden="true"></i><span class="visually-hidden">Back to top</span></button>
 
