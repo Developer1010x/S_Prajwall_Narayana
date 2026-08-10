@@ -102,10 +102,7 @@
       <div class="hero-buttons">
         <a href="#contact" class="btn btn-primary magnetic-btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> ご連絡</a>
         <a href="https://github.com/Developer1010x" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-btn"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-        <ul class="cv-downloads">
-          <li><a class="btn btn-secondary" href="../assets/cv/jp-ja.pdf" download="S-Prajwall-Narayana-Shokumu-Keirekisho.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i> 職務経歴書（日本語）</a></li>
-          <li><a class="btn btn-secondary" href="../assets/cv/jp-en.pdf" download="S-Prajwall-Narayana-Career-History-English.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i> Career history (English)</a></li>
-        </ul>
+        <button type="button" class="btn btn-secondary magnetic-btn" id="cv-open" data-cv="../assets/cv/jp-en.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i> 職務経歴書（日本語）</button>
       </div>
       <dl class="hero-stats">
         <div class="stat-item">
@@ -456,7 +453,20 @@
   </div>
 </footer>
 
-
+<!-- CV modal. The PDF is fetched only when this is opened. -->
+<div id="cv-modal" class="cv-modal" hidden>
+  <div class="cv-modal-panel" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
+    <div class="cv-modal-head">
+      <h2 id="cv-modal-title">職務経歴書 &mdash; S. Prajwall Narayana</h2>
+      <button type="button" id="cv-close" class="cv-modal-close" aria-label="閉じる">&#x2715;</button>
+    </div>
+    <iframe id="cv-frame" title="職務経歴書" src="about:blank"></iframe>
+    <div class="cv-modal-actions">
+      <a id="cv-download" href="../assets/cv/jp-en.pdf" download="S-Prajwall-Narayana-Career-History.pdf" class="btn btn-primary"><i class="fas fa-download" aria-hidden="true"></i> ダウンロード</a>
+      <a id="cv-newtab" href="../assets/cv/jp-en.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> 新しいタブで開く</a>
+    </div>
+  </div>
+</div>
 
 <button class="back-to-top" type="button" id="back-to-top"><i class="fas fa-arrow-up" aria-hidden="true"></i><span class="visually-hidden">Back to top</span></button>
 

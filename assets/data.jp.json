@@ -32,14 +32,9 @@
     "authentication, RBAC and platform security"
   ],
   "cv": {
-    "href": "assets/cv/jp-ja.pdf",
-    "downloadName": "S-Prajwall-Narayana-Shokumu-Keirekisho.pdf",
-    "documents": {
-      "english": {
-        "href": "assets/cv/jp-en.pdf",
-        "downloadName": "S-Prajwall-Narayana-Career-History-English.pdf"
-      }
-    }
+    "_readme": "One document, English. He does not read Japanese or German, and a CV he cannot read line by line is one he cannot defend in an interview. The local-language version is still in assets/cv/ and can be sent by hand where a local recruiter expects it.",
+    "href": "assets/cv/jp-en.pdf",
+    "downloadName": "S-Prajwall-Narayana-Career-History.pdf"
   },
   "order": {
     "skills": [

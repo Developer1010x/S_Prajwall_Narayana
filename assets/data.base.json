@@ -98,8 +98,7 @@
     "authentication, RBAC and platform security"
   ],
   "cv": {
-    "_todo": "TODO: no CV PDF is committed. Put the per-country CV at assets/cv/<cc>.pdf and set cv.href in that country's data file. Until a file exists the build omits that download entirely - it will not ship a stale or missing PDF.",
-    "_readme": "Only Japan and Germany offer a second document, and it is the same CV in the other language. Everywhere else offers one. The academic CV is not a download here; it is a different document for a different reader and lives in the CV repository.",
+    "_readme": "Every region offers exactly one document: its own country CV. Japan and Germany used to offer a second in the local language and no longer do. The academic CV is not a download here; it is a different document for a different reader and lives in the CV repository.",
     "href": "assets/cv/cv.pdf",
     "label": "CV",
     "downloadName": "S-Prajwall-Narayana-CV.pdf"

@@ -46,14 +46,9 @@
     "Authentifizierung, RBAC und Plattformsicherheit"
   ],
   "cv": {
-    "href": "assets/cv/de-de.pdf",
-    "downloadName": "Lebenslauf-S-Prajwall-Narayana.pdf",
-    "documents": {
-      "english": {
-        "href": "assets/cv/de-en.pdf",
-        "downloadName": "S-Prajwall-Narayana-CV-English.pdf"
-      }
-    }
+    "_readme": "One document, English. He does not read Japanese or German, and a CV he cannot read line by line is one he cannot defend in an interview. The local-language version is still in assets/cv/ and can be sent by hand where a local recruiter expects it.",
+    "href": "assets/cv/de-en.pdf",
+    "downloadName": "S-Prajwall-Narayana-CV.pdf"
   },
   "order": {
     "about": [
