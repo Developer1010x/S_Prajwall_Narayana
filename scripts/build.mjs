@@ -424,7 +424,7 @@ function renderContact(data) {
 /* page assembly                                                       */
 /* ------------------------------------------------------------------ */
 
-function buildRegion(cc, base, template, lang = null) {
+function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
   // `lang` builds a language variant of a region — e.g. /in/hi/ — by layering
   // data.<cc>.<lang>.json on top of data.<cc>.json. The geo routing is unchanged
   // by this: a country still maps to one region, and the region's default page is
@@ -587,6 +587,13 @@ function buildRegion(cc, base, template, lang = null) {
 
   const A = `${UP}assets/`;
 
+  // Faded country outline behind the hero. Decorative, so aria-hidden and unlabelled.
+  // India has no entry in assets/maps.json on purpose and renders without one.
+  const mapPath = (maps.paths || {})[cc];
+  const countryMap = mapPath
+    ? `  <svg class="country-map" viewBox="${esc(maps.viewBox || '0 0 1000 1000')}" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet"><path d="${mapPath}"/></svg>`
+    : '';
+
   const html = applySpelling(fillTokens(template, {
     LANG: esc(data.meta.lang),
     DIR: esc(data.meta.dir || 'ltr'),
@@ -614,6 +621,7 @@ function buildRegion(cc, base, template, lang = null) {
     REGION_NOTICE: esc(notice),
     REGION_OPTIONS: options,
     LANGUAGE_SWITCHER: languageSwitcher,
+    COUNTRY_MAP: countryMap,
     REGION_NOSCRIPT: noscriptLinks,
     REGIONS_JSON: JSON.stringify({
       current: cc,
@@ -677,16 +685,21 @@ function navLinks(data) {
 function main() {
   const base = JSON.parse(readFileSync(join(ROOT, 'assets', 'data.base.json'), 'utf8'));
   const template = readFileSync(join(ROOT, 'templates', 'page.html'), 'utf8');
+  // Country outlines for the hero backdrop. Missing file or missing region is not an
+  // error: the page simply renders without one, which is what India does deliberately.
+  let maps = { paths: {}, viewBox: '0 0 1000 1000' };
+  try { maps = JSON.parse(readFileSync(join(ROOT, 'assets', 'maps.json'), 'utf8')); }
+  catch { warnings.push('assets/maps.json missing — hero backdrops are omitted'); }
   const origin = base.site.origin.replace(/\/$/, '');
 
   const built = [];
   for (const region of base.site.regions) {
-    const page = buildRegion(region.cc, base, template);
+    const page = buildRegion(region.cc, base, template, null, maps);
     if (page) built.push(page);
     // Extra languages for this region. The first entry is the default and is the
     // page already built above, so it is not rebuilt here.
     for (const l of (region.languages || []).filter((x) => !x.default)) {
-      const variant = buildRegion(region.cc, base, template, l.code);
+      const variant = buildRegion(region.cc, base, template, l.code, maps);
       if (variant) built.push(variant);
     }
   }
