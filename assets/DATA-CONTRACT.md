@@ -95,8 +95,9 @@ pushing either below `backend`/`ml` is not — it tilts the whole page.
 | `headline` | string | base headline |
 | `summary` | string | base summary — the hero paragraph |
 | `workAuthorisation` | string \| null | nothing rendered. Set it to the visa/right-to-work line for that country. Appears in the hero and in Contact. |
-| `cv.href` | string | `assets/cv/cv.pdf`, which does not exist yet. Path **relative to the repository root, no leading slash** (e.g. `assets/cv/uk.pdf`). If the file is not on disk the build warns and **omits the CV button and modal from that page** — it never ships a 404 or a stale CV. |
+| `cv.href` | string | the region's own CV. See [CV documents](#cv-documents). |
 | `cv.downloadName` | string | `S-Prajwall-Narayana-CV.pdf` |
+| `cv.documents` | object | extra documents offered alongside `cv.href`. See [CV documents](#cv-documents). |
 | `strings.*` | object | English base strings. Override any subset for localisation. |
 | `strings.regionNames` | object | English region names in the switcher. |
 | `seo.title` / `seo.description` | string \| null | `"<name> — AI Engineer"` and the first 300 chars of `summary`. |
@@ -111,6 +112,100 @@ pushing either below `backend`/`ml` is not — it tilts the whole page.
 exception: `personal.location` / `personal.relocation` may be reworded if a country's
 convention needs it.
 
+## CV documents
+
+A region offers **one or more** downloadable documents: its own CV, and anything shared
+that also applies to it (today, the academic CV used for MSc applications).
+
+### The single-document shape still works
+
+```json
+{
+  "cv": {
+    "href": "assets/cv/uk-en.pdf",
+    "downloadName": "S-Prajwall-Narayana-CV-UK.pdf"
+  }
+}
+```
+
+That is the region's own CV. It is the document with the id **`primary`**, and it is
+always first in the list. A country file written before `cv.documents` existed needs no
+change at all.
+
+`href` is a path **from the repository root, with no leading slash**. The build works out
+how far up to climb, so the same value is correct for `/uk/` and for `/in/hi/`.
+
+### Offering more than one
+
+Additional documents go in `cv.documents`, keyed by id:
+
+```json
+{
+  "cv": {
+    "href": "assets/cv/uk-en.pdf",
+    "documents": {
+      "academic": {
+        "href": "assets/cv/academic-en.pdf",
+        "downloadName": "S-Prajwall-Narayana-Academic-CV.pdf"
+      }
+    }
+  }
+}
+```
+
+`cv.documents` is an **object, not an array**, on purpose. Arrays replace wholesale
+(merge rule 3), so an array in `data.base.json` could never be extended: a region adding
+one document would have to restate every other one. As an object it merges key by key, so
+`data.base.json` declares the shared academic CV once and every region inherits it.
+
+* **Order** is `primary` first, then the documents in declaration order. Keys from
+  `data.base.json` keep their position; a region's own additions follow them.
+* **Dropping one** uses the normal `null` deletion (merge rule 4):
+  `"cv": { "documents": { "academic": null } }`.
+* Keys starting with `_` are notes and are ignored, as everywhere else.
+* If a `documents` entry has the same `href` as `cv.href`, the `primary` entry is skipped
+  rather than listed twice. That is how a region moves its own CV into `documents` under
+  a different id.
+* `downloadName` defaults to the file's own name. Set it: `uk-en.pdf` is not what anyone
+  wants sitting in their downloads folder.
+
+### Labels
+
+Every document needs a label, and labels are **localisable** rather than baked into the
+document entry:
+
+```json
+{
+  "strings": {
+    "cv": {
+      "labels": { "academic": "Academic CV" }
+    }
+  }
+}
+```
+
+* `strings.cv.labels.<id>` is the label for that id.
+* `primary` falls back to `strings.hero.cvCta`, which every language already sets, so the
+  region's own CV keeps the label it has always had ("Resume", "Lebenslauf", "職務経歴書").
+* A document with no label anywhere **fails the build**, naming the key to add. Nothing is
+  guessed and no English label is silently substituted, so a translated page never picks
+  up an English button by accident.
+* Language files (`data.in.hi.json`, `data.jp.json`, …) should translate every id in
+  `strings.cv.labels`. Until they do, the base English label shows through.
+
+### How it renders, and what happens when a file is missing
+
+* **One document available** → the button it has always been, plus the preview modal.
+* **Several available** → a small list of download links, one per document, each with its
+  own label. No modal: `assets/js/site.js` binds a single button to a single PDF, and the
+  list is deliberately plain links so it also works with JavaScript off.
+* **A file that is not on disk** → that entry is dropped, with a build warning naming the
+  path and the page. The rest still render. If nothing is left, the page has no CV button
+  and no modal.
+
+That last rule is the important one and it is deliberate. A CV is the document a recruiter
+interrogates line by line, so a 404 or a stale PDF is worse than no button.
+
 ## Text handling
 
 * All values are HTML-escaped. You cannot inject markup, and you do not need to escape
@@ -123,7 +218,7 @@ convention needs it.
 
 ```bash
 npm run check    # validates every region without writing files
-npm run build    # regenerates the five pages, sitemap.xml and robots.txt
+npm run build    # regenerates the eight pages, sitemap.xml and robots.txt
 ```
 
 A build failure prints the exact file, key and reason. Do not commit a data change

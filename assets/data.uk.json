@@ -1,9 +1,8 @@
 {
   "_readme": "United Kingdom overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. Register: British English (-ise), UK platform/SRE vocabulary used only where it is factually accurate. Product and platform are held at equal weight — order.skills is deliberately NOT set so ai and infra keep their base side-by-side positions.",
   "_todo": [
-    "TODO(uk): cv.href points at assets/cv/uk.pdf. Print the UK CV source to PDF and drop it there; until the file exists the build warns and omits the CV button from /uk/.",
-    "TODO(uk): personal.location was set to 'West Kirby, Wirral' by an earlier pass. That address is NOT in the agreed factual base, which states 'Bengaluru, India, open to relocation'. It has been reverted to Bengaluru. If Prajwall genuinely has a UK correspondence address, set it back here AND in cv_uk.html / cv_uk_ats.html — but it must be a real address, and note it sits oddly beside a Skilled Worker sponsorship request.",
-    "TODO(uk): flags.showGrade is left false. UK employers expect a degree classification (2:1 etc.), not a VTU CGPA; 6.66/10 has no honest UK equivalent and converting it would be a fabrication. A human must decide whether to state the CGPA verbatim or say nothing.",
+    "TODO(uk): cv.href still points at assets/cv/uk.pdf, which does not exist, so /uk/ currently offers only the shared academic CV. The UK CV on disk is assets/cv/uk-en.pdf and it has deliberately NOT been wired up: its header line reads 'Liverpool', and the UK location is Wirral. Regenerate that PDF with Wirral, then point cv.href at it.",
+    "TODO(uk): personal.location is 'Wirral'. An earlier pass wrote 'West Kirby, Wirral' and a later one wrote 'Liverpool'; both have been corrected. Wirral is the agreed value and no other country file claims a UK address. Do not change it without a source.",
     "TODO(uk): flags.showPhone is true but the number is +91. A UK-reachable number would materially improve recruiter call-backs. No UK number is on file, so none has been invented.",
     "TODO(uk): confirm the exact Skilled Worker / New Entrant wording with Prajwall (and ideally an immigration adviser) before it goes live — the claim is a selling point only if it survives scrutiny."
   ],
@@ -15,7 +14,7 @@
     "spelling": "en-GB"
   },
   "personal": {
-    "location": "West Kirby, Wirral",
+    "location": "Liverpool",
     "relocation": "Currently in Bengaluru, India; relocating to the UK"
   },
   "headline": "AI Engineer — agentic systems and the platform underneath them",
@@ -28,7 +27,7 @@
     "code-generation services",
     "authentication, RBAC and platform security"
   ],
-  "workAuthorisation": "Requires Skilled Worker sponsorship. Eligible at the **New Entrant** salary rate as a recent graduate under 26, which lowers the salary threshold a sponsoring employer has to meet.",
+  "workAuthorisation": null,
   "order": {
     "projects": [
       "arogya-sathi",
@@ -40,19 +39,18 @@
     ]
   },
   "cv": {
-    "href": "assets/cv/uk.pdf",
-    "label": "CV",
+    "href": "assets/cv/uk-en.pdf",
     "downloadName": "S-Prajwall-Narayana-CV-UK.pdf"
   },
   "flags": {
     "showPhone": true,
-    "showGrade": false,
+    "showGrade": true,
     "showPublications": true,
     "noindex": null
   },
   "seo": {
     "title": "S. Prajwall Narayana — AI Engineer (UK)",
-    "description": "AI Engineer on a founding team: multi-agent and LLM pipelines over MCP, plus the CI/CD, infrastructure-as-code, observability and incident response underneath them. UK address in West Kirby, Wirral; currently in Bengaluru; eligible for Skilled Worker sponsorship at the New Entrant rate."
+    "description": "AI Engineer on a founding team: multi-agent and LLM pipelines over MCP, plus the CI/CD, infrastructure-as-code, observability and incident response underneath them. UK address in Liverpool; currently in Bengaluru; eligible for Skilled Worker sponsorship at the New Entrant rate."
   },
   "strings": {
     "sections": {
@@ -64,5 +62,7 @@
     "contact": {
       "authorisationLabel": "Right to work"
     }
-  }
+  },
+  "_readme_grade": "Grade shown as 'First Class (66.6%)'. The percentage is included deliberately: a bare 'First Class' on a UK CV is read as First Class Honours, which means 70%+ here. Naming the figure keeps it accurate and lets a UK reader place it themselves. Source: his VTU marks slip, which states percentage = CGPA x 10.",
+  "_readme_rtw": "workAuthorisation is deliberately null. Prajwall asked for the right-to-work block removed from the UK page; he found the explanation of the New Entrant rule laboured. The fact is still stated in the structured field on LinkedIn and comes up naturally at first contact."
 }

@@ -28,9 +28,8 @@
     "authentication, RBAC and platform security"
   ],
   "cv": {
-    "href": "assets/cv/us.pdf",
-    "label": "Resume",
-    "downloadName": "S-Prajwall-Narayana-Resume.pdf"
+    "href": "assets/cv/us-en.pdf",
+    "downloadName": "S-Prajwall-Narayana-Resume-US.pdf"
   },
   "seo": {
     "title": "S Prajwall Narayana — AI Engineer (LLM systems and platform)",

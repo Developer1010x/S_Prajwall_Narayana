@@ -23,24 +23,26 @@
    ========================================================================== */
 
 :root {
-  /* Neutrals — light theme */
-  --bg: #FFFFFF;
-  --bg-subtle: #F7F8FA;
-  --bg-raised: #FFFFFF;
-  --border: #E3E6EA;
-  --border-strong: #CDD3DA;
-  --text: #16191D;
-  --text-muted: #5B646E;
-  --text-faint: #8B939C;
+  /* DARK IS THE DEFAULT, and that is not a style preference — it is the contract
+     site.js already implements: it removes the data-theme attribute for dark and sets
+     data-theme="light" on <body> for light. The first draft of this stylesheet listened for
+     :root[data-theme='dark'] on <html>, which the script never sets, so the toggle changed
+     nothing. Match the script; do not "fix" the script to match a stylesheet. */
+  --bg: #0E1116;
+  --bg-subtle: #151A21;
+  --bg-raised: #171C24;
+  --border: #262D37;
+  --border-strong: #38414E;
+  --text: #E8EBEF;
+  --text-muted: #A3ADB9;
+  --text-faint: #78828E;
 
-  /* One accent. Used for links, focus rings and the primary button only. */
-  --accent: #2A5BD7;
-  --accent-hover: #1E45A8;
-  --accent-wash: #EEF2FC;
+  --accent: #7BA2F5;
+  --accent-hover: #A2BEFA;
+  --accent-wash: #182238;
 
-  /* Status — meaning only, never decoration */
-  --ok: #17795E;
-  --warn: #9A6700;
+  --ok: #4FBF9B;
+  --warn: #D8A63C;
 
   --radius: 8px;
   --radius-sm: 5px;
@@ -55,41 +57,30 @@
   --step4: clamp(2.1rem, 5vw, 3.1rem);
 
   --speed: 140ms;
+
+  color-scheme: dark;
 }
 
-:root[data-theme='dark'],
-:root.dark {
-  --bg: #0E1116;
-  --bg-subtle: #151A21;
-  --bg-raised: #171C24;
-  --border: #262D37;
-  --border-strong: #38414E;
-  --text: #E8EBEF;
-  --text-muted: #A3ADB9;
-  --text-faint: #78828E;
-  --accent: #7BA2F5;
-  --accent-hover: #A2BEFA;
-  --accent-wash: #182238;
-  --ok: #4FBF9B;
-  --warn: #D8A63C;
-}
+/* Light: set by the toggle on <body>. Declared on body rather than :root because that is
+   where the script writes, and body is an ancestor of everything that reads these. */
+body[data-theme='light'] {
+  --bg: #FFFFFF;
+  --bg-subtle: #F7F8FA;
+  --bg-raised: #FFFFFF;
+  --border: #E3E6EA;
+  --border-strong: #CDD3DA;
+  --text: #16191D;
+  --text-muted: #5B646E;
+  --text-faint: #8B939C;
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --bg: #0E1116;
-    --bg-subtle: #151A21;
-    --bg-raised: #171C24;
-    --border: #262D37;
-    --border-strong: #38414E;
-    --text: #E8EBEF;
-    --text-muted: #A3ADB9;
-    --text-faint: #78828E;
-    --accent: #7BA2F5;
-    --accent-hover: #A2BEFA;
-    --accent-wash: #182238;
-    --ok: #4FBF9B;
-    --warn: #D8A63C;
-  }
+  --accent: #2A5BD7;
+  --accent-hover: #1E45A8;
+  --accent-wash: #EEF2FC;
+
+  --ok: #17795E;
+  --warn: #9A6700;
+
+  color-scheme: light;
 }
 
 /* ── Base ────────────────────────────────────────────────────────────────── */
@@ -370,6 +361,69 @@ li:last-child { margin-bottom: 0; }
 .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 .btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #fff; }
 .btn-secondary { background: var(--bg-raised); }
+
+/* CV downloads.
+   A region can offer more than one document (its own CV, and the shared academic
+   one for MSc applications). With a single document the build emits a plain .btn
+   and nothing here applies; with several it emits this list instead. Deliberately
+   no new visual treatment: the same buttons, continuing the hero row at the same
+   gap, because a second CV is a second option and not a second kind of thing. */
+.cv-downloads {
+  display: flex; flex-wrap: wrap; gap: 0.7rem;
+  margin: 0; padding: 0; list-style: none;
+}
+.cv-downloads li { margin: 0; }
+
+/* CV preview modal.
+   Emitted only where a region offers exactly one document, and unhidden by
+   site.js, which also points the iframe at the PDF on open. It had no rules at
+   all in this sheet until now: no CV PDF was committed, so nothing could open
+   it. Flat, like everything else: a panel on a dimmed page, hairline borders,
+   no shadow stack. */
+.cv-modal {
+  position: fixed; inset: 0; z-index: 60;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--gutter);
+  background: rgba(14, 17, 22, 0.55);
+}
+.cv-modal[hidden] { display: none; }
+.cv-modal-panel {
+  display: flex; flex-direction: column;
+  width: min(920px, 100%); max-height: min(86vh, 900px);
+  background: var(--bg);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.cv-modal-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+.cv-modal-head h2 { font-size: var(--step1); margin: 0; }
+.cv-modal-close {
+  flex: none; width: 34px; height: 34px;
+  display: grid; place-items: center;
+  background: var(--bg-raised); color: var(--text-muted);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  font: inherit; cursor: pointer;
+}
+.cv-modal-close:hover { color: var(--text); border-color: var(--border-strong); }
+#cv-frame {
+  flex: 1 1 auto; width: 100%; min-height: 55vh;
+  border: 0; background: var(--bg-subtle);
+}
+.cv-modal-actions {
+  display: flex; flex-wrap: wrap; gap: 0.7rem;
+  padding: 0.9rem 1.1rem;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 768px) {
+  /* site.js loads the PDF into the frame only above 768px. A phone gets the two
+     buttons instead of an inline render nobody can read. */
+  #cv-frame { display: none; }
+  .cv-modal-panel { max-height: none; }
+}
 
 /* ── Cards, shared ───────────────────────────────────────────────────────── */
 

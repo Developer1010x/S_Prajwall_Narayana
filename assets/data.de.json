@@ -47,9 +47,14 @@
     "Authentifizierung, RBAC und Plattformsicherheit"
   ],
   "cv": {
-    "href": "assets/cv/de.pdf",
-    "label": "Lebenslauf",
-    "downloadName": "Lebenslauf-S-Prajwall-Narayana.pdf"
+    "href": "assets/cv/de-de.pdf",
+    "downloadName": "Lebenslauf-S-Prajwall-Narayana.pdf",
+    "documents": {
+      "english": {
+        "href": "assets/cv/de-en.pdf",
+        "downloadName": "S-Prajwall-Narayana-CV-EN.pdf"
+      }
+    }
   },
   "order": {
     "about": [
@@ -445,7 +450,12 @@
       "download": "Herunterladen",
       "open": "In neuem Tab öffnen",
       "close": "Schließen",
-      "loadNote": "Das PDF wird erst beim Öffnen geladen."
+      "loadNote": "Das PDF wird erst beim Öffnen geladen.",
+      "labels": {
+        "primary": "Lebenslauf (Deutsch)",
+        "english": "CV (English)",
+        "academic": "Akademischer Lebenslauf (English)"
+      }
     },
     "footer": {
       "rights": "Alle Rechte vorbehalten.",

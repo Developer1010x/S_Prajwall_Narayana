@@ -32,9 +32,14 @@
     "authentication, RBAC and platform security"
   ],
   "cv": {
-    "href": "assets/cv/jp-shokumu-keirekisho.pdf",
-    "label": "Career history",
-    "downloadName": "S-Prajwall-Narayana-Shokumu-Keirekisho.pdf"
+    "href": "assets/cv/jp-ja.pdf",
+    "downloadName": "S-Prajwall-Narayana-Shokumu-Keirekisho.pdf",
+    "documents": {
+      "english": {
+        "href": "assets/cv/jp-en.pdf",
+        "downloadName": "S-Prajwall-Narayana-Career-History-EN.pdf"
+      }
+    }
   },
   "order": {
     "skills": [
@@ -94,7 +99,12 @@
       "download": "ダウンロード",
       "open": "新しいタブで開く",
       "close": "閉じる",
-      "loadNote": "PDF は開いたときにのみ読み込まれます。"
+      "loadNote": "PDF は開いたときにのみ読み込まれます。",
+      "labels": {
+        "primary": "職務経歴書（日本語）",
+        "english": "Career history (English)",
+        "academic": "Academic CV (English)"
+      }
     },
     "contact": {
       "emailLabel": "メール",

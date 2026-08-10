@@ -312,6 +312,78 @@ ${items}
 ${note}</section>`;
 }
 
+/* ------------------------------------------------------------------ */
+/* CV documents                                                        */
+/* ------------------------------------------------------------------ */
+
+/**
+ * A region may offer several documents, not one.
+ *
+ * The original shape is still valid and is still what every region file uses:
+ *
+ *   "cv": { "href": "assets/cv/uk.pdf", "downloadName": "..." }
+ *
+ * Extra documents are declared alongside it:
+ *
+ *   "cv": { "documents": { "academic": { "href": "...", "downloadName": "..." } } }
+ *
+ * `cv.documents` is an object keyed by id, not an array, on purpose. Arrays
+ * replace wholesale in deepMerge, so an array declared in data.base.json could
+ * never be extended by a region: a region wanting to add one document would
+ * have to restate every other one. As an object it merges key by key, so the
+ * base can declare the shared academic CV, a region can add its own entries,
+ * and a region that does not want one drops it with an explicit null.
+ *
+ * `cv.href` survives as the document with id "primary", first in the list, so a
+ * region file nobody has touched renders exactly what it rendered before.
+ *
+ * Order is: primary, then the documents in declaration order (base keys keep
+ * their position, a region's own additions follow them).
+ *
+ * Labels come from strings.cv.labels[id], which every language can localise.
+ * "primary" falls back to strings.hero.cvCta, already translated everywhere.
+ * Existence on disk is checked by the caller, not here.
+ */
+function resolveCvDocuments(data, cc) {
+  const cv = isPlainObject(data.cv) ? data.cv : {};
+  const labels = (isPlainObject(data.strings.cv) && data.strings.cv.labels) || {};
+  const docs = [];
+
+  const declared = isPlainObject(cv.documents) ? cv.documents : {};
+  for (const [id, doc] of Object.entries(declared)) {
+    // `_todo` and friends are notes, and an explicit null is a deletion.
+    if (id.startsWith('_') || doc === null || doc === undefined) continue;
+    if (!isPlainObject(doc) || !doc.href) {
+      fail(`[${cc}] cv.documents.${id} needs an href: a path from the repository root, no leading slash.`);
+      continue;
+    }
+    docs.push({
+      id,
+      href: doc.href,
+      downloadName: doc.downloadName || doc.href.split('/').pop(),
+      label: labels[id] || doc.label,
+    });
+  }
+
+  // The single-document shape. Skipped if a documents entry already names the
+  // same file, so a region can move its main CV into `documents` under its own
+  // id without it appearing twice.
+  if (cv.href && !docs.some((d) => d.href === cv.href)) {
+    docs.unshift({
+      id: 'primary',
+      href: cv.href,
+      downloadName: cv.downloadName || 'CV.pdf',
+      label: labels.primary || data.strings.hero.cvCta || cv.label,
+    });
+  }
+
+  return docs.filter((doc) => {
+    if (doc.label) return true;
+    fail(`[${cc}] the CV document "${doc.id}" has no label. Add strings.cv.labels.${doc.id} so every language can translate it.`);
+    return false;
+  });
+}
+
 function renderContact(data) {
   const s = data.strings.contact;
   const p = data.personal;
@@ -408,22 +480,36 @@ function buildRegion(cc, base, template, lang = null) {
     : null;
   const noindex = explicitNoindex === null ? cc !== defaultRegion : Boolean(explicitNoindex);
 
-  /* CV link. Deliberately fail-safe: if the file named by cv.href is not on
-     disk, the button and the modal are left out entirely rather than shipping
-     a 404 or, worse, an outdated PDF. A CV is a document a recruiter will
-     interrogate line by line — a stale one is more damaging than none. */
-  const cvHref = data.cv.href;
-  const cvAvailable = Boolean(cvHref) && existsSync(join(ROOT, cvHref));
-  if (!cvAvailable) {
-    warn(`[${cc}] no CV at "${cvHref}" — the CV button is omitted from ${cc}/index.html. Add the file and rebuild.`);
-  }
+  // How far the page sits below the repository root. A language variant lives at
+  // /<cc>/<lang>/, one level deeper than /<cc>/, and every path the page emits
+  // (assets, CV PDFs) has to climb that far back up.
+  const outDir = lang ? `${cc}/${lang}` : cc;
+  const UP = lang ? '../../' : '../';
 
-  const cvButton = cvAvailable
-    ? `        <button type="button" class="btn btn-secondary magnetic-btn" id="cv-open" data-cv="${esc('../' + cvHref)}"><i class="fas fa-file-pdf" aria-hidden="true"></i> ${esc(data.strings.hero.cvCta)}</button>`
-    : '';
+  /* CV downloads. Deliberately fail-safe: if a file named in the data is not on
+     disk, that entry is left out rather than shipping a 404 or, worse, an
+     outdated PDF. A CV is a document a recruiter will interrogate line by line,
+     so a stale one is more damaging than none. */
+  const cvDocs = resolveCvDocuments(data, cc).filter((doc) => {
+    if (existsSync(join(ROOT, doc.href))) return true;
+    warn(`[${cc}] no file at "${doc.href}": the "${doc.label}" download is omitted from ${outDir}/index.html. Add the file and rebuild.`);
+    return false;
+  });
 
-  const cvModal = cvAvailable
-    ? `<!-- CV modal. The PDF is fetched only when this is opened. -->
+  const cvIcon = '<i class="fas fa-file-pdf" aria-hidden="true"></i>';
+
+  /* One document keeps the button and the preview modal it has always had.
+     Several documents become a list of direct downloads instead: assets/js/site.js
+     binds one #cv-open button to one data-cv path, so a preview per document
+     would need script changes this build does not own. The list is plain links,
+     which also means it works with JavaScript off. */
+  let cvButton = '';
+  let cvModal = '';
+
+  if (cvDocs.length === 1) {
+    const doc = cvDocs[0];
+    cvButton = `        <button type="button" class="btn btn-secondary magnetic-btn" id="cv-open" data-cv="${esc(UP + doc.href)}">${cvIcon} ${esc(doc.label)}</button>`;
+    cvModal = `<!-- CV modal. The PDF is fetched only when this is opened. -->
 <div id="cv-modal" class="cv-modal" hidden>
   <div class="cv-modal-panel" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title">
     <div class="cv-modal-head">
@@ -432,12 +518,22 @@ function buildRegion(cc, base, template, lang = null) {
     </div>
     <iframe id="cv-frame" title="${esc(data.strings.cv.modalTitle)}" src="about:blank"></iframe>
     <div class="cv-modal-actions">
-      <a id="cv-download" href="${esc('../' + cvHref)}" download="${esc(data.cv.downloadName || 'CV.pdf')}" class="btn btn-primary"><i class="fas fa-download" aria-hidden="true"></i> ${esc(data.strings.cv.download)}</a>
-      <a id="cv-newtab" href="${esc('../' + cvHref)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> ${esc(data.strings.cv.open)}</a>
+      <a id="cv-download" href="${esc(UP + doc.href)}" download="${esc(doc.downloadName)}" class="btn btn-primary"><i class="fas fa-download" aria-hidden="true"></i> ${esc(data.strings.cv.download)}</a>
+      <a id="cv-newtab" href="${esc(UP + doc.href)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> ${esc(data.strings.cv.open)}</a>
     </div>
   </div>
-</div>`
-    : '';
+</div>`;
+  } else if (cvDocs.length > 1) {
+    cvButton =
+      `        <ul class="cv-downloads">\n` +
+      cvDocs
+        .map(
+          (doc) =>
+            `          <li><a class="btn btn-secondary" href="${esc(UP + doc.href)}" download="${esc(doc.downloadName)}">${cvIcon} ${esc(doc.label)}</a></li>`
+        )
+        .join('\n') +
+      `\n        </ul>`;
+  }
 
   const seoTitle = data.seo?.title || `${data.personal.displayName} — ${data.personal.title}`;
   const seoDescription = data.seo?.description || truncate(data.summary.replace(/\s+/g, ' '), 158);
@@ -489,8 +585,7 @@ function buildRegion(cc, base, template, lang = null) {
       )}</span></p>`
     : '';
 
-  // One extra level up for a language variant, which sits at /<cc>/<lang>/.
-  const A = lang ? '../../assets/' : '../assets/';
+  const A = `${UP}assets/`;
 
   const html = applySpelling(fillTokens(template, {
     LANG: esc(data.meta.lang),
@@ -558,7 +653,7 @@ function buildRegion(cc, base, template, lang = null) {
     S_RIGHTS: esc(data.strings.footer.rights),
   }), data.meta.spelling);
 
-  return { cc, lang, outDir: lang ? `${cc}/${lang}` : cc, html, noindex, canonical };
+  return { cc, lang, outDir, html, noindex, canonical };
 }
 
 function navLinks(data) {
@@ -604,7 +699,7 @@ function main() {
   for (const w of warnings) console.warn(`  warning: ${w}`);
 
   if (CHECK_ONLY) {
-    console.log(`check ok — ${built.length} regions render cleanly`);
+    console.log(`check ok — ${built.length} pages render cleanly`);
     return;
   }
 
