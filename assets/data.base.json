@@ -334,7 +334,7 @@
       "subtitle": "Offline-capable multilingual AI healthcare platform",
       "icon": "fa-heart-pulse",
       "color": "#FF3B30",
-      "description": "Symptom checking, X-ray fracture detection, prescription summarisation and a wellness chatbot, running fully offline on quantized models — demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62-case labelled evaluation harness scores those safety layers and runs as a CI merge gate at recall 1.00; building it found a real missed self-harm disclosure. A LangGraph pipeline turns an uploaded medical report into a plain-language explanation in the patient's own language, with a self-verification loop, and requests are routed across local Ollama models. Third place, college final-year showcase.",
+      "description": "Symptom checking, X-ray fracture detection, prescription summarisation and a wellness chatbot, running fully offline on quantized models — demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62-case labelled evaluation harness scores those safety layers and runs as a CI merge gate at recall 1.00; building it found a real missed self-harm disclosure. A LangGraph pipeline turns an uploaded medical report into a plain-language explanation in the patient's own language, with a self-verification loop, and requests are routed across local Ollama models. It is being taken further: the one-shot report explainer into a longitudinal one that remembers a patient's prior reports and flags changes over time, and the 62-case safety set into a continuously growing suite seeded from real misses. Third place, college final-year showcase.",
       "metrics": [
         "Crisis detection: recall 1.00 / precision 0.93",
         "Emergency: 1.00 / 1.00",
@@ -357,7 +357,7 @@
       "subtitle": "AI-powered CI/CD pipeline generator and monitor",
       "icon": "fa-code-branch",
       "color": "#3b82f6",
-      "description": "Generates and monitors CI/CD pipelines for GitHub and GitLab repositories.",
+      "description": "An agent that reads a repository, infers its stack and test setup, and generates a working CI/CD pipeline for it — then watches the runs and explains failures in plain language instead of leaving you to parse red logs. It targets GitHub Actions and GitLab CI from the same core, so the generated workflow matches whichever platform the repo lives on. It is being taken from generate-once to a standing agent: one that opens a pull request with a proposed fix when a pipeline breaks, learns a project's flaky tests across repeated runs, and gates merges on the checks that actually matter for that repo rather than a fixed template.",
       "metrics": [],
       "tags": [
         "CI/CD",
@@ -373,7 +373,7 @@
       "subtitle": "AI access from a phone",
       "icon": "fa-comments",
       "color": "#06b6d4",
-      "description": "Routes AI access across WhatsApp, Telegram and email so it can be driven from a phone.",
+      "description": "A bridge that puts an LLM behind the channels already on your phone — WhatsApp, Telegram and email — so a model can be driven without an app or a terminal. Each channel is a thin adapter over one routing core that keeps conversation context per user and forwards prompts to whichever backend is configured. It is growing into a single account that spans all three channels at once with shared memory, attachment handling (send a photo or a PDF, get the answer back on the same thread), and per-user rate and cost limits so it can be handed to non-technical users safely.",
       "metrics": [],
       "tags": [
         "Python",
@@ -388,7 +388,7 @@
       "subtitle": "Student resource platform",
       "icon": "fa-graduation-cap",
       "color": "#FF9F0A",
-      "description": "A student resource platform, adopted across 12+ departments.",
+      "description": "A resource-sharing platform for students — notes, question papers and course material organised by department — that grew to be used across 12+ departments. It handles upload, categorisation and search so material stays findable instead of scattered across chat groups. It is being extended with semantic search over the uploaded material, so a student can ask a question and land on the exact page, plus automatic tagging of new uploads and a lightweight moderation queue so contributions scale without the collection filling with duplicates.",
       "metrics": [],
       "tags": [
         "Web platform"
@@ -401,7 +401,7 @@
       "subtitle": "Terminal-based LLM assistant",
       "icon": "fa-terminal",
       "color": "#10b981",
-      "description": "A lightweight terminal-based assistant for working with LLMs from the command line.",
+      "description": "A command-line assistant for working with LLMs without leaving the terminal — pipe a file in, ask a question, get the answer in the shell you are already in. It is built to fit a Unix workflow: composable with pipes, scriptable, and fast to reach for. It is being extended with streaming responses, a searchable session history, tool calling so it can run shell commands on request under confirmation, and a local-model backend so it works offline the same way it works against a hosted API.",
       "metrics": [],
       "tags": [
         "Python",
@@ -416,7 +416,7 @@
       "subtitle": "Synthetic speech detection",
       "icon": "fa-wave-square",
       "color": "#AF52DE",
-      "description": "Flags AI-synthesised or cloned speech.",
+      "description": "A classifier that flags AI-synthesised or voice-cloned speech, trained in PyTorch on the spectral features that separate real audio from generated audio. It targets the practical question — is this clip authentic — rather than a leaderboard benchmark. The work going on top of it is robustness to compression and phone-call codecs (where most real clips are degraded), a calibrated confidence score instead of a hard label so borderline clips can be escalated, and a short explanation of which part of the signal drove the decision rather than an opaque yes/no.",
       "metrics": [],
       "tags": [
         "PyTorch",

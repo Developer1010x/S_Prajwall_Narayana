@@ -320,7 +320,7 @@
       </div>
       <h3 class="project-title">Arogya-Sathi</h3>
       <p class="project-subtitle">Offline-capable multilingual AI healthcare platform &bull; Jan 2025 — Jun 2025</p>
-      <p class="project-description">Symptom checking, X-ray fracture detection, prescription summarisation and a wellness chatbot, running fully offline on quantized models — demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62-case labelled evaluation harness scores those safety layers and runs as a CI merge gate at recall 1.00; building it found a real missed self-harm disclosure. A LangGraph pipeline turns an uploaded medical report into a plain-language explanation in the patient&#39;s own language, with a self-verification loop, and requests are routed across local Ollama models. Third place, college final-year showcase.</p>
+      <p class="project-description">Symptom checking, X-ray fracture detection, prescription summarisation and a wellness chatbot, running fully offline on quantized models — demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62-case labelled evaluation harness scores those safety layers and runs as a CI merge gate at recall 1.00; building it found a real missed self-harm disclosure. A LangGraph pipeline turns an uploaded medical report into a plain-language explanation in the patient&#39;s own language, with a self-verification loop, and requests are routed across local Ollama models. It is being taken further: the one-shot report explainer into a longitudinal one that remembers a patient&#39;s prior reports and flags changes over time, and the 62-case safety set into a continuously growing suite seeded from real misses. Third place, college final-year showcase.</p>
       <ul class="project-metrics"><li>Crisis detection: recall 1.00 / precision 0.93</li><li>Emergency: 1.00 / 1.00</li><li>Drug screening: 1.00 / 1.00</li></ul>
       <div class="project-tags"><span class="project-tag">LangGraph</span><span class="project-tag">Ollama</span><span class="project-tag">Quantized models</span><span class="project-tag">Evaluation harness</span><span class="project-tag">CI gate</span><span class="project-tag">Raspberry Pi</span></div>
       <div class="project-links"><a href="https://github.com/Developer1010x/Arogya-Sathi" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code</a></div>
@@ -331,7 +331,7 @@
       </div>
       <h3 class="project-title">agentic-devops</h3>
       <p class="project-subtitle">AI-powered CI/CD pipeline generator and monitor</p>
-      <p class="project-description">Generates and monitors CI/CD pipelines for GitHub and GitLab repositories.</p>
+      <p class="project-description">An agent that reads a repository, infers its stack and test setup, and generates a working CI/CD pipeline for it — then watches the runs and explains failures in plain language instead of leaving you to parse red logs. It targets GitHub Actions and GitLab CI from the same core, so the generated workflow matches whichever platform the repo lives on. It is being taken from generate-once to a standing agent: one that opens a pull request with a proposed fix when a pipeline breaks, learns a project&#39;s flaky tests across repeated runs, and gates merges on the checks that actually matter for that repo rather than a fixed template.</p>
       <div class="project-tags"><span class="project-tag">CI/CD</span><span class="project-tag">GitHub</span><span class="project-tag">GitLab</span><span class="project-tag">Agents</span></div>
       <div class="project-links"><a href="https://github.com/Developer1010x/agentic-devops" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code</a></div>
     </article>
@@ -341,7 +341,7 @@
       </div>
       <h3 class="project-title">Knotes Central</h3>
       <p class="project-subtitle">Student resource platform</p>
-      <p class="project-description">A student resource platform, adopted across 12+ departments.</p>
+      <p class="project-description">A resource-sharing platform for students — notes, question papers and course material organised by department — that grew to be used across 12+ departments. It handles upload, categorisation and search so material stays findable instead of scattered across chat groups. It is being extended with semantic search over the uploaded material, so a student can ask a question and land on the exact page, plus automatic tagging of new uploads and a lightweight moderation queue so contributions scale without the collection filling with duplicates.</p>
       <div class="project-tags"><span class="project-tag">Web platform</span></div>
       <div class="project-links"><a href="https://github.com/Developer1010x/KnotesCentral-Source-Code" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code</a></div>
     </article>
@@ -351,7 +351,7 @@
       </div>
       <h3 class="project-title">pybridge.ai</h3>
       <p class="project-subtitle">AI access from a phone</p>
-      <p class="project-description">Routes AI access across WhatsApp, Telegram and email so it can be driven from a phone.</p>
+      <p class="project-description">A bridge that puts an LLM behind the channels already on your phone — WhatsApp, Telegram and email — so a model can be driven without an app or a terminal. Each channel is a thin adapter over one routing core that keeps conversation context per user and forwards prompts to whichever backend is configured. It is growing into a single account that spans all three channels at once with shared memory, attachment handling (send a photo or a PDF, get the answer back on the same thread), and per-user rate and cost limits so it can be handed to non-technical users safely.</p>
       <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Messaging</span><span class="project-tag">LLM integration</span></div>
       <div class="project-links"><a href="https://github.com/Developer1010x/pybridge.ai" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code</a></div>
     </article>
@@ -361,7 +361,7 @@
       </div>
       <h3 class="project-title">LLM Terminal</h3>
       <p class="project-subtitle">Terminal-based LLM assistant</p>
-      <p class="project-description">A lightweight terminal-based assistant for working with LLMs from the command line.</p>
+      <p class="project-description">A command-line assistant for working with LLMs without leaving the terminal — pipe a file in, ask a question, get the answer in the shell you are already in. It is built to fit a Unix workflow: composable with pipes, scriptable, and fast to reach for. It is being extended with streaming responses, a searchable session history, tool calling so it can run shell commands on request under confirmation, and a local-model backend so it works offline the same way it works against a hosted API.</p>
       <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">CLI</span><span class="project-tag">LLM integration</span></div>
       <div class="project-links"><a href="https://github.com/Developer1010x/LLM_Terminal" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code</a></div>
     </article>
@@ -371,7 +371,7 @@
       </div>
       <h3 class="project-title">Audio Deepfake Detection</h3>
       <p class="project-subtitle">Synthetic speech detection</p>
-      <p class="project-description">Flags AI-synthesised or cloned speech.</p>
+      <p class="project-description">A classifier that flags AI-synthesised or voice-cloned speech, trained in PyTorch on the spectral features that separate real audio from generated audio. It targets the practical question — is this clip authentic — rather than a leaderboard benchmark. The work going on top of it is robustness to compression and phone-call codecs (where most real clips are degraded), a calibrated confidence score instead of a hard label so borderline clips can be escalated, and a short explanation of which part of the signal drove the decision rather than an opaque yes/no.</p>
       <div class="project-tags"><span class="project-tag">PyTorch</span><span class="project-tag">Audio</span><span class="project-tag">Classification</span></div>
       <div class="project-links"><a href="https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code</a></div>
     </article>
