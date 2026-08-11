@@ -378,7 +378,11 @@
       "tags": [
         "Python",
         "Messaging",
-        "LLM integration"
+        "LLM integration",
+        "WhatsApp",
+        "Telegram",
+        "Email",
+        "Message routing"
       ],
       "url": "https://github.com/Developer1010x/pybridge.ai"
     },
@@ -391,7 +395,10 @@
       "description": "A resource-sharing platform for students — notes, question papers and course material organised by department — that grew to be used across 12+ departments. It handles upload, categorisation and search so material stays findable instead of scattered across chat groups. It is being extended with semantic search over the uploaded material, so a student can ask a question and land on the exact page, plus automatic tagging of new uploads and a lightweight moderation queue so contributions scale without the collection filling with duplicates.",
       "metrics": [],
       "tags": [
-        "Web platform"
+        "Web platform",
+        "Full-stack web",
+        "Search",
+        "File uploads"
       ],
       "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
     },
