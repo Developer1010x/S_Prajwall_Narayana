@@ -625,3 +625,24 @@ li:last-child { margin-bottom: 0; }
 }
 
 @media print { .country-map { display: none; } }
+
+/* ── UI refinements (2026-08) — sharper headings, accent marks, card hover ── */
+.section-title { letter-spacing: -0.03em; font-size: clamp(1.55rem, 3.2vw, 2.05rem); line-height: 1.1; }
+.section-header { position: relative; }
+.section-header::before {
+  content: ""; display: block; width: 32px; height: 3px; border-radius: 3px;
+  background: var(--accent); margin-bottom: 0.85rem; opacity: 0.9;
+}
+h1, h2, h3, .flip-name, .logo-text { letter-spacing: -0.025em; }
+
+.about-card, .skill-category, .project-waterfall-card, .timeline-item, .contact-card, .publication-card {
+  transition: transform var(--speed) ease, border-color var(--speed) ease, background var(--speed) ease, box-shadow var(--speed) ease;
+}
+.about-card:hover, .skill-category:hover, .project-waterfall-card:hover, .contact-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 28px -12px rgba(0,0,0,0.45);
+}
+.project-tag, .skill-tag { transition: border-color var(--speed) ease, color var(--speed) ease; }
+.project-tag:hover, .skill-tag:hover { border-color: var(--accent); color: var(--text); }
+.stat-number { letter-spacing: -0.03em; }
