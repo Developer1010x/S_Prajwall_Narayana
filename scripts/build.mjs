@@ -585,7 +585,7 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
     .filter((r) => r.cc !== cc)
     .map(
       (r) =>
-        `        <a href="../${esc(r.cc)}/?region=${esc(r.cc)}">${esc(
+        `        <a href="${UP}${esc(r.cc)}/?region=${esc(r.cc)}">${esc(
           (data.strings.regionNames && data.strings.regionNames[r.cc]) || r.label
         )}</a>`
     )
