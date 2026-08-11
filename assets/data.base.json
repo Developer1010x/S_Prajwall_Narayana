@@ -445,7 +445,8 @@
       "education": "Education",
       "projects": "Projects",
       "publications": "Publications",
-      "contact": "Contact"
+      "contact": "Contact",
+      "services": "Services"
     },
     "hero": {
       "greeting": "Hello, I'm",
@@ -467,7 +468,9 @@
       "publicationsTitle": "Publications",
       "publicationsSubtitle": "Peer-reviewed work.",
       "contactTitle": "Contact",
-      "contactSubtitle": "The fastest way to reach me is email."
+      "contactSubtitle": "The fastest way to reach me is email.",
+      "servicesTitle": "Freelance services",
+      "servicesSubtitle": "Available for select freelance projects — I build DevOps pipelines and RAG systems for real workloads, with the evaluation to prove they work."
     },
     "contact": {
       "emailLabel": "Email",
@@ -501,5 +504,38 @@
     "language": {
       "label": "Language"
     }
-  }
+  },
+  "services": [
+    {
+      "title": "RAG systems that hold up",
+      "body": "Retrieval-augmented systems over your own corpus — hybrid retrieval, reranking, and a labelled evaluation harness wired into CI so quality is measured, not hoped for. The same discipline behind Arogya-Sathi's 62-case, CI-gated safety eval (recall 1.00).",
+      "points": [
+        "Corpus ingestion + hybrid (BM25 + dense) retrieval",
+        "Cross-encoder reranking",
+        "Golden-set eval harness as a CI merge gate",
+        "Cost & latency instrumentation"
+      ]
+    },
+    {
+      "title": "DevOps / SRE, end to end",
+      "body": "The platform your product runs on — CI/CD, infrastructure-as-code, containerisation, observability and incident runbooks. Built the DevOps/SRE function from scratch at a founding-team startup and carry the pager for it.",
+      "points": [
+        "CI/CD pipelines (GitHub Actions, GitLab)",
+        "IaC with OpenTofu / Ansible",
+        "Docker & Kubernetes",
+        "Observability, alerting, runbooks",
+        "Auth: Zitadel / OAuth / RBAC"
+      ]
+    },
+    {
+      "title": "LLM & agent pipelines",
+      "body": "Multi-agent and LLM systems over MCP with LangGraph/LangChain, kept on-device with local models where the data is sensitive, and shipped as a monitored service — not a demo.",
+      "points": [
+        "Multi-agent workflows (LangGraph, MCP)",
+        "Local/offline LLM deployment",
+        "Evaluation & guardrails",
+        "Backend APIs (FastAPI)"
+      ]
+    }
+  ]
 }

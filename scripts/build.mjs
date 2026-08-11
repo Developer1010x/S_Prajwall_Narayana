@@ -243,6 +243,18 @@ ${note}${grade}${body ? body + '\n' : ''}${tagList(entry.tags)}    </article>`;
     .join('\n');
 }
 
+function renderServices(services) {
+  return (services || [])
+    .map((s) => {
+      const points = (s.points || []).map((p) => `<li>${esc(p)}</li>`).join('');
+      return `    <article class="project-waterfall-card">
+      <h3 class="project-title">${esc(s.title)}</h3>
+      <p class="project-description">${rich(s.body)}</p>
+${points ? `      <ul class="project-metrics">${points}</ul>\n` : ''}    </article>`;
+    })
+    .join('\n');
+}
+
 function renderProjects(projects, strings) {
   return (projects || [])
     .map((p) => {
@@ -634,6 +646,7 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
     EXPERIENCE: renderTimeline(data.experience, { icon: 'fa-building', showGrade: false }),
     EDUCATION: renderTimeline(data.education, { icon: 'fa-graduation-cap', showGrade: data.flags.showGrade }),
     PROJECTS: renderProjects(data.projects, data.strings),
+    SERVICES: renderServices(data.services),
     PUBLICATIONS: renderPublications(data),
     CONTACT: renderContact(data),
     YEAR: String(new Date().getFullYear()),
@@ -653,6 +666,8 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
     S_EDUCATION_SUBTITLE: esc(data.strings.sections.educationSubtitle),
     S_PROJECTS_TITLE: esc(data.strings.sections.projectsTitle),
     S_PROJECTS_SUBTITLE: esc(data.strings.sections.projectsSubtitle),
+    S_SERVICES_TITLE: esc(data.strings.sections.servicesTitle || "Freelance services"),
+    S_SERVICES_SUBTITLE: esc(data.strings.sections.servicesSubtitle || "Available for select projects."),
     S_CONTACT_TITLE: esc(data.strings.sections.contactTitle),
     S_CONTACT_SUBTITLE: esc(data.strings.sections.contactSubtitle),
     S_RIGHTS: esc(data.strings.footer.rights),
@@ -669,6 +684,7 @@ function navLinks(data) {
     ['experience', n.experience],
     ['education', n.education],
     ['projects', n.projects],
+    ['services', n.services || 'Services'],
   ];
   if (data.flags.showPublications !== false) items.push(['publications', n.publications]);
   items.push(['contact', n.contact]);
