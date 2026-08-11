@@ -552,7 +552,7 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
   const languageSwitcher = langs.length > 1
     ? `      <span class="lang-switcher" aria-label="${esc(data.strings?.language?.label || 'Language')}">\n` +
       langs.map((l) => {
-        const href = l.default ? `../${cc}/` : `../${cc}/${l.code}/`;
+        const href = l.default ? `${UP}${cc}/` : `${UP}${cc}/${l.code}/`;
         const current = (l.default && !lang) || l.code === lang;
         return current
           ? `        <span class="lang-current" aria-current="true">${esc(l.label)}</span>`
