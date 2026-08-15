@@ -28,7 +28,7 @@ The build does `merged = deepMerge(data.base.json, data.<cc>.json)`:
 2. **Plain objects merge recursively**, key by key. Overriding
    `strings.sections.aboutTitle` leaves every other string alone.
 3. **Arrays replace wholesale.** There is no element-by-element merging. Supplying
-   `projects` replaces all six projects — use `order` / `hide` (below) instead.
+   `projects` replaces all six projects, use `order` / `hide` (below) instead.
 4. **An explicit `null` deletes the key.** `"workAuthorisation": null` hides the block;
    `"publicationsNote": null` drops that line.
 5. Keys starting with `_` (`_readme`, `_todo`) are ignored by the build. Use `_todo` for
@@ -48,7 +48,7 @@ The build does `merged = deepMerge(data.base.json, data.<cc>.json)`:
 }
 ```
 
-## Ordering and emphasis — use these, not array replacement
+## Ordering and emphasis, use these, not array replacement
 
 Top-level `order` and `hide` objects, keyed by the id fields already in the base data:
 
@@ -85,7 +85,7 @@ Ids in the base data:
 
 **Balance rule:** `ai` and `infra` are the first two skill groups on purpose, so they
 render side by side on the same row with identical weight. Reordering them is fine;
-pushing either below `backend`/`ml` is not — it tilts the whole page.
+pushing either below `backend`/`ml` is not, it tilts the whole page.
 
 ## Keys a country file is expected to set
 
@@ -93,20 +93,20 @@ pushing either below `backend`/`ml` is not — it tilts the whole page.
 | --- | --- | --- |
 | `meta` | object | **required** |
 | `headline` | string | base headline |
-| `summary` | string | base summary — the hero paragraph |
+| `summary` | string | base summary, the hero paragraph |
 | `workAuthorisation` | string \| null | nothing rendered. Set it to the visa/right-to-work line for that country. Appears in the hero and in Contact. |
 | `cv.href` | string | the region's own CV. See [CV documents](#cv-documents). |
 | `cv.downloadName` | string | `S-Prajwall-Narayana-CV.pdf` |
 | `cv.documents` | object | extra documents offered alongside `cv.href`. See [CV documents](#cv-documents). |
 | `strings.*` | object | English base strings. Override any subset for localisation. |
 | `strings.regionNames` | object | English region names in the switcher. |
-| `seo.title` / `seo.description` | string \| null | `"<name> — AI Engineer"` and the first 300 chars of `summary`. |
+| `seo.title` / `seo.description` | string \| null | `"<name>, AI Engineer"` and the first 300 chars of `summary`. |
 | `flags.showGrade` | bool | `false`. the CGPAis shown only where the convention expects it. |
 | `flags.showPhone` | bool | `true` |
 | `flags.showPublications` | bool | `true` |
 | `flags.noindex` | bool \| null | `null` = auto: indexable only if this is `site.defaultRegion` (`uk`). |
 | `typedPhrases` | array | base list. Replaces wholesale; keep AI and infrastructure phrases alternating. |
-| `stats`, `about`, `skills`, `experience`, `education`, `projects`, `publications` | array | base content. Replaces wholesale — prefer `order`/`hide`. |
+| `stats`, `about`, `skills`, `experience`, `education`, `projects`, `publications` | array | base content. Replaces wholesale, prefer `order`/`hide`. |
 
 `site.*` and `personal.*` are shared and should not be overridden per region, with one
 exception: `personal.location` / `personal.relocation` may be reworded if a country's
@@ -209,7 +209,7 @@ interrogates line by line, so a 404 or a stale PDF is worse than no button.
 ## Text handling
 
 * All values are HTML-escaped. You cannot inject markup, and you do not need to escape
-  anything yourself — write `&`, `<` and quotes literally.
+  anything yourself, write `&`, `<` and quotes literally.
 * The one exception: `**bold**` in `summary`, `about[].body`, bullets, project
   descriptions, `workAuthorisation` and `publicationsNote` becomes `<strong>`.
 * No emoji. Not in headings, not anywhere.
