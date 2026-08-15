@@ -3,7 +3,7 @@
   "_todo": [
     "TODO(us): assets/cv/us.pdf does not exist yet. Print '01 CV & Resumes/Sources (HTML & LaTeX)/Country/us/resume_us.html' to PDF at US Letter and drop it in. Until then the build warns and omits the Resume button from /us/ — it does not ship a 404.",
     "TODO(us): the work-authorisation line states he requires sponsorship (H-1B, or F-1/OPT if he studies in the US). Confirm the exact wording with Prajwall before it goes live — the factual base does not record any current US status, petition or lottery history, and none has been invented here.",
-    "TODO(us): flags.showGrade is left at the base default of false. US anti-discrimination practice plus a  CGPA both point the same way — deliberate, not an omission.",
+    "TODO(us): flags.showGrade is left at the base default of false. US anti-discrimination practice plus a the CGPACGPA both point the same way — deliberate, not an omission.",
     "TODO(us): RESOLVED — personal.profileImageAlt now carries the US spelling via the personal override below. data.de.json already overrides personal.*, so the contract permits it."
   ],
   "meta": {

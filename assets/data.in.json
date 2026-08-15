@@ -1,5 +1,5 @@
 {
-  "_readme": "India overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. India tuning = Indian English (British spelling), 'Resume' rather than 'CV', named-stack keyword density for keyword-driven recruiter and ATS screens, the degree classification shown as 'First Class' because the Indian convention expects a grade; the raw CGPA is not printed anywhere, and publications given prominence because IEEE/Springer carry real weight in this market. Notice period and current/expected CTC are deliberately NOT on the public site - they belong in the resume and the recruiter conversation, not on a public page. They are placeholders in the resume source instead.",
+  "_readme": "India overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. India tuning = Indian English (British spelling), 'Resume' rather than 'CV', named-stack keyword density for keyword-driven recruiter and ATS screens, the degree classification shown as '' because the Indian convention expects a grade; the raw CGPA is not printed anywhere, and publications given prominence because IEEE/Springer carry real weight in this market. Notice period and current/expected CTC are deliberately NOT on the public site - they belong in the resume and the recruiter conversation, not on a public page. They are placeholders in the resume source instead.",
   "_todo": [
     "DONE(in): cv.href now points at assets/cv/in-en.pdf, which is on disk. The page offers it alongside the shared academic CV declared in data.base.json under cv.documents.academic."
   ],
@@ -11,7 +11,7 @@
     "spelling": "en-IN"
   },
   "flags": {
-    "showGrade": true,
+    "showGrade": false,
     "showPublications": true
   },
   "headline": "AI Engineer — agentic and LLM systems, and the platform they run on",
@@ -69,6 +69,5 @@
       "publicationsSubtitle": "Peer-reviewed work — IEEE Xplore and Springer.",
       "educationSubtitle": "Academic background."
     }
-  },
-  "_readme_grade": "Grade shown as 'First Class' per his VTU marks slip. Indian convention expects a grade and omitting it reads as concealment."
+  }
 }
