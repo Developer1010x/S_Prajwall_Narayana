@@ -108,6 +108,13 @@
   footer a:hover{color:var(--fg)}
   .copyright{margin-top:32px;font-size:13px}
 
+  /* Nine nav items plus a CTA overflow well before the mobile breakpoint, and
+     the CTA is the one item that must never be the one clipped. Wrap the whole
+     header onto two rows while there is still room to read it. */
+  @media (max-width:1100px){
+    .nav-in{flex-wrap:wrap;height:auto;padding:10px 0;gap:8px}
+    .nav-links{order:2;width:100%}
+  }
   @media (max-width:860px){
     .hero{grid-template-columns:1fr}
     .portrait{max-width:210px}
@@ -123,10 +130,14 @@
   <div class="wrap nav-in">
     <a class="brand" href="#top">S. Prajwall Narayana<span class="sep">/</span><span class="role">Freelance</span></a>
     <nav class="nav-links">
-      <a href="#services">What I build</a>
-      <a href="#work">Proof</a>
-      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
       <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
       <a class="cta" href="mailto:prajwallspambox@gmail.com?subject=Freelance%20enquiry">Start a project</a>
     </nav>
   </div>
@@ -167,55 +178,104 @@
   <div class="run-track"><span>Agentic systems</span><span>MCP orchestration</span><span>Multi-agent workflows</span><span>RAG</span><span>LangChain</span><span>LangGraph</span><span>Claude API</span><span>LLM integration</span><span>Evaluation harnesses</span><span>CI/CD</span><span>OpenTofu (IaC)</span><span>Ansible</span><span>Docker</span><span>Linux</span><span>Linode</span><span>Observability and alerting</span><span>Incident runbooks</span><span>Zitadel (SSO/IAM)</span><span>RBAC</span><span>Git</span><span>Python</span><span>FastAPI</span><span>REST APIs</span><span>PostgreSQL</span><span>SQL</span><span>Swift</span><span>Rust</span><span>Shell scripting</span><span>PyTorch</span><span>TensorFlow</span><span>YOLOv8</span><span>OpenCV</span><span>CNN</span><span>ResNet</span><span>Quantized model deployment</span><span class="dup">Agentic systems</span><span class="dup">MCP orchestration</span><span class="dup">Multi-agent workflows</span><span class="dup">RAG</span><span class="dup">LangChain</span><span class="dup">LangGraph</span><span class="dup">Claude API</span><span class="dup">LLM integration</span><span class="dup">Evaluation harnesses</span><span class="dup">CI/CD</span><span class="dup">OpenTofu (IaC)</span><span class="dup">Ansible</span><span class="dup">Docker</span><span class="dup">Linux</span><span class="dup">Linode</span><span class="dup">Observability and alerting</span><span class="dup">Incident runbooks</span><span class="dup">Zitadel (SSO/IAM)</span><span class="dup">RBAC</span><span class="dup">Git</span><span class="dup">Python</span><span class="dup">FastAPI</span><span class="dup">REST APIs</span><span class="dup">PostgreSQL</span><span class="dup">SQL</span><span class="dup">Swift</span><span class="dup">Rust</span><span class="dup">Shell scripting</span><span class="dup">PyTorch</span><span class="dup">TensorFlow</span><span class="dup">YOLOv8</span><span class="dup">OpenCV</span><span class="dup">CNN</span><span class="dup">ResNet</span><span class="dup">Quantized model deployment</span></div>
 </div>
 
-<section class="wrap" id="services">
-  <p class="eyebrow">What I build</p>
-  <h2>Three things I am genuinely good at</h2>
-  <p class="sub">Scoped as projects, not as hours. Each one ships with the tests, instrumentation and runbooks that make it somebody else's to maintain afterwards.</p>
-        <article class="svc">
-          <div class="svc-idx">01</div>
-          <div>
-            <h3>RAG systems that hold up</h3>
-            <p class="svc-body">Retrieval-augmented systems over your own corpus, hybrid retrieval, reranking, and a labelled evaluation harness wired into CI so quality is measured, not hoped for. The same discipline behind Arogya-Sathi&#39;s 62-case, CI-gated safety eval (recall 1.00).</p>
-            <ul class="svc-points">
-              <li>Corpus ingestion + hybrid (BM25 + dense) retrieval</li>
-              <li>Cross-encoder reranking</li>
-              <li>Golden-set eval harness as a CI merge gate</li>
-              <li>Cost &amp; latency instrumentation</li>
-            </ul>
+<section class="wrap" id="about">
+  <p class="eyebrow">About</p>
+  <h2>What I build, and how I work</h2>
+  <div class="cards">
+        <div class="card">
+          <h3>What I build</h3>
+          <p>Multi-agent LLM pipelines for ERP automation over MCP, a code-generation service that turns structured input specs into deployment-ready web applications, and the backend APIs behind them. Long-running, multi-step agent workflows that stay on track without a human babysitting them.</p>
+        </div>
+        <div class="card">
+          <h3>What I run</h3>
+          <p>The platform those systems run on. I established the DevOps/SRE function at Colligence Research from scratch and lead it: CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, Docker, Zitadel for SSO and RBAC, observability, alerting and incident runbooks.</p>
+        </div>
+        <div class="card">
+          <h3>Research and publications</h3>
+          <p>Three peer-reviewed papers, one at Springer ICTIS 2025 in Bangkok and two on IEEE Xplore, covering school administration systems, ResNet50 hyperparameter tuning and a web-server controlled rover with object detection. Two more are under review.</p>
+        </div>
+  </div>
+</section>
+
+<section class="wrap" id="skills">
+  <p class="eyebrow">Skills</p>
+  <h2>The stack I actually use</h2>
+  <p class="sub">Grouped by what it is for, rather than listed as one wall of logos.</p>
+  <div class="cards">
+        <div class="card">
+          <h3>AI and LLM systems</h3>
+          <div class="tags"><span class="tag">Agentic systems</span><span class="tag">MCP orchestration</span><span class="tag">Multi-agent workflows</span><span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Claude API</span><span class="tag">LLM integration</span><span class="tag">Evaluation harnesses</span></div>
+        </div>
+        <div class="card">
+          <h3>Infrastructure and DevOps</h3>
+          <div class="tags"><span class="tag">CI/CD</span><span class="tag">OpenTofu (IaC)</span><span class="tag">Ansible</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Linode</span><span class="tag">Observability and alerting</span><span class="tag">Incident runbooks</span><span class="tag">Zitadel (SSO/IAM)</span><span class="tag">RBAC</span><span class="tag">Git</span></div>
+        </div>
+        <div class="card">
+          <h3>Languages and backend</h3>
+          <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">Swift</span><span class="tag">Rust</span><span class="tag">Shell scripting</span></div>
+        </div>
+        <div class="card">
+          <h3>Machine learning and vision</h3>
+          <div class="tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">CNN</span><span class="tag">ResNet</span><span class="tag">Quantized model deployment</span></div>
+        </div>
+  </div>
+</section>
+
+<section class="wrap" id="experience">
+  <p class="eyebrow">Experience</p>
+  <h2>Where I have shipped</h2>
+        <article class="row">
+          <div class="row-idx">01</div>
+          <div class="row-body">
+            <h3>Colligence Research</h3>
+            <p class="row-role">AI Engineer. Founding team.</p>
+            <p class="row-meta">Nov 2025, present · Bengaluru, India</p>
+            <ul class="roles">              <li><strong>AI Engineer</strong> <span class="row-meta">Feb 2026, present</span>
+                <ul><li>Works across both halves of the product: the AI and product engineering below, plus end-to-end ownership of the platform it runs on.</li><li>Established the DevOps/SRE function from scratch and now leads it, CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.</li><li>Building a retrieval-augmented system into the infrastructure layer itself, so that infrastructure-as-code and SRE work, runbook lookup, change context, incident response, is grounded in the organisation&#39;s own configuration and history rather than hand-carried knowledge. In progress.</li><li>Replaced manual GitHub deploy workflows, cutting deployment errors for a four-person founding team.</li><li>Operates the production stack end to end: Docker, Zitadel authentication, monitored deployments with self-healing alerting.</li><li>Owns system architecture across infrastructure and tooling.</li></ul></li>
+              <li><strong>Associate AI Engineer</strong> <span class="row-meta">Dec 2025, Feb 2026</span>
+                <ul><li>Led a small team building the company&#39;s first multi-agent LLM pipeline for ERP automation over MCP, keeping long-running multi-step workflows on track without human intervention.</li><li>Built a code-generation service that parses structured input specs and emits deployment-ready web applications.</li></ul></li>
+              <li><strong>Associate AI Engineer Intern</strong> <span class="row-meta">Nov 2025, Dec 2025</span>
+                <ul><li>Prototyped the first LLM integrations and agent workflows.</li></ul></li></ul>
           </div>
         </article>
-        <article class="svc">
-          <div class="svc-idx">02</div>
-          <div>
-            <h3>DevOps / SRE, end to end</h3>
-            <p class="svc-body">The platform your product runs on, CI/CD, infrastructure-as-code, containerisation, observability and incident runbooks. Built the DevOps/SRE function from scratch at a founding-team startup and carry the pager for it.</p>
-            <ul class="svc-points">
-              <li>CI/CD pipelines (GitHub Actions, GitLab)</li>
-              <li>IaC with OpenTofu / Ansible</li>
-              <li>Docker &amp; Kubernetes</li>
-              <li>Observability, alerting, runbooks</li>
-              <li>Auth: Zitadel / OAuth / RBAC</li>
-            </ul>
+        <article class="row">
+          <div class="row-idx">02</div>
+          <div class="row-body">
+            <h3>RVCE Centre of Excellence</h3>
+            <p class="row-role">Research Intern, AI and Deep Learning</p>
+            <p class="row-meta">Oct 2024, Dec 2024 · Remote</p>
+            <ul class="roles">              <li><strong>Research Intern, AI and Deep Learning</strong> <span class="row-meta">Oct 2024, Dec 2024</span>
+                </li></ul>
           </div>
         </article>
-        <article class="svc">
-          <div class="svc-idx">03</div>
-          <div>
-            <h3>LLM &amp; agent pipelines</h3>
-            <p class="svc-body">Multi-agent and LLM systems over MCP with LangGraph/LangChain, kept on-device with local models where the data is sensitive, and shipped as a monitored service, not a demo.</p>
-            <ul class="svc-points">
-              <li>Multi-agent workflows (LangGraph, MCP)</li>
-              <li>Local/offline LLM deployment</li>
-              <li>Evaluation &amp; guardrails</li>
-              <li>Backend APIs (FastAPI)</li>
-            </ul>
+        <article class="row">
+          <div class="row-idx">03</div>
+          <div class="row-body">
+            <h3>Ernst &amp; Young India</h3>
+            <p class="row-role">Associate Consultant Intern, Enterprise Cybersecurity</p>
+            <p class="row-meta">Aug 2024, Sep 2024 · Bengaluru, India</p>
+            <ul class="roles">              <li><strong>Associate Consultant Intern, Enterprise Cybersecurity</strong> <span class="row-meta">Aug 2024, Sep 2024</span>
+                </li></ul>
           </div>
         </article>
 </section>
 
-<section class="wrap" id="work">
-  <p class="eyebrow">Proof</p>
-  <h2>Work that backs the above</h2>
+<section class="wrap" id="education">
+  <p class="eyebrow">Education</p>
+  <h2>Education</h2>
+        <article class="row">
+          <div class="row-idx">01</div>
+          <div class="row-body">
+            <h3>R V College of Engineering (VTU)</h3>
+            <p class="row-role">B.E. Computer Science and Engineering</p>
+            <p class="row-meta">Dec 2021, Aug 2025 · Bengaluru, India</p>
+          </div>
+        </article>
+</section>
+
+<section class="wrap" id="projects">
+  <p class="eyebrow">Projects</p>
+  <h2>Work that backs the offers below</h2>
   <p class="sub">Every one is public and every claim is checkable. Read the code before you hire me.</p>
         <article class="row">
           <div class="row-idx">01</div>
@@ -269,11 +329,51 @@
         </article>
 </section>
 
-<section class="wrap" id="how">
-  <p class="eyebrow">How it works</p>
-  <h2>How an engagement runs</h2>
-  <p class="sub">Stated up front so you do not have to ask.</p>
-  <div class="cards">
+<section class="wrap" id="services">
+  <p class="eyebrow">Services</p>
+  <h2>Three things I am genuinely good at</h2>
+  <p class="sub">Scoped as projects, not as hours. Each one ships with the tests, instrumentation and runbooks that make it somebody else's to maintain afterwards.</p>
+        <article class="svc">
+          <div class="svc-idx">01</div>
+          <div>
+            <h3>RAG systems that hold up</h3>
+            <p class="svc-body">Retrieval-augmented systems over your own corpus, hybrid retrieval, reranking, and a labelled evaluation harness wired into CI so quality is measured, not hoped for. The same discipline behind Arogya-Sathi&#39;s 62-case, CI-gated safety eval (recall 1.00).</p>
+            <ul class="svc-points">
+              <li>Corpus ingestion + hybrid (BM25 + dense) retrieval</li>
+              <li>Cross-encoder reranking</li>
+              <li>Golden-set eval harness as a CI merge gate</li>
+              <li>Cost &amp; latency instrumentation</li>
+            </ul>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="svc-idx">02</div>
+          <div>
+            <h3>DevOps / SRE, end to end</h3>
+            <p class="svc-body">The platform your product runs on, CI/CD, infrastructure-as-code, containerisation, observability and incident runbooks. Built the DevOps/SRE function from scratch at a founding-team startup and carry the pager for it.</p>
+            <ul class="svc-points">
+              <li>CI/CD pipelines (GitHub Actions, GitLab)</li>
+              <li>IaC with OpenTofu / Ansible</li>
+              <li>Docker &amp; Kubernetes</li>
+              <li>Observability, alerting, runbooks</li>
+              <li>Auth: Zitadel / OAuth / RBAC</li>
+            </ul>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="svc-idx">03</div>
+          <div>
+            <h3>LLM &amp; agent pipelines</h3>
+            <p class="svc-body">Multi-agent and LLM systems over MCP with LangGraph/LangChain, kept on-device with local models where the data is sensitive, and shipped as a monitored service, not a demo.</p>
+            <ul class="svc-points">
+              <li>Multi-agent workflows (LangGraph, MCP)</li>
+              <li>Local/offline LLM deployment</li>
+              <li>Evaluation &amp; guardrails</li>
+              <li>Backend APIs (FastAPI)</li>
+            </ul>
+          </div>
+        </article>
+  <div class="cards" style="margin-top:26px">
         <div class="card">
           <div class="card-idx">01</div>
           <h3>A call, no charge</h3>
@@ -314,16 +414,16 @@
         </article>
 </section>
 
-<section class="wrap">
-  <div class="cta-band">
-    <h2>Have something that needs to work in production?</h2>
-    <p class="sub">Tell me what you are building and where it is stuck. If I am not the right person for it, I will tell you that, and usually who is.</p>
-    <div class="btns" style="margin-top:8px">
-      <a class="btn btn-primary" href="mailto:prajwallspambox@gmail.com?subject=Freelance%20enquiry">Email me</a>
-      <a class="btn btn-ghost" href="./">See the full CV →</a>
-    </div>
-    <p style="color:var(--faint);font-size:13.5px;margin:22px 0 0">Currently AI Engineer at Colligence Research. Freelance work is taken alongside that, so I am honest about capacity before agreeing to anything.</p>
+<section class="wrap" id="contact">
+  <p class="eyebrow">Contact</p>
+  <h2>Have something that needs to work in production?</h2>
+  <p class="sub">Tell me what you are building and where it is stuck. If I am not the right person for it, I will tell you that, and usually who is.</p>
+  <div class="btns">
+    <a class="btn btn-primary" href="mailto:prajwallspambox@gmail.com?subject=Freelance%20enquiry">Email me</a>
+    <a class="btn btn-ghost" href="https://github.com/Developer1010x" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn btn-ghost" href="./">Regional CVs →</a>
   </div>
+  <p style="color:var(--faint);font-size:13.5px;margin:22px 0 0">Currently AI Engineer at Colligence Research. Freelance work is taken alongside that, so I am honest about capacity before agreeing to anything.</p>
 </section>
 </main>
 
@@ -335,9 +435,10 @@
     </div>
     <div>
       <h4>This page</h4>
-      <a href="#services">What I build</a>
-      <a href="#work">Proof</a>
-      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
       <a href="#publications">Publications</a>
     </div>
     <div>

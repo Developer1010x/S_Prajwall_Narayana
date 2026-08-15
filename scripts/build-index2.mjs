@@ -99,6 +99,53 @@ const how = [
         </div>`
 ).join('\n');
 
+
+/* About: the cards that say what I build and how I work. */
+const aboutCards = (data.about || [])
+  .map((a) => `        <div class="card">
+          <h3>${esc(a.title)}</h3>
+          <p>${esc(a.body)}</p>
+        </div>`)
+  .join('\n');
+
+/* Skills, grouped, so the strip above is not the only place they appear. */
+const skillGroups = (skills || [])
+  .map((g) => `        <div class="card">
+          <h3>${esc(g.title)}</h3>
+          <div class="tags">${(g.items || []).map((i) => `<span class="tag">${esc(i)}</span>`).join('')}</div>
+        </div>`)
+  .join('\n');
+
+/* Experience, including the sub-roles where a single employer had several. */
+const expItems = (experience || [])
+  .map((e, i) => {
+    const roles = (e.roles && e.roles.length ? e.roles : [{ title: e.title, date: e.date, bullets: [] }])
+      .map((r) => `              <li><strong>${esc(r.title)}</strong>${r.date ? ` <span class="row-meta">${esc(r.date)}</span>` : ''}
+                ${(r.bullets || []).length ? `<ul>${(r.bullets || []).map((b) => `<li>${esc(b)}</li>`).join('')}</ul>` : ''}</li>`)
+      .join('\n');
+    return `        <article class="row">
+          <div class="row-idx">${String(i + 1).padStart(2, '0')}</div>
+          <div class="row-body">
+            <h3>${esc(e.org)}</h3>
+            <p class="row-role">${esc(e.title)}${e.note ? `. ${esc(e.note)}` : ''}</p>
+            <p class="row-meta">${esc(e.date)}${e.location ? ` · ${esc(e.location)}` : ''}</p>
+            <ul class="roles">${roles}</ul>
+          </div>
+        </article>`;
+  })
+  .join('\n');
+
+const eduItems = (data.education || [])
+  .map((e) => `        <article class="row">
+          <div class="row-idx">01</div>
+          <div class="row-body">
+            <h3>${esc(e.org)}</h3>
+            <p class="row-role">${esc(e.title)}</p>
+            <p class="row-meta">${esc(e.date)}${e.location ? ` · ${esc(e.location)}` : ''}</p>
+          </div>
+        </article>`)
+  .join('\n');
+
 const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -209,6 +256,13 @@ const html = `<!DOCTYPE html>
   footer a:hover{color:var(--fg)}
   .copyright{margin-top:32px;font-size:13px}
 
+  /* Nine nav items plus a CTA overflow well before the mobile breakpoint, and
+     the CTA is the one item that must never be the one clipped. Wrap the whole
+     header onto two rows while there is still room to read it. */
+  @media (max-width:1100px){
+    .nav-in{flex-wrap:wrap;height:auto;padding:10px 0;gap:8px}
+    .nav-links{order:2;width:100%}
+  }
   @media (max-width:860px){
     .hero{grid-template-columns:1fr}
     .portrait{max-width:210px}
@@ -224,10 +278,14 @@ const html = `<!DOCTYPE html>
   <div class="wrap nav-in">
     <a class="brand" href="#top">${esc(personal.displayName)}<span class="sep">/</span><span class="role">Freelance</span></a>
     <nav class="nav-links">
-      <a href="#services">What I build</a>
-      <a href="#work">Proof</a>
-      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
       <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
       <a class="cta" href="mailto:${esc(personal.email)}?subject=Freelance%20enquiry">Start a project</a>
     </nav>
   </div>
@@ -257,25 +315,48 @@ ${statCards}
   <div class="run-track">${skillRun}${skillRunDup}</div>
 </div>
 
-<section class="wrap" id="services">
-  <p class="eyebrow">What I build</p>
-  <h2>Three things I am genuinely good at</h2>
-  <p class="sub">Scoped as projects, not as hours. Each one ships with the tests, instrumentation and runbooks that make it somebody else's to maintain afterwards.</p>
-${serviceBlocks}
+<section class="wrap" id="about">
+  <p class="eyebrow">About</p>
+  <h2>What I build, and how I work</h2>
+  <div class="cards">
+${aboutCards}
+  </div>
 </section>
 
-<section class="wrap" id="work">
-  <p class="eyebrow">Proof</p>
-  <h2>Work that backs the above</h2>
+<section class="wrap" id="skills">
+  <p class="eyebrow">Skills</p>
+  <h2>The stack I actually use</h2>
+  <p class="sub">Grouped by what it is for, rather than listed as one wall of logos.</p>
+  <div class="cards">
+${skillGroups}
+  </div>
+</section>
+
+<section class="wrap" id="experience">
+  <p class="eyebrow">Experience</p>
+  <h2>Where I have shipped</h2>
+${expItems}
+</section>
+
+<section class="wrap" id="education">
+  <p class="eyebrow">Education</p>
+  <h2>Education</h2>
+${eduItems}
+</section>
+
+<section class="wrap" id="projects">
+  <p class="eyebrow">Projects</p>
+  <h2>Work that backs the offers below</h2>
   <p class="sub">Every one is public and every claim is checkable. Read the code before you hire me.</p>
 ${projItems}
 </section>
 
-<section class="wrap" id="how">
-  <p class="eyebrow">How it works</p>
-  <h2>How an engagement runs</h2>
-  <p class="sub">Stated up front so you do not have to ask.</p>
-  <div class="cards">
+<section class="wrap" id="services">
+  <p class="eyebrow">Services</p>
+  <h2>Three things I am genuinely good at</h2>
+  <p class="sub">Scoped as projects, not as hours. Each one ships with the tests, instrumentation and runbooks that make it somebody else's to maintain afterwards.</p>
+${serviceBlocks}
+  <div class="cards" style="margin-top:26px">
 ${how}
   </div>
 </section>
@@ -286,16 +367,16 @@ ${how}
 ${pubItems}
 </section>
 
-<section class="wrap">
-  <div class="cta-band">
-    <h2>Have something that needs to work in production?</h2>
-    <p class="sub">Tell me what you are building and where it is stuck. If I am not the right person for it, I will tell you that, and usually who is.</p>
-    <div class="btns" style="margin-top:8px">
-      <a class="btn btn-primary" href="mailto:${esc(personal.email)}?subject=Freelance%20enquiry">Email me</a>
-      <a class="btn btn-ghost" href="./">See the full CV →</a>
-    </div>
-    <p style="color:var(--faint);font-size:13.5px;margin:22px 0 0">Currently ${esc(current.title)} at ${esc(current.org)}. Freelance work is taken alongside that, so I am honest about capacity before agreeing to anything.</p>
+<section class="wrap" id="contact">
+  <p class="eyebrow">Contact</p>
+  <h2>Have something that needs to work in production?</h2>
+  <p class="sub">Tell me what you are building and where it is stuck. If I am not the right person for it, I will tell you that, and usually who is.</p>
+  <div class="btns">
+    <a class="btn btn-primary" href="mailto:${esc(personal.email)}?subject=Freelance%20enquiry">Email me</a>
+    <a class="btn btn-ghost" href="${esc(personal.github)}" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn btn-ghost" href="./">Regional CVs →</a>
   </div>
+  <p style="color:var(--faint);font-size:13.5px;margin:22px 0 0">Currently ${esc(current.title)} at ${esc(current.org)}. Freelance work is taken alongside that, so I am honest about capacity before agreeing to anything.</p>
 </section>
 </main>
 
@@ -307,9 +388,10 @@ ${pubItems}
     </div>
     <div>
       <h4>This page</h4>
-      <a href="#services">What I build</a>
-      <a href="#work">Proof</a>
-      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Services</a>
       <a href="#publications">Publications</a>
     </div>
     <div>
