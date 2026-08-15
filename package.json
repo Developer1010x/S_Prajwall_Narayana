@@ -7,9 +7,15 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node scripts/build.mjs --check",
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "build:index2": "node scripts/build-index2.mjs"
   },
-  "keywords": ["portfolio", "static-site", "vercel", "edge-middleware"],
+  "keywords": [
+    "portfolio",
+    "static-site",
+    "vercel",
+    "edge-middleware"
+  ],
   "author": "S Prajwall Narayana",
   "license": "MIT"
 }
