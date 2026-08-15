@@ -1,4 +1,4 @@
-# S Prajwall Narayana — portfolio
+# S Prajwall Narayana, portfolio
 
 Static, country-aware portfolio. Five regional versions built from **one template and
 one stylesheet**, plus server-side geo routing at the Vercel edge.
@@ -15,7 +15,7 @@ assets/
   js/site.js               THE script, shared by all six pages
   images/, favicon.*
   cv/                      per-country CV PDFs (see assets/cv/README.md)
-uk/ in/ us/ jp/ de/        GENERATED — do not edit index.html inside these
+uk/ in/ us/ jp/ de/        GENERATED, do not edit index.html inside these
 ```
 
 ## Build
@@ -28,7 +28,7 @@ npm start         # serve locally on http://localhost:3000
 
 `vercel.json` runs `npm run build` on every deploy, so a data-only change is deployed
 correctly even if someone forgets to run the build locally. **Never hand-edit
-`uk/index.html` and friends** — the next build overwrites them. Edit the data or the
+`uk/index.html` and friends**, the next build overwrites them. Edit the data or the
 template.
 
 ## Geo routing
@@ -55,7 +55,7 @@ details. It is the safest thing to show a stranger from anywhere. Change
 A request for the wrong region is **redirected** (HTTP 307), not merely discouraged.
 An Indian visitor who types `/uk/` is sent to `/in/`.
 
-### Escape hatch 1 — `?region=<cc>` (owner override)
+### Escape hatch 1, `?region=<cc>` (owner override)
 
 Append `?region=uk` to any URL. The middleware sets a `pn_region` cookie (30 days,
 `SameSite=Lax`) and redirects to the clean `/uk/` URL, bypassing geo entirely from then
@@ -67,7 +67,7 @@ https://sprajwallnarayana.com/uk/?region=uk
 
 The recipient gets the same cookie, so the link works for them too, from any country.
 
-### Escape hatch 2 — the region switcher
+### Escape hatch 2, the region switcher
 
 Every page carries a visible bar at the top: *"You are viewing the United Kingdom
 version of this site"* with a region `<select>`. Choosing a region writes the same
@@ -76,7 +76,7 @@ end, and it degrades to plain links inside `<noscript>`.
 
 Precedence: `?region=` → `pn_region` cookie → geo-IP header → default.
 
-### What this does not do — read before describing it to anyone
+### What this does not do, read before describing it to anyone
 
 Edge geo-IP is accurate in the common case and useless against anyone who does not want
 it to work:
@@ -88,7 +88,7 @@ it to work:
 * Crawlers are exempt on purpose (below), so a spoofed `User-Agent: Googlebot` reaches
   any region.
 
-This **raises the floor** — a casual visitor lands on the right page and cannot browse
+This **raises the floor**, a casual visitor lands on the right page and cannot browse
 the others by guessing URLs. It is **not a security boundary** and nothing behind it
 should be treated as private. Everything in these pages is public information.
 
@@ -111,11 +111,10 @@ On top of that:
 
 **The tradeoff, stated rather than guessed at:** the five pages are ~90% identical
 content, so letting all five compete splits ranking signals across near-duplicates, and
-a searcher who clicked a `/jp/` result from Germany would immediately be redirected —
-which looks broken and wastes the click. One indexable page avoids both. The cost is
+a searcher who clicked a `/jp/` result from Germany would immediately be redirected, which looks broken and wastes the click. One indexable page avoids both. The cost is
 that regional pages earn no organic traffic of their own; they are for links Prajwall
-sends and for visitors the edge routes. The alternative — indexing all five with
-`hreflang` — is the right pattern for *language* variants served **without** forced
+sends and for visitors the edge routes. The alternative, indexing all five with
+`hreflang`, is the right pattern for *language* variants served **without** forced
 redirects, and it fights the geo redirect rather than complementing it. If the site ever
 drops the redirect, switch to hreflang and delete the noindex tags; that is a
 five-line change in `scripts/build.mjs`.
@@ -131,7 +130,7 @@ The site is plain static files with no runtime dependency on the edge. Opened fr
 
 * `index.html` routes using a stored preference (`pn_region` cookie, then
   `localStorage`), and shows the region picker when there is none.
-* Every regional page still works standalone — all content is rendered into the HTML at
+* Every regional page still works standalone, all content is rendered into the HTML at
   build time, so nothing depends on `fetch`, and the pages are readable with JavaScript
   disabled.
 * The switcher and `?region=` still work; they persist to `localStorage` as well as the
@@ -140,7 +139,7 @@ The site is plain static files with no runtime dependency on the edge. Opened fr
 ## Content rules
 
 * The job title is **AI Engineer** everywhere, matching the offer letter. Nothing on
-  this site may say otherwise — a title that disagrees with the offer letter breaks
+  this site may say otherwise, a title that disagrees with the offer letter breaks
   under background checks and visa sponsorship.
 * The pages must stay balanced between AI/product work and platform/DevOps work. Country
   tuning changes conventions, spelling, length and visa framing. It must not tilt him
@@ -153,7 +152,7 @@ The site is plain static files with no runtime dependency on the edge. Opened fr
   reused: it titled him "Software Development Engineer" and "DevOps Team Lead", and it
   printed a LinkedIn URL. Both break the rules above, and a linked PDF is part of the
   page. Until a per-country CV lands in `assets/cv/`, the build omits the CV button
-  entirely — see `assets/cv/README.md`. The old file is still in git history.
+  entirely, see `assets/cv/README.md`. The old file is still in git history.
 
 ## Performance notes
 
@@ -166,6 +165,6 @@ The site is plain static files with no runtime dependency on the edge. Opened fr
 * `logo.jpg` and `S_Prajwall_Narayana.jpg` were byte-identical 48 KB copies of the same
   file. One 35 KB 300×300 image remains.
 * The CV PDF is not fetched on first paint. The CV modal sets the iframe `src` only when
-  it is opened, and never on mobile — and the button is not rendered at all unless the
+  it is opened, and never on mobile, and the button is not rendered at all unless the
   file a region points at actually exists.
 * The committed `.DS_Store` is gone and stays gone via `.gitignore`.
