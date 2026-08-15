@@ -336,7 +336,6 @@
       "org": "R V College of Engineering (VTU)",
       "location": "Bengaluru, India",
       "date": "Dec 2021 — Aug 2025",
-      "grade": "First Class (66.6%)",
       "bullets": []
     }
   ],
@@ -363,6 +362,27 @@
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
       "date": "Jan 2025 — Jun 2025"
+    },
+    {
+      "id": "audier",
+      "title": "Audier",
+      "subtitle": "Private reader and audiobook player for Linux",
+      "icon": "fa-book-open-reader",
+      "color": "#5B6ABF",
+      "description": "Reads your own books aloud in a neural voice, with follow-along highlighting and OCR for scanned pages. Everything runs locally; nothing is uploaded. Released as an AppImage, .deb and tarball.",
+      "metrics": [
+        "202 tests",
+        "v1.0.0 released",
+        "Runs fully offline"
+      ],
+      "tags": [
+        "Flutter",
+        "Dart",
+        "Piper TTS",
+        "Tesseract OCR"
+      ],
+      "url": "https://github.com/Developer1010x/audiobook-reader/releases/tag/v1.0.0",
+      "date": ""
     },
     {
       "id": "agentic-devops",
@@ -437,6 +457,86 @@
         "Classification"
       ],
       "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
+    },
+    {
+      "id": "openplay",
+      "title": "openplay",
+      "subtitle": "Open-source screen casting in Rust",
+      "icon": "fa-tower-broadcast",
+      "color": "#DE4A21",
+      "description": "Casts a screen to AirPlay and Miracast receivers with no proprietary software. AirPlay HAP pairing, FairPlay, RTSP negotiation and Wi-Fi Direct implemented from scratch in Rust.",
+      "metrics": [
+        "11-crate Cargo workspace",
+        "8 crates with integration tests"
+      ],
+      "tags": [
+        "Rust",
+        "GStreamer",
+        "WebRTC",
+        "mDNS"
+      ],
+      "url": "https://github.com/Developer1010x/openplay",
+      "date": ""
+    },
+    {
+      "id": "universal-converter",
+      "title": "universal-converter",
+      "subtitle": "File conversion with multi-hop routing",
+      "icon": "fa-right-left",
+      "color": "#2E9E63",
+      "description": "Finds a conversion path across converters when no direct one exists, using graph search over the registry. Audits which conversions actually work on the current machine instead of advertising formats it cannot handle.",
+      "metrics": [
+        "232 conversion pairs",
+        "Multi-hop routing via graph search"
+      ],
+      "tags": [
+        "Python",
+        "ffmpeg",
+        "Pillow",
+        "pandas"
+      ],
+      "url": "https://github.com/Developer1010x/universal-converter",
+      "date": ""
+    },
+    {
+      "id": "mp3-studio",
+      "title": "MP3 Studio",
+      "subtitle": "Desktop MP3 tag, artwork and EQ editor",
+      "icon": "fa-sliders",
+      "color": "#C86DD7",
+      "description": "Edits MP3 tags, fetches album art and lyrics, and applies a five-band equaliser across a batch. Non-destructive: EQ is applied only on export. Packaged for the Snap Store.",
+      "metrics": [
+        "Five-band EQ with presets",
+        "Batch queue and bulk export"
+      ],
+      "tags": [
+        "Python",
+        "Tkinter",
+        "pydub",
+        "mutagen"
+      ],
+      "url": "https://github.com/Developer1010x/mp3-studio",
+      "date": ""
+    },
+    {
+      "id": "worldmonitor-contribution",
+      "title": "World Monitor — open-source contribution",
+      "subtitle": "Merged upstream PR — not my project",
+      "icon": "fa-code-pull-request",
+      "color": "#5A6B7B",
+      "description": "A contribution, not a project of mine. Added an expandable price chart to the markets panel of a 330k-line TypeScript intelligence dashboard maintained by Elie Habib, and fixed a dev proxy path bug. Merged as PR #5459.",
+      "metrics": [
+        "PR #5459 merged",
+        "+892 / −39 across 37 files"
+      ],
+      "tags": [
+        "TypeScript",
+        "Vite",
+        "deck.gl",
+        "Open source"
+      ],
+      "url": "https://github.com/koala73/worldmonitor/pull/5459",
+      "date": ""
     }
   ]
 }

@@ -101,7 +101,7 @@ pushing either below `backend`/`ml` is not — it tilts the whole page.
 | `strings.*` | object | English base strings. Override any subset for localisation. |
 | `strings.regionNames` | object | English region names in the switcher. |
 | `seo.title` / `seo.description` | string \| null | `"<name> — AI Engineer"` and the first 300 chars of `summary`. |
-| `flags.showGrade` | bool | `false`. CGPA 6.66 is shown only where the convention expects it. |
+| `flags.showGrade` | bool | `false`. the CGPAis shown only where the convention expects it. |
 | `flags.showPhone` | bool | `true` |
 | `flags.showPublications` | bool | `true` |
 | `flags.noindex` | bool \| null | `null` = auto: indexable only if this is `site.defaultRegion` (`uk`). |
