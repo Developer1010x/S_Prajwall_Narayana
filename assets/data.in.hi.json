@@ -125,13 +125,13 @@
       "title": "AI Engineer",
       "org": "Colligence Research",
       "location": "बेंगलुरु, भारत",
-      "date": "नवंबर 2025, वर्तमान",
+      "date": "नवंबर 2025 – वर्तमान",
       "current": true,
       "note": "फ़ाउंडिंग टीम।",
       "roles": [
         {
           "title": "AI Engineer",
-          "date": "फ़रवरी 2026, वर्तमान",
+          "date": "फ़रवरी 2026 – वर्तमान",
           "bullets": [
             "प्रोडक्ट के दोनों हिस्सों पर काम: नीचे दी गई AI और प्रोडक्ट इंजीनियरिंग, और साथ ही उसे चलाने वाले प्लेटफ़ॉर्म की शुरू से आख़िर तक ज़िम्मेदारी।",
             "DevOps/SRE फ़ंक्शन शून्य से खड़ा किया और अब उसका नेतृत्व करता हूँ, CI/CD, Linode पर OpenTofu और Ansible के साथ infrastructure-as-code, ऑब्ज़र्वेबिलिटी, अलर्टिंग और इंसिडेंट रनबुक।",
@@ -143,7 +143,7 @@
         },
         {
           "title": "Associate AI Engineer",
-          "date": "दिसंबर 2025, फ़रवरी 2026",
+          "date": "दिसंबर 2025 – फ़रवरी 2026",
           "bullets": [
             "MCP पर ERP ऑटोमेशन के लिए कंपनी की पहली मल्टी-एजेंट LLM पाइपलाइन बनाने वाली एक छोटी टीम का नेतृत्व किया; लंबे समय तक चलने वाले, कई चरणों वाले वर्कफ़्लो बिना मानवीय हस्तक्षेप के पटरी पर बने रहते हैं।",
             "एक कोड-जनरेशन सर्विस बनाई जो स्ट्रक्चर्ड इनपुट स्पेसिफ़िकेशन को पढ़कर डिप्लॉयमेंट-रेडी वेब ऐप्लिकेशन तैयार करती है।"
@@ -151,7 +151,7 @@
         },
         {
           "title": "Associate AI Engineer Intern",
-          "date": "नवंबर 2025, दिसंबर 2025",
+          "date": "नवंबर 2025 – दिसंबर 2025",
           "bullets": [
             "पहले LLM इंटीग्रेशन और एजेंट वर्कफ़्लो के प्रोटोटाइप बनाए।"
           ]
@@ -175,7 +175,7 @@
       "title": "Research Intern, AI and Deep Learning",
       "org": "RVCE Centre of Excellence",
       "location": "रिमोट",
-      "date": "अक्टूबर 2024, दिसंबर 2024",
+      "date": "अक्टूबर 2024 – दिसंबर 2024",
       "current": false,
       "bullets": [
         "छेड़छाड़ किए गए चेहरों वाले वीडियो के लिए शून्य से एक डीपफ़ेक-डिटेक्शन मॉडल बनाया, बिना किसी बाहरी डिटेक्शन API का उपयोग किए।",
@@ -194,7 +194,7 @@
       "title": "Associate Consultant Intern, Enterprise Cybersecurity",
       "org": "Ernst & Young India",
       "location": "बेंगलुरु, भारत",
-      "date": "अगस्त 2024, सितंबर 2024",
+      "date": "अगस्त 2024 – सितंबर 2024",
       "current": false,
       "bullets": [
         "क्लाउड सुरक्षा तथा आइडेंटिटी एंड ऐक्सेस मैनेजमेंट के काम में सीनियर कंसल्टेंट्स के साथ रहकर उनका काम नज़दीक से देखा।",
@@ -214,7 +214,7 @@
       "title": "बी.ई. कंप्यूटर साइंस एंड इंजीनियरिंग",
       "org": "R V College of Engineering (VTU)",
       "location": "बेंगलुरु, भारत",
-      "date": "दिसंबर 2021, अगस्त 2025",
+      "date": "दिसंबर 2021 – अगस्त 2025",
       "bullets": []
     }
   ],
@@ -241,7 +241,7 @@
         "Raspberry Pi"
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
-      "date": "जनवरी 2025, जून 2025"
+      "date": "जनवरी 2025 – जून 2025"
     },
     {
       "id": "agentic-devops",
@@ -285,7 +285,7 @@
       "tags": [
         "Web platform"
       ],
-      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
+      "url": "https://github.com/Developer1010x/knotesneo"
     },
     {
       "id": "llm-terminal",

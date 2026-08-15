@@ -214,13 +214,13 @@
       "title": "AI Engineer",
       "org": "Colligence Research",
       "location": "Bengaluru, India",
-      "date": "Nov 2025, present",
+      "date": "Nov 2025 – present",
       "current": true,
       "note": "Founding team.",
       "roles": [
         {
           "title": "AI Engineer",
-          "date": "Feb 2026, present",
+          "date": "Feb 2026 – present",
           "bullets": [
             "Works across both halves of the product: the AI and product engineering below, plus end-to-end ownership of the platform it runs on.",
             "Established the DevOps/SRE function from scratch and now leads it, CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.",
@@ -232,7 +232,7 @@
         },
         {
           "title": "Associate AI Engineer",
-          "date": "Dec 2025, Feb 2026",
+          "date": "Dec 2025 – Feb 2026",
           "bullets": [
             "Led a small team building the company's first multi-agent LLM pipeline for ERP automation over MCP, keeping long-running multi-step workflows on track without human intervention.",
             "Built a code-generation service that parses structured input specs and emits deployment-ready web applications."
@@ -240,7 +240,7 @@
         },
         {
           "title": "Associate AI Engineer Intern",
-          "date": "Nov 2025, Dec 2025",
+          "date": "Nov 2025 – Dec 2025",
           "bullets": [
             "Prototyped the first LLM integrations and agent workflows."
           ]
@@ -264,7 +264,7 @@
       "title": "Research Intern, AI and Deep Learning",
       "org": "RVCE Centre of Excellence",
       "location": "Remote",
-      "date": "Oct 2024, Dec 2024",
+      "date": "Oct 2024 – Dec 2024",
       "current": false,
       "bullets": [
         "Built a deepfake-detection model from scratch for manipulated-face video, using no external detection APIs.",
@@ -283,7 +283,7 @@
       "title": "Associate Consultant Intern, Enterprise Cybersecurity",
       "org": "Ernst & Young India",
       "location": "Bengaluru, India",
-      "date": "Aug 2024, Sep 2024",
+      "date": "Aug 2024 – Sep 2024",
       "current": false,
       "bullets": [
         "Shadowed senior consultants on cloud-security and identity and access management work.",
@@ -303,7 +303,7 @@
       "title": "B.E. Computer Science and Engineering",
       "org": "R V College of Engineering (VTU)",
       "location": "Bengaluru, India",
-      "date": "Dec 2021, Aug 2025",
+      "date": "Dec 2021 – Aug 2025",
       "bullets": []
     }
   ],
@@ -350,7 +350,7 @@
         "Raspberry Pi"
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
-      "date": "Jan 2025, Jun 2025"
+      "date": "Jan 2025 – Jun 2025"
     },
     {
       "id": "audier",
@@ -424,7 +424,28 @@
         "Search",
         "File uploads"
       ],
-      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
+      "url": "https://github.com/Developer1010x/knotesneo"
+    },
+    {
+      "id": "audio-deepfake",
+      "title": "Deepfake Detection",
+      "subtitle": "Multimodal detection on hand-written DSP, calibrated and explainable",
+      "icon": "fa-wave-square",
+      "color": "#AF52DE",
+      "description": "A detector that flags AI-synthesised speech and images, built on signal processing written from scratch rather than assembled from libraries: Haar wavelets, DCT-II, STFT, local binary patterns and Benford's-law digit statistics, all hand-implemented in numpy with no librosa and no pywt. It targets the practical question, is this clip authentic, rather than a leaderboard score, so it reports a calibrated probability instead of a hard label and returns a spatial map showing which part of the signal drove the decision.",
+      "metrics": [
+        "AUC 0.957 ±0.015, leave-source-out 5-fold GroupKFold",
+        "Brier 0.074 calibrated, against 0.264 for the classical baseline",
+        "Per-artifact recall reported separately, 0.79 to 0.98"
+      ],
+      "tags": [
+        "numpy",
+        "DSP",
+        "Wavelets",
+        "Calibration",
+        "Explainability"
+      ],
+      "url": "https://github.com/Developer1010x/deepfake-detector"
     },
     {
       "id": "llm-terminal",
@@ -440,21 +461,6 @@
         "LLM integration"
       ],
       "url": "https://github.com/Developer1010x/LLM_Terminal"
-    },
-    {
-      "id": "audio-deepfake",
-      "title": "Audio Deepfake Detection",
-      "subtitle": "Synthetic speech detection",
-      "icon": "fa-wave-square",
-      "color": "#AF52DE",
-      "description": "A classifier that flags AI-synthesised or voice-cloned speech, trained in PyTorch on the spectral features that separate real audio from generated audio. It targets the practical question, is this clip authentic, rather than a leaderboard benchmark. The work going on top of it is robustness to compression and phone-call codecs (where most real clips are degraded), a calibrated confidence score instead of a hard label so borderline clips can be escalated, and a short explanation of which part of the signal drove the decision rather than an opaque yes/no.",
-      "metrics": [],
-      "tags": [
-        "PyTorch",
-        "Audio",
-        "Classification"
-      ],
-      "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
     },
     {
       "id": "openplay",

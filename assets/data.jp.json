@@ -249,13 +249,13 @@
       "title": "AI Engineer",
       "org": "Colligence Research",
       "location": "インド・バンガロール",
-      "date": "Nov 2025, present",
+      "date": "Nov 2025 – present",
       "current": true,
       "note": "創業メンバーです。",
       "roles": [
         {
           "title": "AI Engineer",
-          "date": "Feb 2026, present",
+          "date": "Feb 2026 – present",
           "bullets": [
             "プロダクトの両面を担当しています。以下に挙げる AI・プロダクト開発に加え、それが稼働するプラットフォームについても一貫して責任を持っています。",
             "DevOps/SRE 機能をゼロから立ち上げ、現在も統括しています。対象は CI/CD、Linode 上での OpenTofu と Ansible による Infrastructure as Code、可観測性、アラート、インシデント対応の Runbook です。",
@@ -267,7 +267,7 @@
         },
         {
           "title": "Associate AI Engineer",
-          "date": "Dec 2025, Feb 2026",
+          "date": "Dec 2025 – Feb 2026",
           "bullets": [
             "少人数のチームを率い、MCP を介した ERP 自動化のための社内初となるマルチエージェント LLM パイプラインを構築しました。長時間かつ多段階のワークフローが、人手を介さずに正しく進み続ける仕組みです。",
             "構造化された入力仕様を解析し、デプロイ可能な Web アプリケーションを生成するコード生成サービスを構築しました。"
@@ -275,7 +275,7 @@
         },
         {
           "title": "Associate AI Engineer Intern",
-          "date": "Nov 2025, Dec 2025",
+          "date": "Nov 2025 – Dec 2025",
           "bullets": [
             "最初期の LLM 連携とエージェントワークフローのプロトタイプを開発しました。"
           ]
@@ -299,7 +299,7 @@
       "title": "Research Intern, AI and Deep Learning",
       "org": "RVCE Centre of Excellence",
       "location": "リモート",
-      "date": "Oct 2024, Dec 2024",
+      "date": "Oct 2024 – Dec 2024",
       "current": false,
       "bullets": [
         "顔を改変した動画を対象とするディープフェイク検出モデルを、外部の検出 API を一切使わずにゼロから構築しました。",
@@ -318,7 +318,7 @@
       "title": "Associate Consultant Intern, Enterprise Cybersecurity",
       "org": "Ernst & Young India",
       "location": "インド・バンガロール",
-      "date": "Aug 2024, Sep 2024",
+      "date": "Aug 2024 – Sep 2024",
       "current": false,
       "bullets": [
         "シニアコンサルタントの業務に同行し、クラウドセキュリティおよび ID・アクセス管理の案件を見学しました。",
@@ -338,7 +338,7 @@
       "title": "情報工学 学士（B.E. Computer Science and Engineering）",
       "org": "R V College of Engineering (VTU)",
       "location": "Bengaluru, India",
-      "date": "Dec 2021, Aug 2025",
+      "date": "Dec 2021 – Aug 2025",
       "bullets": []
     }
   ],
@@ -364,7 +364,7 @@
         "Raspberry Pi"
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
-      "date": "Jan 2025, Jun 2025"
+      "date": "Jan 2025 – Jun 2025"
     },
     {
       "id": "audier",
@@ -429,7 +429,7 @@
       "tags": [
         "Web platform"
       ],
-      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
+      "url": "https://github.com/Developer1010x/knotesneo"
     },
     {
       "id": "llm-terminal",

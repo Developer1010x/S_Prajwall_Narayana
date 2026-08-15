@@ -105,13 +105,13 @@
       "title": "AI Engineer",
       "org": "Colligence Research",
       "location": "बेंगळुरू, भारत",
-      "date": "नोव्हेंबर 2025, आजतागायत",
+      "date": "नोव्हेंबर 2025 – आजतागायत",
       "current": true,
       "note": "संस्थापक चमू.",
       "roles": [
         {
           "title": "AI Engineer",
-          "date": "फेब्रुवारी 2026, आजतागायत",
+          "date": "फेब्रुवारी 2026 – आजतागायत",
           "bullets": [
             "उत्पादनाच्या दोन्ही बाजूंवर काम: खाली नमूद केलेले AI व उत्पादन-अभियांत्रिकी, आणि त्याबरोबरच ते ज्या प्लॅटफॉर्मवर चालते त्याची सुरुवातीपासून शेवटपर्यंतची संपूर्ण जबाबदारी.",
             "DevOps/SRE ची जबाबदारी शून्यातून उभी केली आणि आता तिचे नेतृत्व करतो, CI/CD, Linode वर OpenTofu आणि Ansible वापरून infrastructure-as-code, observability, अलर्टिंग आणि incident runbooks.",
@@ -123,7 +123,7 @@
         },
         {
           "title": "Associate AI Engineer",
-          "date": "डिसेंबर 2025, फेब्रुवारी 2026",
+          "date": "डिसेंबर 2025 – फेब्रुवारी 2026",
           "bullets": [
             "ERP ऑटोमेशनसाठी MCP वरून चालणारी कंपनीची पहिली multi-agent LLM पाइपलाइन तयार करणाऱ्या लहान चमूचे नेतृत्व केले; दीर्घ काळ चालणारे, अनेक टप्प्यांचे वर्कफ्लो माणसाच्या हस्तक्षेपाशिवाय मार्गावर राहतात.",
             "संरचित इनपुट स्पेसिफिकेशन वाचून थेट तैनात करता येतील अशी वेब अ‍ॅप्लिकेशन तयार करणारी कोड-निर्मिती सेवा उभारली."
@@ -131,7 +131,7 @@
         },
         {
           "title": "Associate AI Engineer Intern",
-          "date": "नोव्हेंबर 2025, डिसेंबर 2025",
+          "date": "नोव्हेंबर 2025 – डिसेंबर 2025",
           "bullets": [
             "पहिल्या LLM एकत्रीकरणांचे आणि एजंट वर्कफ्लोचे प्रारंभिक नमुने (prototypes) तयार केले."
           ]
@@ -155,7 +155,7 @@
       "title": "Research Intern, AI and Deep Learning",
       "org": "RVCE Centre of Excellence",
       "location": "दूरस्थ",
-      "date": "ऑक्टोबर 2024, डिसेंबर 2024",
+      "date": "ऑक्टोबर 2024 – डिसेंबर 2024",
       "current": false,
       "bullets": [
         "चेहरा बदललेल्या (manipulated-face) व्हिडिओसाठी deepfake ओळखणारे मॉडेल शून्यातून तयार केले; त्यासाठी कोणतेही बाह्य detection API वापरले नाही.",
@@ -174,7 +174,7 @@
       "title": "Associate Consultant Intern, Enterprise Cybersecurity",
       "org": "Ernst & Young India",
       "location": "बेंगळुरू, भारत",
-      "date": "ऑगस्ट 2024, सप्टेंबर 2024",
+      "date": "ऑगस्ट 2024 – सप्टेंबर 2024",
       "current": false,
       "bullets": [
         "क्लाउड-सुरक्षा आणि ओळख व प्रवेश व्यवस्थापन (identity and access management) या कामांमध्ये वरिष्ठ सल्लागारांसोबत निरीक्षक म्हणून सहभाग.",
@@ -194,7 +194,7 @@
       "title": "बी.ई. संगणक विज्ञान आणि अभियांत्रिकी",
       "org": "R V College of Engineering (VTU)",
       "location": "Bengaluru, India",
-      "date": "Dec 2021, Aug 2025",
+      "date": "Dec 2021 – Aug 2025",
       "bullets": []
     }
   ],
@@ -220,7 +220,7 @@
         "Raspberry Pi"
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
-      "date": "Jan 2025, Jun 2025"
+      "date": "Jan 2025 – Jun 2025"
     },
     {
       "id": "agentic-devops",
@@ -264,7 +264,7 @@
       "tags": [
         "Web platform"
       ],
-      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
+      "url": "https://github.com/Developer1010x/knotesneo"
     },
     {
       "id": "llm-terminal",

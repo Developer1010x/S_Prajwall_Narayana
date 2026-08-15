@@ -106,13 +106,13 @@
       "title": "AI Engineer",
       "org": "Colligence Research",
       "location": "ಬೆಂಗಳೂರು, ಭಾರತ",
-      "date": "ನವೆಂಬರ್ 2025, ಪ್ರಸ್ತುತ",
+      "date": "ನವೆಂಬರ್ 2025 – ಪ್ರಸ್ತುತ",
       "current": true,
       "note": "ಸ್ಥಾಪಕ ತಂಡ.",
       "roles": [
         {
           "title": "AI Engineer",
-          "date": "ಫೆಬ್ರವರಿ 2026, ಪ್ರಸ್ತುತ",
+          "date": "ಫೆಬ್ರವರಿ 2026 – ಪ್ರಸ್ತುತ",
           "bullets": [
             "ಉತ್ಪನ್ನದ ಎರಡೂ ಭಾಗಗಳಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತೇನೆ: ಕೆಳಗೆ ವಿವರಿಸಿರುವ AI ಮತ್ತು ಉತ್ಪನ್ನ ಇಂಜಿನಿಯರಿಂಗ್, ಜೊತೆಗೆ ಅದು ಚಲಿಸುವ ವೇದಿಕೆಯ ಆದ್ಯಂತ ಹೊಣೆಗಾರಿಕೆ.",
             "DevOps/SRE ವಿಭಾಗವನ್ನು ಶೂನ್ಯದಿಂದ ಸ್ಥಾಪಿಸಿ ಈಗ ಅದನ್ನು ಮುನ್ನಡೆಸುತ್ತಿದ್ದೇನೆ, CI/CD, Linode ಮೇಲೆ OpenTofu ಮತ್ತು Ansible ಬಳಸಿ infrastructure-as-code, ಅಬ್ಸರ್ವೆಬಿಲಿಟಿ, ಅಲರ್ಟಿಂಗ್ ಮತ್ತು ಇನ್ಸಿಡೆಂಟ್ ರನ್‌ಬುಕ್‌ಗಳು.",
@@ -124,7 +124,7 @@
         },
         {
           "title": "Associate AI Engineer",
-          "date": "ಡಿಸೆಂಬರ್ 2025, ಫೆಬ್ರವರಿ 2026",
+          "date": "ಡಿಸೆಂಬರ್ 2025 – ಫೆಬ್ರವರಿ 2026",
           "bullets": [
             "MCP ಮೇಲೆ ERP ಸ್ವಯಂಚಾಲನೆಗಾಗಿ ಕಂಪನಿಯ ಮೊದಲ ಬಹು-ಏಜೆಂಟ್ LLM ಪೈಪ್‌ಲೈನ್ ಅನ್ನು ನಿರ್ಮಿಸಿದ ಸಣ್ಣ ತಂಡವನ್ನು ಮುನ್ನಡೆಸಿದ್ದೇನೆ; ದೀರ್ಘಾವಧಿಯ, ಬಹು-ಹಂತದ ವರ್ಕ್‌ಫ್ಲೋಗಳು ಮನುಷ್ಯರ ಮಧ್ಯಪ್ರವೇಶವಿಲ್ಲದೆ ಹಳಿ ತಪ್ಪದಂತೆ ನೋಡಿಕೊಂಡಿದ್ದೇನೆ.",
             "ರಚನಾತ್ಮಕ ಇನ್‌ಪುಟ್ ಸ್ಪೆಸಿಫಿಕೇಶನ್‌ಗಳನ್ನು ಓದಿ ನಿಯೋಜನೆಗೆ ಸಿದ್ಧವಾದ ವೆಬ್ ಅಪ್ಲಿಕೇಶನ್‌ಗಳನ್ನು ಸೃಷ್ಟಿಸುವ ಕೋಡ್-ಜನರೇಷನ್ ಸೇವೆಯನ್ನು ನಿರ್ಮಿಸಿದ್ದೇನೆ."
@@ -132,7 +132,7 @@
         },
         {
           "title": "Associate AI Engineer Intern",
-          "date": "ನವೆಂಬರ್ 2025, ಡಿಸೆಂಬರ್ 2025",
+          "date": "ನವೆಂಬರ್ 2025 – ಡಿಸೆಂಬರ್ 2025",
           "bullets": [
             "ಮೊದಲ LLM ಸಂಯೋಜನೆಗಳು ಮತ್ತು ಏಜೆಂಟ್ ವರ್ಕ್‌ಫ್ಲೋಗಳ ಮೂಲಮಾದರಿಗಳನ್ನು ರೂಪಿಸಿದ್ದೇನೆ."
           ]
@@ -156,7 +156,7 @@
       "title": "Research Intern, AI and Deep Learning",
       "org": "RVCE Centre of Excellence",
       "location": "ರಿಮೋಟ್",
-      "date": "ಅಕ್ಟೋಬರ್ 2024, ಡಿಸೆಂಬರ್ 2024",
+      "date": "ಅಕ್ಟೋಬರ್ 2024 – ಡಿಸೆಂಬರ್ 2024",
       "current": false,
       "bullets": [
         "ತಿರುಚಿದ ಮುಖಗಳಿರುವ ವೀಡಿಯೊಗಳಿಗಾಗಿ ಡೀಪ್‌ಫೇಕ್ ಪತ್ತೆ ಮಾಡೆಲ್ ಅನ್ನು ಶೂನ್ಯದಿಂದ ನಿರ್ಮಿಸಿದ್ದೇನೆ; ಯಾವುದೇ ಬಾಹ್ಯ ಪತ್ತೆ API ಗಳನ್ನು ಬಳಸಿಲ್ಲ.",
@@ -175,7 +175,7 @@
       "title": "Associate Consultant Intern, Enterprise Cybersecurity",
       "org": "Ernst & Young India",
       "location": "ಬೆಂಗಳೂರು, ಭಾರತ",
-      "date": "ಆಗಸ್ಟ್ 2024, ಸೆಪ್ಟೆಂಬರ್ 2024",
+      "date": "ಆಗಸ್ಟ್ 2024 – ಸೆಪ್ಟೆಂಬರ್ 2024",
       "current": false,
       "bullets": [
         "ಕ್ಲೌಡ್ ಭದ್ರತೆ ಹಾಗೂ ಗುರುತು ಮತ್ತು ಪ್ರವೇಶ ನಿರ್ವಹಣೆಯ ಕೆಲಸಗಳಲ್ಲಿ ಹಿರಿಯ ಕನ್ಸಲ್ಟೆಂಟ್‌ಗಳ ಜೊತೆಗಿದ್ದು ಅವರ ಕೆಲಸವನ್ನು ಹತ್ತಿರದಿಂದ ಗಮನಿಸಿದ್ದೇನೆ.",
@@ -195,7 +195,7 @@
       "title": "ಬಿ.ಇ. ಕಂಪ್ಯೂಟರ್ ಸೈನ್ಸ್ ಮತ್ತು ಇಂಜಿನಿಯರಿಂಗ್",
       "org": "R V College of Engineering (VTU)",
       "location": "Bengaluru, India",
-      "date": "Dec 2021, Aug 2025",
+      "date": "Dec 2021 – Aug 2025",
       "bullets": []
     }
   ],
@@ -221,7 +221,7 @@
         "Raspberry Pi"
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
-      "date": "Jan 2025, Jun 2025"
+      "date": "Jan 2025 – Jun 2025"
     },
     {
       "id": "agentic-devops",
@@ -265,7 +265,7 @@
       "tags": [
         "Web platform"
       ],
-      "url": "https://github.com/Developer1010x/KnotesCentral-Source-Code"
+      "url": "https://github.com/Developer1010x/knotesneo"
     },
     {
       "id": "llm-terminal",
