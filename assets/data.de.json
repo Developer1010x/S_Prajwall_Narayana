@@ -2,13 +2,12 @@
   "_readme": "Deutschland-Overrides. Nur Schlüssel, die von data.base.json abweichen. Siehe DATA-CONTRACT.md.",
   "_readme_language": "This region is fully localised into German, so meta.lang is de-DE. The strings.* block, the hero copy and the content arrays (about/skills/experience/education/projects) are all translated. Job titles are deliberately NOT translated: 'AI Engineer', 'Associate AI Engineer', 'Associate AI Engineer Intern', 'Research Intern', 'Associate Consultant Intern' are the titles as issued by the employers (the Colligence one is the offer-letter title) and a German Lebenslauf keeps original title wording. Technology names stay in English for the same reason.",
   "_readme_arrays": "Arrays replace wholesale (contract rule 3), so the translated arrays are complete copies with German prose. The order/hide block below is therefore redundant for ordering but is kept on purpose: it makes the intended emphasis explicit and the build validates every id, so a typo in a translated array fails loudly instead of silently reordering the page.",
-  "_readme_grade": "flags.showGrade stays false for Germany even though a German Lebenslauf normally carries the Abschlussnote. The German grading scale runs 1,0 (best) to 5,0 (fail); an Indian CGPA of  out of 10 printed on a German-language page reads as a catastrophic fail to a German recruiter. It is shown nowhere until a proper conversion exists — see the TODO below.",
   "_todo": [
     "TODO(de): the German translation on this page has NOT been reviewed by a native speaker. Every string in this file — summary, headline, workAuthorisation, strings.*, about, skills titles, experience, education and projects — was translated by an AI agent and proofread only by that agent. It reads as competent professional German, but idiom, register and the Blaue-Karte-EU wording should be checked by a native speaker before this page is treated as final.",
     "TODO(de): cv.href points at assets/cv/de.pdf, which does not exist yet. Until the PDF is on disk the build warns and omits the CV button from /de/ — it will not ship a 404. Export the Lebenslauf from Sources (HTML & LaTeX)/Country/de/lebenslauf_de.html to that path.",
     "TODO(de): German language level. No CEFR level (A1-C2) is claimed anywhere on this page or in the Lebenslauf because none is known. Add a Sprachkenntnisse line only once Prajwall states his actual level.",
     "TODO(de): English language level. Same rule — no CEFR level claimed. Degree and publications are in English, which is context, not a certified level.",
-    "TODO(de): Abschlussnote. CGPA  is not rendered (see _readme_grade). If a German equivalent is wanted, get it converted (anabin / uni-assist / the modified Bavarian formula) and only then decide whether to show it.",
+    "TODO(de): Abschlussnote. the CGPA is not rendered (see _readme_grade). If a German equivalent is wanted, get it converted (anabin / uni-assist / the modified Bavarian formula) and only then decide whether to show it.",
     "TODO(de): date and place of birth are conventional in a German Lebenslauf and are NOT in the factual base — only 'under 26 as of 2026'. Left as a placeholder in the Lebenslauf, not invented, and not put on this page at all.",
     "TODO(de): full postal address. A German Lebenslauf and Anschreiben both carry one; only 'Bengaluru, India' is known. Placeholder in the documents.",
     "TODO(de): salary expectation (Gehaltsvorstellung). German Anschreiben often ask for one; none is known, so the Anschreiben carries a placeholder.",
@@ -278,7 +277,6 @@
       "org": "R V College of Engineering (VTU)",
       "location": "Bengaluru, Indien",
       "date": "Dez. 2021 – Aug. 2025",
-      "grade": "First Class",
       "bullets": []
     }
   ],
@@ -307,6 +305,27 @@
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
       "date": "Jan. 2025 – Juni 2025"
+    },
+    {
+      "id": "audier",
+      "title": "Audier",
+      "subtitle": "Private reader and audiobook player for Linux",
+      "icon": "fa-book-open-reader",
+      "color": "#5B6ABF",
+      "description": "Reads your own books aloud in a neural voice, with follow-along highlighting and OCR for scanned pages. Everything runs locally; nothing is uploaded. Released as an AppImage, .deb and tarball.",
+      "metrics": [
+        "202 tests",
+        "v1.0.0 released",
+        "Runs fully offline"
+      ],
+      "tags": [
+        "Flutter",
+        "Dart",
+        "Piper TTS",
+        "Tesseract OCR"
+      ],
+      "url": "https://github.com/Developer1010x/audiobook-reader/releases/tag/v1.0.0",
+      "date": ""
     },
     {
       "id": "agentic-devops",
@@ -381,6 +400,86 @@
         "LLM-Integration"
       ],
       "url": "https://github.com/Developer1010x/LLM_Terminal"
+    },
+    {
+      "id": "openplay",
+      "title": "openplay",
+      "subtitle": "Open-source screen casting in Rust",
+      "icon": "fa-tower-broadcast",
+      "color": "#DE4A21",
+      "description": "Casts a screen to AirPlay and Miracast receivers with no proprietary software. AirPlay HAP pairing, FairPlay, RTSP negotiation and Wi-Fi Direct implemented from scratch in Rust.",
+      "metrics": [
+        "11-crate Cargo workspace",
+        "8 crates with integration tests"
+      ],
+      "tags": [
+        "Rust",
+        "GStreamer",
+        "WebRTC",
+        "mDNS"
+      ],
+      "url": "https://github.com/Developer1010x/openplay",
+      "date": ""
+    },
+    {
+      "id": "universal-converter",
+      "title": "universal-converter",
+      "subtitle": "File conversion with multi-hop routing",
+      "icon": "fa-right-left",
+      "color": "#2E9E63",
+      "description": "Finds a conversion path across converters when no direct one exists, using graph search over the registry. Audits which conversions actually work on the current machine instead of advertising formats it cannot handle.",
+      "metrics": [
+        "232 conversion pairs",
+        "Multi-hop routing via graph search"
+      ],
+      "tags": [
+        "Python",
+        "ffmpeg",
+        "Pillow",
+        "pandas"
+      ],
+      "url": "https://github.com/Developer1010x/universal-converter",
+      "date": ""
+    },
+    {
+      "id": "mp3-studio",
+      "title": "MP3 Studio",
+      "subtitle": "Desktop MP3 tag, artwork and EQ editor",
+      "icon": "fa-sliders",
+      "color": "#C86DD7",
+      "description": "Edits MP3 tags, fetches album art and lyrics, and applies a five-band equaliser across a batch. Non-destructive: EQ is applied only on export. Packaged for the Snap Store.",
+      "metrics": [
+        "Five-band EQ with presets",
+        "Batch queue and bulk export"
+      ],
+      "tags": [
+        "Python",
+        "Tkinter",
+        "pydub",
+        "mutagen"
+      ],
+      "url": "https://github.com/Developer1010x/mp3-studio",
+      "date": ""
+    },
+    {
+      "id": "worldmonitor-contribution",
+      "title": "World Monitor — open-source contribution",
+      "subtitle": "Merged upstream PR — not my project",
+      "icon": "fa-code-pull-request",
+      "color": "#5A6B7B",
+      "description": "A contribution, not a project of mine. Added an expandable price chart to the markets panel of a 330k-line TypeScript intelligence dashboard maintained by Elie Habib, and fixed a dev proxy path bug. Merged as PR #5459.",
+      "metrics": [
+        "PR #5459 merged",
+        "+892 / −39 across 37 files"
+      ],
+      "tags": [
+        "TypeScript",
+        "Vite",
+        "deck.gl",
+        "Open source"
+      ],
+      "url": "https://github.com/koala73/worldmonitor/pull/5459",
+      "date": ""
     }
   ],
   "strings": {

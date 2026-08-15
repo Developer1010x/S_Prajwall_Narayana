@@ -43,7 +43,7 @@
     "downloadName": "S-Prajwall-Narayana-CV-UK.pdf"
   },
   "flags": {
-    "showGrade": true,
+    "showGrade": false,
     "showPublications": true,
     "noindex": null
   },
@@ -62,6 +62,5 @@
       "authorisationLabel": "Right to work"
     }
   },
-  "_readme_grade": "Grade shown as 'First Class'. The percentage is included deliberately: a bare 'First Class' on a UK CV is read as First Class Honours, which means 70%+ here. Naming the figure keeps it accurate and lets a UK reader place it themselves. Source: his VTU marks slip, which states percentage = CGPA x 10.",
   "_readme_rtw": "workAuthorisation is deliberately null. Prajwall asked for the right-to-work block removed from the UK page; he found the explanation of the New Entrant rule laboured. The fact is still stated in the structured field on LinkedIn and comes up naturally at first contact."
 }
