@@ -27,7 +27,7 @@ const fail = (msg) => problems.push(msg);
 const warn = (msg) => warnings.push(msg);
 
 /* ------------------------------------------------------------------ */
-/* merge rules — documented in assets/DATA-CONTRACT.md                 */
+/* merge rules, documented in assets/DATA-CONTRACT.md                 */
 /* ------------------------------------------------------------------ */
 
 const isPlainObject = (v) =>
@@ -115,7 +115,7 @@ const fillTokens = (template, tokens) =>
   });
 
 /* ------------------------------------------------------------------ */
-/* section renderers — the ONLY place regional markup is produced      */
+/* section renderers: the ONLY place regional markup is produced      */
 /* ------------------------------------------------------------------ */
 
 const tagList = (tags) =>
@@ -129,7 +129,7 @@ const tagList = (tags) =>
  * Spelling variants.
  *
  * `meta.spelling` was declared per region from the start but nothing ever applied
- * it, so the US page shipped "organisation" — inherited from the shared base copy,
+ * it, so the US page shipped "organisation", inherited from the shared base copy,
  * which is written in en-GB. A US recruiter reads British spelling as either
  * careless or as a copy-paste from someone else's CV.
  *
@@ -444,7 +444,7 @@ function renderContact(data) {
 /* ------------------------------------------------------------------ */
 
 function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
-  // `lang` builds a language variant of a region — e.g. /in/hi/ — by layering
+  // `lang` builds a language variant of a region, e.g. /in/hi/, by layering
   // data.<cc>.<lang>.json on top of data.<cc>.json. The geo routing is unchanged
   // by this: a country still maps to one region, and the region's default page is
   // still the one the edge redirects to. Languages are a choice inside a region,
