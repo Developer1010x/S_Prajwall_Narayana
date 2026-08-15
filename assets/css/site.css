@@ -93,7 +93,14 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: 'Sora', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  /* Sora carries no CJK, Devanagari or Kannada glyphs, so the ja, hi, kn and mr
+     pages fall through to whatever the OS picks by default. Naming the usual
+     system faces makes that choice predictable instead. A font listed here that
+     is not installed costs nothing: the browser skips it, and Latin text never
+     reaches these entries because Sora already covers it. */
+  font-family: 'Sora', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Hiragino Sans', 'Yu Gothic', 'Noto Sans JP', 'Noto Sans CJK JP', Meiryo,
+    'Noto Sans Devanagari', 'Noto Sans Kannada', sans-serif;
   font-size: var(--step0);
   line-height: 1.62;
   -webkit-font-smoothing: antialiased;

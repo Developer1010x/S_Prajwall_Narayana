@@ -249,13 +249,13 @@
       "title": "AI Engineer",
       "org": "Colligence Research",
       "location": "インド・バンガロール",
-      "date": "Nov 2025 – present",
+      "date": "2025年11月 – 現在",
       "current": true,
       "note": "創業メンバーです。",
       "roles": [
         {
           "title": "AI Engineer",
-          "date": "Feb 2026 – present",
+          "date": "2026年2月 – 現在",
           "bullets": [
             "プロダクトの両面を担当しています。以下に挙げる AI・プロダクト開発に加え、それが稼働するプラットフォームについても一貫して責任を持っています。",
             "DevOps/SRE 機能をゼロから立ち上げ、現在も統括しています。対象は CI/CD、Linode 上での OpenTofu と Ansible による Infrastructure as Code、可観測性、アラート、インシデント対応の Runbook です。",
@@ -267,7 +267,7 @@
         },
         {
           "title": "Associate AI Engineer",
-          "date": "Dec 2025 – Feb 2026",
+          "date": "2025年12月 – 2026年2月",
           "bullets": [
             "少人数のチームを率い、MCP を介した ERP 自動化のための社内初となるマルチエージェント LLM パイプラインを構築しました。長時間かつ多段階のワークフローが、人手を介さずに正しく進み続ける仕組みです。",
             "構造化された入力仕様を解析し、デプロイ可能な Web アプリケーションを生成するコード生成サービスを構築しました。"
@@ -275,7 +275,7 @@
         },
         {
           "title": "Associate AI Engineer Intern",
-          "date": "Nov 2025 – Dec 2025",
+          "date": "2025年11月 – 2025年12月",
           "bullets": [
             "最初期の LLM 連携とエージェントワークフローのプロトタイプを開発しました。"
           ]
@@ -299,7 +299,7 @@
       "title": "Research Intern, AI and Deep Learning",
       "org": "RVCE Centre of Excellence",
       "location": "リモート",
-      "date": "Oct 2024 – Dec 2024",
+      "date": "2024年10月 – 2024年12月",
       "current": false,
       "bullets": [
         "顔を改変した動画を対象とするディープフェイク検出モデルを、外部の検出 API を一切使わずにゼロから構築しました。",
@@ -318,7 +318,7 @@
       "title": "Associate Consultant Intern, Enterprise Cybersecurity",
       "org": "Ernst & Young India",
       "location": "インド・バンガロール",
-      "date": "Aug 2024 – Sep 2024",
+      "date": "2024年8月 – 2024年9月",
       "current": false,
       "bullets": [
         "シニアコンサルタントの業務に同行し、クラウドセキュリティおよび ID・アクセス管理の案件を見学しました。",
@@ -338,7 +338,7 @@
       "title": "情報工学 学士（B.E. Computer Science and Engineering）",
       "org": "R V College of Engineering (VTU)",
       "location": "Bengaluru, India",
-      "date": "Dec 2021 – Aug 2025",
+      "date": "2021年12月 – 2025年8月",
       "bullets": []
     }
   ],
@@ -364,7 +364,7 @@
         "Raspberry Pi"
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
-      "date": "Jan 2025 – Jun 2025"
+      "date": "2025年1月 – 2025年6月"
     },
     {
       "id": "audier",
@@ -432,6 +432,25 @@
       "url": "https://github.com/Developer1010x/knotesneo"
     },
     {
+      "id": "audio-deepfake",
+      "title": "Audio Deepfake Detection",
+      "subtitle": "合成音声の検出",
+      "icon": "fa-wave-square",
+      "color": "#AF52DE",
+      "description": "AI によって合成された音声やクローン音声を検出します。",
+      "metrics": [
+        "AUC 0.957 ±0.015, leave-source-out 5-fold GroupKFold",
+        "Brier 0.074 calibrated, against 0.264 for the classical baseline",
+        "Per-artifact recall reported separately, 0.79 to 0.98"
+      ],
+      "tags": [
+        "PyTorch",
+        "Audio",
+        "Classification"
+      ],
+      "url": "https://github.com/Developer1010x/deepfake-detector"
+    },
+    {
       "id": "llm-terminal",
       "title": "LLM Terminal",
       "subtitle": "ターミナルベースの LLM アシスタント",
@@ -445,21 +464,6 @@
         "LLM integration"
       ],
       "url": "https://github.com/Developer1010x/LLM_Terminal"
-    },
-    {
-      "id": "audio-deepfake",
-      "title": "Audio Deepfake Detection",
-      "subtitle": "合成音声の検出",
-      "icon": "fa-wave-square",
-      "color": "#AF52DE",
-      "description": "AI によって合成された音声やクローン音声を検出します。",
-      "metrics": [],
-      "tags": [
-        "PyTorch",
-        "Audio",
-        "Classification"
-      ],
-      "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
     },
     {
       "id": "openplay",

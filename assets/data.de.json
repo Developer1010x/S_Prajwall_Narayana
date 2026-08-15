@@ -352,13 +352,17 @@
       "icon": "fa-wave-square",
       "color": "#AF52DE",
       "description": "Erkennt KI-synthetisierte oder geklonte Sprache.",
-      "metrics": [],
+      "metrics": [
+        "AUC 0.957 ±0.015, leave-source-out 5-fold GroupKFold",
+        "Brier 0.074 calibrated, against 0.264 for the classical baseline",
+        "Per-artifact recall reported separately, 0.79 to 0.98"
+      ],
       "tags": [
         "PyTorch",
         "Audio",
         "Klassifikation"
       ],
-      "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
+      "url": "https://github.com/Developer1010x/deepfake-detector"
     },
     {
       "id": "pybridge",

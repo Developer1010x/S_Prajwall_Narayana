@@ -267,6 +267,25 @@
       "url": "https://github.com/Developer1010x/knotesneo"
     },
     {
+      "id": "audio-deepfake",
+      "title": "Audio Deepfake Detection",
+      "subtitle": "कृत्रिम आवाजाची ओळख",
+      "icon": "fa-wave-square",
+      "color": "#AF52DE",
+      "description": "AI ने तयार केलेला किंवा क्लोन केलेला आवाज ओळखून तसा इशारा देते.",
+      "metrics": [
+        "AUC 0.957 ±0.015, leave-source-out 5-fold GroupKFold",
+        "Brier 0.074 calibrated, against 0.264 for the classical baseline",
+        "Per-artifact recall reported separately, 0.79 to 0.98"
+      ],
+      "tags": [
+        "PyTorch",
+        "Audio",
+        "Classification"
+      ],
+      "url": "https://github.com/Developer1010x/deepfake-detector"
+    },
+    {
       "id": "llm-terminal",
       "title": "LLM Terminal",
       "subtitle": "टर्मिनलवर चालणारा LLM सहायक",
@@ -280,21 +299,6 @@
         "LLM integration"
       ],
       "url": "https://github.com/Developer1010x/LLM_Terminal"
-    },
-    {
-      "id": "audio-deepfake",
-      "title": "Audio Deepfake Detection",
-      "subtitle": "कृत्रिम आवाजाची ओळख",
-      "icon": "fa-wave-square",
-      "color": "#AF52DE",
-      "description": "AI ने तयार केलेला किंवा क्लोन केलेला आवाज ओळखून तसा इशारा देते.",
-      "metrics": [],
-      "tags": [
-        "PyTorch",
-        "Audio",
-        "Classification"
-      ],
-      "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
     }
   ],
   "strings": {
