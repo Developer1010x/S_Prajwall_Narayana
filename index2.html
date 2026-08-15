@@ -63,15 +63,6 @@
   .run-track{display:flex;gap:10px;width:max-content;animation:slide 46s linear infinite}
   .run-track span{font-family:var(--mono);font-size:12.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:5px 12px;white-space:nowrap}
   @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  /* Reduced motion: stop the scroll, but keep it one strip. Letting it wrap
-     turns 70 tags into eight rows that push the page down, and the duplicated
-     half needed for a seamless loop then shows every item twice. */
-  @media (prefers-reduced-motion:reduce){
-    .run{overflow-x:auto;scrollbar-width:none}
-    .run::-webkit-scrollbar{display:none}
-    .run-track{animation:none}
-    .run-track .dup{display:none}
-  }
 
   .svc{display:grid;grid-template-columns:46px 1fr;gap:20px;border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:26px;margin-bottom:14px}
   .svc-idx{font-family:var(--mono);color:var(--faint);font-size:14px}
@@ -228,9 +219,6 @@
   <img class="portrait lift" style="--d:150ms" src="assets/images/S_Prajwall_Narayana.jpg" alt="Stylised high-contrast avatar used by S Prajwall Narayana">
 </section>
 
-<div class="run" aria-hidden="true">
-  <div class="run-track"><span>Agentic systems</span><span>MCP orchestration</span><span>Multi-agent workflows</span><span>RAG</span><span>LangChain</span><span>LangGraph</span><span>Claude API</span><span>LLM integration</span><span>Evaluation harnesses</span><span>CI/CD</span><span>OpenTofu (IaC)</span><span>Ansible</span><span>Docker</span><span>Linux</span><span>Linode</span><span>Observability and alerting</span><span>Incident runbooks</span><span>Zitadel (SSO/IAM)</span><span>RBAC</span><span>Git</span><span>Python</span><span>C</span><span>C++</span><span>FastAPI</span><span>REST APIs</span><span>PostgreSQL</span><span>SQL</span><span>Swift</span><span>Rust</span><span>Shell scripting</span><span>PyTorch</span><span>TensorFlow</span><span>YOLOv8</span><span>OpenCV</span><span>CNN</span><span>ResNet</span><span>Quantized model deployment</span><span class="dup">Agentic systems</span><span class="dup">MCP orchestration</span><span class="dup">Multi-agent workflows</span><span class="dup">RAG</span><span class="dup">LangChain</span><span class="dup">LangGraph</span><span class="dup">Claude API</span><span class="dup">LLM integration</span><span class="dup">Evaluation harnesses</span><span class="dup">CI/CD</span><span class="dup">OpenTofu (IaC)</span><span class="dup">Ansible</span><span class="dup">Docker</span><span class="dup">Linux</span><span class="dup">Linode</span><span class="dup">Observability and alerting</span><span class="dup">Incident runbooks</span><span class="dup">Zitadel (SSO/IAM)</span><span class="dup">RBAC</span><span class="dup">Git</span><span class="dup">Python</span><span class="dup">C</span><span class="dup">C++</span><span class="dup">FastAPI</span><span class="dup">REST APIs</span><span class="dup">PostgreSQL</span><span class="dup">SQL</span><span class="dup">Swift</span><span class="dup">Rust</span><span class="dup">Shell scripting</span><span class="dup">PyTorch</span><span class="dup">TensorFlow</span><span class="dup">YOLOv8</span><span class="dup">OpenCV</span><span class="dup">CNN</span><span class="dup">ResNet</span><span class="dup">Quantized model deployment</span></div>
-</div>
 
 <section class="wrap" id="about">
   <p class="eyebrow">About</p>
@@ -284,12 +272,9 @@
             <h3>Colligence Research</h3>
             <p class="row-role">AI Engineer. Founding team.</p>
             <p class="row-meta">Nov 2025, present · Bengaluru, India</p>
-            <ul class="roles">              <li><strong>AI Engineer</strong> <span class="row-meta">Feb 2026, present</span>
-                <ul><li>Works across both halves of the product: the AI and product engineering below, plus end-to-end ownership of the platform it runs on.</li><li>Established the DevOps/SRE function from scratch and now leads it, CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.</li><li>Building a retrieval-augmented system into the infrastructure layer itself, so that infrastructure-as-code and SRE work, runbook lookup, change context, incident response, is grounded in the organisation&#39;s own configuration and history rather than hand-carried knowledge. In progress.</li><li>Replaced manual GitHub deploy workflows, cutting deployment errors for a four-person founding team.</li><li>Operates the production stack end to end: Docker, Zitadel authentication, monitored deployments with self-healing alerting.</li><li>Owns system architecture across infrastructure and tooling.</li></ul></li>
-              <li><strong>Associate AI Engineer</strong> <span class="row-meta">Dec 2025, Feb 2026</span>
-                <ul><li>Led a small team building the company&#39;s first multi-agent LLM pipeline for ERP automation over MCP, keeping long-running multi-step workflows on track without human intervention.</li><li>Built a code-generation service that parses structured input specs and emits deployment-ready web applications.</li></ul></li>
-              <li><strong>Associate AI Engineer Intern</strong> <span class="row-meta">Nov 2025, Dec 2025</span>
-                <ul><li>Prototyped the first LLM integrations and agent workflows.</li></ul></li></ul>
+            <ul><li>Works across both halves of the product: the AI and product engineering below, plus end-to-end ownership of the platform it runs on.</li><li>Established the DevOps/SRE function from scratch and now leads it, CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.</li><li>Building a retrieval-augmented system into the infrastructure layer itself, so that infrastructure-as-code and SRE work, runbook lookup, change context, incident response, is grounded in the organisation&#39;s own configuration and history rather than hand-carried knowledge. In progress.</li><li>Replaced manual GitHub deploy workflows, cutting deployment errors for a four-person founding team.</li><li>Operates the production stack end to end: Docker, Zitadel authentication, monitored deployments with self-healing alerting.</li><li>Owns system architecture across infrastructure and tooling.</li></ul>
+<p class="sub"><span class="subtitle">Associate AI Engineer</span> <span class="row-meta">Dec 2025, Feb 2026</span></p><ul><li>Led a small team building the company&#39;s first multi-agent LLM pipeline for ERP automation over MCP, keeping long-running multi-step workflows on track without human intervention.</li><li>Built a code-generation service that parses structured input specs and emits deployment-ready web applications.</li></ul>
+<p class="sub"><span class="subtitle">Associate AI Engineer Intern</span> <span class="row-meta">Nov 2025, Dec 2025</span></p><ul><li>Prototyped the first LLM integrations and agent workflows.</li></ul>
           </div>
         </article>
         <article class="row">
@@ -298,8 +283,7 @@
             <h3>RVCE Centre of Excellence</h3>
             <p class="row-role">Research Intern, AI and Deep Learning</p>
             <p class="row-meta">Oct 2024, Dec 2024 · Remote</p>
-            <ul class="roles">              <li><strong>Research Intern, AI and Deep Learning</strong> <span class="row-meta">Oct 2024, Dec 2024</span>
-                </li></ul>
+            <ul><li>Built a deepfake-detection model from scratch for manipulated-face video, using no external detection APIs.</li><li>Trained and evaluated on the FaceForensics++ and DFDC datasets.</li></ul>
           </div>
         </article>
         <article class="row">
@@ -308,8 +292,7 @@
             <h3>Ernst &amp; Young India</h3>
             <p class="row-role">Associate Consultant Intern, Enterprise Cybersecurity</p>
             <p class="row-meta">Aug 2024, Sep 2024 · Bengaluru, India</p>
-            <ul class="roles">              <li><strong>Associate Consultant Intern, Enterprise Cybersecurity</strong> <span class="row-meta">Aug 2024, Sep 2024</span>
-                </li></ul>
+            <ul><li>Shadowed senior consultants on cloud-security and identity and access management work.</li><li>Exposure to the TOGAF and IFTAS frameworks.</li></ul>
           </div>
         </article>
 </section>

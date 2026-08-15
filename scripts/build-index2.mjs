@@ -53,9 +53,6 @@ const statCards = stats
   )
   .join('\n');
 
-const skillRun = allSkills.map((s) => `<span>${esc(s)}</span>`).join('');
-/* Second copy so the marquee loops seamlessly; hidden when motion is reduced. */
-const skillRunDup = allSkills.map((s) => `<span class="dup">${esc(s)}</span>`).join('');
 
 /* Proof, not a portfolio dump: the work that backs the offers above. */
 const projItems = projects
@@ -116,12 +113,23 @@ const skillGroups = (skills || [])
         </div>`)
   .join('\n');
 
-/* Experience, including the sub-roles where a single employer had several. */
+/* Experience. The first role's title is already in the header, so only the
+   later ones are labelled: otherwise a single-role entry prints its own title
+   and dates twice, which is what it used to do. */
 const expItems = (experience || [])
   .map((e, i) => {
-    const roles = (e.roles && e.roles.length ? e.roles : [{ title: e.title, date: e.date, bullets: [] }])
-      .map((r) => `              <li><strong>${esc(r.title)}</strong>${r.date ? ` <span class="row-meta">${esc(r.date)}</span>` : ''}
-                ${(r.bullets || []).length ? `<ul>${(r.bullets || []).map((b) => `<li>${esc(b)}</li>`).join('')}</ul>` : ''}</li>`)
+    const roles = e.roles && e.roles.length ? e.roles : [{ bullets: e.bullets || [] }];
+    const body = roles
+      .map((r, j) => {
+        const head = j === 0 || !r.title
+          ? ''
+          : `<p class="sub"><span class="subtitle">${esc(r.title)}</span>` +
+            (r.date ? ` <span class="row-meta">${esc(r.date)}</span>` : '') + `</p>`;
+        const list = (r.bullets || []).length
+          ? `<ul>${(r.bullets || []).map((b) => `<li>${esc(b)}</li>`).join('')}</ul>`
+          : '';
+        return head + list;
+      })
       .join('\n');
     return `        <article class="row">
           <div class="row-idx">${String(i + 1).padStart(2, '0')}</div>
@@ -129,7 +137,7 @@ const expItems = (experience || [])
             <h3>${esc(e.org)}</h3>
             <p class="row-role">${esc(e.title)}${e.note ? `. ${esc(e.note)}` : ''}</p>
             <p class="row-meta">${esc(e.date)}${e.location ? ` · ${esc(e.location)}` : ''}</p>
-            <ul class="roles">${roles}</ul>
+            ${body}
           </div>
         </article>`;
   })
@@ -211,15 +219,6 @@ const html = `<!DOCTYPE html>
   .run-track{display:flex;gap:10px;width:max-content;animation:slide 46s linear infinite}
   .run-track span{font-family:var(--mono);font-size:12.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:5px 12px;white-space:nowrap}
   @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  /* Reduced motion: stop the scroll, but keep it one strip. Letting it wrap
-     turns 70 tags into eight rows that push the page down, and the duplicated
-     half needed for a seamless loop then shows every item twice. */
-  @media (prefers-reduced-motion:reduce){
-    .run{overflow-x:auto;scrollbar-width:none}
-    .run::-webkit-scrollbar{display:none}
-    .run-track{animation:none}
-    .run-track .dup{display:none}
-  }
 
   .svc{display:grid;grid-template-columns:46px 1fr;gap:20px;border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:26px;margin-bottom:14px}
   .svc-idx{font-family:var(--mono);color:var(--faint);font-size:14px}
@@ -365,9 +364,6 @@ ${statCards}
   <img class="portrait lift" style="--d:150ms" src="${esc(personal.profileImage)}" alt="${esc(personal.profileImageAlt)}">
 </section>
 
-<div class="run" aria-hidden="true">
-  <div class="run-track">${skillRun}${skillRunDup}</div>
-</div>
 
 <section class="wrap" id="about">
   <p class="eyebrow">About</p>
