@@ -126,7 +126,8 @@
       "education": "学歴",
       "projects": "制作物",
       "publications": "論文",
-      "contact": "連絡先"
+      "contact": "連絡先",
+      "services": "サービス"
     },
     "region": {
       "notice": "このサイトの{region}版をご覧いただいています。",

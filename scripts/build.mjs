@@ -645,7 +645,7 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
       regions: base.site.regions.map((r) => r.cc),
       typed: data.typedPhrases,
     }),
-    NAV_LINKS: navLinks(data),
+    NAV_LINKS: navLinks(data, UP),
     STATS: renderStats(data.stats),
     WORK_AUTH: workAuth,
     ABOUT: renderAbout(data.about),
@@ -683,7 +683,7 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
   return { cc, lang, outDir, html, noindex, canonical };
 }
 
-function navLinks(data) {
+function navLinks(data, up = '') {
   const n = data.strings.nav;
   const items = [
     ['about', n.about],
@@ -691,12 +691,16 @@ function navLinks(data) {
     ['experience', n.experience],
     ['education', n.education],
     ['projects', n.projects],
-    ['services', n.services || 'Services'],
   ];
   if (data.flags.showPublications !== false) items.push(['publications', n.publications]);
+  // Services sits at the end, next to Contact, and leaves the page: index2.html
+  // is the freelance pitch in full, so the nav entry goes there rather than to
+  // the teaser section of the same name. `up` climbs back to the site root,
+  // because a regional page lives at /uk/ and a language variant at /in/hi/.
+  items.push(['services', n.services || 'Services', `${up}index2.html`]);
   items.push(['contact', n.contact]);
   return items
-    .map(([id, label]) => `      <li><a href="#${id}">${esc(label)}</a></li>`)
+    .map(([id, label, href]) => `      <li><a href="${esc(href || `#${id}`)}">${esc(label)}</a></li>`)
     .join('\n');
 }
 

@@ -502,7 +502,8 @@
       "education": "Ausbildung",
       "projects": "Projekte",
       "publications": "Publikationen",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "services": "Leistungen"
     },
     "hero": {
       "greeting": "Hallo, ich bin",
