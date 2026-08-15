@@ -3,12 +3,12 @@
   "_readme_language": "This region is fully localised into German, so meta.lang is de-DE. The strings.* block, the hero copy and the content arrays (about/skills/experience/education/projects) are all translated. Job titles are deliberately NOT translated: 'AI Engineer', 'Associate AI Engineer', 'Associate AI Engineer Intern', 'Research Intern', 'Associate Consultant Intern' are the titles as issued by the employers (the Colligence one is the offer-letter title) and a German Lebenslauf keeps original title wording. Technology names stay in English for the same reason.",
   "_readme_arrays": "Arrays replace wholesale (contract rule 3), so the translated arrays are complete copies with German prose. The order/hide block below is therefore redundant for ordering but is kept on purpose: it makes the intended emphasis explicit and the build validates every id, so a typo in a translated array fails loudly instead of silently reordering the page.",
   "_todo": [
-    "TODO(de): the German translation on this page has NOT been reviewed by a native speaker. Every string in this file — summary, headline, workAuthorisation, strings.*, about, skills titles, experience, education and projects — was translated by an AI agent and proofread only by that agent. It reads as competent professional German, but idiom, register and the Blaue-Karte-EU wording should be checked by a native speaker before this page is treated as final.",
-    "TODO(de): cv.href points at assets/cv/de.pdf, which does not exist yet. Until the PDF is on disk the build warns and omits the CV button from /de/ — it will not ship a 404. Export the Lebenslauf from Sources (HTML & LaTeX)/Country/de/lebenslauf_de.html to that path.",
+    "TODO(de): the German translation on this page has NOT been reviewed by a native speaker. Every string in this file, summary, headline, workAuthorisation, strings.*, about, skills titles, experience, education and projects, was translated by an AI agent and proofread only by that agent. It reads as competent professional German, but idiom, register and the Blaue-Karte-EU wording should be checked by a native speaker before this page is treated as final.",
+    "TODO(de): cv.href points at assets/cv/de.pdf, which does not exist yet. Until the PDF is on disk the build warns and omits the CV button from /de/, it will not ship a 404. Export the Lebenslauf from Sources (HTML & LaTeX)/Country/de/lebenslauf_de.html to that path.",
     "TODO(de): German language level. No CEFR level (A1-C2) is claimed anywhere on this page or in the Lebenslauf because none is known. Add a Sprachkenntnisse line only once Prajwall states his actual level.",
-    "TODO(de): English language level. Same rule — no CEFR level claimed. Degree and publications are in English, which is context, not a certified level.",
+    "TODO(de): English language level. Same rule, no CEFR level claimed. Degree and publications are in English, which is context, not a certified level.",
     "TODO(de): Abschlussnote. the CGPA is not rendered (see _readme_grade). If a German equivalent is wanted, get it converted (anabin / uni-assist / the modified Bavarian formula) and only then decide whether to show it.",
-    "TODO(de): date and place of birth are conventional in a German Lebenslauf and are NOT in the factual base — only 'under 26 as of 2026'. Left as a placeholder in the Lebenslauf, not invented, and not put on this page at all.",
+    "TODO(de): date and place of birth are conventional in a German Lebenslauf and are NOT in the factual base, only 'under 26 as of 2026'. Left as a placeholder in the Lebenslauf, not invented, and not put on this page at all.",
     "TODO(de): full postal address. A German Lebenslauf and Anschreiben both carry one; only 'Bengaluru, India' is known. Placeholder in the documents.",
     "TODO(de): salary expectation (Gehaltsvorstellung). German Anschreiben often ask for one; none is known, so the Anschreiben carries a placeholder.",
     "TODO(de): confirm the Blaue-Karte-EU wording in workAuthorisation with Prajwall before it goes live. It states the route and that the IT shortage-occupation threshold is lower; it deliberately states no figure, because thresholds change yearly."
@@ -30,11 +30,11 @@
     "showPublications": true
   },
   "seo": {
-    "title": "S. Prajwall Narayana — AI Engineer für Produkt und Plattform",
+    "title": "S. Prajwall Narayana, AI Engineer für Produkt und Plattform",
     "description": "AI Engineer im Gründungsteam von Colligence Research: agentische und LLM-Pipelines, Backend-APIs sowie CI/CD, Infrastructure-as-Code und Betrieb der Plattform darunter."
   },
-  "headline": "AI Engineer — Produktentwicklung und Plattformbetrieb",
-  "summary": "AI Engineer im Gründungsteam von Colligence Research in Bengaluru. Ich entwickle das Produkt — agentische und LLM-Pipelines, einen Code-Generierungsdienst, Backend-APIs — und verantworte zugleich die Plattform, auf der es läuft: CI/CD, Infrastructure-as-Code, Observability, Incident Response und Authentifizierung. Beides gehört zusammen: **Wer den Agenten-Workflow ausliefert, übernimmt auch die Rufbereitschaft dafür.** Abgeschlossenes Ingenieurstudium der Informatik (B.E., R V College of Engineering, VTU) und drei begutachtete Veröffentlichungen bei Springer und IEEE.",
+  "headline": "AI Engineer, Produktentwicklung und Plattformbetrieb",
+  "summary": "AI Engineer im Gründungsteam von Colligence Research in Bengaluru. Ich entwickle das Produkt, agentische und LLM-Pipelines, einen Code-Generierungsdienst, Backend-APIs, und verantworte zugleich die Plattform, auf der es läuft: CI/CD, Infrastructure-as-Code, Observability, Incident Response und Authentifizierung. Beides gehört zusammen: **Wer den Agenten-Workflow ausliefert, übernimmt auch die Rufbereitschaft dafür.** Abgeschlossenes Ingenieurstudium der Informatik (B.E., R V College of Engineering, VTU) und drei begutachtete Veröffentlichungen bei Springer und IEEE.",
   "workAuthorisation": "Für eine Anstellung in Deutschland ist eine Arbeitserlaubnis erforderlich. Als Hochschulabsolvent der Informatik kommt die **Blaue Karte EU** in Betracht; für IT-Engpassberufe gilt eine abgesenkte Gehaltsschwelle. Umzug nach Deutschland möglich.",
   "typedPhrases": [
     "agentische und LLM-Pipelines",
@@ -113,7 +113,7 @@
       "id": "research",
       "icon": "fa-flask",
       "title": "Forschung und Veröffentlichungen",
-      "body": "Drei begutachtete Beiträge — einer auf der Springer ICTIS 2025 in Bangkok, zwei auf IEEE Xplore — zu Schulverwaltungssystemen, ResNet50-Hyperparameter-Tuning und einem webservergesteuerten Rover mit Objekterkennung. Zwei weitere befinden sich im Begutachtungsverfahren."
+      "body": "Drei begutachtete Beiträge, einer auf der Springer ICTIS 2025 in Bangkok, zwei auf IEEE Xplore, zu Schulverwaltungssystemen, ResNet50-Hyperparameter-Tuning und einem webservergesteuerten Rover mit Objekterkennung. Zwei weitere befinden sich im Begutachtungsverfahren."
     }
   ],
   "skills": [
@@ -197,7 +197,7 @@
           "bullets": [
             "Tätigkeit auf beiden Seiten des Produkts: KI- und Produktentwicklung ebenso wie durchgängige Verantwortung für die Plattform, auf der sie läuft.",
             "Aufbau der DevOps-/SRE-Funktion von Grund auf und seitdem deren Leitung: CI/CD, Infrastructure-as-Code mit OpenTofu und Ansible auf Linode, Observability, Alerting und Incident-Runbooks.",
-            "Baut derzeit ein retrieval-gestütztes System direkt in die Infrastrukturebene ein, damit Infrastructure-as-Code und SRE-Arbeit — Runbook-Recherche, Änderungskontext, Incident Response — auf der eigenen Konfiguration und Historie der Organisation beruhen statt auf mitgetragenem Wissen. In Arbeit.",
+            "Baut derzeit ein retrieval-gestütztes System direkt in die Infrastrukturebene ein, damit Infrastructure-as-Code und SRE-Arbeit, Runbook-Recherche, Änderungskontext, Incident Response, auf der eigenen Konfiguration und Historie der Organisation beruhen statt auf mitgetragenem Wissen. In Arbeit.",
             "Ablösung der manuellen GitHub-Deploy-Workflows und dadurch weniger Deployment-Fehler für ein vierköpfiges Gründungsteam.",
             "Durchgängiger Betrieb des Produktionsstacks: Docker, Authentifizierung über Zitadel, überwachte Deployments mit selbstheilendem Alerting.",
             "Verantwortung für die Systemarchitektur über Infrastruktur und Tooling hinweg."
@@ -289,7 +289,7 @@
       "subtitle": "Offlinefähige, mehrsprachige KI-Gesundheitsplattform",
       "icon": "fa-heart-pulse",
       "color": "#FF3B30",
-      "description": "Symptomprüfung, Erkennung von Frakturen auf Röntgenbildern, Zusammenfassung von Rezepten und ein Wellness-Chatbot — vollständig offline auf quantisierten Modellen, vorgeführt auf einem Raspberry Pi. Darunter liegt eine deterministische, regelbasierte Sicherheitsschicht für Arzneimittelwechselwirkungen und Krisenerkennung, die das LLM nicht übergehen kann. Ein Evaluation Harness mit 62 gelabelten Fällen bewertet diese Sicherheitsschichten und läuft als Merge-Gate in der CI bei einem Recall von 1,00; beim Aufbau wurde eine tatsächlich übersehene Äußerung zur Selbstgefährdung gefunden. Eine LangGraph-Pipeline überführt einen hochgeladenen medizinischen Befund in eine verständliche Erklärung in der Sprache der Patientin oder des Patienten, mit einer Selbstverifikationsschleife; Anfragen werden über mehrere lokale Ollama-Modelle geroutet. Dritter Platz beim Abschlussprojekt-Wettbewerb der Hochschule.",
+      "description": "Symptomprüfung, Erkennung von Frakturen auf Röntgenbildern, Zusammenfassung von Rezepten und ein Wellness-Chatbot, vollständig offline auf quantisierten Modellen, vorgeführt auf einem Raspberry Pi. Darunter liegt eine deterministische, regelbasierte Sicherheitsschicht für Arzneimittelwechselwirkungen und Krisenerkennung, die das LLM nicht übergehen kann. Ein Evaluation Harness mit 62 gelabelten Fällen bewertet diese Sicherheitsschichten und läuft als Merge-Gate in der CI bei einem Recall von 1,00; beim Aufbau wurde eine tatsächlich übersehene Äußerung zur Selbstgefährdung gefunden. Eine LangGraph-Pipeline überführt einen hochgeladenen medizinischen Befund in eine verständliche Erklärung in der Sprache der Patientin oder des Patienten, mit einer Selbstverifikationsschleife; Anfragen werden über mehrere lokale Ollama-Modelle geroutet. Dritter Platz beim Abschlussprojekt-Wettbewerb der Hochschule.",
       "metrics": [
         "Krisenerkennung: Recall 1,00 / Precision 0,93",
         "Notfallerkennung: 1,00 / 1,00",
@@ -463,8 +463,8 @@
     },
     {
       "id": "worldmonitor-contribution",
-      "title": "World Monitor — open-source contribution",
-      "subtitle": "Merged upstream PR — not my project",
+      "title": "World Monitor, open-source contribution",
+      "subtitle": "Merged upstream PR, not my project",
       "icon": "fa-code-pull-request",
       "color": "#5A6B7B",
       "description": "A contribution, not a project of mine. Added an expandable price chart to the markets panel of a 330k-line TypeScript intelligence dashboard maintained by Elie Habib, and fixed a dev proxy path bug. Merged as PR #5459.",
@@ -514,7 +514,7 @@
       "aboutTitle": "Über mich",
       "aboutSubtitle": "Ein AI Engineer, der das Produkt entwickelt und die Plattform darunter betreibt.",
       "skillsTitle": "Kenntnisse",
-      "skillsSubtitle": "KI- und LLM-Systeme und die Infrastruktur, auf der sie laufen — zu gleichen Teilen.",
+      "skillsSubtitle": "KI- und LLM-Systeme und die Infrastruktur, auf der sie laufen, zu gleichen Teilen.",
       "experienceTitle": "Berufserfahrung",
       "experienceSubtitle": "Stationen in umgekehrt chronologischer Reihenfolge.",
       "educationTitle": "Ausbildung",

@@ -1,18 +1,18 @@
 {
-  "_readme": "Japan overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. Japan uses TWO application documents: 'rirekisho' (a standardised personal-history form, photo and date of birth expected) and 'shokumu keirekisho' (a detailed reverse-chronological career-history document). The shell links one PDF, so cv.href points at the shokumu keirekisho — the rirekisho is sent with it, not instead of it. Both HTML sources live in '01 CV & Resumes/Sources (HTML & LaTeX)/Country/jp/'.",
+  "_readme": "Japan overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. Japan uses TWO application documents: 'rirekisho' (a standardised personal-history form, photo and date of birth expected) and 'shokumu keirekisho' (a detailed reverse-chronological career-history document). The shell links one PDF, so cv.href points at the shokumu keirekisho, the rirekisho is sent with it, not instead of it. Both HTML sources live in '01 CV & Resumes/Sources (HTML & LaTeX)/Country/jp/'.",
   "_todo": [
     "TODO(jp): no Japanese-language ability is stated anywhere on this page or in either document, because none has been supplied. Add a JLPT level (or 'no Japanese yet, studying') only after Prajwall confirms it. Japanese ability is screened on for almost every role in Japan, including English-speaking ones.",
     "TODO(jp): set cv.href to assets/cv/jp-shokumu-keirekisho.pdf once the PDF is exported from Country/jp/shokumu_keirekisho_jp.html. Until the file is on disk the build omits the CV button from /jp/ rather than shipping a 404.",
     "TODO(jp): the rirekisho needs a photo, a date of birth and a full postal address. None of the three are on this page (the site does not need them) but the printed rirekisho does. See Country/jp/NOTES-jp.md.",
     "TODO(jp): decide a salary expectation before applying. Japanese applications ask for it in the rirekisho's preferences box; it is currently left as an explicit placeholder.",
-    "TODO(jp): the Japanese interface copy was written by Claude and has NOT been reviewed by a native speaker. Register is aimed at 丁寧語 suitable for a recruiter-facing page. Have a native speaker read it before this page is used in a real application — a register mistake reads worse in Japan than English would.",
+    "TODO(jp): the Japanese interface copy was written by Claude and has NOT been reviewed by a native speaker. Register is aimed at 丁寧語 suitable for a recruiter-facing page. Have a native speaker read it before this page is used in a real application, a register mistake reads worse in Japan than English would.",
     "TODO(jp): the Japanese body content (about[], skills[].title, projects[].subtitle, projects[].description, education[].title) was translated by Claude from data.base.json and has NOT been reviewed by a native speaker. Nothing was added to or removed from the English claims, but wording, katakana choices and 丁寧語 consistency need a native-speaker pass before this page is used in a real application.",
     "TODO(jp): projects[].metrics were deliberately left in English ('Crisis detection: recall 1.00 / precision 0.93' etc.) because they are evaluation-harness labels tied to measured figures. Decide with a native speaker whether Japanese labels would read better; if so, the numbers must stay untouched.",
-    "TODO(jp): experience[] was translated by Claude from data.base.json and has NOT been reviewed by a native speaker. Every employer, every role and every bullet from the base is present in the same order; no claim was added, dropped, strengthened or weakened. Two things specifically need a native-speaker check: whether 「現在進行中です」 reads as clearly not-yet-shipped for the RAG infrastructure bullet (it must — that system is unfinished), and whether 「現在も統括しています」 is the right weight for having founded and now leading the DevOps/SRE function (neither more nor less than the English).",
-    "TODO(jp): date format across the whole page. experience[].date, roles[].date, education[].date and projects[].date are all left in the English 'Nov 2025 — present' form so the page is internally consistent. A Japanese 職務経歴書 conventionally uses 2025年11月 — 現在. If that convention is wanted, change all four arrays together in one pass, not experience[] alone — the numbers must not change, only the month rendering.",
+    "TODO(jp): experience[] was translated by Claude from data.base.json and has NOT been reviewed by a native speaker. Every employer, every role and every bullet from the base is present in the same order; no claim was added, dropped, strengthened or weakened. Two things specifically need a native-speaker check: whether 「現在進行中です」 reads as clearly not-yet-shipped for the RAG infrastructure bullet (it must, that system is unfinished), and whether 「現在も統括しています」 is the right weight for having founded and now leading the DevOps/SRE function (neither more nor less than the English).",
+    "TODO(jp): date format across the whole page. experience[].date, roles[].date, education[].date and projects[].date are all left in the English 'Nov 2025, present' form so the page is internally consistent. A Japanese 職務経歴書 conventionally uses 2025年11月, 現在. If that convention is wanted, change all four arrays together in one pass, not experience[] alone, the numbers must not change, only the month rendering.",
     "TODO(jp): experience[].tags were left in English, matching skills[].items in this file. Two of them ('Agentic systems', 'Cloud security') are ordinary English phrases rather than product names and could be Japanese; the rest are technology names that must stay as they are. Decide once, for tags and skill items together."
   ],
-  "_readme_experience": "experience[] replaces the base array wholesale (contract rule 3), so this is a complete copy with Japanese prose. Translated: role bullets, the founding-team note and location strings. NOT translated, on purpose: job titles (AI Engineer / Associate AI Engineer / Associate AI Engineer Intern / Research Intern / Associate Consultant Intern are the titles as issued by the employers — the Colligence one is the offer-letter title — and a Japanese 職務経歴書 keeps the employer's own wording; katakana 'AI エンジニア' is common in Japanese job adverts but is not what the offer letter says, and half the titles have no established katakana form at all), employer names, technology names and every date and figure.",
+  "_readme_experience": "experience[] replaces the base array wholesale (contract rule 3), so this is a complete copy with Japanese prose. Translated: role bullets, the founding-team note and location strings. NOT translated, on purpose: job titles (AI Engineer / Associate AI Engineer / Associate AI Engineer Intern / Research Intern / Associate Consultant Intern are the titles as issued by the employers, the Colligence one is the offer-letter title, and a Japanese 職務経歴書 keeps the employer's own wording; katakana 'AI エンジニア' is common in Japanese job adverts but is not what the offer letter says, and half the titles have no established katakana form at all), employer names, technology names and every date and figure.",
   "meta": {
     "cc": "jp",
     "label": "Japan",
@@ -20,7 +20,7 @@
     "dir": "ltr",
     "spelling": "en-GB"
   },
-  "headline": "AI Engineer — product development and platform operations",
+  "headline": "AI Engineer, product development and platform operations",
   "summary": "インドのバンガロールにある Colligence Research の創業メンバーとして、AI エンジニアを務めています。プロダクト側では、MCP を用いたマルチエージェント・LLM パイプライン、コード生成サービス、およびそれらを支えるバックエンド API を開発しています。同時に、それが稼働するプラットフォームも担当しており、DevOps/SRE 機能を立ち上げ、現在も統括しています（CI/CD、Infrastructure as Code、監視・可観測性、インシデント対応、認証基盤）。**開発と運用は一つの仕事だと考えています。エージェント基盤を作った者が、その障害対応も担うべきだからです。**日本でのエンジニア職を希望しており、**就労ビザのサポート**が必要です。履歴書および職務経歴書は、ご依頼に応じてお送りいたします。",
   "workAuthorisation": "現在はインド・バンガロール在住で、日本での就労資格は保有していません。該当する在留資格は **「技術・人文知識・国際業務」** で、海外から採用されるソフトウェアエンジニアの標準的な区分です。情報工学の学士号（B.E.）は要件を満たしており、在留資格認定証明書は受入企業側で申請いただく形になります。",
   "typedPhrases": [
@@ -63,7 +63,7 @@
     ]
   },
   "seo": {
-    "title": "S. Prajwall Narayana — AI Engineer (product and platform), Japan",
+    "title": "S. Prajwall Narayana, AI Engineer (product and platform), Japan",
     "description": "AI Engineer on a founding team in Bengaluru: agentic and LLM pipelines, code generation and backend APIs, plus the CI/CD, IaC and observability platform underneath. Seeking a role in Japan with visa sponsorship."
   },
   "strings": {
@@ -246,13 +246,13 @@
       "title": "AI Engineer",
       "org": "Colligence Research",
       "location": "インド・バンガロール",
-      "date": "Nov 2025 — present",
+      "date": "Nov 2025, present",
       "current": true,
       "note": "創業メンバーです。",
       "roles": [
         {
           "title": "AI Engineer",
-          "date": "Feb 2026 — present",
+          "date": "Feb 2026, present",
           "bullets": [
             "プロダクトの両面を担当しています。以下に挙げる AI・プロダクト開発に加え、それが稼働するプラットフォームについても一貫して責任を持っています。",
             "DevOps/SRE 機能をゼロから立ち上げ、現在も統括しています。対象は CI/CD、Linode 上での OpenTofu と Ansible による Infrastructure as Code、可観測性、アラート、インシデント対応の Runbook です。",
@@ -264,7 +264,7 @@
         },
         {
           "title": "Associate AI Engineer",
-          "date": "Dec 2025 — Feb 2026",
+          "date": "Dec 2025, Feb 2026",
           "bullets": [
             "少人数のチームを率い、MCP を介した ERP 自動化のための社内初となるマルチエージェント LLM パイプラインを構築しました。長時間かつ多段階のワークフローが、人手を介さずに正しく進み続ける仕組みです。",
             "構造化された入力仕様を解析し、デプロイ可能な Web アプリケーションを生成するコード生成サービスを構築しました。"
@@ -272,7 +272,7 @@
         },
         {
           "title": "Associate AI Engineer Intern",
-          "date": "Nov 2025 — Dec 2025",
+          "date": "Nov 2025, Dec 2025",
           "bullets": [
             "最初期の LLM 連携とエージェントワークフローのプロトタイプを開発しました。"
           ]
@@ -296,7 +296,7 @@
       "title": "Research Intern, AI and Deep Learning",
       "org": "RVCE Centre of Excellence",
       "location": "リモート",
-      "date": "Oct 2024 — Dec 2024",
+      "date": "Oct 2024, Dec 2024",
       "current": false,
       "bullets": [
         "顔を改変した動画を対象とするディープフェイク検出モデルを、外部の検出 API を一切使わずにゼロから構築しました。",
@@ -315,7 +315,7 @@
       "title": "Associate Consultant Intern, Enterprise Cybersecurity",
       "org": "Ernst & Young India",
       "location": "インド・バンガロール",
-      "date": "Aug 2024 — Sep 2024",
+      "date": "Aug 2024, Sep 2024",
       "current": false,
       "bullets": [
         "シニアコンサルタントの業務に同行し、クラウドセキュリティおよび ID・アクセス管理の案件を見学しました。",
@@ -335,7 +335,7 @@
       "title": "情報工学 学士（B.E. Computer Science and Engineering）",
       "org": "R V College of Engineering (VTU)",
       "location": "Bengaluru, India",
-      "date": "Dec 2021 — Aug 2025",
+      "date": "Dec 2021, Aug 2025",
       "bullets": []
     }
   ],
@@ -361,7 +361,7 @@
         "Raspberry Pi"
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
-      "date": "Jan 2025 — Jun 2025"
+      "date": "Jan 2025, Jun 2025"
     },
     {
       "id": "audier",
@@ -520,8 +520,8 @@
     },
     {
       "id": "worldmonitor-contribution",
-      "title": "World Monitor — open-source contribution",
-      "subtitle": "Merged upstream PR — not my project",
+      "title": "World Monitor, open-source contribution",
+      "subtitle": "Merged upstream PR, not my project",
       "icon": "fa-code-pull-request",
       "color": "#5A6B7B",
       "description": "A contribution, not a project of mine. Added an expandable price chart to the markets panel of a 330k-line TypeScript intelligence dashboard maintained by Elie Habib, and fixed a dev proxy path bug. Merged as PR #5459.",
