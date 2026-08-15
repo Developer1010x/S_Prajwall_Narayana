@@ -14,8 +14,8 @@
     "showGrade": false,
     "showPublications": true
   },
-  "headline": "AI Engineer — agentic and LLM systems, and the platform they run on",
-  "summary": "AI Engineer on the founding team at **Colligence Research**, Bengaluru. I work across both halves of the stack: I build the product — multi-agent and LLM pipelines over **MCP**, a code-generation service, **Python** and **FastAPI** backends — and I own the platform it runs on, having set up **CI/CD**, infrastructure-as-code with **OpenTofu** and **Ansible**, **Docker**, **Zitadel** authentication, observability and incident response from scratch. **IEEE- and Springer-published**, with three peer-reviewed papers and two more under review.",
+  "headline": "AI Engineer, agentic and LLM systems, and the platform they run on",
+  "summary": "AI Engineer on the founding team at **Colligence Research**, Bengaluru. I work across both halves of the stack: I build the product, multi-agent and LLM pipelines over **MCP**, a code-generation service, **Python** and **FastAPI** backends, and I own the platform it runs on, having set up **CI/CD**, infrastructure-as-code with **OpenTofu** and **Ansible**, **Docker**, **Zitadel** authentication, observability and incident response from scratch. **IEEE- and Springer-published**, with three peer-reviewed papers and two more under review.",
   "typedPhrases": [
     "agentic and LLM pipelines over MCP",
     "CI/CD and infrastructure-as-code",
@@ -53,7 +53,7 @@
     "downloadName": "S-Prajwall-Narayana-Resume-India.pdf"
   },
   "seo": {
-    "title": "S. Prajwall Narayana — AI Engineer (agentic and LLM systems, DevOps) | Bengaluru",
+    "title": "S. Prajwall Narayana, AI Engineer (agentic and LLM systems, DevOps) | Bengaluru",
     "description": "AI Engineer on the founding team at Colligence Research, Bengaluru. Multi-agent and LLM pipelines over MCP, LangGraph, Python and FastAPI, alongside CI/CD, OpenTofu, Ansible, Docker and Zitadel. IEEE- and Springer-published."
   },
   "strings": {
@@ -66,7 +66,7 @@
     },
     "sections": {
       "skillsSubtitle": "AI and LLM systems and the infrastructure they run on, in equal measure.",
-      "publicationsSubtitle": "Peer-reviewed work — IEEE Xplore and Springer.",
+      "publicationsSubtitle": "Peer-reviewed work, IEEE Xplore and Springer.",
       "educationSubtitle": "Academic background."
     }
   }
