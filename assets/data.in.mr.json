@@ -72,6 +72,8 @@
       "icon": "fa-code",
       "items": [
         "Python",
+        "C",
+        "C++",
         "FastAPI",
         "REST APIs",
         "PostgreSQL",
