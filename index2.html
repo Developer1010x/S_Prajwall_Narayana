@@ -4,166 +4,187 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>S. Prajwall Narayana | Freelance AI and platform engineering</title>
-<meta name="description" content="Freelance and contract engineering: RAG systems with real evaluation, LLM and agent pipelines, and the DevOps platform they run on. Based in Bengaluru, India, working remotely.">
+<title>S. Prajwall Narayana | AI and platform engineering</title>
+<meta name="description" content="S. Prajwall Narayana builds retrieval and agent systems with evaluation wired into CI, and the platform they run on. AI Engineer at Colligence Research. Based in Bengaluru, India.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <style>
   :root{
-    --bg:#0b0b0d; --elev:#111114; --card:#141417; --line:#232329; --line-hi:#33333b;
-    --fg:#ededf0; --dim:#a2a2ad; --faint:#6e6e79; --accent:#7c9cff; --good:#4ade80;
-    --max:1080px; --radius:14px;
-    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif;
-    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+    --bg:#08080a; --panel:rgba(255,255,255,.024);
+    --line:rgba(255,255,255,.076); --line-hi:rgba(255,255,255,.17);
+    --fg:#f4f4f5; --dim:#a0a0ab; --faint:#6d6d78;
+    --accent:#8aa6ff; --good:#4ade80;
+    --max:1060px; --radius:12px;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Inter,Roboto,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono","Cascadia Code",Menlo,monospace;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  /* The hero glow is absolutely positioned and deliberately bleeds past its
+     container, which widens the document and produces a horizontal scrollbar.
+     Clip it here rather than with overflow-x:hidden, which would turn the body
+     into a scroll container and break the sticky nav and sticky spec panel. */
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);
+    line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:clip}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .wrap{max-width:var(--max);margin:0 auto;padding-inline:26px}
   .skip{position:absolute;left:-9999px}
   .skip:focus{left:16px;top:16px;background:var(--fg);color:var(--bg);padding:10px 14px;border-radius:8px;z-index:100}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 
-  header.nav{position:sticky;top:0;z-index:50;background:rgba(11,11,13,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
-  .brand{font-weight:600;white-space:nowrap}
-  .brand .sep{color:var(--faint);margin:0 6px}
-  .brand .role{color:var(--dim);font-weight:400}
-  .nav-links{display:flex;gap:2px;align-items:center;overflow-x:auto;scrollbar-width:none}
+  /* ── nav ───────────────────────────────────────────────────────────────── */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.72);
+    backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid transparent}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;height:60px}
+  .brand{font-weight:600;white-space:nowrap;letter-spacing:-.01em}
+  .brand .role{color:var(--faint);font-weight:400;font-family:var(--mono);font-size:12.5px;margin-left:9px}
+  .nav-links{display:flex;gap:1px;align-items:center;overflow-x:auto;scrollbar-width:none}
   .nav-links::-webkit-scrollbar{display:none}
-  .nav-links a{padding:7px 11px;border-radius:8px;color:var(--dim);font-size:14px;white-space:nowrap}
-  .nav-links a:hover{color:var(--fg);background:var(--elev)}
-  .nav-links a.cta{background:var(--fg);color:var(--bg);font-weight:600}
-  .nav-links a.cta:hover{background:var(--accent);color:#fff}
+  .nav-links a{padding:6px 9px;border-radius:7px;color:var(--dim);font-size:13.5px;white-space:nowrap;transition:color .16s ease}
+  .nav-links a:hover{color:var(--fg)}
+  .nav-links a.cta{border:1px solid var(--line-hi);color:var(--fg);margin-left:8px;padding:6px 13px}
+  .nav-links a.cta:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
 
-  section{padding:74px 0;border-top:1px solid var(--line)}
-  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
-  h1{font-size:clamp(2.1rem,5vw,3.2rem);line-height:1.09;letter-spacing:-.02em;margin:0 0 18px}
-  h2{font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.02em;margin:0 0 10px}
-  h3{margin:0 0 4px;font-size:1.08rem}
-  .lead{font-size:1.12rem;color:var(--dim);max-width:680px;margin:0}
-  .sub{color:var(--dim);max-width:680px;margin:0 0 30px}
+  /* ── type ──────────────────────────────────────────────────────────────── */
+  section{padding-block:82px}
+  h1{font-size:clamp(2.3rem,5.6vw,3.55rem);line-height:1.05;letter-spacing:-.033em;margin:0 0 20px;font-weight:600}
+  h2{font-size:clamp(1.45rem,2.9vw,1.95rem);letter-spacing:-.028em;margin:0 0 12px;font-weight:600}
+  h3{margin:0 0 3px;font-size:1.06rem;font-weight:600;letter-spacing:-.012em}
+  .lead{font-size:1.14rem;color:var(--dim);max-width:640px;margin:0;line-height:1.66}
+  .sub{color:var(--faint);max-width:620px;margin:0 0 6px;font-size:14.5px}
+  .mono-meta{font-family:var(--mono);font-size:12px;color:var(--dim);
+    letter-spacing:.01em;font-variant-numeric:tabular-nums;display:block}
+  .mono-meta.faint{color:var(--faint);margin-top:3px}
+  .mono-list{font-family:var(--mono);font-size:12.5px;color:var(--faint);margin:13px 0 0;line-height:1.85}
 
-  .avail{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12.5px;color:var(--dim);border:1px solid var(--line-hi);border-radius:999px;padding:6px 14px;margin-bottom:22px}
-  .dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px rgba(74,222,128,.16)}
+  .sec-head{display:flex;align-items:center;gap:12px;margin:0 0 16px;
+    padding-bottom:13px;border-bottom:1px solid var(--line)}
+  .sec-num{font-family:var(--mono);font-size:12px;color:var(--accent);font-variant-numeric:tabular-nums}
+  .sec-label{font-family:var(--mono);font-size:11.5px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--faint)}
 
-  .hero{padding:80px 0 44px;border-top:none;display:grid;grid-template-columns:1fr 250px;gap:40px;align-items:start}
-  .portrait{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius);border:1px solid var(--line)}
-  .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;font-size:14px;border:1px solid var(--line-hi);transition:.15s}
+  /* ── hero ──────────────────────────────────────────────────────────────── */
+  .hero{position:relative;padding-block:96px 68px;display:grid;
+    grid-template-columns:minmax(0,1fr) 268px;gap:56px;align-items:start;isolation:isolate}
+  /* Kept inside the hero box on the horizontal axis: bleeding sideways is what
+     widened the document. The gradient is sized generously instead, so it still
+     falls off softly rather than ending at a visible edge. */
+  .hero::before{content:"";position:absolute;inset:-30% 0 auto 0;height:640px;z-index:-1;
+    background:radial-gradient(78% 62% at 24% 14%,rgba(138,166,255,.12),transparent 70%);
+    pointer-events:none}
+  .avail{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;
+    color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:5px 13px;margin-bottom:24px}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px rgba(74,222,128,.15)}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:7px;padding:10px 17px;border-radius:9px;
+    font-weight:550;font-size:14px;border:1px solid var(--line-hi)}
   .btn-primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-  .btn-primary:hover{background:var(--accent);border-color:var(--accent);color:#fff}
-  .btn-ghost:hover{border-color:var(--fg);background:var(--elev)}
+  .btn-primary:hover{background:#fff;border-color:#fff}
+  .btn-ghost{color:var(--dim)}
+  .btn-ghost:hover{color:var(--fg);border-color:var(--fg)}
 
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
-  .stat{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:22px}
-  .stat-num{font-size:1.9rem;font-weight:700;letter-spacing:-.02em}
-  .stat-lbl{color:var(--dim);font-size:13px;margin-top:4px}
+  /* The right column is a spec panel, not a photo card: what I am doing now,
+     where, and on what. It answers the first three questions anyone asks. */
+  .spec{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);
+    padding:18px;position:sticky;top:80px}
+  .portrait{width:100%;aspect-ratio:1;object-fit:cover;border-radius:9px;display:block;margin-bottom:16px}
+  .spec dl{margin:0;display:grid;gap:12px}
+  .spec dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+  .spec dd{margin:0;font-size:13.5px;color:var(--fg);line-height:1.45}
+  .spec dd span{color:var(--dim)}
 
-  .run{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;background:var(--elev)}
-  .run-track{display:flex;gap:10px;width:max-content;animation:slide 46s linear infinite}
-  .run-track span{font-family:var(--mono);font-size:12.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:5px 12px;white-space:nowrap}
-  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .stats{display:flex;gap:0;margin-top:44px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stat{flex:1;padding:20px 22px 20px 0;display:flex;flex-direction:column;gap:2px}
+  .stat + .stat{border-left:1px solid var(--line);padding-left:22px}
+  .stat-num{font-size:1.75rem;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+  .stat-lbl{color:var(--faint);font-size:12.5px;line-height:1.4}
 
-  .svc{display:grid;grid-template-columns:46px 1fr;gap:20px;border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:26px;margin-bottom:14px}
-  .svc-idx{font-family:var(--mono);color:var(--faint);font-size:14px}
-  .svc-body{color:var(--dim);margin:6px 0 0}
-  .svc-points{margin:14px 0 0;padding-left:18px;color:var(--dim);font-size:14.5px}
-  .svc-points li{margin-bottom:5px}
-  .svc-points li::marker{color:var(--accent)}
+  /* ── rows and entries ──────────────────────────────────────────────────── */
+  .drow{display:grid;grid-template-columns:210px minmax(0,1fr);gap:32px;
+    padding:22px 0;border-bottom:1px solid var(--line)}
+  .drow:last-child{border-bottom:none}
+  .drow-k{font-size:14.5px;font-weight:550;color:var(--fg)}
+  .drow-v p{margin:0;color:var(--dim);font-size:14.5px}
+  .drow-v .mono-list{margin:0;color:var(--dim)}
 
-  .row{display:grid;grid-template-columns:46px 1fr;gap:20px;border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:14px}
-  .row-idx{font-family:var(--mono);color:var(--faint);font-size:14px}
-  .row-role{color:var(--dim);margin:4px 0 8px}
-  .row-desc{color:var(--dim);margin:0}
-  .metrics{margin:12px 0 0;padding-left:18px;color:var(--dim);font-size:14px}
+  .entry{display:grid;grid-template-columns:150px minmax(0,1fr);gap:32px;
+    padding:26px 0;border-bottom:1px solid var(--line)}
+  .entry:last-child{border-bottom:none}
+  .entry-rail{padding-top:2px}
+  .entry-sub{color:var(--dim);margin:0;font-size:14px}
+  .entry-desc{color:var(--dim);margin:9px 0 0;font-size:14.5px}
+  .entry-body ul{margin:12px 0 0;padding-left:17px;color:var(--dim);font-size:14.5px}
+  .entry-body li{margin-bottom:5px}
+  .entry-body li::marker{color:var(--line-hi)}
   .metrics li::marker{color:var(--accent)}
-  .row h3 a:hover{color:var(--accent)}
-  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
-  .tag{font-family:var(--mono);font-size:11.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+  .role-head{margin:18px 0 0}
+  .role-title{font-weight:550;font-size:14.5px}
+  .role-head .mono-meta{display:inline;margin-left:8px;color:var(--faint)}
+  .arw{margin-left:7px;color:var(--faint);font-size:.85em;display:inline-block;transition:transform .2s ease}
+  .entry.linked h3 a:hover{color:var(--accent)}
+  .entry.linked h3 a:hover .arw{transform:translate(2px,-2px);color:var(--accent)}
 
-  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  .card{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:24px}
-  .card-idx{font-family:var(--mono);color:var(--faint);font-size:13px;margin-bottom:8px}
-  .card p{color:var(--dim);margin:6px 0 0;font-size:14.5px}
-
-  .note{border-bottom:1px solid var(--line);padding:18px 0}
-  .note:last-child{border-bottom:none}
-  .note-meta{font-family:var(--mono);font-size:12.5px;color:var(--faint);margin:0 0 6px}
-  .note h3 a:hover{color:var(--accent)}
-
-  .cta-band{border:1px solid var(--line-hi);background:var(--elev);border-radius:var(--radius);padding:34px}
-
-  footer{border-top:1px solid var(--line);padding:50px 0;color:var(--faint)}
-  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:26px}
-  footer h4{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 12px}
-  footer a{color:var(--dim);display:block;padding:3px 0;font-size:14px}
+  /* ── contact + footer ──────────────────────────────────────────────────── */
+  #contact .sub{max-width:560px;margin-bottom:0}
+  footer{border-top:1px solid var(--line);padding:44px 0 56px;color:var(--faint)}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:28px}
+  footer h4{color:var(--dim);font-family:var(--mono);font-size:10.5px;text-transform:uppercase;
+    letter-spacing:.13em;margin:0 0 11px;font-weight:400}
+  footer a{color:var(--faint);display:block;padding:3px 0;font-size:13.5px;transition:color .16s ease}
   footer a:hover{color:var(--fg)}
-  .copyright{margin-top:32px;font-size:13px}
+  .copyright{margin-top:34px;font-size:12.5px;font-family:var(--mono);color:var(--faint)}
 
-  /* Nine nav items plus a CTA overflow well before the mobile breakpoint, and
-     the CTA is the one item that must never be the one clipped. Wrap the whole
-     header onto two rows while there is still room to read it. */
-  @media (max-width:1100px){
-    .nav-in{flex-wrap:wrap;height:auto;padding:10px 0;gap:8px}
+  @media (max-width:1000px){
+    .nav-in{flex-wrap:wrap;height:auto;padding-block:10px;gap:8px}
     .nav-links{order:2;width:100%}
+    .nav-links a.cta{margin-left:auto}
+    .hero{grid-template-columns:1fr;gap:38px;padding-block-start:64px}
+    .spec{position:static;display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;align-items:start}
+    .portrait{margin-bottom:0}
+    .spec dl{grid-template-columns:repeat(2,1fr);gap:14px 20px}
   }
-  @media (max-width:860px){
-    .hero{grid-template-columns:1fr}
-    .portrait{max-width:210px}
-    .stats,.cards,.foot-grid{grid-template-columns:1fr}
-    .svc,.row{grid-template-columns:1fr;gap:10px}
+  @media (max-width:680px){
+    section{padding-block:60px}
+    .drow,.entry{grid-template-columns:1fr;gap:8px}
+    .entry-rail{display:flex;gap:12px;padding-top:0}
+    .entry-rail .mono-meta{display:inline;margin:0}
+    .stats{flex-direction:column}
+    .stat{padding:16px 0}
+    .stat + .stat{border-left:none;border-top:1px solid var(--line);padding-left:0}
+    .spec{grid-template-columns:1fr}
+    .spec dl{grid-template-columns:repeat(2,1fr)}
+    .foot-grid{grid-template-columns:1fr}
   }
 
-  /* ── motion ──────────────────────────────────────────────────────────────
-     Progressive enhancement. Nothing is hidden by CSS alone: the .anim class
-     is put on <html> by a script in <head>, so if that script never runs the
-     page renders fully visible and static. Hiding first and revealing with JS
-     is how content disappears for people with JS off. */
-  .anim .reveal{opacity:0;transform:translateY(18px);
-    transition:opacity .62s cubic-bezier(.22,.61,.36,1),transform .62s cubic-bezier(.22,.61,.36,1);
+  /* ── motion ────────────────────────────────────────────────────────────────
+     Progressive enhancement. Nothing is hidden by CSS alone: the .anim class is
+     put on <html> by a script in <head>, so if that script never runs the page
+     renders fully visible and static. Hiding first and revealing with JS is how
+     content disappears for people with JS off. Travel is deliberately short:
+     long slides read as a template, a few pixels read as polish. */
+  .anim .reveal{opacity:0;transform:translateY(10px);
+    transition:opacity .5s cubic-bezier(.22,.61,.36,1),transform .5s cubic-bezier(.22,.61,.36,1);
     transition-delay:var(--d,0ms);will-change:opacity,transform}
   .anim .reveal.shown{opacity:1;transform:none}
-
-  /* Hero runs on load rather than on scroll: it is already in view. */
-  .anim .hero .lift{opacity:0;transform:translateY(20px);animation:rise .7s cubic-bezier(.22,.61,.36,1) forwards;animation-delay:var(--d,0ms)}
+  .anim .hero .lift{opacity:0;transform:translateY(12px);
+    animation:rise .62s cubic-bezier(.22,.61,.36,1) forwards;animation-delay:var(--d,0ms)}
   @keyframes rise{to{opacity:1;transform:none}}
-
-  .avail .dot{animation:pulse 2.4s ease-in-out infinite}
-  @keyframes pulse{
-    0%,100%{box-shadow:0 0 0 3px rgba(74,222,128,.16)}
-    50%{box-shadow:0 0 0 7px rgba(74,222,128,.05)}
-  }
-
+  .avail .dot{animation:pulse 2.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(74,222,128,.15)}50%{box-shadow:0 0 0 6px rgba(74,222,128,.04)}}
   .btn{transition:transform .16s ease,background .16s ease,border-color .16s ease,color .16s ease}
-  .btn:hover{transform:translateY(-2px)}
-  .btn:active{transform:translateY(0)}
+  .btn:hover{transform:translateY(-1px)}
+  .btn:active{transform:none}
+  .drow,.entry{transition:border-color .2s ease}
+  header.nav{transition:border-color .25s ease}
+  header.nav.stuck{border-bottom-color:var(--line)}
 
-  .svc,.row,.card,.stat{transition:transform .22s cubic-bezier(.22,.61,.36,1),border-color .22s ease,box-shadow .22s ease}
-  .svc:hover,.row:hover,.card:hover{transform:translateY(-3px);border-color:var(--line-hi);box-shadow:0 10px 30px -18px rgba(0,0,0,.55)}
-  .stat:hover{transform:translateY(-3px);border-color:var(--line-hi)}
-
-  .tag{transition:border-color .18s ease,color .18s ease}
-  .tag:hover{border-color:var(--accent);color:var(--fg)}
-
-  .row h3 a,.note h3 a{position:relative}
-  .row h3 a::after,.note h3 a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;
-    background:var(--accent);transition:width .26s cubic-bezier(.22,.61,.36,1)}
-  .row h3 a:hover::after,.note h3 a:hover::after{width:100%}
-
-  header.nav{transition:box-shadow .25s ease,background .25s ease}
-  header.nav.stuck{box-shadow:0 1px 0 var(--line),0 10px 30px -22px rgba(0,0,0,.7)}
-
-  .nav-links a{position:relative}
-  .nav-links a:not(.cta)::after{content:"";position:absolute;left:11px;right:11px;bottom:4px;height:1px;
-    background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .24s cubic-bezier(.22,.61,.36,1)}
-  .nav-links a:not(.cta):hover::after{transform:scaleX(1)}
-
-  /* One switch turns all of it off, including the marquee handled above. */
   @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
     .anim .reveal{opacity:1!important;transform:none!important;transition:none!important}
     .anim .hero .lift{opacity:1!important;transform:none!important;animation:none!important}
     .avail .dot{animation:none}
-    .btn:hover,.svc:hover,.row:hover,.card:hover,.stat:hover{transform:none}
+    .btn:hover,.arw{transform:none}
     header.nav{transition:none}
   }
 </style>
@@ -173,7 +194,7 @@
 
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top">S. Prajwall Narayana<span class="sep">/</span><span class="role">Freelance</span></a>
+    <a class="brand" href="#top">S. Prajwall Narayana<span class="role">AI Engineer</span></a>
     <nav class="nav-links">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -183,7 +204,7 @@
       <a href="#services">Services</a>
       <a href="#publications">Publications</a>
       <a href="#contact">Contact</a>
-      <a class="cta" href="mailto:prajwallspambox@gmail.com?subject=Freelance%20enquiry">Start a project</a>
+      <a class="cta" href="mailto:prajwallspambox@gmail.com">Email</a>
     </nav>
   </div>
 </header>
@@ -193,274 +214,310 @@
 
 <section class="wrap hero">
   <div>
-    <span class="avail lift" style="--d:0ms"><span class="dot"></span> Taking on freelance and contract work</span>
-    <h1 class="lift" style="--d:70ms">I build LLM systems, and the platform that keeps them up.</h1>
-    <p class="lead lift" style="--d:140ms">Most teams can get a demo working. The hard part is the version that survives real traffic, real data and a bad Tuesday. That is the part I do: retrieval and agent systems with evaluation wired into CI, and the deployment, monitoring and on-call underneath them.</p>
-    <div class="btns lift" style="--d:210ms">
-      <a class="btn btn-primary" href="mailto:prajwallspambox@gmail.com?subject=Freelance%20enquiry">Start a project</a>
-      <a class="btn btn-ghost" href="#services">What I build →</a>
+    <span class="avail lift" style="--d:0ms"><span class="dot"></span> Open to select engagements</span>
+    <h1 class="lift" style="--d:60ms">I build LLM systems, and the platform that keeps them up.</h1>
+    <p class="lead lift" style="--d:120ms">Most teams can get a demo working. The hard part is the version that survives real traffic, real data and a bad Tuesday. That is the part I do: retrieval and agent systems with evaluation wired into CI, and the deployment, monitoring and on-call underneath them.</p>
+    <div class="btns lift" style="--d:180ms">
+      <a class="btn btn-primary" href="mailto:prajwallspambox@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="#projects">See the work</a>
       <a class="btn btn-ghost" href="https://github.com/Developer1010x" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
-    <div class="stats lift" style="--d:280ms">
-        <div class="stat">
-          <div class="stat-num">3</div>
-          <div class="stat-lbl">Peer-reviewed papers</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">10</div>
-          <div class="stat-lbl">Shipped projects</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">12+</div>
-          <div class="stat-lbl">Departments using Knotes Central</div>
-        </div>
+    <div class="stats lift" style="--d:240ms">
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-lbl">Peer-reviewed papers</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">10</span>
+        <span class="stat-lbl">Shipped projects</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">12+</span>
+        <span class="stat-lbl">Departments using Knotes Central</span>
+      </div>
     </div>
   </div>
-  <img class="portrait lift" style="--d:150ms" src="assets/images/S_Prajwall_Narayana.jpg" alt="Stylised high-contrast avatar used by S Prajwall Narayana">
+  <aside class="spec lift" style="--d:150ms">
+    <img class="portrait" src="assets/images/S_Prajwall_Narayana.jpg" alt="Stylised high-contrast avatar used by S Prajwall Narayana">
+    <dl>
+      <div><dt>Now</dt><dd>AI Engineer<br><span>Colligence Research</span></dd></div>
+      <div><dt>Based</dt><dd><span>Bengaluru, India</span></dd></div>
+      <div><dt>Focus</dt><dd><span>Retrieval &middot; agents &middot; platform</span></dd></div>
+    </dl>
+  </aside>
 </section>
 
-
 <section class="wrap" id="about">
-  <p class="eyebrow">About</p>
+  <div class="sec-head">
+    <span class="sec-num" aria-hidden="true">01</span>
+    <span class="sec-label">About</span>
+  </div>
   <h2>What I build, and how I work</h2>
-  <div class="cards">
-        <div class="card">
-          <h3>What I build</h3>
-          <p>Multi-agent LLM pipelines for ERP automation over MCP, a code-generation service that turns structured input specs into deployment-ready web applications, and the backend APIs behind them. Long-running, multi-step agent workflows that stay on track without a human babysitting them.</p>
-        </div>
-        <div class="card">
-          <h3>What I run</h3>
-          <p>The platform those systems run on. I established the DevOps/SRE function at Colligence Research from scratch and lead it: CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, Docker, Zitadel for SSO and RBAC, observability, alerting and incident runbooks.</p>
-        </div>
-        <div class="card">
-          <h3>Research and publications</h3>
-          <p>Three peer-reviewed papers, one at Springer ICTIS 2025 in Bangkok and two on IEEE Xplore, covering school administration systems, ResNet50 hyperparameter tuning and a web-server controlled rover with object detection. Two more are under review.</p>
-        </div>
+  <div class="rows">
+    <div class="drow">
+      <div class="drow-k">What I build</div>
+      <div class="drow-v"><p>Multi-agent LLM pipelines for ERP automation over MCP, a code-generation service that turns structured input specs into deployment-ready web applications, and the backend APIs behind them. Long-running, multi-step agent workflows that stay on track without a human babysitting them.</p></div>
+    </div>
+    <div class="drow">
+      <div class="drow-k">What I run</div>
+      <div class="drow-v"><p>The platform those systems run on. I established the DevOps/SRE function at Colligence Research from scratch and lead it: CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, Docker, Zitadel for SSO and RBAC, observability, alerting and incident runbooks.</p></div>
+    </div>
+    <div class="drow">
+      <div class="drow-k">Research and publications</div>
+      <div class="drow-v"><p>Three peer-reviewed papers, one at Springer ICTIS 2025 in Bangkok and two on IEEE Xplore, covering school administration systems, ResNet50 hyperparameter tuning and a web-server controlled rover with object detection. Two more are under review.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="wrap" id="skills">
-  <p class="eyebrow">Skills</p>
+  <div class="sec-head">
+    <span class="sec-num" aria-hidden="true">02</span>
+    <span class="sec-label">Skills</span>
+  </div>
   <h2>The stack I actually use</h2>
   <p class="sub">Grouped by what it is for, rather than listed as one wall of logos.</p>
-  <div class="cards">
-        <div class="card">
-          <h3>AI and LLM systems</h3>
-          <div class="tags"><span class="tag">Agentic systems</span><span class="tag">MCP orchestration</span><span class="tag">Multi-agent workflows</span><span class="tag">RAG</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Claude API</span><span class="tag">LLM integration</span><span class="tag">Evaluation harnesses</span></div>
-        </div>
-        <div class="card">
-          <h3>Infrastructure and DevOps</h3>
-          <div class="tags"><span class="tag">CI/CD</span><span class="tag">OpenTofu (IaC)</span><span class="tag">Ansible</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Linode</span><span class="tag">Observability and alerting</span><span class="tag">Incident runbooks</span><span class="tag">Zitadel (SSO/IAM)</span><span class="tag">RBAC</span><span class="tag">Git</span></div>
-        </div>
-        <div class="card">
-          <h3>Languages and backend</h3>
-          <div class="tags"><span class="tag">Python</span><span class="tag">C</span><span class="tag">C++</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">Swift</span><span class="tag">Rust</span><span class="tag">Shell scripting</span></div>
-        </div>
-        <div class="card">
-          <h3>Machine learning and vision</h3>
-          <div class="tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">YOLOv8</span><span class="tag">OpenCV</span><span class="tag">CNN</span><span class="tag">ResNet</span><span class="tag">Quantized model deployment</span></div>
-        </div>
+  <div class="rows">
+    <div class="drow">
+      <div class="drow-k">AI and LLM systems</div>
+      <div class="drow-v"><p class="mono-list">Agentic systems &middot; MCP orchestration &middot; Multi-agent workflows &middot; RAG &middot; LangChain &middot; LangGraph &middot; Claude API &middot; LLM integration &middot; Evaluation harnesses</p></div>
+    </div>
+    <div class="drow">
+      <div class="drow-k">Infrastructure and DevOps</div>
+      <div class="drow-v"><p class="mono-list">CI/CD &middot; OpenTofu (IaC) &middot; Ansible &middot; Docker &middot; Linux &middot; Linode &middot; Observability and alerting &middot; Incident runbooks &middot; Zitadel (SSO/IAM) &middot; RBAC &middot; Git</p></div>
+    </div>
+    <div class="drow">
+      <div class="drow-k">Languages and backend</div>
+      <div class="drow-v"><p class="mono-list">Python &middot; C &middot; C++ &middot; FastAPI &middot; REST APIs &middot; PostgreSQL &middot; SQL &middot; Swift &middot; Rust &middot; Shell scripting</p></div>
+    </div>
+    <div class="drow">
+      <div class="drow-k">Machine learning and vision</div>
+      <div class="drow-v"><p class="mono-list">PyTorch &middot; TensorFlow &middot; YOLOv8 &middot; OpenCV &middot; CNN &middot; ResNet &middot; Quantized model deployment</p></div>
+    </div>
   </div>
 </section>
 
 <section class="wrap" id="experience">
-  <p class="eyebrow">Experience</p>
+  <div class="sec-head">
+    <span class="sec-num" aria-hidden="true">03</span>
+    <span class="sec-label">Experience</span>
+  </div>
   <h2>Where I have shipped</h2>
-        <article class="row">
-          <div class="row-idx">01</div>
-          <div class="row-body">
-            <h3>Colligence Research</h3>
-            <p class="row-role">AI Engineer. Founding team.</p>
-            <p class="row-meta">Nov 2025, present · Bengaluru, India</p>
-            <ul><li>Works across both halves of the product: the AI and product engineering below, plus end-to-end ownership of the platform it runs on.</li><li>Established the DevOps/SRE function from scratch and now leads it, CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.</li><li>Building a retrieval-augmented system into the infrastructure layer itself, so that infrastructure-as-code and SRE work, runbook lookup, change context, incident response, is grounded in the organisation&#39;s own configuration and history rather than hand-carried knowledge. In progress.</li><li>Replaced manual GitHub deploy workflows, cutting deployment errors for a four-person founding team.</li><li>Operates the production stack end to end: Docker, Zitadel authentication, monitored deployments with self-healing alerting.</li><li>Owns system architecture across infrastructure and tooling.</li></ul>
-<p class="sub"><span class="subtitle">Associate AI Engineer</span> <span class="row-meta">Dec 2025, Feb 2026</span></p><ul><li>Led a small team building the company&#39;s first multi-agent LLM pipeline for ERP automation over MCP, keeping long-running multi-step workflows on track without human intervention.</li><li>Built a code-generation service that parses structured input specs and emits deployment-ready web applications.</li></ul>
-<p class="sub"><span class="subtitle">Associate AI Engineer Intern</span> <span class="row-meta">Nov 2025, Dec 2025</span></p><ul><li>Prototyped the first LLM integrations and agent workflows.</li></ul>
-          </div>
-        </article>
-        <article class="row">
-          <div class="row-idx">02</div>
-          <div class="row-body">
-            <h3>RVCE Centre of Excellence</h3>
-            <p class="row-role">Research Intern, AI and Deep Learning</p>
-            <p class="row-meta">Oct 2024, Dec 2024 · Remote</p>
-            <ul><li>Built a deepfake-detection model from scratch for manipulated-face video, using no external detection APIs.</li><li>Trained and evaluated on the FaceForensics++ and DFDC datasets.</li></ul>
-          </div>
-        </article>
-        <article class="row">
-          <div class="row-idx">03</div>
-          <div class="row-body">
-            <h3>Ernst &amp; Young India</h3>
-            <p class="row-role">Associate Consultant Intern, Enterprise Cybersecurity</p>
-            <p class="row-meta">Aug 2024, Sep 2024 · Bengaluru, India</p>
-            <ul><li>Shadowed senior consultants on cloud-security and identity and access management work.</li><li>Exposure to the TOGAF and IFTAS frameworks.</li></ul>
-          </div>
-        </article>
+    <article class="entry">
+      <div class="entry-rail">
+        <span class="mono-meta">Nov 2025 – present</span>
+        <span class="mono-meta faint">Bengaluru, India</span>
+      </div>
+      <div class="entry-body">
+        <h3>Colligence Research</h3>
+        <p class="entry-sub">AI Engineer &middot; Founding team.</p>
+        <ul><li>Works across both halves of the product: the AI and product engineering below, plus end-to-end ownership of the platform it runs on.</li><li>Established the DevOps/SRE function from scratch and now leads it, CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.</li><li>Building a retrieval-augmented system into the infrastructure layer itself, so that infrastructure-as-code and SRE work, runbook lookup, change context, incident response, is grounded in the organisation&#39;s own configuration and history rather than hand-carried knowledge. In progress.</li><li>Replaced manual GitHub deploy workflows, cutting deployment errors for a four-person founding team.</li><li>Operates the production stack end to end: Docker, Zitadel authentication, monitored deployments with self-healing alerting.</li><li>Owns system architecture across infrastructure and tooling.</li></ul>
+<p class="role-head"><span class="role-title">Associate AI Engineer</span> <span class="mono-meta">Dec 2025 – Feb 2026</span></p><ul><li>Led a small team building the company&#39;s first multi-agent LLM pipeline for ERP automation over MCP, keeping long-running multi-step workflows on track without human intervention.</li><li>Built a code-generation service that parses structured input specs and emits deployment-ready web applications.</li></ul>
+<p class="role-head"><span class="role-title">Associate AI Engineer Intern</span> <span class="mono-meta">Nov 2025 – Dec 2025</span></p><ul><li>Prototyped the first LLM integrations and agent workflows.</li></ul>
+      </div>
+    </article>
+    <article class="entry">
+      <div class="entry-rail">
+        <span class="mono-meta">Oct 2024 – Dec 2024</span>
+        <span class="mono-meta faint">Remote</span>
+      </div>
+      <div class="entry-body">
+        <h3>RVCE Centre of Excellence</h3>
+        <p class="entry-sub">Research Intern, AI and Deep Learning</p>
+        <ul><li>Built a deepfake-detection model from scratch for manipulated-face video, using no external detection APIs.</li><li>Trained and evaluated on the FaceForensics++ and DFDC datasets.</li></ul>
+      </div>
+    </article>
+    <article class="entry">
+      <div class="entry-rail">
+        <span class="mono-meta">Aug 2024 – Sep 2024</span>
+        <span class="mono-meta faint">Bengaluru, India</span>
+      </div>
+      <div class="entry-body">
+        <h3>Ernst &amp; Young India</h3>
+        <p class="entry-sub">Associate Consultant Intern, Enterprise Cybersecurity</p>
+        <ul><li>Shadowed senior consultants on cloud-security and identity and access management work.</li><li>Exposure to the TOGAF and IFTAS frameworks.</li></ul>
+      </div>
+    </article>
 </section>
 
 <section class="wrap" id="education">
-  <p class="eyebrow">Education</p>
+  <div class="sec-head">
+    <span class="sec-num" aria-hidden="true">04</span>
+    <span class="sec-label">Education</span>
+  </div>
   <h2>Education</h2>
-        <article class="row">
-          <div class="row-idx">01</div>
-          <div class="row-body">
-            <h3>R V College of Engineering (VTU)</h3>
-            <p class="row-role">B.E. Computer Science and Engineering</p>
-            <p class="row-meta">Dec 2021, Aug 2025 · Bengaluru, India</p>
-          </div>
-        </article>
+    <article class="entry">
+      <div class="entry-rail">
+        <span class="mono-meta">Dec 2021 – Aug 2025</span>
+        <span class="mono-meta faint">Bengaluru, India</span>
+      </div>
+      <div class="entry-body">
+        <h3>R V College of Engineering (VTU)</h3>
+        <p class="entry-sub">B.E. Computer Science and Engineering</p>
+      </div>
+    </article>
 </section>
 
 <section class="wrap" id="projects">
-  <p class="eyebrow">Projects</p>
-  <h2>Work that backs the offers below</h2>
-  <p class="sub">Every one is public and every claim is checkable. Read the code before you hire me.</p>
-        <article class="row">
-          <div class="row-idx">01</div>
-          <div class="row-body">
-            <h3><a href="https://github.com/Developer1010x/Arogya-Sathi" target="_blank" rel="noopener">Arogya-Sathi <span aria-hidden="true">↗</span></a></h3>
-            <p class="row-role">Offline-capable multilingual AI healthcare platform</p>
-            <p class="row-desc">Symptom checking, X-ray fracture detection, prescription summarisation and a wellness chatbot, running fully offline on quantized models, demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62…</p>
-            <ul class="metrics"><li>Crisis detection: recall 1.00 / precision 0.93</li><li>Emergency: 1.00 / 1.00</li><li>Drug screening: 1.00 / 1.00</li></ul>
-            <div class="tags"><span class="tag">LangGraph</span><span class="tag">Ollama</span><span class="tag">Quantized models</span><span class="tag">Evaluation harness</span><span class="tag">CI gate</span></div>
-          </div>
-        </article>
-        <article class="row">
-          <div class="row-idx">02</div>
-          <div class="row-body">
-            <h3><a href="https://github.com/Developer1010x/audiobook-reader/releases/tag/v1.0.0" target="_blank" rel="noopener">Audier <span aria-hidden="true">↗</span></a></h3>
-            <p class="row-role">Private reader and audiobook player for Linux, released and installable</p>
-            <p class="row-desc">A Linux desktop app that reads your own books aloud. It opens PDF, EPUB, Markdown and plain text, reads them in a neural voice with follow-along highlighting, recognises text on scanned pages, and offers optional AI study aids for textbooks across six providers. Privacy is the design constraint rath…</p>
-            <ul class="metrics"><li>202 tests</li><li>v1.0.0 released, AppImage.deb, tarball</li><li>Runs fully offline</li></ul>
-            <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Piper TTS</span><span class="tag">Tesseract OCR</span><span class="tag">GitHub Actions</span></div>
-          </div>
-        </article>
-        <article class="row">
-          <div class="row-idx">03</div>
-          <div class="row-body">
-            <h3><a href="https://github.com/Developer1010x/agentic-devops" target="_blank" rel="noopener">agentic-devops <span aria-hidden="true">↗</span></a></h3>
-            <p class="row-role">AI-powered CI/CD pipeline generator and monitor</p>
-            <p class="row-desc">An agent that reads a repository, infers its stack and test setup, and generates a working CI/CD pipeline for it, then watches the runs and explains failures in plain language instead of leaving you to parse red logs. It targets GitHub Actions and GitLab CI from the same core, so the generated workf…</p>
-            
-            <div class="tags"><span class="tag">CI/CD</span><span class="tag">GitHub</span><span class="tag">GitLab</span><span class="tag">Agents</span></div>
-          </div>
-        </article>
-        <article class="row">
-          <div class="row-idx">04</div>
-          <div class="row-body">
-            <h3><a href="https://github.com/Developer1010x/pybridge.ai" target="_blank" rel="noopener">pybridge.ai <span aria-hidden="true">↗</span></a></h3>
-            <p class="row-role">AI access from a phone</p>
-            <p class="row-desc">A bridge that puts an LLM behind the channels already on your phone, WhatsApp, Telegram and email, so a model can be driven without an app or a terminal. Each channel is a thin adapter over one routing core that keeps conversation context per user and forwards prompts to whichever backend is configu…</p>
-            
-            <div class="tags"><span class="tag">Python</span><span class="tag">Messaging</span><span class="tag">LLM integration</span><span class="tag">WhatsApp</span><span class="tag">Telegram</span></div>
-          </div>
-        </article>
-        <article class="row">
-          <div class="row-idx">05</div>
-          <div class="row-body">
-            <h3><a href="https://github.com/Developer1010x/KnotesCentral-Source-Code" target="_blank" rel="noopener">Knotes Central <span aria-hidden="true">↗</span></a></h3>
-            <p class="row-role">Student resource platform</p>
-            <p class="row-desc">A resource-sharing platform for students, notes, question papers and course material organised by department, that grew to be used across 12+ departments. It handles upload, categorisation and search so material stays findable instead of scattered across chat groups. It is being extended with semant…</p>
-            
-            <div class="tags"><span class="tag">Web platform</span><span class="tag">React</span><span class="tag">Search</span><span class="tag">File uploads</span></div>
-          </div>
-        </article>
+  <div class="sec-head">
+    <span class="sec-num" aria-hidden="true">05</span>
+    <span class="sec-label">Projects</span>
+  </div>
+  <h2>Systems I have designed and shipped</h2>
+  <p class="sub">Every one is public. The links go to the source.</p>
+    <article class="entry linked">
+      <div class="entry-rail">
+        <span class="mono-meta" aria-hidden="true">01</span>
+        <span class="mono-meta faint">Jan 2025 – Jun 2025</span>
+      </div>
+      <div class="entry-body">
+        <h3><a href="https://github.com/Developer1010x/Arogya-Sathi" target="_blank" rel="noopener">Arogya-Sathi<span class="arw" aria-hidden="true">↗</span></a></h3>
+        <p class="entry-sub">Offline-capable multilingual AI healthcare platform</p>
+        <p class="entry-desc">Symptom checking, X-ray fracture detection, prescription summarisation and a wellness chatbot, running fully offline on quantized models, demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underne…</p>
+        <ul class="metrics"><li>Crisis detection: recall 1.00 / precision 0.93</li><li>Emergency: 1.00 / 1.00</li><li>Drug screening: 1.00 / 1.00</li></ul>
+        <p class="mono-list">LangGraph &middot; Ollama &middot; Quantized models &middot; Evaluation harness &middot; CI gate &middot; Raspberry Pi</p>
+      </div>
+    </article>
+    <article class="entry linked">
+      <div class="entry-rail">
+        <span class="mono-meta" aria-hidden="true">02</span>
+        <span class="mono-meta faint">Aug 2026</span>
+      </div>
+      <div class="entry-body">
+        <h3><a href="https://github.com/Developer1010x/audiobook-reader/releases/tag/v1.0.0" target="_blank" rel="noopener">Audier<span class="arw" aria-hidden="true">↗</span></a></h3>
+        <p class="entry-sub">Private reader and audiobook player for Linux, released and installable</p>
+        <p class="entry-desc">A Linux desktop app that reads your own books aloud. It opens PDF, EPUB, Markdown and plain text, reads them in a neural voice with follow-along highlighting, recognises text on scanned pages, and offers optional AI study aids for textbooks across six provider…</p>
+        <ul class="metrics"><li>202 tests</li><li>v1.0.0 released, AppImage.deb, tarball</li><li>Runs fully offline</li></ul>
+        <p class="mono-list">Flutter &middot; Dart &middot; Piper TTS &middot; Tesseract OCR &middot; GitHub Actions &middot; Snap</p>
+      </div>
+    </article>
+    <article class="entry linked">
+      <div class="entry-rail">
+        <span class="mono-meta" aria-hidden="true">03</span>
+        
+      </div>
+      <div class="entry-body">
+        <h3><a href="https://github.com/Developer1010x/agentic-devops" target="_blank" rel="noopener">agentic-devops<span class="arw" aria-hidden="true">↗</span></a></h3>
+        <p class="entry-sub">AI-powered CI/CD pipeline generator and monitor</p>
+        <p class="entry-desc">An agent that reads a repository, infers its stack and test setup, and generates a working CI/CD pipeline for it, then watches the runs and explains failures in plain language instead of leaving you to parse red logs. It targets GitHub Actions and GitLab CI fr…</p>
+        
+        <p class="mono-list">CI/CD &middot; GitHub &middot; GitLab &middot; Agents</p>
+      </div>
+    </article>
+    <article class="entry linked">
+      <div class="entry-rail">
+        <span class="mono-meta" aria-hidden="true">04</span>
+        
+      </div>
+      <div class="entry-body">
+        <h3><a href="https://github.com/Developer1010x/pybridge.ai" target="_blank" rel="noopener">pybridge.ai<span class="arw" aria-hidden="true">↗</span></a></h3>
+        <p class="entry-sub">AI access from a phone</p>
+        <p class="entry-desc">A bridge that puts an LLM behind the channels already on your phone, WhatsApp, Telegram and email, so a model can be driven without an app or a terminal. Each channel is a thin adapter over one routing core that keeps conversation context per user and forwards…</p>
+        
+        <p class="mono-list">Python &middot; Messaging &middot; LLM integration &middot; WhatsApp &middot; Telegram &middot; Email</p>
+      </div>
+    </article>
+    <article class="entry linked">
+      <div class="entry-rail">
+        <span class="mono-meta" aria-hidden="true">05</span>
+        
+      </div>
+      <div class="entry-body">
+        <h3><a href="https://github.com/Developer1010x/knotesneo" target="_blank" rel="noopener">Knotes Central<span class="arw" aria-hidden="true">↗</span></a></h3>
+        <p class="entry-sub">Student resource platform</p>
+        <p class="entry-desc">A resource-sharing platform for students, notes, question papers and course material organised by department, that grew to be used across 12+ departments. It handles upload, categorisation and search so material stays findable instead of scattered across chat …</p>
+        
+        <p class="mono-list">Web platform &middot; React &middot; Search &middot; File uploads</p>
+      </div>
+    </article>
+    <article class="entry linked">
+      <div class="entry-rail">
+        <span class="mono-meta" aria-hidden="true">06</span>
+        
+      </div>
+      <div class="entry-body">
+        <h3><a href="https://github.com/Developer1010x/deepfake-detector" target="_blank" rel="noopener">Deepfake Detection<span class="arw" aria-hidden="true">↗</span></a></h3>
+        <p class="entry-sub">Multimodal detection on hand-written DSP, calibrated and explainable</p>
+        <p class="entry-desc">A detector that flags AI-synthesised speech and images, built on signal processing written from scratch rather than assembled from libraries: Haar wavelets, DCT-II, STFT, local binary patterns and Benford&#39;s-law digit statistics, all hand-implemented in numpy w…</p>
+        <ul class="metrics"><li>AUC 0.957 ±0.015, leave-source-out 5-fold GroupKFold</li><li>Brier 0.074 calibrated, against 0.264 for the classical baseline</li><li>Per-artifact recall reported separately, 0.79 to 0.98</li></ul>
+        <p class="mono-list">numpy &middot; DSP &middot; Wavelets &middot; Calibration &middot; Explainability</p>
+      </div>
+    </article>
 </section>
 
 <section class="wrap" id="services">
-  <p class="eyebrow">Services</p>
-  <h2>Three things I am genuinely good at</h2>
-  <p class="sub">Scoped as projects, not as hours. Each one ships with the tests, instrumentation and runbooks that make it somebody else's to maintain afterwards.</p>
-        <article class="svc">
-          <div class="svc-idx">01</div>
-          <div>
-            <h3>RAG systems that hold up</h3>
-            <p class="svc-body">Retrieval-augmented systems over your own corpus, hybrid retrieval, reranking, and a labelled evaluation harness wired into CI so quality is measured, not hoped for. The same discipline behind Arogya-Sathi&#39;s 62-case, CI-gated safety eval (recall 1.00).</p>
-            <ul class="svc-points">
-              <li>Corpus ingestion + hybrid (BM25 + dense) retrieval</li>
-              <li>Cross-encoder reranking</li>
-              <li>Golden-set eval harness as a CI merge gate</li>
-              <li>Cost &amp; latency instrumentation</li>
-            </ul>
-          </div>
-        </article>
-        <article class="svc">
-          <div class="svc-idx">02</div>
-          <div>
-            <h3>DevOps / SRE, end to end</h3>
-            <p class="svc-body">The platform your product runs on, CI/CD, infrastructure-as-code, containerisation, observability and incident runbooks. Built the DevOps/SRE function from scratch at a founding-team startup and carry the pager for it.</p>
-            <ul class="svc-points">
-              <li>CI/CD pipelines (GitHub Actions, GitLab)</li>
-              <li>IaC with OpenTofu / Ansible</li>
-              <li>Docker &amp; Kubernetes</li>
-              <li>Observability, alerting, runbooks</li>
-              <li>Auth: Zitadel / OAuth / RBAC</li>
-            </ul>
-          </div>
-        </article>
-        <article class="svc">
-          <div class="svc-idx">03</div>
-          <div>
-            <h3>LLM &amp; agent pipelines</h3>
-            <p class="svc-body">Multi-agent and LLM systems over MCP with LangGraph/LangChain, kept on-device with local models where the data is sensitive, and shipped as a monitored service, not a demo.</p>
-            <ul class="svc-points">
-              <li>Multi-agent workflows (LangGraph, MCP)</li>
-              <li>Local/offline LLM deployment</li>
-              <li>Evaluation &amp; guardrails</li>
-              <li>Backend APIs (FastAPI)</li>
-            </ul>
-          </div>
-        </article>
-  <div class="cards" style="margin-top:26px">
-        <div class="card">
-          <div class="card-idx">01</div>
-          <h3>A call, no charge</h3>
-          <p>Half an hour on what you are trying to ship, what already exists, and where it is stuck. If I am not the right person I will say so on that call.</p>
-        </div>
-        <div class="card">
-          <div class="card-idx">02</div>
-          <h3>A written scope</h3>
-          <p>What gets built, what it costs, and how long. Fixed scope where the work is clear, weekly where it is exploratory. No open-ended hourly billing.</p>
-        </div>
-        <div class="card">
-          <div class="card-idx">03</div>
-          <h3>Built in the open</h3>
-          <p>Work lands in your repository as reviewable pull requests from day one. You see progress continuously rather than at a reveal.</p>
-        </div>
-        <div class="card">
-          <div class="card-idx">04</div>
-          <h3>Handover that holds</h3>
-          <p>Runbooks, tests and a walkthrough. The goal is that your team can keep it running without me, which is the only honest definition of finished.</p>
-        </div>
+  <div class="sec-head">
+    <span class="sec-num" aria-hidden="true">06</span>
+    <span class="sec-label">Services</span>
   </div>
+  <h2>What I take on</h2>
+  <p class="sub">Scoped as systems, with the tests, instrumentation and runbooks that make them somebody else’s to maintain afterwards.</p>
+    <article class="entry">
+      <div class="entry-rail"><span class="mono-meta" aria-hidden="true">01</span></div>
+      <div class="entry-body">
+        <h3>RAG systems that hold up</h3>
+        <p class="entry-desc">Retrieval-augmented systems over your own corpus, hybrid retrieval, reranking, and a labelled evaluation harness wired into CI so quality is measured, not hoped for. The same discipline behind Arogya-Sathi&#39;s 62-case, CI-gated safety eval (recall 1.00).</p>
+        <ul class="metrics"><li>Corpus ingestion + hybrid (BM25 + dense) retrieval</li><li>Cross-encoder reranking</li><li>Golden-set eval harness as a CI merge gate</li><li>Cost &amp; latency instrumentation</li></ul>
+      </div>
+    </article>
+    <article class="entry">
+      <div class="entry-rail"><span class="mono-meta" aria-hidden="true">02</span></div>
+      <div class="entry-body">
+        <h3>DevOps / SRE, end to end</h3>
+        <p class="entry-desc">The platform your product runs on, CI/CD, infrastructure-as-code, containerisation, observability and incident runbooks. Built the DevOps/SRE function from scratch at a founding-team startup and carry the pager for it.</p>
+        <ul class="metrics"><li>CI/CD pipelines (GitHub Actions, GitLab)</li><li>IaC with OpenTofu / Ansible</li><li>Docker &amp; Kubernetes</li><li>Observability, alerting, runbooks</li><li>Auth: Zitadel / OAuth / RBAC</li></ul>
+      </div>
+    </article>
+    <article class="entry">
+      <div class="entry-rail"><span class="mono-meta" aria-hidden="true">03</span></div>
+      <div class="entry-body">
+        <h3>LLM &amp; agent pipelines</h3>
+        <p class="entry-desc">Multi-agent and LLM systems over MCP with LangGraph/LangChain, kept on-device with local models where the data is sensitive, and shipped as a monitored service, not a demo.</p>
+        <ul class="metrics"><li>Multi-agent workflows (LangGraph, MCP)</li><li>Local/offline LLM deployment</li><li>Evaluation &amp; guardrails</li><li>Backend APIs (FastAPI)</li></ul>
+      </div>
+    </article>
 </section>
 
 <section class="wrap" id="publications">
-  <p class="eyebrow">Publications</p>
+  <div class="sec-head">
+    <span class="sec-num" aria-hidden="true">07</span>
+    <span class="sec-label">Publications</span>
+  </div>
   <h2>Peer-reviewed work</h2>
-        <article class="note">
-          <p class="note-meta">Springer ICTIS 2025, Bangkok, ICT for Intelligent Systems, Vol. 9</p>
-          <h3>EduConnect: A Smart Solution for Streamlined School Administrations</h3>
-        </article>
-        <article class="note">
-          <p class="note-meta">IEEE Xplore, November 2024</p>
-          <h3><a href="https://ieeexplore.ieee.org/document/10816835" target="_blank" rel="noopener">An Empirical Study of ResNet50 Hyperparameter Tuning for Plant Disease Classification <span aria-hidden="true">↗</span></a></h3>
-        </article>
-        <article class="note">
-          <p class="note-meta">IEEE Xplore, November 2024</p>
-          <h3><a href="https://ieeexplore.ieee.org/document/10816816" target="_blank" rel="noopener">Web-Server Controlled Rover with Robotic Arm and Object Detection <span aria-hidden="true">↗</span></a></h3>
-        </article>
+    <article class="entry">
+      <div class="entry-rail"><span class="mono-meta" aria-hidden="true">01</span></div>
+      <div class="entry-body">
+        <p class="mono-meta faint">Springer ICTIS 2025, Bangkok, ICT for Intelligent Systems, Vol. 9</p>
+        <h3>EduConnect: A Smart Solution for Streamlined School Administrations</h3>
+      </div>
+    </article>
+    <article class="entry">
+      <div class="entry-rail"><span class="mono-meta" aria-hidden="true">02</span></div>
+      <div class="entry-body">
+        <p class="mono-meta faint">IEEE Xplore, November 2024</p>
+        <h3><a href="https://ieeexplore.ieee.org/document/10816835" target="_blank" rel="noopener">An Empirical Study of ResNet50 Hyperparameter Tuning for Plant Disease Classification<span class="arw" aria-hidden="true">↗</span></a></h3>
+      </div>
+    </article>
+    <article class="entry">
+      <div class="entry-rail"><span class="mono-meta" aria-hidden="true">03</span></div>
+      <div class="entry-body">
+        <p class="mono-meta faint">IEEE Xplore, November 2024</p>
+        <h3><a href="https://ieeexplore.ieee.org/document/10816816" target="_blank" rel="noopener">Web-Server Controlled Rover with Robotic Arm and Object Detection<span class="arw" aria-hidden="true">↗</span></a></h3>
+      </div>
+    </article>
 </section>
 
 <section class="wrap" id="contact">
-  <p class="eyebrow">Contact</p>
-  <h2>Have something that needs to work in production?</h2>
-  <p class="sub">Tell me what you are building and where it is stuck. If I am not the right person for it, I will tell you that, and usually who is.</p>
-  <div class="btns">
-    <a class="btn btn-primary" href="mailto:prajwallspambox@gmail.com?subject=Freelance%20enquiry">Email me</a>
-    <a class="btn btn-ghost" href="https://github.com/Developer1010x" target="_blank" rel="noopener">GitHub ↗</a>
-    <a class="btn btn-ghost" href="./">Regional CVs →</a>
+  <div class="sec-head">
+    <span class="sec-num" aria-hidden="true">08</span>
+    <span class="sec-label">Contact</span>
   </div>
-  <p style="color:var(--faint);font-size:13.5px;margin:22px 0 0">Currently AI Engineer at Colligence Research. Freelance work is taken alongside that, so I am honest about capacity before agreeing to anything.</p>
+  <h2>Have something that needs to work in production?</h2>
+  <p class="sub">Tell me what you are building and where it is stuck. If I am not the right person for it, I will say so, and usually who is.</p>
+  <div class="btns">
+    <a class="btn btn-primary" href="mailto:prajwallspambox@gmail.com">prajwallspambox@gmail.com</a>
+    <a class="btn btn-ghost" href="https://github.com/Developer1010x" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn btn-ghost" href="./">Full CV →</a>
+  </div>
 </section>
 </main>
 
@@ -468,7 +525,7 @@
   <div class="wrap foot-grid">
     <div>
       <strong>S. Prajwall Narayana</strong>
-      <p style="color:var(--faint);margin:6px 0 0;font-size:14px">Freelance AI and platform engineering. Bengaluru, India, working remotely.</p>
+      <p style="color:var(--faint);margin:6px 0 0;font-size:13.5px;max-width:280px">AI Engineer. Bengaluru, India, working remotely.</p>
     </div>
     <div>
       <h4>This page</h4>
@@ -485,22 +542,21 @@
       <a href="./">Full CV and regional versions</a>
     </div>
   </div>
-  <div class="wrap copyright">© 2026 S Prajwall Narayana. Generated from assets/data.base.json.</div>
+  <div class="wrap copyright">© 2026 S Prajwall Narayana</div>
 </footer>
 
 <script>
 (function () {
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Everything inside a section reveals in sequence. Marking the elements here
-  // rather than in the markup keeps the generator's HTML readable.
-  var groups = document.querySelectorAll('main section');
-  groups.forEach(function (sec) {
-    var kids = sec.querySelectorAll(':scope > .eyebrow, :scope > h2, :scope > .sub, :scope > .cards > *, :scope > .svc, :scope > .row, :scope > .note, :scope > .btns, :scope > .cta-band');
+  // Marking the revealed elements here rather than in the markup keeps the
+  // generator's HTML readable and the reveal rules in one place.
+  document.querySelectorAll('main section').forEach(function (sec) {
+    if (sec.classList.contains('hero')) return;     // the hero animates on load
+    var kids = sec.querySelectorAll(':scope > .sec-head, :scope > h2, :scope > .sub, :scope > .btns, :scope > .entry, :scope > .rows > .drow');
     kids.forEach(function (el, i) {
-      if (el.closest('.hero')) return;          // the hero animates on load instead
       el.classList.add('reveal');
-      el.style.setProperty('--d', Math.min(i * 55, 330) + 'ms');
+      el.style.setProperty('--d', Math.min(i * 42, 250) + 'ms');
     });
   });
 
@@ -511,36 +567,10 @@
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         e.target.classList.add('shown');
-        io.unobserve(e.target);                  // reveal once, never re-hide
+        io.unobserve(e.target);                     // reveal once, never re-hide
       });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
     document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-  }
-
-  // Stat numbers count up the first time they are seen. The text is already in
-  // the DOM, so a crawler and a reduced-motion visitor read the final value.
-  var nums = document.querySelectorAll('.stat-num');
-  if (!reduced && 'IntersectionObserver' in window) {
-    var io2 = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var el = e.target, full = el.textContent.trim();
-        var m = full.match(/^(d+)(.*)$/);        // "12+" -> 12 and "+"
-        if (m) {
-          var target = parseInt(m[1], 10), suffix = m[2], t0 = null;
-          var step = function (ts) {
-            if (!t0) t0 = ts;
-            var k = Math.min((ts - t0) / 900, 1);
-            k = 1 - Math.pow(1 - k, 3);           // ease out
-            el.textContent = Math.round(target * k) + suffix;
-            if (k < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
-        }
-        io2.unobserve(el);
-      });
-    }, { threshold: 0.6 });
-    nums.forEach(function (el) { io2.observe(el); });
   }
 
   var nav = document.querySelector('header.nav');
