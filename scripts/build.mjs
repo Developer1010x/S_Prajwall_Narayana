@@ -160,6 +160,13 @@ const EN_US_SPELLINGS = [
   ['serialise', 'serialize'], ['serialised', 'serialized'],
   ['fulfil', 'fulfill'], ['enrolment', 'enrollment'],
   ['programme', 'program'], ['Programme', 'Program'],
+  // -isation nouns and third-person -ises forms: the pairs above cover the
+  // stem and the past tense only, so 'containerisation' was reaching the US
+  // page unconverted.
+  ['containerisation', 'containerization'],
+  ['recognises', 'recognizes'], ['utilises', 'utilizes'],
+  ['minimises', 'minimizes'], ['maximises', 'maximizes'],
+  ['normalises', 'normalizes'], ['serialises', 'serializes'],
 ];
 
 /** Apply the region's spelling to rendered HTML. en-GB and en-IN are the source form. */

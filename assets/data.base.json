@@ -111,7 +111,7 @@
       "label": "Peer-reviewed papers"
     },
     {
-      "value": 6,
+      "value": 10,
       "suffix": "",
       "label": "Shipped projects"
     },
@@ -352,6 +352,29 @@
       "date": "Jan 2025 — Jun 2025"
     },
     {
+      "id": "audier",
+      "title": "Audier",
+      "subtitle": "Private reader and audiobook player for Linux — released and installable",
+      "icon": "fa-book-open-reader",
+      "color": "#5B6ABF",
+      "description": "A Linux desktop app that reads your own books aloud. It opens PDF, EPUB, Markdown and plain text, reads them in a neural voice with follow-along highlighting, recognises text on scanned pages, and offers optional AI study aids for textbooks across six providers. Privacy is the design constraint rather than a feature: books are read where they sit and are never copied or uploaded, speech and text recognition run on the machine, and a cloud provider is never the default and always states what it is about to send before it sends it. Built in Flutter and shipped as an AppImage, a .deb and a tarball built by GitHub Actions.",
+      "metrics": [
+        "202 tests",
+        "v1.0.0 released — AppImage, .deb, tarball",
+        "Runs fully offline"
+      ],
+      "tags": [
+        "Flutter",
+        "Dart",
+        "Piper TTS",
+        "Tesseract OCR",
+        "GitHub Actions",
+        "Snap"
+      ],
+      "url": "https://github.com/Developer1010x/audiobook-reader/releases/tag/v1.0.0",
+      "date": "Aug 2026"
+    },
+    {
       "id": "agentic-devops",
       "title": "agentic-devops",
       "subtitle": "AI-powered CI/CD pipeline generator and monitor",
@@ -431,6 +454,89 @@
         "Classification"
       ],
       "url": "https://github.com/Developer1010x/Deepfake-Audio-and-AI-Content-Detection"
+    },
+    {
+      "id": "openplay",
+      "title": "openplay",
+      "subtitle": "Open-source screen casting in Rust — AirPlay, Miracast, WebRTC",
+      "icon": "fa-tower-broadcast",
+      "color": "#DE4A21",
+      "description": "A from-scratch screen-casting stack written in Rust, so a Linux, macOS or Windows machine can cast to AirPlay receivers, Miracast receivers, or another machine running openplay, with no proprietary software and no cloud account. The protocol work is the substance: AirPlay mirroring with HAP pair-setup over SRP-6a, Ed25519/X25519 and ChaCha20-Poly1305, FairPlay, RTSP negotiation and an NTP server; Miracast WFD RTSP M1 to M7; Wi-Fi Direct driven over raw wpa_supplicant D-Bus; mDNS auto-discovery; runtime GStreamer encoder probing; and screen capture through the XDG portal and PipeWire.",
+      "metrics": [
+        "11-crate Cargo workspace",
+        "8 crates with integration tests"
+      ],
+      "tags": [
+        "Rust",
+        "GStreamer",
+        "WebRTC",
+        "mDNS",
+        "PipeWire"
+      ],
+      "url": "https://github.com/Developer1010x/openplay",
+      "date": ""
+    },
+    {
+      "id": "universal-converter",
+      "title": "universal-converter",
+      "subtitle": "File conversion that routes across converters instead of only matching pairs",
+      "icon": "fa-right-left",
+      "color": "#2E9E63",
+      "description": "A conversion toolkit whose registry does a breadth-first route search, so a format pair with no direct converter is reached through intermediates rather than failing outright. It also ships a capability audit that reports which conversions genuinely work on the machine it is running on, given which optional dependencies are installed, so the tool stops advertising formats it cannot actually handle.",
+      "metrics": [
+        "232 conversion pairs",
+        "Multi-hop routing via graph search"
+      ],
+      "tags": [
+        "Python",
+        "ffmpeg",
+        "Pillow",
+        "pandas"
+      ],
+      "url": "https://github.com/Developer1010x/universal-converter",
+      "date": ""
+    },
+    {
+      "id": "mp3-studio",
+      "title": "MP3 Studio",
+      "subtitle": "Desktop editor for MP3 metadata, album art, lyrics and EQ",
+      "icon": "fa-sliders",
+      "color": "#C86DD7",
+      "description": "A desktop application for fixing up an MP3 library: a tag editor with automatic album-art and lyrics fetching, a five-band equaliser with one-click presets, extra effects such as volume normalisation and stereo enhancement, and batch export across a queue of files. Edits are non-destructive in the way that matters: the equaliser is applied only on export, while tag changes are written in place. Packaged for the Snap Store so it installs on any Linux distribution in one command.",
+      "metrics": [
+        "Five-band EQ with presets",
+        "Batch queue and bulk export"
+      ],
+      "tags": [
+        "Python",
+        "Tkinter",
+        "pydub",
+        "mutagen",
+        "Snapcraft"
+      ],
+      "url": "https://github.com/Developer1010x/mp3-studio",
+      "date": ""
+    },
+    {
+      "id": "worldmonitor-contribution",
+      "title": "World Monitor — open-source contribution",
+      "subtitle": "Merged upstream PR to a real-time intelligence dashboard — not my project",
+      "icon": "fa-code-pull-request",
+      "color": "#5A6B7B",
+      "description": "An open-source contribution rather than a project of mine. World Monitor is a real-time geopolitical and financial intelligence dashboard maintained by Elie Habib: roughly 330k lines of TypeScript, about 40 contributors, 933 test files, 21 CI workflows and 281 protobuf contracts. My contribution is pull request 5459, merged in July 2026, which adds an expandable terminal price chart with its own interaction layer to the markets panel and fixes a proxy path bug in the OpenSky development integration. Getting a change through the review gate of a codebase that rigorous is the part worth showing.",
+      "metrics": [
+        "PR #5459 merged",
+        "+892 / −39 across 37 files"
+      ],
+      "tags": [
+        "TypeScript",
+        "Vite",
+        "deck.gl",
+        "Protobuf",
+        "Open source"
+      ],
+      "url": "https://github.com/koala73/worldmonitor/pull/5459",
+      "date": "Jul 2026"
     }
   ],
   "strings": {
