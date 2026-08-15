@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S. Prajwall Narayana | Freelance AI and platform engineering</title>
+<meta name="description" content="Freelance and contract engineering: RAG systems with real evaluation, LLM and agent pipelines, and the DevOps platform they run on. Based in Bengaluru, India, working remotely.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --bg:#0b0b0d; --elev:#111114; --card:#141417; --line:#232329; --line-hi:#33333b;
+    --fg:#ededf0; --dim:#a2a2ad; --faint:#6e6e79; --accent:#7c9cff; --good:#4ade80;
+    --max:1080px; --radius:14px;
+    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .skip{position:absolute;left:-9999px}
+  .skip:focus{left:16px;top:16px;background:var(--fg);color:var(--bg);padding:10px 14px;border-radius:8px;z-index:100}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(11,11,13,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
+  .brand{font-weight:600;white-space:nowrap}
+  .brand .sep{color:var(--faint);margin:0 6px}
+  .brand .role{color:var(--dim);font-weight:400}
+  .nav-links{display:flex;gap:2px;align-items:center;overflow-x:auto;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{padding:7px 11px;border-radius:8px;color:var(--dim);font-size:14px;white-space:nowrap}
+  .nav-links a:hover{color:var(--fg);background:var(--elev)}
+  .nav-links a.cta{background:var(--fg);color:var(--bg);font-weight:600}
+  .nav-links a.cta:hover{background:var(--accent);color:#fff}
+
+  section{padding:74px 0;border-top:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+  h1{font-size:clamp(2.1rem,5vw,3.2rem);line-height:1.09;letter-spacing:-.02em;margin:0 0 18px}
+  h2{font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.02em;margin:0 0 10px}
+  h3{margin:0 0 4px;font-size:1.08rem}
+  .lead{font-size:1.12rem;color:var(--dim);max-width:680px;margin:0}
+  .sub{color:var(--dim);max-width:680px;margin:0 0 30px}
+
+  .avail{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12.5px;color:var(--dim);border:1px solid var(--line-hi);border-radius:999px;padding:6px 14px;margin-bottom:22px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--good);box-shadow:0 0 0 3px rgba(74,222,128,.16)}
+
+  .hero{padding:80px 0 44px;border-top:none;display:grid;grid-template-columns:1fr 250px;gap:40px;align-items:start}
+  .portrait{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius);border:1px solid var(--line)}
+  .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;font-size:14px;border:1px solid var(--line-hi);transition:.15s}
+  .btn-primary{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+  .btn-primary:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn-ghost:hover{border-color:var(--fg);background:var(--elev)}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  .stat{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:22px}
+  .stat-num{font-size:1.9rem;font-weight:700;letter-spacing:-.02em}
+  .stat-lbl{color:var(--dim);font-size:13px;margin-top:4px}
+
+  .run{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;background:var(--elev)}
+  .run-track{display:flex;gap:10px;width:max-content;animation:slide 46s linear infinite}
+  .run-track span{font-family:var(--mono);font-size:12.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:5px 12px;white-space:nowrap}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* Reduced motion: stop the scroll, but keep it one strip. Letting it wrap
+     turns 70 tags into eight rows that push the page down, and the duplicated
+     half needed for a seamless loop then shows every item twice. */
+  @media (prefers-reduced-motion:reduce){
+    .run{overflow-x:auto;scrollbar-width:none}
+    .run::-webkit-scrollbar{display:none}
+    .run-track{animation:none}
+    .run-track .dup{display:none}
+  }
+
+  .svc{display:grid;grid-template-columns:46px 1fr;gap:20px;border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:26px;margin-bottom:14px}
+  .svc-idx{font-family:var(--mono);color:var(--faint);font-size:14px}
+  .svc-body{color:var(--dim);margin:6px 0 0}
+  .svc-points{margin:14px 0 0;padding-left:18px;color:var(--dim);font-size:14.5px}
+  .svc-points li{margin-bottom:5px}
+  .svc-points li::marker{color:var(--accent)}
+
+  .row{display:grid;grid-template-columns:46px 1fr;gap:20px;border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:14px}
+  .row-idx{font-family:var(--mono);color:var(--faint);font-size:14px}
+  .row-role{color:var(--dim);margin:4px 0 8px}
+  .row-desc{color:var(--dim);margin:0}
+  .metrics{margin:12px 0 0;padding-left:18px;color:var(--dim);font-size:14px}
+  .metrics li::marker{color:var(--accent)}
+  .row h3 a:hover{color:var(--accent)}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .tag{font-family:var(--mono);font-size:11.5px;color:var(--dim);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .card{border:1px solid var(--line);background:var(--card);border-radius:var(--radius);padding:24px}
+  .card-idx{font-family:var(--mono);color:var(--faint);font-size:13px;margin-bottom:8px}
+  .card p{color:var(--dim);margin:6px 0 0;font-size:14.5px}
+
+  .note{border-bottom:1px solid var(--line);padding:18px 0}
+  .note:last-child{border-bottom:none}
+  .note-meta{font-family:var(--mono);font-size:12.5px;color:var(--faint);margin:0 0 6px}
+  .note h3 a:hover{color:var(--accent)}
+
+  .cta-band{border:1px solid var(--line-hi);background:var(--elev);border-radius:var(--radius);padding:34px}
+
+  footer{border-top:1px solid var(--line);padding:50px 0;color:var(--faint)}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:26px}
+  footer h4{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 12px}
+  footer a{color:var(--dim);display:block;padding:3px 0;font-size:14px}
+  footer a:hover{color:var(--fg)}
+  .copyright{margin-top:32px;font-size:13px}
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr}
+    .portrait{max-width:210px}
+    .stats,.cards,.foot-grid{grid-template-columns:1fr}
+    .svc,.row{grid-template-columns:1fr;gap:10px}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">S. Prajwall Narayana<span class="sep">/</span><span class="role">Freelance</span></a>
+    <nav class="nav-links">
+      <a href="#services">What I build</a>
+      <a href="#work">Proof</a>
+      <a href="#how">How it works</a>
+      <a href="#publications">Publications</a>
+      <a class="cta" href="mailto:prajwallspambox@gmail.com?subject=Freelance%20enquiry">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div id="top"></div>
+
+<section class="wrap hero">
+  <div>
+    <span class="avail"><span class="dot"></span> Taking on freelance and contract work</span>
+    <h1>I build LLM systems, and the platform that keeps them up.</h1>
+    <p class="lead">Most teams can get a demo working. The hard part is the version that survives real traffic, real data and a bad Tuesday. That is the part I do: retrieval and agent systems with evaluation wired into CI, and the deployment, monitoring and on-call underneath them.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="mailto:prajwallspambox@gmail.com?subject=Freelance%20enquiry">Start a project</a>
+      <a class="btn btn-ghost" href="#services">What I build →</a>
+      <a class="btn btn-ghost" href="https://github.com/Developer1010x" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+    <div class="stats">
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-lbl">Peer-reviewed papers</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">10</div>
+          <div class="stat-lbl">Shipped projects</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">12+</div>
+          <div class="stat-lbl">Departments using Knotes Central</div>
+        </div>
+    </div>
+  </div>
+  <img class="portrait" src="assets/images/S_Prajwall_Narayana.jpg" alt="Stylised high-contrast avatar used by S Prajwall Narayana">
+</section>
+
+<div class="run" aria-hidden="true">
+  <div class="run-track"><span>Agentic systems</span><span>MCP orchestration</span><span>Multi-agent workflows</span><span>RAG</span><span>LangChain</span><span>LangGraph</span><span>Claude API</span><span>LLM integration</span><span>Evaluation harnesses</span><span>CI/CD</span><span>OpenTofu (IaC)</span><span>Ansible</span><span>Docker</span><span>Linux</span><span>Linode</span><span>Observability and alerting</span><span>Incident runbooks</span><span>Zitadel (SSO/IAM)</span><span>RBAC</span><span>Git</span><span>Python</span><span>FastAPI</span><span>REST APIs</span><span>PostgreSQL</span><span>SQL</span><span>Swift</span><span>Rust</span><span>Shell scripting</span><span>PyTorch</span><span>TensorFlow</span><span>YOLOv8</span><span>OpenCV</span><span>CNN</span><span>ResNet</span><span>Quantized model deployment</span><span class="dup">Agentic systems</span><span class="dup">MCP orchestration</span><span class="dup">Multi-agent workflows</span><span class="dup">RAG</span><span class="dup">LangChain</span><span class="dup">LangGraph</span><span class="dup">Claude API</span><span class="dup">LLM integration</span><span class="dup">Evaluation harnesses</span><span class="dup">CI/CD</span><span class="dup">OpenTofu (IaC)</span><span class="dup">Ansible</span><span class="dup">Docker</span><span class="dup">Linux</span><span class="dup">Linode</span><span class="dup">Observability and alerting</span><span class="dup">Incident runbooks</span><span class="dup">Zitadel (SSO/IAM)</span><span class="dup">RBAC</span><span class="dup">Git</span><span class="dup">Python</span><span class="dup">FastAPI</span><span class="dup">REST APIs</span><span class="dup">PostgreSQL</span><span class="dup">SQL</span><span class="dup">Swift</span><span class="dup">Rust</span><span class="dup">Shell scripting</span><span class="dup">PyTorch</span><span class="dup">TensorFlow</span><span class="dup">YOLOv8</span><span class="dup">OpenCV</span><span class="dup">CNN</span><span class="dup">ResNet</span><span class="dup">Quantized model deployment</span></div>
+</div>
+
+<section class="wrap" id="services">
+  <p class="eyebrow">What I build</p>
+  <h2>Three things I am genuinely good at</h2>
+  <p class="sub">Scoped as projects, not as hours. Each one ships with the tests, instrumentation and runbooks that make it somebody else's to maintain afterwards.</p>
+        <article class="svc">
+          <div class="svc-idx">01</div>
+          <div>
+            <h3>RAG systems that hold up</h3>
+            <p class="svc-body">Retrieval-augmented systems over your own corpus, hybrid retrieval, reranking, and a labelled evaluation harness wired into CI so quality is measured, not hoped for. The same discipline behind Arogya-Sathi&#39;s 62-case, CI-gated safety eval (recall 1.00).</p>
+            <ul class="svc-points">
+              <li>Corpus ingestion + hybrid (BM25 + dense) retrieval</li>
+              <li>Cross-encoder reranking</li>
+              <li>Golden-set eval harness as a CI merge gate</li>
+              <li>Cost &amp; latency instrumentation</li>
+            </ul>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="svc-idx">02</div>
+          <div>
+            <h3>DevOps / SRE, end to end</h3>
+            <p class="svc-body">The platform your product runs on, CI/CD, infrastructure-as-code, containerisation, observability and incident runbooks. Built the DevOps/SRE function from scratch at a founding-team startup and carry the pager for it.</p>
+            <ul class="svc-points">
+              <li>CI/CD pipelines (GitHub Actions, GitLab)</li>
+              <li>IaC with OpenTofu / Ansible</li>
+              <li>Docker &amp; Kubernetes</li>
+              <li>Observability, alerting, runbooks</li>
+              <li>Auth: Zitadel / OAuth / RBAC</li>
+            </ul>
+          </div>
+        </article>
+        <article class="svc">
+          <div class="svc-idx">03</div>
+          <div>
+            <h3>LLM &amp; agent pipelines</h3>
+            <p class="svc-body">Multi-agent and LLM systems over MCP with LangGraph/LangChain, kept on-device with local models where the data is sensitive, and shipped as a monitored service, not a demo.</p>
+            <ul class="svc-points">
+              <li>Multi-agent workflows (LangGraph, MCP)</li>
+              <li>Local/offline LLM deployment</li>
+              <li>Evaluation &amp; guardrails</li>
+              <li>Backend APIs (FastAPI)</li>
+            </ul>
+          </div>
+        </article>
+</section>
+
+<section class="wrap" id="work">
+  <p class="eyebrow">Proof</p>
+  <h2>Work that backs the above</h2>
+  <p class="sub">Every one is public and every claim is checkable. Read the code before you hire me.</p>
+        <article class="row">
+          <div class="row-idx">01</div>
+          <div class="row-body">
+            <h3><a href="https://github.com/Developer1010x/Arogya-Sathi" target="_blank" rel="noopener">Arogya-Sathi <span aria-hidden="true">↗</span></a></h3>
+            <p class="row-role">Offline-capable multilingual AI healthcare platform</p>
+            <p class="row-desc">Symptom checking, X-ray fracture detection, prescription summarisation and a wellness chatbot, running fully offline on quantized models, demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62…</p>
+            <ul class="metrics"><li>Crisis detection: recall 1.00 / precision 0.93</li><li>Emergency: 1.00 / 1.00</li><li>Drug screening: 1.00 / 1.00</li></ul>
+            <div class="tags"><span class="tag">LangGraph</span><span class="tag">Ollama</span><span class="tag">Quantized models</span><span class="tag">Evaluation harness</span><span class="tag">CI gate</span></div>
+          </div>
+        </article>
+        <article class="row">
+          <div class="row-idx">02</div>
+          <div class="row-body">
+            <h3><a href="https://github.com/Developer1010x/audiobook-reader/releases/tag/v1.0.0" target="_blank" rel="noopener">Audier <span aria-hidden="true">↗</span></a></h3>
+            <p class="row-role">Private reader and audiobook player for Linux, released and installable</p>
+            <p class="row-desc">A Linux desktop app that reads your own books aloud. It opens PDF, EPUB, Markdown and plain text, reads them in a neural voice with follow-along highlighting, recognises text on scanned pages, and offers optional AI study aids for textbooks across six providers. Privacy is the design constraint rath…</p>
+            <ul class="metrics"><li>202 tests</li><li>v1.0.0 released, AppImage.deb, tarball</li><li>Runs fully offline</li></ul>
+            <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Piper TTS</span><span class="tag">Tesseract OCR</span><span class="tag">GitHub Actions</span></div>
+          </div>
+        </article>
+        <article class="row">
+          <div class="row-idx">03</div>
+          <div class="row-body">
+            <h3><a href="https://github.com/Developer1010x/agentic-devops" target="_blank" rel="noopener">agentic-devops <span aria-hidden="true">↗</span></a></h3>
+            <p class="row-role">AI-powered CI/CD pipeline generator and monitor</p>
+            <p class="row-desc">An agent that reads a repository, infers its stack and test setup, and generates a working CI/CD pipeline for it, then watches the runs and explains failures in plain language instead of leaving you to parse red logs. It targets GitHub Actions and GitLab CI from the same core, so the generated workf…</p>
+            
+            <div class="tags"><span class="tag">CI/CD</span><span class="tag">GitHub</span><span class="tag">GitLab</span><span class="tag">Agents</span></div>
+          </div>
+        </article>
+        <article class="row">
+          <div class="row-idx">04</div>
+          <div class="row-body">
+            <h3><a href="https://github.com/Developer1010x/pybridge.ai" target="_blank" rel="noopener">pybridge.ai <span aria-hidden="true">↗</span></a></h3>
+            <p class="row-role">AI access from a phone</p>
+            <p class="row-desc">A bridge that puts an LLM behind the channels already on your phone, WhatsApp, Telegram and email, so a model can be driven without an app or a terminal. Each channel is a thin adapter over one routing core that keeps conversation context per user and forwards prompts to whichever backend is configu…</p>
+            
+            <div class="tags"><span class="tag">Python</span><span class="tag">Messaging</span><span class="tag">LLM integration</span><span class="tag">WhatsApp</span><span class="tag">Telegram</span></div>
+          </div>
+        </article>
+        <article class="row">
+          <div class="row-idx">05</div>
+          <div class="row-body">
+            <h3><a href="https://github.com/Developer1010x/KnotesCentral-Source-Code" target="_blank" rel="noopener">Knotes Central <span aria-hidden="true">↗</span></a></h3>
+            <p class="row-role">Student resource platform</p>
+            <p class="row-desc">A resource-sharing platform for students, notes, question papers and course material organised by department, that grew to be used across 12+ departments. It handles upload, categorisation and search so material stays findable instead of scattered across chat groups. It is being extended with semant…</p>
+            
+            <div class="tags"><span class="tag">Web platform</span><span class="tag">React</span><span class="tag">Search</span><span class="tag">File uploads</span></div>
+          </div>
+        </article>
+</section>
+
+<section class="wrap" id="how">
+  <p class="eyebrow">How it works</p>
+  <h2>How an engagement runs</h2>
+  <p class="sub">Stated up front so you do not have to ask.</p>
+  <div class="cards">
+        <div class="card">
+          <div class="card-idx">01</div>
+          <h3>A call, no charge</h3>
+          <p>Half an hour on what you are trying to ship, what already exists, and where it is stuck. If I am not the right person I will say so on that call.</p>
+        </div>
+        <div class="card">
+          <div class="card-idx">02</div>
+          <h3>A written scope</h3>
+          <p>What gets built, what it costs, and how long. Fixed scope where the work is clear, weekly where it is exploratory. No open-ended hourly billing.</p>
+        </div>
+        <div class="card">
+          <div class="card-idx">03</div>
+          <h3>Built in the open</h3>
+          <p>Work lands in your repository as reviewable pull requests from day one. You see progress continuously rather than at a reveal.</p>
+        </div>
+        <div class="card">
+          <div class="card-idx">04</div>
+          <h3>Handover that holds</h3>
+          <p>Runbooks, tests and a walkthrough. The goal is that your team can keep it running without me, which is the only honest definition of finished.</p>
+        </div>
+  </div>
+</section>
+
+<section class="wrap" id="publications">
+  <p class="eyebrow">Publications</p>
+  <h2>Peer-reviewed work</h2>
+        <article class="note">
+          <p class="note-meta">Springer ICTIS 2025, Bangkok, ICT for Intelligent Systems, Vol. 9</p>
+          <h3>EduConnect: A Smart Solution for Streamlined School Administrations</h3>
+        </article>
+        <article class="note">
+          <p class="note-meta">IEEE Xplore, November 2024</p>
+          <h3><a href="https://ieeexplore.ieee.org/document/10816835" target="_blank" rel="noopener">An Empirical Study of ResNet50 Hyperparameter Tuning for Plant Disease Classification <span aria-hidden="true">↗</span></a></h3>
+        </article>
+        <article class="note">
+          <p class="note-meta">IEEE Xplore, November 2024</p>
+          <h3><a href="https://ieeexplore.ieee.org/document/10816816" target="_blank" rel="noopener">Web-Server Controlled Rover with Robotic Arm and Object Detection <span aria-hidden="true">↗</span></a></h3>
+        </article>
+</section>
+
+<section class="wrap">
+  <div class="cta-band">
+    <h2>Have something that needs to work in production?</h2>
+    <p class="sub">Tell me what you are building and where it is stuck. If I am not the right person for it, I will tell you that, and usually who is.</p>
+    <div class="btns" style="margin-top:8px">
+      <a class="btn btn-primary" href="mailto:prajwallspambox@gmail.com?subject=Freelance%20enquiry">Email me</a>
+      <a class="btn btn-ghost" href="./">See the full CV →</a>
+    </div>
+    <p style="color:var(--faint);font-size:13.5px;margin:22px 0 0">Currently AI Engineer at Colligence Research. Freelance work is taken alongside that, so I am honest about capacity before agreeing to anything.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <strong>S. Prajwall Narayana</strong>
+      <p style="color:var(--faint);margin:6px 0 0;font-size:14px">Freelance AI and platform engineering. Bengaluru, India, working remotely.</p>
+    </div>
+    <div>
+      <h4>This page</h4>
+      <a href="#services">What I build</a>
+      <a href="#work">Proof</a>
+      <a href="#how">How it works</a>
+      <a href="#publications">Publications</a>
+    </div>
+    <div>
+      <h4>Elsewhere</h4>
+      <a href="https://github.com/Developer1010x" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="mailto:prajwallspambox@gmail.com">Email</a>
+      <a href="./">Full CV and regional versions</a>
+    </div>
+  </div>
+  <div class="wrap copyright">© 2026 S Prajwall Narayana. Generated from assets/data.base.json.</div>
+</footer>
+</body>
+</html>
