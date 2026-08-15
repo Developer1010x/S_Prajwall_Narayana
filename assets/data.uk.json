@@ -1,10 +1,10 @@
 {
-  "_readme": "United Kingdom overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. Register: British English (-ise), UK platform/SRE vocabulary used only where it is factually accurate. Product and platform are held at equal weight — order.skills is deliberately NOT set so ai and infra keep their base side-by-side positions.",
+  "_readme": "United Kingdom overrides. Only keys that differ from data.base.json belong here. See DATA-CONTRACT.md. Register: British English (-ise), UK platform/SRE vocabulary used only where it is factually accurate. Product and platform are held at equal weight, order.skills is deliberately NOT set so ai and infra keep their base side-by-side positions.",
   "_todo": [
     "TODO(uk): the number shown is a +91 mobile. A UK-reachable number would materially improve recruiter call-backs - an Indian mobile signals \"not here yet\" before the CV is opened. No UK number is on file, so none has been invented.",
     "TODO(uk): cv.href still points at assets/cv/uk.pdf, which does not exist, so /uk/ currently offers only the shared academic CV. The UK CV on disk is assets/cv/uk-en.pdf and it has deliberately NOT been wired up: its header line reads 'Liverpool', and the UK location is Wirral. Regenerate that PDF with Wirral, then point cv.href at it.",
     "TODO(uk): personal.location is 'Wirral'. An earlier pass wrote 'West Kirby, Wirral' and a later one wrote 'Liverpool'; both have been corrected. Wirral is the agreed value and no other country file claims a UK address. Do not change it without a source.",
-    "TODO(uk): confirm the exact Skilled Worker / New Entrant wording with Prajwall (and ideally an immigration adviser) before it goes live — the claim is a selling point only if it survives scrutiny."
+    "TODO(uk): confirm the exact Skilled Worker / New Entrant wording with Prajwall (and ideally an immigration adviser) before it goes live, the claim is a selling point only if it survives scrutiny."
   ],
   "meta": {
     "cc": "uk",
@@ -17,8 +17,8 @@
     "location": "Liverpool",
     "relocation": "Currently in Bengaluru, India; relocating to the UK"
   },
-  "headline": "AI Engineer — agentic systems and the platform underneath them",
-  "summary": "AI Engineer on the founding team at Colligence Research. I build the product — multi-agent and LLM pipelines over MCP, a code-generation service, the backend APIs behind them — and I own the platform it runs on: CI/CD, infrastructure-as-code with OpenTofu and Ansible, observability, alerting, incident response and authentication. The two halves are one job: the engineer who ships the agent workflow is the engineer who carries the pager for it.",
+  "headline": "AI Engineer, agentic systems and the platform underneath them",
+  "summary": "AI Engineer on the founding team at Colligence Research. I build the product, multi-agent and LLM pipelines over MCP, a code-generation service, the backend APIs behind them, and I own the platform it runs on: CI/CD, infrastructure-as-code with OpenTofu and Ansible, observability, alerting, incident response and authentication. The two halves are one job: the engineer who ships the agent workflow is the engineer who carries the pager for it.",
   "typedPhrases": [
     "multi-agent workflows over MCP",
     "CI/CD and infrastructure-as-code",
@@ -48,7 +48,7 @@
     "noindex": null
   },
   "seo": {
-    "title": "S. Prajwall Narayana — AI Engineer (UK)",
+    "title": "S. Prajwall Narayana, AI Engineer (UK)",
     "description": "AI Engineer on a founding team: multi-agent and LLM pipelines over MCP, plus the CI/CD, infrastructure-as-code, observability and incident response underneath them. UK address in Liverpool; currently in Bengaluru; eligible for Skilled Worker sponsorship at the New Entrant rate."
   },
   "strings": {

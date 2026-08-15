@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "_readme": "Shared content for every region. Country files (data.<cc>.json) override keys in here. See assets/DATA-CONTRACT.md before editing.",
   "_todo": [
-    "site.origin points at https://sprajwallnarayana.vercel.app because sprajwallnarayana.com does not resolve in DNS (checked again 2026-08-09: no A record for the apex or www). origin drives every rel=canonical, og:url, the sitemap and the robots.txt Sitemap line, so pointing it at a dead hostname meant nothing could be indexed. If the custom domain is ever pointed at this Vercel project, change this one value and rebuild — nothing else needs editing."
+    "site.origin points at https://sprajwallnarayana.vercel.app because sprajwallnarayana.com does not resolve in DNS (checked again 2026-08-09: no A record for the apex or www). origin drives every rel=canonical, og:url, the sitemap and the robots.txt Sitemap line, so pointing it at a dead hostname meant nothing could be indexed. If the custom domain is ever pointed at this Vercel project, change this one value and rebuild, nothing else needs editing."
   ],
   "site": {
     "origin": "https://sprajwallnarayana.vercel.app",
@@ -87,8 +87,8 @@
     "title": null,
     "description": null
   },
-  "headline": "AI Engineer — product and platform",
-  "summary": "AI Engineer on the founding team at Colligence Research in Bengaluru. I build the product — agentic and LLM pipelines, code-generation services, backend APIs — and I own the platform it runs on: CI/CD, infrastructure-as-code, observability, incident response and auth. The combination is the point: the person who ships the agent workflow is the person who carries the pager for it.",
+  "headline": "AI Engineer, product and platform",
+  "summary": "AI Engineer on the founding team at Colligence Research in Bengaluru. I build the product, agentic and LLM pipelines, code-generation services, backend APIs, and I own the platform it runs on: CI/CD, infrastructure-as-code, observability, incident response and auth. The combination is the point: the person who ships the agent workflow is the person who carries the pager for it.",
   "typedPhrases": [
     "agentic and LLM pipelines",
     "CI/CD and infrastructure-as-code",
@@ -138,7 +138,7 @@
       "id": "research",
       "icon": "fa-flask",
       "title": "Research and publications",
-      "body": "Three peer-reviewed papers — one at Springer ICTIS 2025 in Bangkok and two on IEEE Xplore — covering school administration systems, ResNet50 hyperparameter tuning and a web-server controlled rover with object detection. Two more are under review."
+      "body": "Three peer-reviewed papers, one at Springer ICTIS 2025 in Bangkok and two on IEEE Xplore, covering school administration systems, ResNet50 hyperparameter tuning and a web-server controlled rover with object detection. Two more are under review."
     }
   ],
   "skills": [
@@ -212,17 +212,17 @@
       "title": "AI Engineer",
       "org": "Colligence Research",
       "location": "Bengaluru, India",
-      "date": "Nov 2025 — present",
+      "date": "Nov 2025, present",
       "current": true,
       "note": "Founding team.",
       "roles": [
         {
           "title": "AI Engineer",
-          "date": "Feb 2026 — present",
+          "date": "Feb 2026, present",
           "bullets": [
             "Works across both halves of the product: the AI and product engineering below, plus end-to-end ownership of the platform it runs on.",
-            "Established the DevOps/SRE function from scratch and now leads it — CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.",
-            "Building a retrieval-augmented system into the infrastructure layer itself, so that infrastructure-as-code and SRE work — runbook lookup, change context, incident response — is grounded in the organisation's own configuration and history rather than hand-carried knowledge. In progress.",
+            "Established the DevOps/SRE function from scratch and now leads it, CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.",
+            "Building a retrieval-augmented system into the infrastructure layer itself, so that infrastructure-as-code and SRE work, runbook lookup, change context, incident response, is grounded in the organisation's own configuration and history rather than hand-carried knowledge. In progress.",
             "Replaced manual GitHub deploy workflows, cutting deployment errors for a four-person founding team.",
             "Operates the production stack end to end: Docker, Zitadel authentication, monitored deployments with self-healing alerting.",
             "Owns system architecture across infrastructure and tooling."
@@ -230,7 +230,7 @@
         },
         {
           "title": "Associate AI Engineer",
-          "date": "Dec 2025 — Feb 2026",
+          "date": "Dec 2025, Feb 2026",
           "bullets": [
             "Led a small team building the company's first multi-agent LLM pipeline for ERP automation over MCP, keeping long-running multi-step workflows on track without human intervention.",
             "Built a code-generation service that parses structured input specs and emits deployment-ready web applications."
@@ -238,7 +238,7 @@
         },
         {
           "title": "Associate AI Engineer Intern",
-          "date": "Nov 2025 — Dec 2025",
+          "date": "Nov 2025, Dec 2025",
           "bullets": [
             "Prototyped the first LLM integrations and agent workflows."
           ]
@@ -262,7 +262,7 @@
       "title": "Research Intern, AI and Deep Learning",
       "org": "RVCE Centre of Excellence",
       "location": "Remote",
-      "date": "Oct 2024 — Dec 2024",
+      "date": "Oct 2024, Dec 2024",
       "current": false,
       "bullets": [
         "Built a deepfake-detection model from scratch for manipulated-face video, using no external detection APIs.",
@@ -281,7 +281,7 @@
       "title": "Associate Consultant Intern, Enterprise Cybersecurity",
       "org": "Ernst & Young India",
       "location": "Bengaluru, India",
-      "date": "Aug 2024 — Sep 2024",
+      "date": "Aug 2024, Sep 2024",
       "current": false,
       "bullets": [
         "Shadowed senior consultants on cloud-security and identity and access management work.",
@@ -301,7 +301,7 @@
       "title": "B.E. Computer Science and Engineering",
       "org": "R V College of Engineering (VTU)",
       "location": "Bengaluru, India",
-      "date": "Dec 2021 — Aug 2025",
+      "date": "Dec 2021, Aug 2025",
       "bullets": []
     }
   ],
@@ -309,7 +309,7 @@
     {
       "id": "educonnect",
       "title": "EduConnect: A Smart Solution for Streamlined School Administrations",
-      "venue": "Springer ICTIS 2025, Bangkok — ICT for Intelligent Systems, Vol. 9",
+      "venue": "Springer ICTIS 2025, Bangkok, ICT for Intelligent Systems, Vol. 9",
       "url": null
     },
     {
@@ -333,7 +333,7 @@
       "subtitle": "Offline-capable multilingual AI healthcare platform",
       "icon": "fa-heart-pulse",
       "color": "#FF3B30",
-      "description": "Symptom checking, X-ray fracture detection, prescription summarisation and a wellness chatbot, running fully offline on quantized models — demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62-case labelled evaluation harness scores those safety layers and runs as a CI merge gate at recall 1.00; building it found a real missed self-harm disclosure. A LangGraph pipeline turns an uploaded medical report into a plain-language explanation in the patient's own language, with a self-verification loop, and requests are routed across local Ollama models. It is being taken further: the one-shot report explainer into a longitudinal one that remembers a patient's prior reports and flags changes over time, and the 62-case safety set into a continuously growing suite seeded from real misses. Third place, college final-year showcase.",
+      "description": "Symptom checking, X-ray fracture detection, prescription summarisation and a wellness chatbot, running fully offline on quantized models, demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62-case labelled evaluation harness scores those safety layers and runs as a CI merge gate at recall 1.00; building it found a real missed self-harm disclosure. A LangGraph pipeline turns an uploaded medical report into a plain-language explanation in the patient's own language, with a self-verification loop, and requests are routed across local Ollama models. It is being taken further: the one-shot report explainer into a longitudinal one that remembers a patient's prior reports and flags changes over time, and the 62-case safety set into a continuously growing suite seeded from real misses. Third place, college final-year showcase.",
       "metrics": [
         "Crisis detection: recall 1.00 / precision 0.93",
         "Emergency: 1.00 / 1.00",
@@ -348,18 +348,18 @@
         "Raspberry Pi"
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
-      "date": "Jan 2025 — Jun 2025"
+      "date": "Jan 2025, Jun 2025"
     },
     {
       "id": "audier",
       "title": "Audier",
-      "subtitle": "Private reader and audiobook player for Linux — released and installable",
+      "subtitle": "Private reader and audiobook player for Linux, released and installable",
       "icon": "fa-book-open-reader",
       "color": "#5B6ABF",
       "description": "A Linux desktop app that reads your own books aloud. It opens PDF, EPUB, Markdown and plain text, reads them in a neural voice with follow-along highlighting, recognises text on scanned pages, and offers optional AI study aids for textbooks across six providers. Privacy is the design constraint rather than a feature: books are read where they sit and are never copied or uploaded, speech and text recognition run on the machine, and a cloud provider is never the default and always states what it is about to send before it sends it. Built in Flutter and shipped as an AppImage, a .deb and a tarball built by GitHub Actions.",
       "metrics": [
         "202 tests",
-        "v1.0.0 released — AppImage, .deb, tarball",
+        "v1.0.0 released, AppImage.deb, tarball",
         "Runs fully offline"
       ],
       "tags": [
@@ -379,7 +379,7 @@
       "subtitle": "AI-powered CI/CD pipeline generator and monitor",
       "icon": "fa-code-branch",
       "color": "#3b82f6",
-      "description": "An agent that reads a repository, infers its stack and test setup, and generates a working CI/CD pipeline for it — then watches the runs and explains failures in plain language instead of leaving you to parse red logs. It targets GitHub Actions and GitLab CI from the same core, so the generated workflow matches whichever platform the repo lives on. It is being taken from generate-once to a standing agent: one that opens a pull request with a proposed fix when a pipeline breaks, learns a project's flaky tests across repeated runs, and gates merges on the checks that actually matter for that repo rather than a fixed template.",
+      "description": "An agent that reads a repository, infers its stack and test setup, and generates a working CI/CD pipeline for it, then watches the runs and explains failures in plain language instead of leaving you to parse red logs. It targets GitHub Actions and GitLab CI from the same core, so the generated workflow matches whichever platform the repo lives on. It is being taken from generate-once to a standing agent: one that opens a pull request with a proposed fix when a pipeline breaks, learns a project's flaky tests across repeated runs, and gates merges on the checks that actually matter for that repo rather than a fixed template.",
       "metrics": [],
       "tags": [
         "CI/CD",
@@ -395,7 +395,7 @@
       "subtitle": "AI access from a phone",
       "icon": "fa-comments",
       "color": "#06b6d4",
-      "description": "A bridge that puts an LLM behind the channels already on your phone — WhatsApp, Telegram and email — so a model can be driven without an app or a terminal. Each channel is a thin adapter over one routing core that keeps conversation context per user and forwards prompts to whichever backend is configured. It is growing into a single account that spans all three channels at once with shared memory, attachment handling (send a photo or a PDF, get the answer back on the same thread), and per-user rate and cost limits so it can be handed to non-technical users safely.",
+      "description": "A bridge that puts an LLM behind the channels already on your phone, WhatsApp, Telegram and email, so a model can be driven without an app or a terminal. Each channel is a thin adapter over one routing core that keeps conversation context per user and forwards prompts to whichever backend is configured. It is growing into a single account that spans all three channels at once with shared memory, attachment handling (send a photo or a PDF, get the answer back on the same thread), and per-user rate and cost limits so it can be handed to non-technical users safely.",
       "metrics": [],
       "tags": [
         "Python",
@@ -414,7 +414,7 @@
       "subtitle": "Student resource platform",
       "icon": "fa-graduation-cap",
       "color": "#FF9F0A",
-      "description": "A resource-sharing platform for students — notes, question papers and course material organised by department — that grew to be used across 12+ departments. It handles upload, categorisation and search so material stays findable instead of scattered across chat groups. It is being extended with semantic search over the uploaded material, so a student can ask a question and land on the exact page, plus automatic tagging of new uploads and a lightweight moderation queue so contributions scale without the collection filling with duplicates.",
+      "description": "A resource-sharing platform for students, notes, question papers and course material organised by department, that grew to be used across 12+ departments. It handles upload, categorisation and search so material stays findable instead of scattered across chat groups. It is being extended with semantic search over the uploaded material, so a student can ask a question and land on the exact page, plus automatic tagging of new uploads and a lightweight moderation queue so contributions scale without the collection filling with duplicates.",
       "metrics": [],
       "tags": [
         "Web platform",
@@ -430,7 +430,7 @@
       "subtitle": "Terminal-based LLM assistant",
       "icon": "fa-terminal",
       "color": "#10b981",
-      "description": "A command-line assistant for working with LLMs without leaving the terminal — pipe a file in, ask a question, get the answer in the shell you are already in. It is built to fit a Unix workflow: composable with pipes, scriptable, and fast to reach for. It is being extended with streaming responses, a searchable session history, tool calling so it can run shell commands on request under confirmation, and a local-model backend so it works offline the same way it works against a hosted API.",
+      "description": "A command-line assistant for working with LLMs without leaving the terminal, pipe a file in, ask a question, get the answer in the shell you are already in. It is built to fit a Unix workflow: composable with pipes, scriptable, and fast to reach for. It is being extended with streaming responses, a searchable session history, tool calling so it can run shell commands on request under confirmation, and a local-model backend so it works offline the same way it works against a hosted API.",
       "metrics": [],
       "tags": [
         "Python",
@@ -445,7 +445,7 @@
       "subtitle": "Synthetic speech detection",
       "icon": "fa-wave-square",
       "color": "#AF52DE",
-      "description": "A classifier that flags AI-synthesised or voice-cloned speech, trained in PyTorch on the spectral features that separate real audio from generated audio. It targets the practical question — is this clip authentic — rather than a leaderboard benchmark. The work going on top of it is robustness to compression and phone-call codecs (where most real clips are degraded), a calibrated confidence score instead of a hard label so borderline clips can be escalated, and a short explanation of which part of the signal drove the decision rather than an opaque yes/no.",
+      "description": "A classifier that flags AI-synthesised or voice-cloned speech, trained in PyTorch on the spectral features that separate real audio from generated audio. It targets the practical question, is this clip authentic, rather than a leaderboard benchmark. The work going on top of it is robustness to compression and phone-call codecs (where most real clips are degraded), a calibrated confidence score instead of a hard label so borderline clips can be escalated, and a short explanation of which part of the signal drove the decision rather than an opaque yes/no.",
       "metrics": [],
       "tags": [
         "PyTorch",
@@ -457,7 +457,7 @@
     {
       "id": "openplay",
       "title": "openplay",
-      "subtitle": "Open-source screen casting in Rust — AirPlay, Miracast, WebRTC",
+      "subtitle": "Open-source screen casting in Rust, AirPlay, Miracast, WebRTC",
       "icon": "fa-tower-broadcast",
       "color": "#DE4A21",
       "description": "A from-scratch screen-casting stack written in Rust, so a Linux, macOS or Windows machine can cast to AirPlay receivers, Miracast receivers, or another machine running openplay, with no proprietary software and no cloud account. The protocol work is the substance: AirPlay mirroring with HAP pair-setup over SRP-6a, Ed25519/X25519 and ChaCha20-Poly1305, FairPlay, RTSP negotiation and an NTP server; Miracast WFD RTSP M1 to M7; Wi-Fi Direct driven over raw wpa_supplicant D-Bus; mDNS auto-discovery; runtime GStreamer encoder probing; and screen capture through the XDG portal and PipeWire.",
@@ -518,8 +518,8 @@
     },
     {
       "id": "worldmonitor-contribution",
-      "title": "World Monitor — open-source contribution",
-      "subtitle": "Merged upstream PR to a real-time intelligence dashboard — not my project",
+      "title": "World Monitor, open-source contribution",
+      "subtitle": "Merged upstream PR to a real-time intelligence dashboard, not my project",
       "icon": "fa-code-pull-request",
       "color": "#5A6B7B",
       "description": "An open-source contribution rather than a project of mine. World Monitor is a real-time geopolitical and financial intelligence dashboard maintained by Elie Habib: roughly 330k lines of TypeScript, about 40 contributors, 933 test files, 21 CI workflows and 281 protobuf contracts. My contribution is pull request 5459, merged in July 2026, which adds an expandable terminal price chart with its own interaction layer to the markets panel and fixes a proxy path bug in the OpenSky development integration. Getting a change through the review gate of a codebase that rigorous is the part worth showing.",
@@ -582,7 +582,7 @@
       "contactTitle": "Contact",
       "contactSubtitle": "The fastest way to reach me is email.",
       "servicesTitle": "Freelance services",
-      "servicesSubtitle": "Available for select freelance projects — I build DevOps pipelines and RAG systems for real workloads, with the evaluation to prove they work."
+      "servicesSubtitle": "Available for select freelance projects, I build DevOps pipelines and RAG systems for real workloads, with the evaluation to prove they work."
     },
     "contact": {
       "emailLabel": "Email",
@@ -620,7 +620,7 @@
   "services": [
     {
       "title": "RAG systems that hold up",
-      "body": "Retrieval-augmented systems over your own corpus — hybrid retrieval, reranking, and a labelled evaluation harness wired into CI so quality is measured, not hoped for. The same discipline behind Arogya-Sathi's 62-case, CI-gated safety eval (recall 1.00).",
+      "body": "Retrieval-augmented systems over your own corpus, hybrid retrieval, reranking, and a labelled evaluation harness wired into CI so quality is measured, not hoped for. The same discipline behind Arogya-Sathi's 62-case, CI-gated safety eval (recall 1.00).",
       "points": [
         "Corpus ingestion + hybrid (BM25 + dense) retrieval",
         "Cross-encoder reranking",
@@ -630,7 +630,7 @@
     },
     {
       "title": "DevOps / SRE, end to end",
-      "body": "The platform your product runs on — CI/CD, infrastructure-as-code, containerisation, observability and incident runbooks. Built the DevOps/SRE function from scratch at a founding-team startup and carry the pager for it.",
+      "body": "The platform your product runs on, CI/CD, infrastructure-as-code, containerisation, observability and incident runbooks. Built the DevOps/SRE function from scratch at a founding-team startup and carry the pager for it.",
       "points": [
         "CI/CD pipelines (GitHub Actions, GitLab)",
         "IaC with OpenTofu / Ansible",
@@ -641,7 +641,7 @@
     },
     {
       "title": "LLM & agent pipelines",
-      "body": "Multi-agent and LLM systems over MCP with LangGraph/LangChain, kept on-device with local models where the data is sensitive, and shipped as a monitored service — not a demo.",
+      "body": "Multi-agent and LLM systems over MCP with LangGraph/LangChain, kept on-device with local models where the data is sensitive, and shipped as a monitored service, not a demo.",
       "points": [
         "Multi-agent workflows (LangGraph, MCP)",
         "Local/offline LLM deployment",
