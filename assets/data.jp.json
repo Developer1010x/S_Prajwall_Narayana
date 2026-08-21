@@ -544,6 +544,47 @@
       ],
       "url": "https://github.com/koala73/worldmonitor/pull/5459",
       "date": ""
+    },
+    {
+      "id": "cyclomatic-complexity",
+      "title": "循環的複雑度測定 Clang プラグイン",
+      "subtitle": "関数ごとの制御フロー複雑度を測るコンパイラプラグイン",
+      "icon": "fa-code-branch",
+      "color": "#6E56CF",
+      "description": "コンパイル対象ファイル内の各関数の循環的複雑度を報告する Clang プラグインです。コンパイラ自体に読み込まれるため、テキストを再解析するのではなく、プリプロセス後のコードを実際の include パスとフラグのもとで取り扱います。制御フローグラフを構築せず AST を走査します。M = E − N + 2P は単一関数では分岐点 + 1 に帰着するからです。GCC 向けに書かれた C / C++ も解析でき、文式、省略形の条件演算子、計算型 goto、case 範囲、__attribute__ などの GNU 拡張に対応します。2024 年の学生プロジェクトが原型で、2026 年に LLVM 18 向けに再実装し、switch を case ごとではなく一つと数えていた点など四つの計測誤りを修正しました。",
+      "metrics": [
+        "テスト 15 件、全件パス",
+        "LLVM 18、C および C++"
+      ],
+      "tags": [
+        "C++",
+        "Clang",
+        "LLVM",
+        "AST",
+        "コンパイラ"
+      ],
+      "url": "https://github.com/Developer1010x/cyclomatic-complexity-plugin",
+      "date": "Aug 2026"
+    },
+    {
+      "id": "ansible-contribution",
+      "title": "Ansible community.general へのオープンソース貢献",
+      "subtitle": "マージ済みの上流バグ修正、自身のプロジェクトではありません",
+      "icon": "fa-code-pull-request",
+      "color": "#B03A2E",
+      "description": "自身のプロジェクトではなく、オープンソースへの貢献です。community.general は Ansible 最大のコミュニティコレクションで、多くの本番自動化環境が依存しています。snap モジュールは、存在しない snap を報告する代わりに IndexError で落ちていました。`snap info` はこの状態を二通りに報告します。複数問い合わせた場合は stdout に警告と戻り値 0、一つの場合は stderr にエラーと戻り値 1 です。パーサーは前者しか見ていなかったため、後者が空の結果を参照するコードに流れていました。2026 年 8 月にマージされたプルリクエスト 12570 で、両方の形式を扱うよう修正しました。",
+      "metrics": [
+        "PR #12570 マージ済",
+        "3 ファイルで +59 / −2"
+      ],
+      "tags": [
+        "Python",
+        "Ansible",
+        "オープンソース",
+        "バグ修正"
+      ],
+      "url": "https://github.com/ansible-collections/community.general/pull/12570",
+      "date": "Aug 2026"
     }
   ]
 }

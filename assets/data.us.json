@@ -304,6 +304,47 @@
       ],
       "url": "https://github.com/koala73/worldmonitor/pull/5459",
       "date": ""
+    },
+    {
+      "id": "cyclomatic-complexity",
+      "title": "Cyclomatic Complexity, Clang plugin",
+      "subtitle": "Compiler plugin measuring control-flow complexity per function",
+      "icon": "fa-code-branch",
+      "color": "#6E56CF",
+      "description": "A Clang plugin that reports the cyclomatic complexity of every function in the file being compiled. It loads into the compiler itself, so it sees the code after preprocessing, with the real include paths and feature flags, rather than reparsing text. It walks the AST instead of building a control-flow graph, which works because M = E − N + 2P collapses to decision points plus one for a single function. It analyzes C and C++ written for GCC as well as Clang, including the GNU extensions real codebases use: statement expressions, the binary conditional with an omitted operand, computed goto, case ranges and __attribute__. Originally a 2024 college project written to understand how a compiler represents code once it stops being text; rebuilt in 2026 for LLVM 18, which meant fixing four counting errors the original had, among them treating a switch as one decision rather than one per case, and folding a lambda's branches into its enclosing function.",
+      "metrics": [
+        "15 tests, all passing",
+        "LLVM 18, C and C++"
+      ],
+      "tags": [
+        "C++",
+        "Clang",
+        "LLVM",
+        "AST",
+        "Compilers"
+      ],
+      "url": "https://github.com/Developer1010x/cyclomatic-complexity-plugin",
+      "date": "Aug 2026"
+    },
+    {
+      "id": "ansible-contribution",
+      "title": "Ansible community.general, open-source contribution",
+      "subtitle": "Merged upstream bug fix, not my project",
+      "icon": "fa-code-pull-request",
+      "color": "#B03A2E",
+      "description": "An open-source contribution rather than a project of mine. community.general is Ansible's largest community collection, depended on by a very large number of production automation setups. The snap module crashed with an IndexError instead of reporting a missing snap, because `snap info` reports that condition two different ways: a warning on stdout with return code 0 when several snaps are queried, and an error on stderr with return code 1 when only one is. The parser matched only the first form, so the single-snap case fell through to code that indexed an empty result. Pull request 12570, merged August 2026, handles both forms and fixes the reported issue.",
+      "metrics": [
+        "PR #12570 merged",
+        "+59 / −2 across 3 files"
+      ],
+      "tags": [
+        "Python",
+        "Ansible",
+        "Open source",
+        "Bug fix"
+      ],
+      "url": "https://github.com/ansible-collections/community.general/pull/12570",
+      "date": "Aug 2026"
     }
   ],
   "strings": {

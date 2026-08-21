@@ -486,6 +486,47 @@
       ],
       "url": "https://github.com/koala73/worldmonitor/pull/5459",
       "date": ""
+    },
+    {
+      "id": "cyclomatic-complexity",
+      "title": "Zyklomatische Komplexität, Clang-Plugin",
+      "subtitle": "Compiler-Plugin zur Messung der Kontrollflusskomplexität je Funktion",
+      "icon": "fa-code-branch",
+      "color": "#6E56CF",
+      "description": "Ein Clang-Plugin, das die zyklomatische Komplexität jeder Funktion in der gerade übersetzten Datei ausgibt. Es wird in den Compiler selbst geladen und sieht den Code daher nach der Präprozessierung, mit den tatsächlichen Include-Pfaden und Feature-Flags, statt den Text erneut zu parsen. Es läuft über den AST statt einen Kontrollflussgraphen aufzubauen, denn M = E − N + 2P vereinfacht sich für eine einzelne Funktion zu Verzweigungspunkte plus eins. Analysiert C und C++, das für GCC ebenso wie für Clang geschrieben wurde, einschließlich der GNU-Erweiterungen realer Codebasen: Statement Expressions, bedingter Operator mit ausgelassenem Operanden, Computed Goto, Case-Ranges und __attribute__. Ursprünglich ein Studienprojekt von 2024, um zu verstehen, wie ein Compiler Code darstellt, sobald dieser kein Text mehr ist; 2026 für LLVM 18 neu gebaut, wobei vier Zählfehler des Originals korrigiert wurden — unter anderem, ein switch als eine Verzweigung statt als eine je case zu werten und die Verzweigungen eines Lambdas der umgebenden Funktion zuzurechnen.",
+      "metrics": [
+        "15 Tests, alle bestanden",
+        "LLVM 18, C und C++"
+      ],
+      "tags": [
+        "C++",
+        "Clang",
+        "LLVM",
+        "AST",
+        "Compilerbau"
+      ],
+      "url": "https://github.com/Developer1010x/cyclomatic-complexity-plugin",
+      "date": "Aug 2026"
+    },
+    {
+      "id": "ansible-contribution",
+      "title": "Ansible community.general, Open-Source-Beitrag",
+      "subtitle": "Gemergter Upstream-Bugfix, kein eigenes Projekt",
+      "icon": "fa-code-pull-request",
+      "color": "#B03A2E",
+      "description": "Ein Open-Source-Beitrag, kein eigenes Projekt. community.general ist Ansibles größte Community-Collection, auf die sehr viele produktive Automatisierungen aufsetzen. Das snap-Modul brach mit einem IndexError ab, statt ein fehlendes Snap zu melden, weil `snap info` diesen Fall auf zwei Arten meldet: als Warnung auf stdout mit Rückgabewert 0, wenn mehrere Snaps abgefragt werden, und als Fehler auf stderr mit Rückgabewert 1, wenn es nur eines ist. Der Parser erkannte nur die erste Form, sodass der Einzelfall in Code lief, der ein leeres Ergebnis indizierte. Pull Request 12570, gemergt im August 2026, behandelt beide Formen und behebt das gemeldete Problem.",
+      "metrics": [
+        "PR #12570 gemergt",
+        "+59 / −2 in 3 Dateien"
+      ],
+      "tags": [
+        "Python",
+        "Ansible",
+        "Open Source",
+        "Bugfix"
+      ],
+      "url": "https://github.com/ansible-collections/community.general/pull/12570",
+      "date": "Aug 2026"
     }
   ],
   "strings": {
