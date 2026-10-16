@@ -4,6 +4,13 @@
   Source template: templates/page.html
   Source data:     assets/data.base.json + assets/data.<cc>.json
   Rebuild with:    npm run build   (also runs automatically on every Vercel deploy)
+
+  Section order is the information architecture, and it is deliberate: the
+  strongest evidence comes before the biography. Hero (one claim) -> credibility
+  strip -> featured system -> selected engineering -> capabilities -> experience
+  -> education -> research -> currently building -> about -> services -> contact.
+  Projects used to sit sixth, behind About and Skills; a recruiter reached the
+  work only after two screens of self-description.
 -->
 <html lang="mr-IN" dir="ltr" data-region="in">
 <head>
@@ -22,14 +29,18 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="S. Prajwall Narayana, AI Engineer (agentic and LLM systems, DevOps) | Bengaluru">
 <meta name="twitter:description" content="AI Engineer on the founding team at Colligence Research, Bengaluru. Multi-agent and LLM pipelines over MCP, LangGraph, Python and FastAPI, alongside CI/CD, OpenTofu, Ansible, Docker and Zitadel. IEEE- and Springer-published.">
-<meta name="theme-color" content="#0a0e27">
+<meta name="theme-color" content="#0B0B0D">
 <script>document.documentElement.className+=' js';</script>
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../../assets/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="../../assets/images/S_Prajwall_Narayana.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<!-- Only the mono face is fetched. The UI face is the system stack: on Apple
+     hardware that resolves to SF Pro, which is the point, and everywhere else to
+     the platform's own UI face. Two fewer webfonts than before, and no FOUT on
+     the headline. -->
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/site.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -73,12 +84,12 @@
       <span class="logo-text">S. Prajwall Narayana</span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#about">परिचय</a></li>
+      <li><a href="#projects">प्रकल्प</a></li>
       <li><a href="#skills">कौशल्ये</a></li>
       <li><a href="#experience">अनुभव</a></li>
       <li><a href="#education">शिक्षण</a></li>
-      <li><a href="#projects">प्रकल्प</a></li>
       <li><a href="#publications">प्रकाशने</a></li>
+      <li><a href="#about">परिचय</a></li>
       <li><a href="../../index2.html">सेवा</a></li>
       <li><a href="#contact">संपर्क</a></li>
     </ul>
@@ -95,22 +106,48 @@
 
 <main id="main">
 
+<!-- Hero: one claim, one supporting sentence, three actions. The eight-claim
+     paragraph that used to sit here is still on the page, in About, where a
+     reader who wants depth goes looking for it. -->
 <section id="home" class="hero">
-
-  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-text">
-      <p class="hero-greeting"><i class="fas fa-terminal" aria-hidden="true"></i> नमस्कार, मी</p>
-      <h1 class="glow-text">S. Prajwall Narayana</h1>
-      <p class="subtitle"><strong>AI Engineer</strong> &mdash; <span id="typed-text">agentic and LLM pipelines over MCP</span><span class="typing-cursor" aria-hidden="true"></span></p>
-      <p class="description">बेंगळुरूमधील <strong>Colligence Research</strong> च्या संस्थापक चमूतील AI अभियंता. मी स्टॅकच्या दोन्ही बाजूंवर काम करतो: उत्पादन तयार करतो, <strong>MCP</strong> वरून चालणाऱ्या multi-agent आणि LLM पाइपलाइन, कोड-निर्मिती सेवा, <strong>Python</strong> व <strong>FastAPI</strong> बॅकएंड, आणि ते ज्या प्लॅटफॉर्मवर चालते त्याची जबाबदारीही माझीच; <strong>CI/CD</strong>, <strong>OpenTofu</strong> व <strong>Ansible</strong> वापरून infrastructure-as-code, <strong>Docker</strong>, <strong>Zitadel</strong> आधारित प्रमाणीकरण, observability आणि incident response हे सर्व मी सुरुवातीपासून उभे केले आहे. <strong>IEEE आणि Springer मध्ये प्रकाशित</strong>, तीन समकक्ष-परीक्षित शोधनिबंध, आणखी दोन परीक्षणाधीन.</p>
+      <p class="hero-eyebrow"><span class="mono">AI Engineer</span><span class="hero-eyebrow-sep" aria-hidden="true"></span><span class="mono hero-eyebrow-muted">Bengaluru, India</span></p>
+      <h1 class="hero-claim">I build agentic AI systems and the infrastructure that keeps them running.</h1>
+      <p class="hero-capabilities mono"><span id="typed-text">agentic and LLM pipelines over MCP</span><span class="typing-cursor" aria-hidden="true"></span></p>
+      <p class="description">I engineer multi-agent workflows, retrieval systems, AI evaluation pipelines, the APIs they sit behind, and the production platform underneath them.</p>
 
       <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary magnetic-btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> संपर्क साधा</a>
-        <a href="https://github.com/Developer1010x" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-btn"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+        <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-down" aria-hidden="true"></i> Explore projects</a>
         <button type="button" class="btn btn-secondary magnetic-btn" id="cv-open" data-cv="../../assets/cv/in-en.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i> CV</button>
+        <a href="https://github.com/Developer1010x" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+        <a href="#contact" class="btn btn-quiet"><i class="fas fa-paper-plane" aria-hidden="true"></i> संपर्क साधा</a>
       </div>
-      <dl class="hero-stats">
+    </div>
+    <div class="hero-visual">
+      <!-- Technical identity card. Every field is a real field from the data,
+           and the labels are the already-translated contact labels, so this
+           needs no new translation on the ja/de/hi/kn/mr pages. -->
+      <aside class="id-card" aria-label="Profile">
+        <p class="id-card-head mono">Profile</p>
+        <img src="../../assets/images/S_Prajwall_Narayana.jpg" alt="Stylised high-contrast avatar used by S Prajwall Narayana" class="profile-image" width="150" height="150" loading="lazy" decoding="async">
+        <p class="id-card-name">S. Prajwall Narayana</p>
+        <p class="id-card-role">AI Engineer</p>
+        <dl class="id-card-fields">
+          <dt class="mono">ठिकाण</dt><dd>Bengaluru, India</dd>
+          <dt class="mono">GitHub</dt><dd><a href="https://github.com/Developer1010x" target="_blank" rel="noopener noreferrer">Developer1010x</a></dd>
+        </dl>
+        <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> Colligence Research</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Credibility strip. These numbers were buried at the bottom of the hero
+     text column; on a phone they fell below the fold entirely. -->
+<section id="credibility" class="credibility-strip" aria-label="Key figures">
+  <dl class="hero-stats">
         <div class="stat-item">
           <dt>Peer-reviewed papers</dt>
           <dd class="stat-number" data-count="3" data-suffix="">0</dd>
@@ -123,191 +160,10 @@
           <dt>Departments using Knotes Central</dt>
           <dd class="stat-number" data-count="12" data-suffix="+">0</dd>
         </div>
-      </dl>
-    </div>
-    <div class="hero-visual float">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="../../assets/images/S_Prajwall_Narayana.jpg" alt="Stylised high-contrast avatar used by S Prajwall Narayana" class="profile-image" width="150" height="150" loading="lazy" decoding="async">
-            <p class="flip-name">S. Prajwall Narayana</p>
-            <p>AI Engineer</p>
-            <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> Colligence Research</div>
-          </div>
-          <div class="flip-card-back">
-            <i class="fas fa-terminal" aria-hidden="true" style="font-size:2rem;margin-bottom:0.75rem;"></i>
-            <p class="flip-name">@Developer1010x</p>
-            <p>AI Engineer, agentic and LLM systems, and the platform they run on</p>
-            <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> Bengaluru, India</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </dl>
 </section>
 
-<section id="about" class="section reveal">
-  <div class="section-header">
-    <h2 class="section-title">परिचय</h2>
-    <p class="section-subtitle">उत्पादन घडवणारा आणि ते चालवणारे प्लॅटफॉर्मही सांभाळणारा AI अभियंता.</p>
-  </div>
-  <div class="skills-grid stagger-children">
-    <article class="skill-category about-card glow-border">
-      <h3><i class="fas fa-diagram-project" aria-hidden="true"></i> मी काय तयार करतो</h3>
-      <p>ERP ऑटोमेशनसाठी MCP वरून चालणाऱ्या multi-agent LLM पाइपलाइन, संरचित इनपुट स्पेसिफिकेशनपासून थेट तैनात करता येतील अशी वेब अ‍ॅप्लिकेशन तयार करणारी कोड-निर्मिती सेवा, आणि त्यांमागील बॅकएंड API. दीर्घ काळ चालणारे, अनेक टप्प्यांचे एजंट वर्कफ्लो, माणसाने सतत लक्ष ठेवण्याची गरज न पडता मार्गावर राहणारे.</p>
-    </article>
-    <article class="skill-category about-card glow-border">
-      <h3><i class="fas fa-server" aria-hidden="true"></i> मी काय चालवतो</h3>
-      <p>या प्रणाली ज्या प्लॅटफॉर्मवर चालतात तो प्लॅटफॉर्म. Colligence Research मध्ये DevOps/SRE ची जबाबदारी मी शून्यातून उभी केली आणि आता तिचे नेतृत्व करतो: CI/CD, Linode वर OpenTofu आणि Ansible वापरून infrastructure-as-code, Docker, SSO व RBAC साठी Zitadel, observability, अलर्टिंग आणि incident runbooks.</p>
-    </article>
-    <article class="skill-category about-card glow-border">
-      <h3><i class="fas fa-flask" aria-hidden="true"></i> संशोधन आणि प्रकाशने</h3>
-      <p>तीन समकक्ष-परीक्षित शोधनिबंध, एक बँकॉकमधील Springer ICTIS 2025 मध्ये आणि दोन IEEE Xplore वर, शालेय प्रशासन प्रणाली, ResNet50 हायपरपॅरामीटर ट्यूनिंग, आणि वस्तू-ओळख असलेला वेब-सर्व्हरद्वारे नियंत्रित रोव्हर या विषयांवर. आणखी दोन परीक्षणाधीन आहेत.</p>
-    </article>
-  </div>
-</section>
 
-<section id="skills" class="section reveal">
-  <div class="section-header">
-    <h2 class="section-title">कौशल्ये</h2>
-    <p class="section-subtitle">AI आणि LLM प्रणाली, आणि त्या चालवणारी पायाभूत सुविधा, दोन्ही समान प्रमाणात.</p>
-  </div>
-  <div class="skills-grid stagger-children">
-    <article class="skill-category tilt-card glow-border">
-      <h3><i class="fas fa-robot" aria-hidden="true"></i> AI आणि LLM प्रणाली</h3>
-      <ul class="skill-tags">
-        <li class="skill-tag">Agentic systems</li>
-        <li class="skill-tag">MCP orchestration</li>
-        <li class="skill-tag">Multi-agent workflows</li>
-        <li class="skill-tag">RAG</li>
-        <li class="skill-tag">LangChain</li>
-        <li class="skill-tag">LangGraph</li>
-        <li class="skill-tag">Claude API</li>
-        <li class="skill-tag">LLM integration</li>
-        <li class="skill-tag">Evaluation harnesses</li>
-      </ul>
-    </article>
-    <article class="skill-category tilt-card glow-border">
-      <h3><i class="fas fa-server" aria-hidden="true"></i> पायाभूत सुविधा आणि DevOps</h3>
-      <ul class="skill-tags">
-        <li class="skill-tag">CI/CD</li>
-        <li class="skill-tag">OpenTofu (IaC)</li>
-        <li class="skill-tag">Ansible</li>
-        <li class="skill-tag">Docker</li>
-        <li class="skill-tag">Linux</li>
-        <li class="skill-tag">Linode</li>
-        <li class="skill-tag">Observability and alerting</li>
-        <li class="skill-tag">Incident runbooks</li>
-        <li class="skill-tag">Zitadel (SSO/IAM)</li>
-        <li class="skill-tag">RBAC</li>
-        <li class="skill-tag">Git</li>
-      </ul>
-    </article>
-    <article class="skill-category tilt-card glow-border">
-      <h3><i class="fas fa-code" aria-hidden="true"></i> भाषा आणि बॅकएंड</h3>
-      <ul class="skill-tags">
-        <li class="skill-tag">Python</li>
-        <li class="skill-tag">C</li>
-        <li class="skill-tag">C++</li>
-        <li class="skill-tag">FastAPI</li>
-        <li class="skill-tag">REST APIs</li>
-        <li class="skill-tag">PostgreSQL</li>
-        <li class="skill-tag">SQL</li>
-        <li class="skill-tag">Swift</li>
-        <li class="skill-tag">Rust</li>
-        <li class="skill-tag">Shell scripting</li>
-      </ul>
-    </article>
-    <article class="skill-category tilt-card glow-border">
-      <h3><i class="fas fa-brain" aria-hidden="true"></i> मशीन लर्निंग आणि व्हिजन</h3>
-      <ul class="skill-tags">
-        <li class="skill-tag">PyTorch</li>
-        <li class="skill-tag">TensorFlow</li>
-        <li class="skill-tag">YOLOv8</li>
-        <li class="skill-tag">OpenCV</li>
-        <li class="skill-tag">CNN</li>
-        <li class="skill-tag">ResNet</li>
-        <li class="skill-tag">Quantized model deployment</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<section id="experience" class="section reveal">
-  <div class="section-header">
-    <h2 class="section-title">अनुभव</h2>
-    <p class="section-subtitle">आजवरचे काम.</p>
-  </div>
-  <div class="skills-grid stagger-children">
-    <article class="skill-category timeline-card glow-border">
-      <div class="timeline-card-head">
-        <h3>AI Engineer</h3>
-        <span class="timeline-date is-current">नोव्हेंबर 2025 – आजतागायत</span>
-      </div>
-      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> Colligence Research &bull; बेंगळुरू, भारत</p>
-      <p>संस्थापक चमू.</p>
-      <h4>AI Engineer <span class="timeline-date">फेब्रुवारी 2026 – आजतागायत</span></h4>
-      <ul>
-        <li>उत्पादनाच्या दोन्ही बाजूंवर काम: खाली नमूद केलेले AI व उत्पादन-अभियांत्रिकी, आणि त्याबरोबरच ते ज्या प्लॅटफॉर्मवर चालते त्याची सुरुवातीपासून शेवटपर्यंतची संपूर्ण जबाबदारी.</li>
-        <li>DevOps/SRE ची जबाबदारी शून्यातून उभी केली आणि आता तिचे नेतृत्व करतो, CI/CD, Linode वर OpenTofu आणि Ansible वापरून infrastructure-as-code, observability, अलर्टिंग आणि incident runbooks.</li>
-        <li>infrastructure-as-code आणि SRE चे काम, runbook शोधणे, बदलांचा संदर्भ, incident response, कोणाच्या तरी स्मरणात साठलेल्या माहितीवर अवलंबून न राहता संस्थेच्या स्वतःच्या कॉन्फिगरेशन आणि इतिहासावर आधारित असावे, यासाठी पायाभूत स्तरातच retrieval-augmented (RAG) प्रणाली उभारत आहे. काम प्रगतिपथावर आहे.</li>
-        <li>GitHub वरील हाताने चालवावे लागणारे deploy वर्कफ्लो बदलून टाकले; त्यामुळे चार जणांच्या संस्थापक चमूसाठी तैनातीतील (deployment) चुका कमी झाल्या.</li>
-        <li>प्रॉडक्शन स्टॅक सुरुवातीपासून शेवटपर्यंत चालवतो: Docker, Zitadel आधारित प्रमाणीकरण, देखरेख असलेल्या तैनाती आणि स्वयं-दुरुस्ती करणारे अलर्टिंग.</li>
-        <li>पायाभूत सुविधा आणि साधनसंच या दोन्हींमधील प्रणाली-रचनेची (system architecture) जबाबदारी माझी.</li>
-      </ul>
-      <h4>Associate AI Engineer <span class="timeline-date">डिसेंबर 2025 – फेब्रुवारी 2026</span></h4>
-      <ul>
-        <li>ERP ऑटोमेशनसाठी MCP वरून चालणारी कंपनीची पहिली multi-agent LLM पाइपलाइन तयार करणाऱ्या लहान चमूचे नेतृत्व केले; दीर्घ काळ चालणारे, अनेक टप्प्यांचे वर्कफ्लो माणसाच्या हस्तक्षेपाशिवाय मार्गावर राहतात.</li>
-        <li>संरचित इनपुट स्पेसिफिकेशन वाचून थेट तैनात करता येतील अशी वेब अ‍ॅप्लिकेशन तयार करणारी कोड-निर्मिती सेवा उभारली.</li>
-      </ul>
-      <h4>Associate AI Engineer Intern <span class="timeline-date">नोव्हेंबर 2025 – डिसेंबर 2025</span></h4>
-      <ul>
-        <li>पहिल्या LLM एकत्रीकरणांचे आणि एजंट वर्कफ्लोचे प्रारंभिक नमुने (prototypes) तयार केले.</li>
-      </ul>
-      <div class="timeline-tags"><span class="skill-tag">Agentic systems</span><span class="skill-tag">MCP</span><span class="skill-tag">LangGraph</span><span class="skill-tag">FastAPI</span><span class="skill-tag">OpenTofu</span><span class="skill-tag">Ansible</span><span class="skill-tag">Docker</span><span class="skill-tag">Linode</span><span class="skill-tag">Zitadel</span><span class="skill-tag">CI/CD</span></div>
-    </article>
-    <article class="skill-category timeline-card glow-border">
-      <div class="timeline-card-head">
-        <h3>Research Intern, AI and Deep Learning</h3>
-        <span class="timeline-date">ऑक्टोबर 2024 – डिसेंबर 2024</span>
-      </div>
-      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> RVCE Centre of Excellence &bull; दूरस्थ</p>
-      <ul>
-        <li>चेहरा बदललेल्या (manipulated-face) व्हिडिओसाठी deepfake ओळखणारे मॉडेल शून्यातून तयार केले; त्यासाठी कोणतेही बाह्य detection API वापरले नाही.</li>
-        <li>FaceForensics++ आणि DFDC या डेटासेटवर प्रशिक्षण आणि मूल्यमापन केले.</li>
-      </ul>
-      <div class="timeline-tags"><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">CNN</span><span class="skill-tag">FaceForensics++</span><span class="skill-tag">DFDC</span></div>
-    </article>
-    <article class="skill-category timeline-card glow-border">
-      <div class="timeline-card-head">
-        <h3>Associate Consultant Intern, Enterprise Cybersecurity</h3>
-        <span class="timeline-date">ऑगस्ट 2024 – सप्टेंबर 2024</span>
-      </div>
-      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> Ernst &amp; Young India &bull; बेंगळुरू, भारत</p>
-      <ul>
-        <li>क्लाउड-सुरक्षा आणि ओळख व प्रवेश व्यवस्थापन (identity and access management) या कामांमध्ये वरिष्ठ सल्लागारांसोबत निरीक्षक म्हणून सहभाग.</li>
-        <li>TOGAF आणि IFTAS या आराखड्यांशी प्राथमिक ओळख.</li>
-      </ul>
-      <div class="timeline-tags"><span class="skill-tag">Cloud security</span><span class="skill-tag">IAM</span><span class="skill-tag">TOGAF</span><span class="skill-tag">IFTAS</span></div>
-    </article>
-  </div>
-</section>
-
-<section id="education" class="section reveal">
-  <div class="section-header">
-    <h2 class="section-title">शिक्षण</h2>
-    <p class="section-subtitle">शैक्षणिक पार्श्वभूमी.</p>
-  </div>
-  <div class="skills-grid stagger-children">
-    <article class="skill-category timeline-card glow-border">
-      <div class="timeline-card-head">
-        <h3>बी.ई. संगणक विज्ञान आणि अभियांत्रिकी</h3>
-        <span class="timeline-date">Dec 2021 – Aug 2025</span>
-      </div>
-      <p class="timeline-org"><i class="fas fa-graduation-cap" aria-hidden="true"></i> R V College of Engineering (VTU) &bull; Bengaluru, India</p>
-    </article>
-  </div>
-</section>
 
 <section id="projects" class="section reveal">
   <div class="section-header">
@@ -315,17 +171,6 @@
     <p class="section-subtitle">सुरुवातीपासून शेवटपर्यंत घडवलेली कामे, बहुतांश खुली.</p>
   </div>
   <div class="projects-waterfall">
-    <article class="project-waterfall-card">
-      <div class="project-icon" style="background:#FF3B3022">
-        <i class="fas fa-heart-pulse" style="color:#FF3B30" aria-hidden="true"></i>
-      </div>
-      <h3 class="project-title">Arogya-Sathi</h3>
-      <p class="project-subtitle">ऑफलाइन चालणारे बहुभाषिक AI आरोग्यसेवा प्लॅटफॉर्म &bull; Jan 2025 – Jun 2025</p>
-      <p class="project-description">लक्षण-तपासणी, क्ष-किरणांमधील अस्थिभंग ओळख, प्रिस्क्रिप्शनचा सारांश आणि आरोग्यविषयक चॅटबॉट, हे सर्व quantized मॉडेलवर पूर्णपणे ऑफलाइन चालते; Raspberry Pi वर प्रात्यक्षिक करून दाखवले. त्याखाली नियमांवर आधारित निश्चित (deterministic) सुरक्षा स्तर आहे, जो औषध-संवाद आणि संकट-परिस्थिती ओळखतो; LLM त्याला बाजूला सारू शकत नाही. 62 प्रकरणांचा लेबल केलेला मूल्यमापन-संच (evaluation harness) या सुरक्षा स्तरांना गुण देतो आणि recall 1.00 वर CI merge gate म्हणून चालतो; तो तयार करतानाच स्वतःला इजा करण्याच्या एका खऱ्या उल्लेखाकडे दुर्लक्ष झाल्याचे आढळले. एक LangGraph पाइपलाइन अपलोड केलेल्या वैद्यकीय अहवालाचे रुग्णाच्या स्वतःच्या भाषेतील सोप्या शब्दांतल्या स्पष्टीकरणात रूपांतर करते, त्यात स्वयं-पडताळणीचा फेरा असतो, आणि विनंत्या स्थानिक Ollama मॉडेलमध्ये वाटल्या जातात. महाविद्यालयाच्या अंतिम वर्षाच्या प्रदर्शनात तृतीय क्रमांक.</p>
-      <ul class="project-metrics"><li>संकट-ओळख: recall 1.00 / precision 0.93</li><li>आणीबाणी: 1.00 / 1.00</li><li>औषध-तपासणी: 1.00 / 1.00</li></ul>
-      <div class="project-tags"><span class="project-tag">LangGraph</span><span class="project-tag">Ollama</span><span class="project-tag">Quantized models</span><span class="project-tag">Evaluation harness</span><span class="project-tag">CI gate</span><span class="project-tag">Raspberry Pi</span></div>
-      <div class="project-links"><a href="https://github.com/Developer1010x/Arogya-Sathi" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> कोड</a></div>
-    </article>
     <article class="project-waterfall-card">
       <div class="project-icon" style="background:#3b82f622">
         <i class="fas fa-code-branch" style="color:#3b82f6" aria-hidden="true"></i>
@@ -380,26 +225,157 @@
   </div>
 </section>
 
-<section id="services" class="section reveal">
+<section id="skills" class="section reveal">
   <div class="section-header">
-    <h2 class="section-title">Freelance services</h2>
-    <p class="section-subtitle">Available for select freelance projects, I build DevOps pipelines and RAG systems for real workloads, with the evaluation to prove they work.</p>
+    <h2 class="section-title">कौशल्ये</h2>
+    <p class="section-subtitle">AI आणि LLM प्रणाली, आणि त्या चालवणारी पायाभूत सुविधा, दोन्ही समान प्रमाणात.</p>
   </div>
-  <div class="projects-waterfall">
-    <article class="project-waterfall-card">
-      <h3 class="project-title">RAG systems that hold up</h3>
-      <p class="project-description">Retrieval-augmented systems over your own corpus, hybrid retrieval, reranking, and a labelled evaluation harness wired into CI so quality is measured, not hoped for. The same discipline behind Arogya-Sathi&#39;s 62-case, CI-gated safety eval (recall 1.00).</p>
-      <ul class="project-metrics"><li>Corpus ingestion + hybrid (BM25 + dense) retrieval</li><li>Cross-encoder reranking</li><li>Golden-set eval harness as a CI merge gate</li><li>Cost &amp; latency instrumentation</li></ul>
+  <div class="skills-grid stagger-children">
+    <article class="skill-category">
+      <h3><i class="fas fa-robot" aria-hidden="true"></i> AI आणि LLM प्रणाली</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag is-core">Agentic systems</li>
+        <li class="skill-tag is-core">MCP orchestration</li>
+        <li class="skill-tag is-core">Multi-agent workflows</li>
+        <li class="skill-tag is-core">RAG</li>
+        <li class="skill-tag is-core">LangGraph</li>
+        <li class="skill-tag is-core">Evaluation harnesses</li>
+      </ul>
+      <p class="skill-secondary-label mono">Also worked with</p>
+      <ul class="skill-tags is-secondary">
+        <li class="skill-tag">LangChain</li>
+        <li class="skill-tag">Claude API</li>
+        <li class="skill-tag">LLM integration</li>
+      </ul>
     </article>
-    <article class="project-waterfall-card">
-      <h3 class="project-title">DevOps / SRE, end to end</h3>
-      <p class="project-description">The platform your product runs on, CI/CD, infrastructure-as-code, containerisation, observability and incident runbooks. Built the DevOps/SRE function from scratch at a founding-team startup and carry the pager for it.</p>
-      <ul class="project-metrics"><li>CI/CD pipelines (GitHub Actions, GitLab)</li><li>IaC with OpenTofu / Ansible</li><li>Docker &amp; Kubernetes</li><li>Observability, alerting, runbooks</li><li>Auth: Zitadel / OAuth / RBAC</li></ul>
+    <article class="skill-category">
+      <h3><i class="fas fa-server" aria-hidden="true"></i> पायाभूत सुविधा आणि DevOps</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag is-core">CI/CD</li>
+        <li class="skill-tag is-core">OpenTofu (IaC)</li>
+        <li class="skill-tag is-core">Ansible</li>
+        <li class="skill-tag is-core">Docker</li>
+        <li class="skill-tag is-core">Observability and alerting</li>
+        <li class="skill-tag is-core">Incident runbooks</li>
+      </ul>
+      <p class="skill-secondary-label mono">Also worked with</p>
+      <ul class="skill-tags is-secondary">
+        <li class="skill-tag">Linux</li>
+        <li class="skill-tag">Linode</li>
+        <li class="skill-tag">Zitadel (SSO/IAM)</li>
+        <li class="skill-tag">RBAC</li>
+        <li class="skill-tag">Git</li>
+      </ul>
     </article>
-    <article class="project-waterfall-card">
-      <h3 class="project-title">LLM &amp; agent pipelines</h3>
-      <p class="project-description">Multi-agent and LLM systems over MCP with LangGraph/LangChain, kept on-device with local models where the data is sensitive, and shipped as a monitored service, not a demo.</p>
-      <ul class="project-metrics"><li>Multi-agent workflows (LangGraph, MCP)</li><li>Local/offline LLM deployment</li><li>Evaluation &amp; guardrails</li><li>Backend APIs (FastAPI)</li></ul>
+    <article class="skill-category">
+      <h3><i class="fas fa-code" aria-hidden="true"></i> भाषा आणि बॅकएंड</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag is-core">Python</li>
+        <li class="skill-tag is-core">FastAPI</li>
+        <li class="skill-tag is-core">PostgreSQL</li>
+        <li class="skill-tag is-core">REST APIs</li>
+        <li class="skill-tag is-core">C++</li>
+        <li class="skill-tag is-core">Shell scripting</li>
+      </ul>
+      <p class="skill-secondary-label mono">Also worked with</p>
+      <ul class="skill-tags is-secondary">
+        <li class="skill-tag">C</li>
+        <li class="skill-tag">SQL</li>
+        <li class="skill-tag">Swift</li>
+        <li class="skill-tag">Rust</li>
+      </ul>
+    </article>
+    <article class="skill-category">
+      <h3><i class="fas fa-brain" aria-hidden="true"></i> मशीन लर्निंग आणि व्हिजन</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag is-core">PyTorch</li>
+        <li class="skill-tag is-core">YOLOv8</li>
+        <li class="skill-tag is-core">OpenCV</li>
+        <li class="skill-tag is-core">Quantized model deployment</li>
+      </ul>
+      <p class="skill-secondary-label mono">Also worked with</p>
+      <ul class="skill-tags is-secondary">
+        <li class="skill-tag">TensorFlow</li>
+        <li class="skill-tag">CNN</li>
+        <li class="skill-tag">ResNet</li>
+      </ul>
+    </article>
+  </div>
+
+</section>
+
+<section id="experience" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">अनुभव</h2>
+    <p class="section-subtitle">आजवरचे काम.</p>
+  </div>
+  <div class="skills-grid stagger-children">
+    <article class="skill-category timeline-card">
+      <div class="timeline-card-head">
+        <h3>AI Engineer</h3>
+        <span class="timeline-date is-current">नोव्हेंबर 2025 – आजतागायत</span>
+      </div>
+      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> Colligence Research &bull; बेंगळुरू, भारत</p>
+      <p>संस्थापक चमू.</p>
+      <h4>AI Engineer <span class="timeline-date">फेब्रुवारी 2026 – आजतागायत</span></h4>
+      <ul>
+        <li>उत्पादनाच्या दोन्ही बाजूंवर काम: खाली नमूद केलेले AI व उत्पादन-अभियांत्रिकी, आणि त्याबरोबरच ते ज्या प्लॅटफॉर्मवर चालते त्याची सुरुवातीपासून शेवटपर्यंतची संपूर्ण जबाबदारी.</li>
+        <li>DevOps/SRE ची जबाबदारी शून्यातून उभी केली आणि आता तिचे नेतृत्व करतो, CI/CD, Linode वर OpenTofu आणि Ansible वापरून infrastructure-as-code, observability, अलर्टिंग आणि incident runbooks.</li>
+        <li>infrastructure-as-code आणि SRE चे काम, runbook शोधणे, बदलांचा संदर्भ, incident response, कोणाच्या तरी स्मरणात साठलेल्या माहितीवर अवलंबून न राहता संस्थेच्या स्वतःच्या कॉन्फिगरेशन आणि इतिहासावर आधारित असावे, यासाठी पायाभूत स्तरातच retrieval-augmented (RAG) प्रणाली उभारत आहे. काम प्रगतिपथावर आहे.</li>
+        <li>GitHub वरील हाताने चालवावे लागणारे deploy वर्कफ्लो बदलून टाकले; त्यामुळे चार जणांच्या संस्थापक चमूसाठी तैनातीतील (deployment) चुका कमी झाल्या.</li>
+        <li>प्रॉडक्शन स्टॅक सुरुवातीपासून शेवटपर्यंत चालवतो: Docker, Zitadel आधारित प्रमाणीकरण, देखरेख असलेल्या तैनाती आणि स्वयं-दुरुस्ती करणारे अलर्टिंग.</li>
+        <li>पायाभूत सुविधा आणि साधनसंच या दोन्हींमधील प्रणाली-रचनेची (system architecture) जबाबदारी माझी.</li>
+      </ul>
+      <h4>Associate AI Engineer <span class="timeline-date">डिसेंबर 2025 – फेब्रुवारी 2026</span></h4>
+      <ul>
+        <li>ERP ऑटोमेशनसाठी MCP वरून चालणारी कंपनीची पहिली multi-agent LLM पाइपलाइन तयार करणाऱ्या लहान चमूचे नेतृत्व केले; दीर्घ काळ चालणारे, अनेक टप्प्यांचे वर्कफ्लो माणसाच्या हस्तक्षेपाशिवाय मार्गावर राहतात.</li>
+        <li>संरचित इनपुट स्पेसिफिकेशन वाचून थेट तैनात करता येतील अशी वेब अ‍ॅप्लिकेशन तयार करणारी कोड-निर्मिती सेवा उभारली.</li>
+      </ul>
+      <h4>Associate AI Engineer Intern <span class="timeline-date">नोव्हेंबर 2025 – डिसेंबर 2025</span></h4>
+      <ul>
+        <li>पहिल्या LLM एकत्रीकरणांचे आणि एजंट वर्कफ्लोचे प्रारंभिक नमुने (prototypes) तयार केले.</li>
+      </ul>
+      <div class="timeline-tags"><span class="skill-tag">Agentic systems</span><span class="skill-tag">MCP</span><span class="skill-tag">LangGraph</span><span class="skill-tag">FastAPI</span><span class="skill-tag">OpenTofu</span><span class="skill-tag">Ansible</span><span class="skill-tag">Docker</span><span class="skill-tag">Linode</span><span class="skill-tag">Zitadel</span><span class="skill-tag">CI/CD</span></div>
+    </article>
+    <article class="skill-category timeline-card">
+      <div class="timeline-card-head">
+        <h3>Research Intern, AI and Deep Learning</h3>
+        <span class="timeline-date">ऑक्टोबर 2024 – डिसेंबर 2024</span>
+      </div>
+      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> RVCE Centre of Excellence &bull; दूरस्थ</p>
+      <ul>
+        <li>चेहरा बदललेल्या (manipulated-face) व्हिडिओसाठी deepfake ओळखणारे मॉडेल शून्यातून तयार केले; त्यासाठी कोणतेही बाह्य detection API वापरले नाही.</li>
+        <li>FaceForensics++ आणि DFDC या डेटासेटवर प्रशिक्षण आणि मूल्यमापन केले.</li>
+      </ul>
+      <div class="timeline-tags"><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">CNN</span><span class="skill-tag">FaceForensics++</span><span class="skill-tag">DFDC</span></div>
+    </article>
+    <article class="skill-category timeline-card">
+      <div class="timeline-card-head">
+        <h3>Associate Consultant Intern, Enterprise Cybersecurity</h3>
+        <span class="timeline-date">ऑगस्ट 2024 – सप्टेंबर 2024</span>
+      </div>
+      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> Ernst &amp; Young India &bull; बेंगळुरू, भारत</p>
+      <ul>
+        <li>क्लाउड-सुरक्षा आणि ओळख व प्रवेश व्यवस्थापन (identity and access management) या कामांमध्ये वरिष्ठ सल्लागारांसोबत निरीक्षक म्हणून सहभाग.</li>
+        <li>TOGAF आणि IFTAS या आराखड्यांशी प्राथमिक ओळख.</li>
+      </ul>
+      <div class="timeline-tags"><span class="skill-tag">Cloud security</span><span class="skill-tag">IAM</span><span class="skill-tag">TOGAF</span><span class="skill-tag">IFTAS</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="education" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">शिक्षण</h2>
+    <p class="section-subtitle">शैक्षणिक पार्श्वभूमी.</p>
+  </div>
+  <div class="skills-grid stagger-children">
+    <article class="skill-category timeline-card">
+      <div class="timeline-card-head">
+        <h3>बी.ई. संगणक विज्ञान आणि अभियांत्रिकी</h3>
+        <span class="timeline-date">Dec 2021 – Aug 2025</span>
+      </div>
+      <p class="timeline-org"><i class="fas fa-graduation-cap" aria-hidden="true"></i> R V College of Engineering (VTU) &bull; Bengaluru, India</p>
     </article>
   </div>
 </section>
@@ -426,6 +402,54 @@
     </li>
   </ul>
   <p class="pub-note">Two further papers are under review.</p>
+</section>
+
+
+
+<section id="about" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">परिचय</h2>
+    <p class="section-subtitle">उत्पादन घडवणारा आणि ते चालवणारे प्लॅटफॉर्मही सांभाळणारा AI अभियंता.</p>
+  </div>
+  <p class="about-lead">बेंगळुरूमधील <strong>Colligence Research</strong> च्या संस्थापक चमूतील AI अभियंता. मी स्टॅकच्या दोन्ही बाजूंवर काम करतो: उत्पादन तयार करतो, <strong>MCP</strong> वरून चालणाऱ्या multi-agent आणि LLM पाइपलाइन, कोड-निर्मिती सेवा, <strong>Python</strong> व <strong>FastAPI</strong> बॅकएंड, आणि ते ज्या प्लॅटफॉर्मवर चालते त्याची जबाबदारीही माझीच; <strong>CI/CD</strong>, <strong>OpenTofu</strong> व <strong>Ansible</strong> वापरून infrastructure-as-code, <strong>Docker</strong>, <strong>Zitadel</strong> आधारित प्रमाणीकरण, observability आणि incident response हे सर्व मी सुरुवातीपासून उभे केले आहे. <strong>IEEE आणि Springer मध्ये प्रकाशित</strong>, तीन समकक्ष-परीक्षित शोधनिबंध, आणखी दोन परीक्षणाधीन.</p>
+  <div class="skills-grid stagger-children">
+    <article class="skill-category about-card">
+      <h3><i class="fas fa-diagram-project" aria-hidden="true"></i> मी काय तयार करतो</h3>
+      <p>ERP ऑटोमेशनसाठी MCP वरून चालणाऱ्या multi-agent LLM पाइपलाइन, संरचित इनपुट स्पेसिफिकेशनपासून थेट तैनात करता येतील अशी वेब अ‍ॅप्लिकेशन तयार करणारी कोड-निर्मिती सेवा, आणि त्यांमागील बॅकएंड API. दीर्घ काळ चालणारे, अनेक टप्प्यांचे एजंट वर्कफ्लो, माणसाने सतत लक्ष ठेवण्याची गरज न पडता मार्गावर राहणारे.</p>
+    </article>
+    <article class="skill-category about-card">
+      <h3><i class="fas fa-server" aria-hidden="true"></i> मी काय चालवतो</h3>
+      <p>या प्रणाली ज्या प्लॅटफॉर्मवर चालतात तो प्लॅटफॉर्म. Colligence Research मध्ये DevOps/SRE ची जबाबदारी मी शून्यातून उभी केली आणि आता तिचे नेतृत्व करतो: CI/CD, Linode वर OpenTofu आणि Ansible वापरून infrastructure-as-code, Docker, SSO व RBAC साठी Zitadel, observability, अलर्टिंग आणि incident runbooks.</p>
+    </article>
+    <article class="skill-category about-card">
+      <h3><i class="fas fa-flask" aria-hidden="true"></i> संशोधन आणि प्रकाशने</h3>
+      <p>तीन समकक्ष-परीक्षित शोधनिबंध, एक बँकॉकमधील Springer ICTIS 2025 मध्ये आणि दोन IEEE Xplore वर, शालेय प्रशासन प्रणाली, ResNet50 हायपरपॅरामीटर ट्यूनिंग, आणि वस्तू-ओळख असलेला वेब-सर्व्हरद्वारे नियंत्रित रोव्हर या विषयांवर. आणखी दोन परीक्षणाधीन आहेत.</p>
+    </article>
+  </div>
+</section>
+
+<section id="services" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">Freelance services</h2>
+    <p class="section-subtitle">Available for select freelance projects, I build DevOps pipelines and RAG systems for real workloads, with the evaluation to prove they work.</p>
+  </div>
+  <div class="projects-waterfall">
+    <article class="project-waterfall-card">
+      <h3 class="project-title">RAG systems that hold up</h3>
+      <p class="project-description">Retrieval-augmented systems over your own corpus, hybrid retrieval, reranking, and a labelled evaluation harness wired into CI so quality is measured, not hoped for. The same discipline behind Arogya-Sathi&#39;s 62-case, CI-gated safety eval (recall 1.00).</p>
+      <ul class="project-metrics"><li>Corpus ingestion + hybrid (BM25 + dense) retrieval</li><li>Cross-encoder reranking</li><li>Golden-set eval harness as a CI merge gate</li><li>Cost &amp; latency instrumentation</li></ul>
+    </article>
+    <article class="project-waterfall-card">
+      <h3 class="project-title">DevOps / SRE, end to end</h3>
+      <p class="project-description">The platform your product runs on, CI/CD, infrastructure-as-code, containerisation, observability and incident runbooks. Built the DevOps/SRE function from scratch at a founding-team startup and carry the pager for it.</p>
+      <ul class="project-metrics"><li>CI/CD pipelines (GitHub Actions, GitLab)</li><li>IaC with OpenTofu / Ansible</li><li>Docker &amp; Kubernetes</li><li>Observability, alerting, runbooks</li><li>Auth: Zitadel / OAuth / RBAC</li></ul>
+    </article>
+    <article class="project-waterfall-card">
+      <h3 class="project-title">LLM &amp; agent pipelines</h3>
+      <p class="project-description">Multi-agent and LLM systems over MCP with LangGraph/LangChain, kept on-device with local models where the data is sensitive, and shipped as a monitored service, not a demo.</p>
+      <ul class="project-metrics"><li>Multi-agent workflows (LangGraph, MCP)</li><li>Local/offline LLM deployment</li><li>Evaluation &amp; guardrails</li><li>Backend APIs (FastAPI)</li></ul>
+    </article>
+  </div>
 </section>
 
 <section id="contact" class="section reveal">

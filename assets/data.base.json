@@ -87,7 +87,7 @@
     "title": null,
     "description": null
   },
-  "headline": "AI Engineer, product and platform",
+  "headline": "I build agentic AI systems and the infrastructure that keeps them running.",
   "summary": "AI Engineer on the founding team at Colligence Research in Bengaluru. I build the product, agentic and LLM pipelines, code-generation services, backend APIs, and I own the platform it runs on: CI/CD, infrastructure-as-code, observability, incident response and auth. The combination is the point: the person who ships the agent workflow is the person who carries the pager for it. What joins the two is AI engineering: I apply the same agentic and retrieval methods to the platform itself, so runbook lookup, change context and incident response are grounded in the organisation's own configuration and history.",
   "typedPhrases": [
     "agentic and LLM pipelines",
@@ -151,11 +151,13 @@
         "MCP orchestration",
         "Multi-agent workflows",
         "RAG",
-        "LangChain",
         "LangGraph",
-        "Claude API",
-        "LLM integration",
         "Evaluation harnesses"
+      ],
+      "secondary": [
+        "LangChain",
+        "Claude API",
+        "LLM integration"
       ]
     },
     {
@@ -167,10 +169,12 @@
         "OpenTofu (IaC)",
         "Ansible",
         "Docker",
+        "Observability and alerting",
+        "Incident runbooks"
+      ],
+      "secondary": [
         "Linux",
         "Linode",
-        "Observability and alerting",
-        "Incident runbooks",
         "Zitadel (SSO/IAM)",
         "RBAC",
         "Git"
@@ -182,15 +186,17 @@
       "icon": "fa-code",
       "items": [
         "Python",
-        "C",
-        "C++",
         "FastAPI",
-        "REST APIs",
         "PostgreSQL",
+        "REST APIs",
+        "C++",
+        "Shell scripting"
+      ],
+      "secondary": [
+        "C",
         "SQL",
         "Swift",
-        "Rust",
-        "Shell scripting"
+        "Rust"
       ]
     },
     {
@@ -199,12 +205,14 @@
       "icon": "fa-brain",
       "items": [
         "PyTorch",
-        "TensorFlow",
         "YOLOv8",
         "OpenCV",
-        "CNN",
-        "ResNet",
         "Quantized model deployment"
+      ],
+      "secondary": [
+        "TensorFlow",
+        "CNN",
+        "ResNet"
       ]
     }
   ],
@@ -350,7 +358,126 @@
         "Raspberry Pi"
       ],
       "url": "https://github.com/Developer1010x/Arogya-Sathi",
-      "date": "Jan 2025 – Jun 2025"
+      "date": "Jan 2025 – Jun 2025",
+      "featured": true,
+      "keyMetrics": [
+        {
+          "label": "Crisis detection recall",
+          "value": "1.00"
+        },
+        {
+          "label": "Crisis precision",
+          "value": "0.93"
+        },
+        {
+          "label": "Emergency detect / drug screening",
+          "value": "1.00"
+        },
+        {
+          "label": "Labelled safety cases",
+          "value": "62"
+        }
+      ],
+      "diagram": {
+        "caption": "Request path. The safety gate is deterministic and the model cannot override it.",
+        "nodes": [
+          {
+            "id": "in",
+            "label": "Patient query / upload",
+            "kind": "io",
+            "col": 0,
+            "row": 0
+          },
+          {
+            "id": "router",
+            "label": "FastAPI router",
+            "kind": "core",
+            "col": 0,
+            "row": 1
+          },
+          {
+            "id": "agent",
+            "label": "LangGraph agent",
+            "kind": "ai",
+            "col": -1,
+            "row": 2
+          },
+          {
+            "id": "vision",
+            "label": "X-ray CNN (PyTorch)",
+            "kind": "ai",
+            "col": 0,
+            "row": 2
+          },
+          {
+            "id": "rules",
+            "label": "Drug-interaction rules",
+            "kind": "det",
+            "col": 1,
+            "row": 2
+          },
+          {
+            "id": "llm",
+            "label": "Ollama, quantized",
+            "kind": "ai",
+            "col": -1,
+            "row": 3
+          },
+          {
+            "id": "gate",
+            "label": "Safety gate",
+            "kind": "det",
+            "col": 1,
+            "row": 3
+          },
+          {
+            "id": "host",
+            "label": "Raspberry Pi, offline",
+            "kind": "io",
+            "col": 0,
+            "row": 4
+          }
+        ],
+        "edges": [
+          [
+            "in",
+            "router"
+          ],
+          [
+            "router",
+            "agent"
+          ],
+          [
+            "router",
+            "vision"
+          ],
+          [
+            "router",
+            "rules"
+          ],
+          [
+            "agent",
+            "llm"
+          ],
+          [
+            "rules",
+            "gate"
+          ],
+          [
+            "llm",
+            "host"
+          ],
+          [
+            "gate",
+            "host"
+          ],
+          [
+            "vision",
+            "host"
+          ]
+        ]
+      },
+      "lead": "Symptom checking, X-ray fracture detection and prescription summarisation, running **fully offline on quantized models** on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection layer sits underneath, and **the LLM cannot override it**. A 62-case labelled evaluation harness scores that safety layer and runs as a **CI merge gate**; building it found a real missed self-harm disclosure."
     },
     {
       "id": "audier",
@@ -632,6 +759,7 @@
       "services": "Services"
     },
     "hero": {
+      "projectsCta": "Explore projects",
       "greeting": "Hello, I'm",
       "contactCta": "Get in touch",
       "githubCta": "GitHub",
@@ -640,20 +768,24 @@
     "sections": {
       "aboutTitle": "About",
       "aboutSubtitle": "An AI Engineer who ships the product and runs the platform underneath it.",
-      "skillsTitle": "Skills",
-      "skillsSubtitle": "AI and LLM systems and the infrastructure they run on, in equal measure.",
+      "skillsTitle": "Engineering capabilities",
+      "skillsSubtitle": "What I actually reach for, in the two halves that matter: the agent layer and the platform under it.",
       "experienceTitle": "Experience",
       "experienceSubtitle": "Where the work has happened.",
       "educationTitle": "Education",
       "educationSubtitle": "Academic background.",
       "projectsTitle": "Projects",
-      "projectsSubtitle": "Things built end to end, mostly in the open.",
+      "projectsSubtitle": "Selected engineering. Built end to end, mostly in the open.",
       "publicationsTitle": "Publications",
-      "publicationsSubtitle": "Peer-reviewed work.",
+      "publicationsSubtitle": "Peer-reviewed work. Three published, two under review.",
       "contactTitle": "Contact",
       "contactSubtitle": "The fastest way to reach me is email.",
       "servicesTitle": "Freelance services",
-      "servicesSubtitle": "Available for select freelance projects, I build DevOps pipelines and RAG systems for real workloads, with the evaluation to prove they work."
+      "servicesSubtitle": "Available for select freelance projects, I build DevOps pipelines and RAG systems for real workloads, with the evaluation to prove they work.",
+      "featuredTitle": "Featured engineering",
+      "featuredSubtitle": "The system that best shows how I work: constraints first, safety as architecture, evaluation as a merge gate.",
+      "buildingTitle": "Currently building",
+      "buildingSubtitle": "Work in progress, stated as in progress."
     },
     "contact": {
       "emailLabel": "Email",
@@ -686,6 +818,17 @@
     },
     "language": {
       "label": "Language"
+    },
+    "featured": {
+      "caseStudy": "Read the case study",
+      "architecture": "Architecture",
+      "metricsLabel": "Measured"
+    },
+    "building": {
+      "statusLabel": "Status"
+    },
+    "skills": {
+      "secondaryLabel": "Also worked with"
     }
   },
   "services": [
@@ -720,5 +863,45 @@
         "Backend APIs (FastAPI)"
       ]
     }
-  ]
+  ],
+  "heroLead": "I engineer multi-agent workflows, retrieval systems, AI evaluation pipelines, the APIs they sit behind, and the production platform underneath them.",
+  "disciplineLabel": "Agentic Systems & AI Infrastructure",
+  "building": [
+    {
+      "id": "infra-rag",
+      "title": "Infrastructure RAG",
+      "status": "In progress",
+      "body": "A retrieval-augmented system inside the infrastructure layer itself, so runbook lookup, change context and incident response are grounded in the organisation's own configuration and history rather than hand-carried knowledge.",
+      "tags": [
+        "RAG",
+        "SRE",
+        "OpenTofu",
+        "Ansible"
+      ]
+    },
+    {
+      "id": "longitudinal",
+      "title": "Longitudinal report explainer",
+      "status": "In progress",
+      "body": "Taking Arogya-Sathi's one-shot medical-report explainer to a longitudinal one that remembers a patient's prior reports and flags changes over time, with the 62-case safety set growing into a continuous suite seeded from real misses.",
+      "tags": [
+        "LangGraph",
+        "Evaluation",
+        "Healthcare"
+      ]
+    },
+    {
+      "id": "standing-agent",
+      "title": "agentic-devops as a standing agent",
+      "status": "In progress",
+      "body": "Moving from generate-once to an agent that opens a pull request with a proposed fix when a pipeline breaks, learns a project's flaky tests across runs, and gates merges on the checks that matter for that repo.",
+      "tags": [
+        "Agents",
+        "CI/CD",
+        "GitHub",
+        "GitLab"
+      ]
+    }
+  ],
+  "skillsNote": "Currently going deeper on **Rust**, distributed inference and LLM evaluation methodology."
 }

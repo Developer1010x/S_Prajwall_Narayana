@@ -193,7 +193,7 @@ function renderStats(stats) {
 function renderAbout(about) {
   return (about || [])
     .map(
-      (card) => `    <article class="skill-category about-card glow-border">
+      (card) => `    <article class="skill-category about-card">
       <h3><i class="fas ${esc(card.icon || 'fa-circle-info')}" aria-hidden="true"></i> ${esc(card.title)}</h3>
       <p>${rich(card.body)}</p>
     </article>`
@@ -201,16 +201,36 @@ function renderAbout(about) {
     .join('\n');
 }
 
-function renderSkills(skills) {
+/*
+ * A capability group renders as a short list of what the group actually is,
+ * plus a quieter "also worked with" row.
+ *
+ * The previous version printed every item at equal weight, nine to eleven per
+ * group, which is the thing that made a reader ask whether all of them were
+ * real. Nothing is deleted: `secondary` carries the rest, visibly subordinate,
+ * which is more credible than a flat inventory and more honest than a shorter
+ * one that quietly drops the truth.
+ */
+function renderSkills(skills, strings) {
+  const secondaryLabel = (strings.skills && strings.skills.secondaryLabel) || 'Also worked with';
   return (skills || [])
-    .map(
-      (group) => `    <article class="skill-category tilt-card glow-border">
+    .map((group) => {
+      const core = (group.items || [])
+        .map((item) => `        <li class="skill-tag is-core">${esc(item)}</li>`)
+        .join('\n');
+      const secondary = (group.secondary || []).length
+        ? `      <p class="skill-secondary-label mono">${esc(secondaryLabel)}</p>
+      <ul class="skill-tags is-secondary">
+${group.secondary.map((item) => `        <li class="skill-tag">${esc(item)}</li>`).join('\n')}
+      </ul>\n`
+        : '';
+      return `    <article class="skill-category">
       <h3><i class="fas ${esc(group.icon || 'fa-code')}" aria-hidden="true"></i> ${esc(group.title)}</h3>
       <ul class="skill-tags">
-${(group.items || []).map((item) => `        <li class="skill-tag">${esc(item)}</li>`).join('\n')}
+${core}
       </ul>
-    </article>`
-    )
+${secondary}    </article>`;
+    })
     .join('\n');
 }
 
@@ -237,7 +257,7 @@ ${entry.bullets.map((b) => `        <li>${rich(b)}</li>`).join('\n')}
       </ul>`;
       }
 
-      return `    <article class="skill-category timeline-card glow-border">
+      return `    <article class="skill-category timeline-card">
       <div class="timeline-card-head">
         <h3>${esc(entry.title)}</h3>
         <span class="${dateClass}">${esc(entry.date)}</span>
@@ -260,6 +280,173 @@ function renderServices(services) {
 ${points ? `      <ul class="project-metrics">${points}</ul>\n` : ''}    </article>`;
     })
     .join('\n');
+}
+
+/*
+ * Architecture diagram, rendered as inline SVG.
+ *
+ * Inline rather than an image file because it has to invert with the theme: the
+ * strokes and labels read currentColor and the accent variable, so one figure
+ * works on the graphite page and on the light one. A PNG would need two
+ * exports and would still be unreadable when zoomed.
+ *
+ * Node labels are deliberately proper nouns and product names, so the figure
+ * reads identically on the ja/de/hi/kn/mr pages without being translated. The
+ * figure is given role="img" with the caption as its accessible name, because a
+ * screen reader walking 8 disconnected <text> nodes learns nothing.
+ */
+function renderDiagram(diagram) {
+  if (!diagram || !Array.isArray(diagram.nodes) || !diagram.nodes.length) return '';
+
+  const BOX_W = 168, BOX_H = 46, GAP_X = 24, GAP_Y = 34;
+  const cols = diagram.nodes.map((n) => n.col);
+  const minCol = Math.min(...cols), maxCol = Math.max(...cols);
+  const rows = Math.max(...diagram.nodes.map((n) => n.row)) + 1;
+  const width = (maxCol - minCol + 1) * BOX_W + (maxCol - minCol) * GAP_X;
+  const height = rows * BOX_H + (rows - 1) * GAP_Y;
+
+  const at = (n) => ({
+    x: (n.col - minCol) * (BOX_W + GAP_X),
+    y: n.row * (BOX_H + GAP_Y),
+  });
+  const byId = new Map(diagram.nodes.map((n) => [n.id, n]));
+
+  const edges = (diagram.edges || [])
+    .map(([fromId, toId]) => {
+      const from = byId.get(fromId), to = byId.get(toId);
+      if (!from || !to) {
+        fail(`diagram edge references unknown node: ${fromId} -> ${toId}`);
+        return '';
+      }
+      const a = at(from), b = at(to);
+      const x1 = a.x + BOX_W / 2, y1 = a.y + BOX_H;
+      const x2 = b.x + BOX_W / 2, y2 = b.y;
+      const mid = y1 + (y2 - y1) / 2;
+      // Orthogonal elbow: straight down, across, down. A diagonal between two
+      // boxes in different columns reads as a wire crossing the others.
+      const d = x1 === x2
+        ? `M ${x1} ${y1} V ${y2 - 6}`
+        : `M ${x1} ${y1} V ${mid} H ${x2} V ${y2 - 6}`;
+      return `    <path class="dg-edge" d="${d}" />`;
+    })
+    .filter(Boolean)
+    .join('\n');
+
+  const boxes = diagram.nodes
+    .map((n) => {
+      const { x, y } = at(n);
+      return `    <g class="dg-node dg-${esc(n.kind || 'core')}">
+      <rect x="${x}" y="${y}" width="${BOX_W}" height="${BOX_H}" rx="6" />
+      <text x="${x + BOX_W / 2}" y="${y + BOX_H / 2}" dominant-baseline="central" text-anchor="middle">${esc(n.label)}</text>
+    </g>`;
+    })
+    .join('\n');
+
+  return `      <figure class="diagram">
+  <svg class="diagram-svg" viewBox="-1 -1 ${width + 2} ${height + 8}" role="img" aria-label="${esc(diagram.caption || 'Architecture diagram')}">
+    <defs>
+      <marker id="dg-arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M 0 1 L 7 4 L 0 7 z" />
+      </marker>
+    </defs>
+${edges}
+${boxes}
+  </svg>
+${diagram.caption ? `  <figcaption>${esc(diagram.caption)}</figcaption>\n` : ''}</figure>`;
+}
+
+/*
+ * The flagship system, promoted out of the project grid into its own section.
+ *
+ * Which project this is comes from `featured: true` in the data, not from an id
+ * hardcoded here, so changing the flagship is a one-word data edit. If no
+ * project is flagged the section is omitted entirely and the project simply
+ * stays in the grid, which is what every region that re-points `order.projects`
+ * gets for free.
+ */
+function renderFeatured(project, strings) {
+  if (!project) return '';
+  /* Omit the section where its headings are not translated. An explicit null in
+     a language file (merge rule 4) switches it off, and that project simply
+     stays in the grid, which is what the page did before this section existed.
+     Printing an English section header over translated content would look like
+     a bug to the one reader the translated page exists for. */
+  if (!strings.sections.featuredTitle) return '';
+  const s = strings.featured || {};
+  const metrics = (project.keyMetrics || [])
+    .map(
+      (m) => `          <div class="metric">
+            <dt>${esc(m.label)}</dt>
+            <dd class="mono">${esc(m.value)}</dd>
+          </div>`
+    )
+    .join('\n');
+
+  const tags = (project.tags || [])
+    .map((t) => `<span class="project-tag mono">${esc(t)}</span>`)
+    .join('');
+
+  const link = project.url
+    ? `        <a href="${esc(project.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-github" aria-hidden="true"></i> ${esc(strings.projectCode || 'Code')}</a>\n`
+    : '';
+
+  return `<section id="featured" class="section reveal featured">
+  <div class="section-header">
+    <h2 class="section-title">${esc(strings.sections.featuredTitle)}</h2>
+    <p class="section-subtitle">${esc(strings.sections.featuredSubtitle)}</p>
+  </div>
+  <div class="featured-body">
+    <div class="featured-text">
+      <h3 class="featured-name">${esc(project.title)}</h3>
+      <p class="featured-subtitle">${esc(project.subtitle || '')}</p>
+      <p class="featured-description">${rich(project.lead || project.description)}</p>
+      <div class="project-tags">${tags}</div>
+      <div class="featured-actions">
+${link}      </div>
+    </div>
+    <div class="featured-evidence">
+${metrics ? `      <p class="featured-evidence-label mono">${esc(s.metricsLabel || 'Measured')}</p>
+      <dl class="metric-table">
+${metrics}
+      </dl>\n` : ''}    </div>
+${project.diagram ? `    <div class="featured-figure">
+${renderDiagram(project.diagram)}
+    </div>\n` : ''}  </div>
+</section>`;
+}
+
+/* Work in progress, stated as in progress. Every entry restates something
+   already claimed elsewhere in the data (a role bullet, or the "being taken
+   further" sentence of a project); this section only makes it findable. */
+function renderBuilding(data) {
+  const items = data.building;
+  if (!Array.isArray(items) || !items.length) return '';
+  // Same rule as renderFeatured: no translated heading, no section.
+  if (!data.strings.sections.buildingTitle) return '';
+  const statusLabel = (data.strings.building && data.strings.building.statusLabel) || 'Status';
+
+  const cards = items
+    .map(
+      (b) => `    <article class="building-card">
+      <p class="building-status mono"><span class="status-dot" aria-hidden="true"></span> <span class="visually-hidden">${esc(statusLabel)}: </span>${esc(b.status)}</p>
+      <h3>${esc(b.title)}</h3>
+      <p>${rich(b.body)}</p>
+      <div class="project-tags">${(b.tags || [])
+        .map((t) => `<span class="project-tag mono">${esc(t)}</span>`)
+        .join('')}</div>
+    </article>`
+    )
+    .join('\n');
+
+  return `<section id="building" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">${esc(data.strings.sections.buildingTitle)}</h2>
+    <p class="section-subtitle">${esc(data.strings.sections.buildingSubtitle)}</p>
+  </div>
+  <div class="building-grid stagger-children">
+${cards}
+  </div>
+</section>`;
 }
 
 function renderProjects(projects, strings) {
@@ -554,6 +741,29 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
       `\n        </ul>`;
   }
 
+  /* The flagship system leaves the grid and gets its own section above it.
+     Driven by `featured: true` in the data; if nothing is flagged, FEATURED is
+     empty and every project stays in the grid exactly as before. */
+  /* `projects` is an array, so a region supplying its own replaces the base
+     list wholesale (merge rule 3) and loses the featured flag, the metric table
+     and the diagram with it. That is why jp, de, hi, kn and mr had no featured
+     section at all on the first pass. The presentation metadata is re-attached
+     by id from the base entry, so a translated page keeps its own translated
+     title, subtitle and description and still gets the figure. */
+  const baseProjectsById = new Map((base.projects || []).map((p) => [p.id, p]));
+  const projects = (data.projects || []).map((p) => {
+    const b = baseProjectsById.get(p.id);
+    if (!b) return p;
+    const inherited = {};
+    for (const key of ['featured', 'keyMetrics', 'diagram']) {
+      if (p[key] === undefined && b[key] !== undefined) inherited[key] = b[key];
+    }
+    return Object.keys(inherited).length ? { ...p, ...inherited } : p;
+  });
+
+  const featuredProject = projects.find((p) => p.featured) || null;
+  const gridProjects = projects.filter((p) => p !== featuredProject);
+
   const seoTitle = data.seo?.title || `${data.personal.displayName} — ${data.personal.title}`;
   const seoDescription = data.seo?.description || truncate(data.summary.replace(/\s+/g, ' '), 158);
 
@@ -621,6 +831,10 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
     JOB_TITLE: esc(data.personal.title),
     HEADLINE: esc(data.headline),
     SUMMARY: rich(data.summary),
+    /* `heroLead` is the short hero paragraph. A language file that has not
+       translated it falls back to that file's own `summary`, so a translated
+       page can never end up with an English lead under a translated H1. */
+    HERO_LEAD: rich(data.heroLead || data.summary),
     EMPLOYER_BADGE: esc(data.personal.employer),
     LOCATION: esc(data.personal.location),
     PHOTO_ALT: esc(data.personal.profileImageAlt),
@@ -649,10 +863,12 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
     STATS: renderStats(data.stats),
     WORK_AUTH: workAuth,
     ABOUT: renderAbout(data.about),
-    SKILLS: renderSkills(data.skills),
+    SKILLS: renderSkills(data.skills, data.strings),
     EXPERIENCE: renderTimeline(data.experience, { icon: 'fa-building', showGrade: false }),
     EDUCATION: renderTimeline(data.education, { icon: 'fa-graduation-cap', showGrade: data.flags.showGrade }),
-    PROJECTS: renderProjects(data.projects, data.strings),
+    PROJECTS: renderProjects(gridProjects, data.strings),
+    FEATURED: renderFeatured(featuredProject, data.strings),
+    BUILDING: renderBuilding(data),
     SERVICES: renderServices(data.services),
     PUBLICATIONS: renderPublications(data),
     CONTACT: renderContact(data),
@@ -678,6 +894,17 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
     S_CONTACT_TITLE: esc(data.strings.sections.contactTitle),
     S_CONTACT_SUBTITLE: esc(data.strings.sections.contactSubtitle),
     S_RIGHTS: esc(data.strings.footer.rights),
+    S_PROJECTS_CTA: esc(data.strings.hero.projectsCta || 'Explore projects'),
+    /* These two reuse the already-translated Contact field labels rather than
+       introducing new keys every language file would have to catch up with. */
+    S_LOCATION_LABEL: esc(data.strings.contact.locationLabel),
+    S_GITHUB_LABEL: esc(data.strings.contact.githubLabel),
+    S_PROFILE_LABEL: esc(data.strings.profileLabel || 'Profile'),
+    S_CREDIBILITY_LABEL: esc(data.strings.credibilityLabel || 'Key figures'),
+    S_BUILDING_TITLE: esc(data.strings.sections.buildingTitle || ''),
+    SKILLS_NOTE: data.skillsNote
+      ? `  <p class="skills-note">${rich(data.skillsNote)}</p>`
+      : '',
   }), data.meta.spelling);
 
   return { cc, lang, outDir, html, noindex, canonical };
@@ -685,14 +912,21 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
 
 function navLinks(data, up = '') {
   const n = data.strings.nav;
+  /* Nav order mirrors the page order, and the page now leads with the work.
+     `projects` first is the whole point of the reordering: the first nav item a
+     recruiter sees is the evidence, not the biography.
+
+     "Currently building" deliberately gets no nav entry. Its heading is only
+     translated where `strings.sections.buildingTitle` is, and a half-translated
+     navbar is worse than one item fewer. */
   const items = [
-    ['about', n.about],
+    ['projects', n.projects],
     ['skills', n.skills],
     ['experience', n.experience],
     ['education', n.education],
-    ['projects', n.projects],
   ];
   if (data.flags.showPublications !== false) items.push(['publications', n.publications]);
+  items.push(['about', n.about]);
   // Services sits at the end, next to Contact, and leaves the page: index2.html
   // is the freelance pitch in full, so the nav entry goes there rather than to
   // the teaser section of the same name. `up` climbs back to the site root,

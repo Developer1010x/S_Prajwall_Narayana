@@ -14,7 +14,7 @@
     "showGrade": false,
     "showPublications": true
   },
-  "headline": "AI Engineer, agentic and LLM systems, and the platform they run on",
+  "headline": "I build agentic AI systems and the infrastructure that keeps them running.",
   "summary": "AI Engineer on the founding team at **Colligence Research**, Bengaluru. I work across both halves of the stack: I build the product, multi-agent and LLM pipelines over **MCP**, a code-generation service, **Python** and **FastAPI** backends, and I own the platform it runs on, having set up **CI/CD**, infrastructure-as-code with **OpenTofu** and **Ansible**, **Docker**, **Zitadel** authentication, observability and incident response from scratch. **IEEE- and Springer-published**, with three peer-reviewed papers and two more under review.",
   "typedPhrases": [
     "agentic and LLM pipelines over MCP",
@@ -69,5 +69,6 @@
       "publicationsSubtitle": "Peer-reviewed work, IEEE Xplore and Springer.",
       "educationSubtitle": "Academic background."
     }
-  }
+  },
+  "heroLead": "I engineer multi-agent workflows, retrieval systems, AI evaluation pipelines, the APIs they sit behind, and the production platform underneath them."
 }

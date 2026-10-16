@@ -17,7 +17,7 @@
     "location": "Liverpool",
     "relocation": "Currently in Bengaluru, India; relocating to the UK"
   },
-  "headline": "AI Engineer, agentic systems and the platform underneath them",
+  "headline": "I build agentic AI systems and the infrastructure that keeps them running.",
   "summary": "AI Engineer on the founding team at Colligence Research. I build the product, multi-agent and LLM pipelines over MCP, a code-generation service, the backend APIs behind them, and I own the platform it runs on: CI/CD, infrastructure-as-code with OpenTofu and Ansible, observability, alerting, incident response and authentication. The two halves are one job: the engineer who ships the agent workflow is the engineer who carries the pager for it.",
   "typedPhrases": [
     "multi-agent workflows over MCP",
@@ -62,5 +62,6 @@
       "authorisationLabel": "Right to work"
     }
   },
-  "_readme_rtw": "workAuthorisation is deliberately null. Prajwall asked for the right-to-work block removed from the UK page; he found the explanation of the New Entrant rule laboured. The fact is still stated in the structured field on LinkedIn and comes up naturally at first contact."
+  "_readme_rtw": "workAuthorisation is deliberately null. Prajwall asked for the right-to-work block removed from the UK page; he found the explanation of the New Entrant rule laboured. The fact is still stated in the structured field on LinkedIn and comes up naturally at first contact.",
+  "heroLead": "I engineer multi-agent workflows, retrieval systems, AI evaluation pipelines, the APIs they sit behind, and the production platform underneath them."
 }

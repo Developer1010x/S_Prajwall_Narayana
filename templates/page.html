@@ -4,6 +4,13 @@
   Source template: templates/page.html
   Source data:     assets/data.base.json + assets/data.<cc>.json
   Rebuild with:    npm run build   (also runs automatically on every Vercel deploy)
+
+  Section order is the information architecture, and it is deliberate: the
+  strongest evidence comes before the biography. Hero (one claim) -> credibility
+  strip -> featured system -> selected engineering -> capabilities -> experience
+  -> education -> research -> currently building -> about -> services -> contact.
+  Projects used to sit sixth, behind About and Skills; a recruiter reached the
+  work only after two screens of self-description.
 -->
 <html lang="{{LANG}}" dir="{{DIR}}" data-region="{{CC}}">
 <head>
@@ -21,14 +28,18 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="{{TITLE}}">
 <meta name="twitter:description" content="{{DESCRIPTION}}">
-<meta name="theme-color" content="#0a0e27">
+<meta name="theme-color" content="#0B0B0D">
 <script>document.documentElement.className+=' js';</script>
 <link rel="icon" href="{{ASSETS}}favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="{{ASSETS}}favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="{{ASSETS}}images/S_Prajwall_Narayana.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<!-- Only the mono face is fetched. The UI face is the system stack: on Apple
+     hardware that resolves to SF Pro, which is the point, and everywhere else to
+     the platform's own UI face. Two fewer webfonts than before, and no FOUT on
+     the headline. -->
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ASSETS}}css/site.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -75,53 +86,61 @@
 
 <main id="main">
 
+<!-- Hero: one claim, one supporting sentence, three actions. The eight-claim
+     paragraph that used to sit here is still on the page, in About, where a
+     reader who wants depth goes looking for it. -->
 <section id="home" class="hero">
-{{COUNTRY_MAP}}
-  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-text">
-      <p class="hero-greeting"><i class="fas fa-terminal" aria-hidden="true"></i> {{S_GREETING}}</p>
-      <h1 class="glow-text">{{DISPLAY_NAME}}</h1>
-      <p class="subtitle"><strong>{{JOB_TITLE}}</strong> &mdash; <span id="typed-text">{{TYPED_FIRST}}</span><span class="typing-cursor" aria-hidden="true"></span></p>
-      <p class="description">{{SUMMARY}}</p>
+      <p class="hero-eyebrow"><span class="mono">{{JOB_TITLE}}</span><span class="hero-eyebrow-sep" aria-hidden="true"></span><span class="mono hero-eyebrow-muted">{{LOCATION}}</span></p>
+      <h1 class="hero-claim">{{HEADLINE}}</h1>
+      <p class="hero-capabilities mono"><span id="typed-text">{{TYPED_FIRST}}</span><span class="typing-cursor" aria-hidden="true"></span></p>
+      <p class="description">{{HERO_LEAD}}</p>
 {{WORK_AUTH}}
       <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary magnetic-btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> {{S_CONTACT_CTA}}</a>
-        <a href="{{GITHUB}}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-btn"><i class="fab fa-github" aria-hidden="true"></i> {{S_GITHUB_CTA}}</a>
+        <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-down" aria-hidden="true"></i> {{S_PROJECTS_CTA}}</a>
 {{CV_BUTTON}}
+        <a href="{{GITHUB}}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-github" aria-hidden="true"></i> {{S_GITHUB_CTA}}</a>
+        <a href="#contact" class="btn btn-quiet"><i class="fas fa-paper-plane" aria-hidden="true"></i> {{S_CONTACT_CTA}}</a>
       </div>
-      <dl class="hero-stats">
-{{STATS}}
-      </dl>
     </div>
-    <div class="hero-visual float">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="{{ASSETS}}images/S_Prajwall_Narayana.jpg" alt="{{PHOTO_ALT}}" class="profile-image" width="150" height="150" loading="lazy" decoding="async">
-            <p class="flip-name">{{DISPLAY_NAME}}</p>
-            <p>{{JOB_TITLE}}</p>
-            <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> {{EMPLOYER_BADGE}}</div>
-          </div>
-          <div class="flip-card-back">
-            <i class="fas fa-terminal" aria-hidden="true" style="font-size:2rem;margin-bottom:0.75rem;"></i>
-            <p class="flip-name">@{{GITHUB_HANDLE}}</p>
-            <p>{{HEADLINE}}</p>
-            <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> {{LOCATION}}</div>
-          </div>
-        </div>
-      </div>
+    <div class="hero-visual">
+      <!-- Technical identity card. Every field is a real field from the data,
+           and the labels are the already-translated contact labels, so this
+           needs no new translation on the ja/de/hi/kn/mr pages. -->
+      <aside class="id-card" aria-label="{{S_PROFILE_LABEL}}">
+        <p class="id-card-head mono">{{S_PROFILE_LABEL}}</p>
+        <img src="{{ASSETS}}images/S_Prajwall_Narayana.jpg" alt="{{PHOTO_ALT}}" class="profile-image" width="150" height="150" loading="lazy" decoding="async">
+        <p class="id-card-name">{{DISPLAY_NAME}}</p>
+        <p class="id-card-role">{{JOB_TITLE}}</p>
+        <dl class="id-card-fields">
+          <dt class="mono">{{S_LOCATION_LABEL}}</dt><dd>{{LOCATION}}</dd>
+          <dt class="mono">{{S_GITHUB_LABEL}}</dt><dd><a href="{{GITHUB}}" target="_blank" rel="noopener noreferrer">{{GITHUB_HANDLE}}</a></dd>
+        </dl>
+        <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> {{EMPLOYER_BADGE}}</div>
+      </aside>
     </div>
   </div>
 </section>
 
-<section id="about" class="section reveal">
+<!-- Credibility strip. These numbers were buried at the bottom of the hero
+     text column; on a phone they fell below the fold entirely. -->
+<section id="credibility" class="credibility-strip" aria-label="{{S_CREDIBILITY_LABEL}}">
+  <dl class="hero-stats">
+{{STATS}}
+  </dl>
+</section>
+
+{{FEATURED}}
+
+<section id="projects" class="section reveal">
   <div class="section-header">
-    <h2 class="section-title">{{S_ABOUT_TITLE}}</h2>
-    <p class="section-subtitle">{{S_ABOUT_SUBTITLE}}</p>
+    <h2 class="section-title">{{S_PROJECTS_TITLE}}</h2>
+    <p class="section-subtitle">{{S_PROJECTS_SUBTITLE}}</p>
   </div>
-  <div class="skills-grid stagger-children">
-{{ABOUT}}
+  <div class="projects-waterfall">
+{{PROJECTS}}
   </div>
 </section>
 
@@ -133,6 +152,7 @@
   <div class="skills-grid stagger-children">
 {{SKILLS}}
   </div>
+{{SKILLS_NOTE}}
 </section>
 
 <section id="experience" class="section reveal">
@@ -155,13 +175,18 @@
   </div>
 </section>
 
-<section id="projects" class="section reveal">
+{{PUBLICATIONS}}
+
+{{BUILDING}}
+
+<section id="about" class="section reveal">
   <div class="section-header">
-    <h2 class="section-title">{{S_PROJECTS_TITLE}}</h2>
-    <p class="section-subtitle">{{S_PROJECTS_SUBTITLE}}</p>
+    <h2 class="section-title">{{S_ABOUT_TITLE}}</h2>
+    <p class="section-subtitle">{{S_ABOUT_SUBTITLE}}</p>
   </div>
-  <div class="projects-waterfall">
-{{PROJECTS}}
+  <p class="about-lead">{{SUMMARY}}</p>
+  <div class="skills-grid stagger-children">
+{{ABOUT}}
   </div>
 </section>
 
@@ -174,8 +199,6 @@
 {{SERVICES}}
   </div>
 </section>
-
-{{PUBLICATIONS}}
 
 <section id="contact" class="section reveal">
   <div class="section-header">

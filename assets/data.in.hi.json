@@ -4,7 +4,9 @@
     "TODO(hi): experience[] is now overridden here in full (all three employers, all three Colligence roles, same id order as data.base.json), with the prose and the location strings in Hindi. Like the rest of this file it has NOT been checked by a native speaker, the timeline is what a recruiter reads most closely, so have it read before the page is used in an application.",
     "NOTE(hi): inside experience[] the job titles (AI Engineer, Associate AI Engineer, Associate AI Engineer Intern, Research Intern, Associate Consultant Intern), the employer names and the technology names are deliberately left in English. The Colligence title is the offer-letter wording and must match it in every language; an Indian CV keeps English job titles and tool names in any case, and a Devanagari rendering of a tool name is not searchable.",
     "TODO(hi): publications[] is intentionally left in English. Paper titles and venues are published records and a translated title is not findable. publicationsNote is prose and is translated.",
-    "TODO(hi): seo.title / seo.description are inherited from data.in.json and are still in English. That is a deliberate choice for search in India, but if the Hindi page should rank on Hindi queries these need Hindi versions."
+    "TODO(hi): seo.title / seo.description are inherited from data.in.json and are still in English. That is a deliberate choice for search in India, but if the Hindi page should rank on Hindi queries these need Hindi versions.",
+    "Hero H1 is now `headline`, promoted from the flip-card. This file's headline is the one shown; have a native speaker confirm it works as a headline rather than as a CV job line. `heroLead` is unset here on purpose, so the hero falls back to this file's translated `summary` rather than showing English.",
+    "Two sections added in the 2026-10 redesign are English-only here and are switched off with an explicit null: `building` (Currently building) and `strings.sections.featuredTitle` (Featured engineering). Translate the headings and the three `building` entries, then delete the nulls to turn both on. Until then the flagship project stays in the normal project grid on this page, which is what it did before."
   ],
   "meta": {
     "cc": "in",
@@ -62,11 +64,13 @@
         "MCP orchestration",
         "Multi-agent workflows",
         "RAG",
-        "LangChain",
         "LangGraph",
-        "Claude API",
-        "LLM integration",
         "Evaluation harnesses"
+      ],
+      "secondary": [
+        "LangChain",
+        "Claude API",
+        "LLM integration"
       ]
     },
     {
@@ -78,10 +82,12 @@
         "OpenTofu (IaC)",
         "Ansible",
         "Docker",
+        "Observability and alerting",
+        "Incident runbooks"
+      ],
+      "secondary": [
         "Linux",
         "Linode",
-        "Observability and alerting",
-        "Incident runbooks",
         "Zitadel (SSO/IAM)",
         "RBAC",
         "Git"
@@ -93,15 +99,17 @@
       "icon": "fa-code",
       "items": [
         "Python",
-        "C",
-        "C++",
         "FastAPI",
-        "REST APIs",
         "PostgreSQL",
+        "REST APIs",
+        "C++",
+        "Shell scripting"
+      ],
+      "secondary": [
+        "C",
         "SQL",
         "Swift",
-        "Rust",
-        "Shell scripting"
+        "Rust"
       ]
     },
     {
@@ -110,12 +118,14 @@
       "icon": "fa-brain",
       "items": [
         "PyTorch",
-        "TensorFlow",
         "YOLOv8",
         "OpenCV",
-        "CNN",
-        "ResNet",
         "Quantized model deployment"
+      ],
+      "secondary": [
+        "TensorFlow",
+        "CNN",
+        "ResNet"
       ]
     }
   ],
@@ -360,7 +370,8 @@
       "publicationsTitle": "प्रकाशन",
       "publicationsSubtitle": "सहकर्मी-समीक्षित कार्य। तीन प्रकाशित, दो समीक्षाधीन।",
       "contactTitle": "संपर्क",
-      "contactSubtitle": "ईमेल सबसे तेज़ तरीका है।"
+      "contactSubtitle": "ईमेल सबसे तेज़ तरीका है।",
+      "featuredTitle": null
     },
     "contact": {
       "emailLabel": "ईमेल",
@@ -392,5 +403,7 @@
       "jp": "जापान",
       "de": "जर्मनी"
     }
-  }
+  },
+  "building": null,
+  "skillsNote": null
 }
