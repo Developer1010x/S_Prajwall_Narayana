@@ -16,7 +16,7 @@
   "personal": {
     "profileImageAlt": "Stylized high-contrast avatar used by S Prajwall Narayana"
   },
-  "headline": "AI Engineer, LLM product engineering and platform ownership",
+  "headline": "I build agentic AI systems and the infrastructure that keeps them running.",
   "summary": "AI Engineer on the founding team at Colligence Research. I build the product, agentic and LLM pipelines, multi-agent workflows over MCP, a code-generation service that emits deployment-ready applications, backend APIs, and I own the platform it runs on: CI/CD, infrastructure-as-code, observability, incident response and authentication. Most recent proof of both halves at once: a deterministic safety layer under a healthcare LLM, scored by a 62-case labeled evaluation harness that runs as a **CI merge gate at recall 1.00**. The engineer who ships the agent workflow is the engineer who carries the pager for it.",
   "workAuthorisation": "**Requires US visa sponsorship**, H-1B, or an F-1/OPT route if studying in the US. Based in Bengaluru, India and open to relocation.",
   "typedPhrases": [
@@ -42,13 +42,15 @@
       "icon": "fa-robot",
       "items": [
         "Agentic systems",
-        "Multi-agent workflows",
         "MCP orchestration",
+        "Multi-agent workflows",
+        "RAG",
         "LangGraph",
+        "Evaluation harnesses"
+      ],
+      "secondary": [
         "LangChain",
         "Claude API",
-        "Evaluation harnesses",
-        "RAG",
         "LLM integration"
       ]
     },
@@ -62,7 +64,9 @@
         "Ansible",
         "Docker",
         "Observability and alerting",
-        "Incident runbooks",
+        "Incident runbooks"
+      ],
+      "secondary": [
         "Zitadel (SSO/IAM)",
         "RBAC",
         "Linux",
@@ -76,13 +80,15 @@
       "icon": "fa-code",
       "items": [
         "Python",
-        "C",
-        "C++",
         "FastAPI",
-        "REST APIs",
         "PostgreSQL",
+        "REST APIs",
+        "C++",
+        "Shell scripting"
+      ],
+      "secondary": [
+        "C",
         "SQL",
-        "Shell scripting",
         "Rust",
         "Swift"
       ]
@@ -93,10 +99,12 @@
       "icon": "fa-brain",
       "items": [
         "PyTorch",
-        "TensorFlow",
-        "Quantized model deployment",
         "YOLOv8",
         "OpenCV",
+        "Quantized model deployment"
+      ],
+      "secondary": [
+        "TensorFlow",
         "CNN",
         "ResNet"
       ]
@@ -382,5 +390,6 @@
     "sections": {
       "projectsSubtitle": "Built end to end, mostly in the open. Metrics are measured, not estimated."
     }
-  }
+  },
+  "heroLead": "I engineer multi-agent workflows, retrieval systems, AI evaluation pipelines, the APIs they sit behind, and the production platform underneath them."
 }

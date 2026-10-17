@@ -11,7 +11,9 @@
     "TODO(de): date and place of birth are conventional in a German Lebenslauf and are NOT in the factual base, only 'under 26 as of 2026'. Left as a placeholder in the Lebenslauf, not invented, and not put on this page at all.",
     "TODO(de): full postal address. A German Lebenslauf and Anschreiben both carry one; only 'Bengaluru, India' is known. Placeholder in the documents.",
     "TODO(de): salary expectation (Gehaltsvorstellung). German Anschreiben often ask for one; none is known, so the Anschreiben carries a placeholder.",
-    "TODO(de): confirm the Blaue-Karte-EU wording in workAuthorisation with Prajwall before it goes live. It states the route and that the IT shortage-occupation threshold is lower; it deliberately states no figure, because thresholds change yearly."
+    "TODO(de): confirm the Blaue-Karte-EU wording in workAuthorisation with Prajwall before it goes live. It states the route and that the IT shortage-occupation threshold is lower; it deliberately states no figure, because thresholds change yearly.",
+    "Hero H1 is now `headline`, promoted from the flip-card. This file's headline is the one shown; have a native speaker confirm it works as a headline rather than as a CV job line. `heroLead` is unset here on purpose, so the hero falls back to this file's translated `summary` rather than showing English.",
+    "Two sections added in the 2026-10 redesign are English-only here and are switched off with an explicit null: `building` (Currently building) and `strings.sections.featuredTitle` (Featured engineering). Translate the headings and the three `building` entries, then delete the nulls to turn both on. Until then the flagship project stays in the normal project grid on this page, which is what it did before."
   ],
   "meta": {
     "cc": "de",
@@ -126,11 +128,13 @@
         "MCP-Orchestrierung",
         "Multi-Agenten-Workflows",
         "RAG",
-        "LangChain",
         "LangGraph",
-        "Claude API",
-        "LLM-Integration",
         "Evaluation Harnesses"
+      ],
+      "secondary": [
+        "LangChain",
+        "Claude API",
+        "LLM-Integration"
       ]
     },
     {
@@ -142,10 +146,12 @@
         "OpenTofu (IaC)",
         "Ansible",
         "Docker",
+        "Observability und Alerting",
+        "Incident-Runbooks"
+      ],
+      "secondary": [
         "Linux",
         "Linode",
-        "Observability und Alerting",
-        "Incident-Runbooks",
         "Zitadel (SSO/IAM)",
         "RBAC",
         "Git"
@@ -157,12 +163,14 @@
       "icon": "fa-brain",
       "items": [
         "PyTorch",
-        "TensorFlow",
         "YOLOv8",
         "OpenCV",
-        "CNN",
-        "ResNet",
         "Deployment quantisierter Modelle"
+      ],
+      "secondary": [
+        "TensorFlow",
+        "CNN",
+        "ResNet"
       ]
     },
     {
@@ -171,15 +179,17 @@
       "icon": "fa-code",
       "items": [
         "Python",
-        "C",
-        "C++",
         "FastAPI",
-        "REST-APIs",
         "PostgreSQL",
+        "REST-APIs",
+        "C++",
+        "Shell-Skripting"
+      ],
+      "secondary": [
+        "C",
         "SQL",
         "Swift",
-        "Rust",
-        "Shell-Skripting"
+        "Rust"
       ]
     }
   ],
@@ -594,7 +604,8 @@
       "publicationsTitle": "Veröffentlichungen",
       "publicationsSubtitle": "Begutachtete Beiträge.",
       "contactTitle": "Kontakt",
-      "contactSubtitle": "Am schnellsten erreichen Sie mich per E-Mail."
+      "contactSubtitle": "Am schnellsten erreichen Sie mich per E-Mail.",
+      "featuredTitle": null
     },
     "contact": {
       "emailLabel": "E-Mail",
@@ -624,5 +635,7 @@
       "rights": "Alle Rechte vorbehalten.",
       "builtNote": "Statische Website, ein gemeinsames Template, fünf regionale Builds."
     }
-  }
+  },
+  "building": null,
+  "skillsNote": null
 }

@@ -4,6 +4,13 @@
   Source template: templates/page.html
   Source data:     assets/data.base.json + assets/data.<cc>.json
   Rebuild with:    npm run build   (also runs automatically on every Vercel deploy)
+
+  Section order is the information architecture, and it is deliberate: the
+  strongest evidence comes before the biography. Hero (one claim) -> credibility
+  strip -> featured system -> selected engineering -> capabilities -> experience
+  -> education -> research -> currently building -> about -> services -> contact.
+  Projects used to sit sixth, behind About and Skills; a recruiter reached the
+  work only after two screens of self-description.
 -->
 <html lang="en-US" dir="ltr" data-region="us">
 <head>
@@ -22,14 +29,18 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="S Prajwall Narayana, AI Engineer (LLM systems and platform)">
 <meta name="twitter:description" content="AI Engineer on the founding team at Colligence Research: agentic and LLM pipelines, multi-agent workflows over MCP, and the CI/CD, infrastructure-as-code and observability platform underneath them. Three peer-reviewed papers. Requires US visa sponsorship.">
-<meta name="theme-color" content="#0a0e27">
+<meta name="theme-color" content="#0B0B0D">
 <script>document.documentElement.className+=' js';</script>
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="../assets/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/images/S_Prajwall_Narayana.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<!-- Only the mono face is fetched. The UI face is the system stack: on Apple
+     hardware that resolves to SF Pro, which is the point, and everywhere else to
+     the platform's own UI face. Two fewer webfonts than before, and no FOUT on
+     the headline. -->
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/site.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -68,12 +79,12 @@
       <span class="logo-text">S. Prajwall Narayana</span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="../index2.html">Services</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -90,22 +101,48 @@
 
 <main id="main">
 
+<!-- Hero: one claim, one supporting sentence, three actions. The eight-claim
+     paragraph that used to sit here is still on the page, in About, where a
+     reader who wants depth goes looking for it. -->
 <section id="home" class="hero">
-
-  <canvas id="particles-canvas" aria-hidden="true"></canvas>
+  <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-content">
     <div class="hero-text">
-      <p class="hero-greeting"><i class="fas fa-terminal" aria-hidden="true"></i> Hello, I&#39;m</p>
-      <h1 class="glow-text">S. Prajwall Narayana</h1>
-      <p class="subtitle"><strong>AI Engineer</strong> &mdash; <span id="typed-text">agentic and LLM pipelines</span><span class="typing-cursor" aria-hidden="true"></span></p>
-      <p class="description">AI Engineer on the founding team at Colligence Research. I build the product, agentic and LLM pipelines, multi-agent workflows over MCP, a code-generation service that emits deployment-ready applications, backend APIs, and I own the platform it runs on: CI/CD, infrastructure-as-code, observability, incident response and authentication. Most recent proof of both halves at once: a deterministic safety layer under a healthcare LLM, scored by a 62-case labeled evaluation harness that runs as a <strong>CI merge gate at recall 1.00</strong>. The engineer who ships the agent workflow is the engineer who carries the pager for it.</p>
+      <p class="hero-eyebrow"><span class="mono">AI Engineer</span><span class="hero-eyebrow-sep" aria-hidden="true"></span><span class="mono hero-eyebrow-muted">Bengaluru, India</span></p>
+      <h1 class="hero-claim">I build agentic AI systems and the infrastructure that keeps them running.</h1>
+      <p class="hero-capabilities mono"><span id="typed-text">agentic and LLM pipelines</span><span class="typing-cursor" aria-hidden="true"></span></p>
+      <p class="description">I engineer multi-agent workflows, retrieval systems, AI evaluation pipelines, the APIs they sit behind, and the production platform underneath them.</p>
       <p class="work-auth"><i class="fas fa-passport" aria-hidden="true"></i> <span><strong>Requires US visa sponsorship</strong>, H-1B, or an F-1/OPT route if studying in the US. Based in Bengaluru, India and open to relocation.</span></p>
       <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary magnetic-btn"><i class="fas fa-paper-plane" aria-hidden="true"></i> Get in touch</a>
-        <a href="https://github.com/Developer1010x" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic-btn"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+        <a href="#projects" class="btn btn-primary"><i class="fas fa-arrow-down" aria-hidden="true"></i> Explore projects</a>
         <button type="button" class="btn btn-secondary magnetic-btn" id="cv-open" data-cv="../assets/cv/us-en.pdf"><i class="fas fa-file-pdf" aria-hidden="true"></i> CV</button>
+        <a href="https://github.com/Developer1010x" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+        <a href="#contact" class="btn btn-quiet"><i class="fas fa-paper-plane" aria-hidden="true"></i> Get in touch</a>
       </div>
-      <dl class="hero-stats">
+    </div>
+    <div class="hero-visual">
+      <!-- Technical identity card. Every field is a real field from the data,
+           and the labels are the already-translated contact labels, so this
+           needs no new translation on the ja/de/hi/kn/mr pages. -->
+      <aside class="id-card" aria-label="Profile">
+        <p class="id-card-head mono">Profile</p>
+        <img src="../assets/images/S_Prajwall_Narayana.jpg" alt="Stylized high-contrast avatar used by S Prajwall Narayana" class="profile-image" width="150" height="150" loading="lazy" decoding="async">
+        <p class="id-card-name">S. Prajwall Narayana</p>
+        <p class="id-card-role">AI Engineer</p>
+        <dl class="id-card-fields">
+          <dt class="mono">Location</dt><dd>Bengaluru, India</dd>
+          <dt class="mono">GitHub</dt><dd><a href="https://github.com/Developer1010x" target="_blank" rel="noopener noreferrer">Developer1010x</a></dd>
+        </dl>
+        <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> Colligence Research</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Credibility strip. These numbers were buried at the bottom of the hero
+     text column; on a phone they fell below the fold entirely. -->
+<section id="credibility" class="credibility-strip" aria-label="Key figures">
+  <dl class="hero-stats">
         <div class="stat-item">
           <dt>Peer-reviewed papers</dt>
           <dd class="stat-number" data-count="3" data-suffix="">0</dd>
@@ -118,189 +155,98 @@
           <dt>Departments using Knotes Central</dt>
           <dd class="stat-number" data-count="12" data-suffix="+">0</dd>
         </div>
+  </dl>
+</section>
+
+<section id="featured" class="section reveal featured">
+  <div class="section-header">
+    <h2 class="section-title">Featured engineering</h2>
+    <p class="section-subtitle">The system that best shows how I work: constraints first, safety as architecture, evaluation as a merge gate.</p>
+  </div>
+  <div class="featured-body">
+    <div class="featured-text">
+      <h3 class="featured-name">Arogya-Sathi</h3>
+      <p class="featured-subtitle">Offline-capable multilingual AI healthcare platform</p>
+      <p class="featured-description">Symptom checking, X-ray fracture detection, prescription summarization and a wellness chatbot, running fully offline on quantized models, demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62-case labeled evaluation harness scores those safety layers and runs as a CI merge gate at recall 1.00; building it found a real missed self-harm disclosure. A LangGraph pipeline turns an uploaded medical report into a plain-language explanation in the patient&#39;s own language, with a self-verification loop, and requests are routed across local Ollama models. Third place, college final-year showcase.</p>
+      <div class="project-tags"><span class="project-tag mono">LangGraph</span><span class="project-tag mono">Ollama</span><span class="project-tag mono">Quantized models</span><span class="project-tag mono">Evaluation harness</span><span class="project-tag mono">CI gate</span><span class="project-tag mono">Raspberry Pi</span></div>
+      <div class="featured-actions">
+        <a href="https://github.com/Developer1010x/Arogya-Sathi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+      </div>
+    </div>
+    <div class="featured-evidence">
+      <p class="featured-evidence-label mono">Measured</p>
+      <dl class="metric-table">
+          <div class="metric">
+            <dt>Crisis detection recall</dt>
+            <dd class="mono">1.00</dd>
+          </div>
+          <div class="metric">
+            <dt>Crisis precision</dt>
+            <dd class="mono">0.93</dd>
+          </div>
+          <div class="metric">
+            <dt>Emergency detect / drug screening</dt>
+            <dd class="mono">1.00</dd>
+          </div>
+          <div class="metric">
+            <dt>Labelled safety cases</dt>
+            <dd class="mono">62</dd>
+          </div>
       </dl>
     </div>
-    <div class="hero-visual float">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img src="../assets/images/S_Prajwall_Narayana.jpg" alt="Stylized high-contrast avatar used by S Prajwall Narayana" class="profile-image" width="150" height="150" loading="lazy" decoding="async">
-            <p class="flip-name">S. Prajwall Narayana</p>
-            <p>AI Engineer</p>
-            <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> Colligence Research</div>
-          </div>
-          <div class="flip-card-back">
-            <i class="fas fa-terminal" aria-hidden="true" style="font-size:2rem;margin-bottom:0.75rem;"></i>
-            <p class="flip-name">@Developer1010x</p>
-            <p>AI Engineer, LLM product engineering and platform ownership</p>
-            <div class="status-badge"><span class="status-dot" aria-hidden="true"></span> Bengaluru, India</div>
-          </div>
-        </div>
-      </div>
+    <div class="featured-figure">
+      <figure class="diagram">
+  <svg class="diagram-svg" viewBox="-1 -1 554 374" role="img" aria-label="Request path. The safety gate is deterministic and the model cannot override it.">
+    <defs>
+      <marker id="dg-arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M 0 1 L 7 4 L 0 7 z" />
+      </marker>
+    </defs>
+    <path class="dg-edge" d="M 276 46 V 74" />
+    <path class="dg-edge" d="M 276 126 V 143 H 84 V 154" />
+    <path class="dg-edge" d="M 276 126 V 154" />
+    <path class="dg-edge" d="M 276 126 V 143 H 468 V 154" />
+    <path class="dg-edge" d="M 84 206 V 234" />
+    <path class="dg-edge" d="M 468 206 V 234" />
+    <path class="dg-edge" d="M 84 286 V 303 H 276 V 314" />
+    <path class="dg-edge" d="M 468 286 V 303 H 276 V 314" />
+    <path class="dg-edge" d="M 276 206 V 314" />
+    <g class="dg-node dg-io">
+      <rect x="192" y="0" width="168" height="46" rx="6" />
+      <text x="276" y="23" dominant-baseline="central" text-anchor="middle">Patient query / upload</text>
+    </g>
+    <g class="dg-node dg-core">
+      <rect x="192" y="80" width="168" height="46" rx="6" />
+      <text x="276" y="103" dominant-baseline="central" text-anchor="middle">FastAPI router</text>
+    </g>
+    <g class="dg-node dg-ai">
+      <rect x="0" y="160" width="168" height="46" rx="6" />
+      <text x="84" y="183" dominant-baseline="central" text-anchor="middle">LangGraph agent</text>
+    </g>
+    <g class="dg-node dg-ai">
+      <rect x="192" y="160" width="168" height="46" rx="6" />
+      <text x="276" y="183" dominant-baseline="central" text-anchor="middle">X-ray CNN (PyTorch)</text>
+    </g>
+    <g class="dg-node dg-det">
+      <rect x="384" y="160" width="168" height="46" rx="6" />
+      <text x="468" y="183" dominant-baseline="central" text-anchor="middle">Drug-interaction rules</text>
+    </g>
+    <g class="dg-node dg-ai">
+      <rect x="0" y="240" width="168" height="46" rx="6" />
+      <text x="84" y="263" dominant-baseline="central" text-anchor="middle">Ollama, quantized</text>
+    </g>
+    <g class="dg-node dg-det">
+      <rect x="384" y="240" width="168" height="46" rx="6" />
+      <text x="468" y="263" dominant-baseline="central" text-anchor="middle">Safety gate</text>
+    </g>
+    <g class="dg-node dg-io">
+      <rect x="192" y="320" width="168" height="46" rx="6" />
+      <text x="276" y="343" dominant-baseline="central" text-anchor="middle">Raspberry Pi, offline</text>
+    </g>
+  </svg>
+  <figcaption>Request path. The safety gate is deterministic and the model cannot override it.</figcaption>
+</figure>
     </div>
-  </div>
-</section>
-
-<section id="about" class="section reveal">
-  <div class="section-header">
-    <h2 class="section-title">About</h2>
-    <p class="section-subtitle">An AI Engineer who ships the product and runs the platform underneath it.</p>
-  </div>
-  <div class="skills-grid stagger-children">
-    <article class="skill-category about-card glow-border">
-      <h3><i class="fas fa-diagram-project" aria-hidden="true"></i> What I build</h3>
-      <p>Multi-agent LLM pipelines for ERP automation over MCP, a code-generation service that turns structured input specs into deployment-ready web applications, and the backend APIs behind them. Long-running, multi-step agent workflows that stay on track without a human babysitting them.</p>
-    </article>
-    <article class="skill-category about-card glow-border">
-      <h3><i class="fas fa-server" aria-hidden="true"></i> What I run</h3>
-      <p>The platform those systems run on. I established the DevOps/SRE function at Colligence Research from scratch and lead it: CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, Docker, Zitadel for SSO and RBAC, observability, alerting and incident runbooks.</p>
-    </article>
-    <article class="skill-category about-card glow-border">
-      <h3><i class="fas fa-flask" aria-hidden="true"></i> Research and publications</h3>
-      <p>Three peer-reviewed papers, one at Springer ICTIS 2025 in Bangkok and two on IEEE Xplore, covering school administration systems, ResNet50 hyperparameter tuning and a web-server controlled rover with object detection. Two more are under review.</p>
-    </article>
-  </div>
-</section>
-
-<section id="skills" class="section reveal">
-  <div class="section-header">
-    <h2 class="section-title">Skills</h2>
-    <p class="section-subtitle">AI and LLM systems and the infrastructure they run on, in equal measure.</p>
-  </div>
-  <div class="skills-grid stagger-children">
-    <article class="skill-category tilt-card glow-border">
-      <h3><i class="fas fa-robot" aria-hidden="true"></i> AI and LLM systems</h3>
-      <ul class="skill-tags">
-        <li class="skill-tag">Agentic systems</li>
-        <li class="skill-tag">Multi-agent workflows</li>
-        <li class="skill-tag">MCP orchestration</li>
-        <li class="skill-tag">LangGraph</li>
-        <li class="skill-tag">LangChain</li>
-        <li class="skill-tag">Claude API</li>
-        <li class="skill-tag">Evaluation harnesses</li>
-        <li class="skill-tag">RAG</li>
-        <li class="skill-tag">LLM integration</li>
-      </ul>
-    </article>
-    <article class="skill-category tilt-card glow-border">
-      <h3><i class="fas fa-server" aria-hidden="true"></i> Infrastructure and DevOps</h3>
-      <ul class="skill-tags">
-        <li class="skill-tag">CI/CD</li>
-        <li class="skill-tag">OpenTofu (IaC)</li>
-        <li class="skill-tag">Ansible</li>
-        <li class="skill-tag">Docker</li>
-        <li class="skill-tag">Observability and alerting</li>
-        <li class="skill-tag">Incident runbooks</li>
-        <li class="skill-tag">Zitadel (SSO/IAM)</li>
-        <li class="skill-tag">RBAC</li>
-        <li class="skill-tag">Linux</li>
-        <li class="skill-tag">Linode</li>
-        <li class="skill-tag">Git</li>
-      </ul>
-    </article>
-    <article class="skill-category tilt-card glow-border">
-      <h3><i class="fas fa-code" aria-hidden="true"></i> Languages and backend</h3>
-      <ul class="skill-tags">
-        <li class="skill-tag">Python</li>
-        <li class="skill-tag">C</li>
-        <li class="skill-tag">C++</li>
-        <li class="skill-tag">FastAPI</li>
-        <li class="skill-tag">REST APIs</li>
-        <li class="skill-tag">PostgreSQL</li>
-        <li class="skill-tag">SQL</li>
-        <li class="skill-tag">Shell scripting</li>
-        <li class="skill-tag">Rust</li>
-        <li class="skill-tag">Swift</li>
-      </ul>
-    </article>
-    <article class="skill-category tilt-card glow-border">
-      <h3><i class="fas fa-brain" aria-hidden="true"></i> Machine learning and vision</h3>
-      <ul class="skill-tags">
-        <li class="skill-tag">PyTorch</li>
-        <li class="skill-tag">TensorFlow</li>
-        <li class="skill-tag">Quantized model deployment</li>
-        <li class="skill-tag">YOLOv8</li>
-        <li class="skill-tag">OpenCV</li>
-        <li class="skill-tag">CNN</li>
-        <li class="skill-tag">ResNet</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<section id="experience" class="section reveal">
-  <div class="section-header">
-    <h2 class="section-title">Experience</h2>
-    <p class="section-subtitle">Where the work has happened.</p>
-  </div>
-  <div class="skills-grid stagger-children">
-    <article class="skill-category timeline-card glow-border">
-      <div class="timeline-card-head">
-        <h3>AI Engineer</h3>
-        <span class="timeline-date is-current">Nov 2025 – present</span>
-      </div>
-      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> Colligence Research &bull; Bengaluru, India</p>
-      <p>Founding team.</p>
-      <h4>AI Engineer <span class="timeline-date">Feb 2026 – present</span></h4>
-      <ul>
-        <li>Works across both halves of the product: the AI and product engineering below, plus end-to-end ownership of the platform it runs on.</li>
-        <li>Established the DevOps/SRE function from scratch and now leads it, CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.</li>
-        <li>Building a retrieval-augmented system into the infrastructure layer itself, so that infrastructure-as-code and SRE work, runbook lookup, change context, incident response, is grounded in the organization&#39;s own configuration and history rather than hand-carried knowledge. In progress.</li>
-        <li>Replaced manual GitHub deploy workflows, cutting deployment errors for a four-person founding team.</li>
-        <li>Operates the production stack end to end: Docker, Zitadel authentication, monitored deployments with self-healing alerting.</li>
-        <li>Owns system architecture across infrastructure and tooling.</li>
-      </ul>
-      <h4>Associate AI Engineer <span class="timeline-date">Dec 2025 – Feb 2026</span></h4>
-      <ul>
-        <li>Led a small team building the company&#39;s first multi-agent LLM pipeline for ERP automation over MCP, keeping long-running multi-step workflows on track without human intervention.</li>
-        <li>Built a code-generation service that parses structured input specs and emits deployment-ready web applications.</li>
-      </ul>
-      <h4>Associate AI Engineer Intern <span class="timeline-date">Nov 2025 – Dec 2025</span></h4>
-      <ul>
-        <li>Prototyped the first LLM integrations and agent workflows.</li>
-      </ul>
-      <div class="timeline-tags"><span class="skill-tag">Agentic systems</span><span class="skill-tag">MCP</span><span class="skill-tag">LangGraph</span><span class="skill-tag">FastAPI</span><span class="skill-tag">OpenTofu</span><span class="skill-tag">Ansible</span><span class="skill-tag">Docker</span><span class="skill-tag">Linode</span><span class="skill-tag">Zitadel</span><span class="skill-tag">CI/CD</span></div>
-    </article>
-    <article class="skill-category timeline-card glow-border">
-      <div class="timeline-card-head">
-        <h3>Research Intern, AI and Deep Learning</h3>
-        <span class="timeline-date">Oct 2024 – Dec 2024</span>
-      </div>
-      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> RVCE Center of Excellence &bull; Remote</p>
-      <ul>
-        <li>Built a deepfake-detection model from scratch for manipulated-face video, using no external detection APIs.</li>
-        <li>Trained and evaluated on the FaceForensics++ and DFDC datasets.</li>
-      </ul>
-      <div class="timeline-tags"><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">CNN</span><span class="skill-tag">FaceForensics++</span><span class="skill-tag">DFDC</span></div>
-    </article>
-    <article class="skill-category timeline-card glow-border">
-      <div class="timeline-card-head">
-        <h3>Associate Consultant Intern, Enterprise Cybersecurity</h3>
-        <span class="timeline-date">Aug 2024 – Sep 2024</span>
-      </div>
-      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> Ernst &amp; Young India &bull; Bengaluru, India</p>
-      <ul>
-        <li>Shadowed senior consultants on cloud-security and identity and access management work.</li>
-        <li>Exposure to the TOGAF and IFTAS frameworks.</li>
-      </ul>
-      <div class="timeline-tags"><span class="skill-tag">Cloud security</span><span class="skill-tag">IAM</span><span class="skill-tag">TOGAF</span><span class="skill-tag">IFTAS</span></div>
-    </article>
-  </div>
-</section>
-
-<section id="education" class="section reveal">
-  <div class="section-header">
-    <h2 class="section-title">Education</h2>
-    <p class="section-subtitle">Academic background.</p>
-  </div>
-  <div class="skills-grid stagger-children">
-    <article class="skill-category timeline-card glow-border">
-      <div class="timeline-card-head">
-        <h3>B.E. Computer Science and Engineering</h3>
-        <span class="timeline-date">Dec 2021 – Aug 2025</span>
-      </div>
-      <p class="timeline-org"><i class="fas fa-graduation-cap" aria-hidden="true"></i> R V College of Engineering (VTU) &bull; Bengaluru, India</p>
-    </article>
   </div>
 </section>
 
@@ -310,17 +256,6 @@
     <p class="section-subtitle">Built end to end, mostly in the open. Metrics are measured, not estimated.</p>
   </div>
   <div class="projects-waterfall">
-    <article class="project-waterfall-card">
-      <div class="project-icon" style="background:#FF3B3022">
-        <i class="fas fa-heart-pulse" style="color:#FF3B30" aria-hidden="true"></i>
-      </div>
-      <h3 class="project-title">Arogya-Sathi</h3>
-      <p class="project-subtitle">Offline-capable multilingual AI healthcare platform &bull; Jan 2025 – Jun 2025</p>
-      <p class="project-description">Symptom checking, X-ray fracture detection, prescription summarization and a wellness chatbot, running fully offline on quantized models, demonstrated on a Raspberry Pi. A deterministic rule-based drug-interaction and crisis-detection safety layer sits underneath and the LLM cannot override it. A 62-case labeled evaluation harness scores those safety layers and runs as a CI merge gate at recall 1.00; building it found a real missed self-harm disclosure. A LangGraph pipeline turns an uploaded medical report into a plain-language explanation in the patient&#39;s own language, with a self-verification loop, and requests are routed across local Ollama models. Third place, college final-year showcase.</p>
-      <ul class="project-metrics"><li>Crisis detection: recall 1.00 / precision 0.93</li><li>Emergency: 1.00 / 1.00</li><li>Drug screening: 1.00 / 1.00</li></ul>
-      <div class="project-tags"><span class="project-tag">LangGraph</span><span class="project-tag">Ollama</span><span class="project-tag">Quantized models</span><span class="project-tag">Evaluation harness</span><span class="project-tag">CI gate</span><span class="project-tag">Raspberry Pi</span></div>
-      <div class="project-links"><a href="https://github.com/Developer1010x/Arogya-Sathi" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fab fa-github" aria-hidden="true"></i> Code</a></div>
-    </article>
     <article class="project-waterfall-card">
       <div class="project-icon" style="background:#5B6ABF22">
         <i class="fas fa-book-open-reader" style="color:#5B6ABF" aria-hidden="true"></i>
@@ -463,6 +398,234 @@
   </div>
 </section>
 
+<section id="skills" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">Engineering capabilities</h2>
+    <p class="section-subtitle">What I actually reach for, in the two halves that matter: the agent layer and the platform under it.</p>
+  </div>
+  <div class="skills-grid stagger-children">
+    <article class="skill-category">
+      <h3><i class="fas fa-robot" aria-hidden="true"></i> AI and LLM systems</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag is-core">Agentic systems</li>
+        <li class="skill-tag is-core">MCP orchestration</li>
+        <li class="skill-tag is-core">Multi-agent workflows</li>
+        <li class="skill-tag is-core">RAG</li>
+        <li class="skill-tag is-core">LangGraph</li>
+        <li class="skill-tag is-core">Evaluation harnesses</li>
+      </ul>
+      <p class="skill-secondary-label mono">Also worked with</p>
+      <ul class="skill-tags is-secondary">
+        <li class="skill-tag">LangChain</li>
+        <li class="skill-tag">Claude API</li>
+        <li class="skill-tag">LLM integration</li>
+      </ul>
+    </article>
+    <article class="skill-category">
+      <h3><i class="fas fa-server" aria-hidden="true"></i> Infrastructure and DevOps</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag is-core">CI/CD</li>
+        <li class="skill-tag is-core">OpenTofu (IaC)</li>
+        <li class="skill-tag is-core">Ansible</li>
+        <li class="skill-tag is-core">Docker</li>
+        <li class="skill-tag is-core">Observability and alerting</li>
+        <li class="skill-tag is-core">Incident runbooks</li>
+      </ul>
+      <p class="skill-secondary-label mono">Also worked with</p>
+      <ul class="skill-tags is-secondary">
+        <li class="skill-tag">Zitadel (SSO/IAM)</li>
+        <li class="skill-tag">RBAC</li>
+        <li class="skill-tag">Linux</li>
+        <li class="skill-tag">Linode</li>
+        <li class="skill-tag">Git</li>
+      </ul>
+    </article>
+    <article class="skill-category">
+      <h3><i class="fas fa-code" aria-hidden="true"></i> Languages and backend</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag is-core">Python</li>
+        <li class="skill-tag is-core">FastAPI</li>
+        <li class="skill-tag is-core">PostgreSQL</li>
+        <li class="skill-tag is-core">REST APIs</li>
+        <li class="skill-tag is-core">C++</li>
+        <li class="skill-tag is-core">Shell scripting</li>
+      </ul>
+      <p class="skill-secondary-label mono">Also worked with</p>
+      <ul class="skill-tags is-secondary">
+        <li class="skill-tag">C</li>
+        <li class="skill-tag">SQL</li>
+        <li class="skill-tag">Rust</li>
+        <li class="skill-tag">Swift</li>
+      </ul>
+    </article>
+    <article class="skill-category">
+      <h3><i class="fas fa-brain" aria-hidden="true"></i> Machine learning and vision</h3>
+      <ul class="skill-tags">
+        <li class="skill-tag is-core">PyTorch</li>
+        <li class="skill-tag is-core">YOLOv8</li>
+        <li class="skill-tag is-core">OpenCV</li>
+        <li class="skill-tag is-core">Quantized model deployment</li>
+      </ul>
+      <p class="skill-secondary-label mono">Also worked with</p>
+      <ul class="skill-tags is-secondary">
+        <li class="skill-tag">TensorFlow</li>
+        <li class="skill-tag">CNN</li>
+        <li class="skill-tag">ResNet</li>
+      </ul>
+    </article>
+  </div>
+  <p class="skills-note">Currently going deeper on <strong>Rust</strong>, distributed inference and LLM evaluation methodology.</p>
+</section>
+
+<section id="experience" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">Experience</h2>
+    <p class="section-subtitle">Where the work has happened.</p>
+  </div>
+  <div class="skills-grid stagger-children">
+    <article class="skill-category timeline-card">
+      <div class="timeline-card-head">
+        <h3>AI Engineer</h3>
+        <span class="timeline-date is-current">Nov 2025 – present</span>
+      </div>
+      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> Colligence Research &bull; Bengaluru, India</p>
+      <p>Founding team.</p>
+      <h4>AI Engineer <span class="timeline-date">Feb 2026 – present</span></h4>
+      <ul>
+        <li>Works across both halves of the product: the AI and product engineering below, plus end-to-end ownership of the platform it runs on.</li>
+        <li>Established the DevOps/SRE function from scratch and now leads it, CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, observability, alerting and incident runbooks.</li>
+        <li>Building a retrieval-augmented system into the infrastructure layer itself, so that infrastructure-as-code and SRE work, runbook lookup, change context, incident response, is grounded in the organization&#39;s own configuration and history rather than hand-carried knowledge. In progress.</li>
+        <li>Replaced manual GitHub deploy workflows, cutting deployment errors for a four-person founding team.</li>
+        <li>Operates the production stack end to end: Docker, Zitadel authentication, monitored deployments with self-healing alerting.</li>
+        <li>Owns system architecture across infrastructure and tooling.</li>
+      </ul>
+      <h4>Associate AI Engineer <span class="timeline-date">Dec 2025 – Feb 2026</span></h4>
+      <ul>
+        <li>Led a small team building the company&#39;s first multi-agent LLM pipeline for ERP automation over MCP, keeping long-running multi-step workflows on track without human intervention.</li>
+        <li>Built a code-generation service that parses structured input specs and emits deployment-ready web applications.</li>
+      </ul>
+      <h4>Associate AI Engineer Intern <span class="timeline-date">Nov 2025 – Dec 2025</span></h4>
+      <ul>
+        <li>Prototyped the first LLM integrations and agent workflows.</li>
+      </ul>
+      <div class="timeline-tags"><span class="skill-tag">Agentic systems</span><span class="skill-tag">MCP</span><span class="skill-tag">LangGraph</span><span class="skill-tag">FastAPI</span><span class="skill-tag">OpenTofu</span><span class="skill-tag">Ansible</span><span class="skill-tag">Docker</span><span class="skill-tag">Linode</span><span class="skill-tag">Zitadel</span><span class="skill-tag">CI/CD</span></div>
+    </article>
+    <article class="skill-category timeline-card">
+      <div class="timeline-card-head">
+        <h3>Research Intern, AI and Deep Learning</h3>
+        <span class="timeline-date">Oct 2024 – Dec 2024</span>
+      </div>
+      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> RVCE Center of Excellence &bull; Remote</p>
+      <ul>
+        <li>Built a deepfake-detection model from scratch for manipulated-face video, using no external detection APIs.</li>
+        <li>Trained and evaluated on the FaceForensics++ and DFDC datasets.</li>
+      </ul>
+      <div class="timeline-tags"><span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">CNN</span><span class="skill-tag">FaceForensics++</span><span class="skill-tag">DFDC</span></div>
+    </article>
+    <article class="skill-category timeline-card">
+      <div class="timeline-card-head">
+        <h3>Associate Consultant Intern, Enterprise Cybersecurity</h3>
+        <span class="timeline-date">Aug 2024 – Sep 2024</span>
+      </div>
+      <p class="timeline-org"><i class="fas fa-building" aria-hidden="true"></i> Ernst &amp; Young India &bull; Bengaluru, India</p>
+      <ul>
+        <li>Shadowed senior consultants on cloud-security and identity and access management work.</li>
+        <li>Exposure to the TOGAF and IFTAS frameworks.</li>
+      </ul>
+      <div class="timeline-tags"><span class="skill-tag">Cloud security</span><span class="skill-tag">IAM</span><span class="skill-tag">TOGAF</span><span class="skill-tag">IFTAS</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="education" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">Education</h2>
+    <p class="section-subtitle">Academic background.</p>
+  </div>
+  <div class="skills-grid stagger-children">
+    <article class="skill-category timeline-card">
+      <div class="timeline-card-head">
+        <h3>B.E. Computer Science and Engineering</h3>
+        <span class="timeline-date">Dec 2021 – Aug 2025</span>
+      </div>
+      <p class="timeline-org"><i class="fas fa-graduation-cap" aria-hidden="true"></i> R V College of Engineering (VTU) &bull; Bengaluru, India</p>
+    </article>
+  </div>
+</section>
+
+<section id="publications" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">Publications</h2>
+    <p class="section-subtitle">Peer-reviewed work. Three published, two under review.</p>
+  </div>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <h3>EduConnect: A Smart Solution for Streamlined School Administrations</h3>
+      <p class="pub-venue">Springer ICTIS 2025, Bangkok, ICT for Intelligent Systems, Vol. 9</p>
+    </li>
+    <li class="pub-item">
+      <h3>An Empirical Study of ResNet50 Hyperparameter Tuning for Plant Disease Classification</h3>
+      <p class="pub-venue">IEEE Xplore, November 2024</p>
+      <a href="https://ieeexplore.ieee.org/document/10816835" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Read the paper</a>
+    </li>
+    <li class="pub-item">
+      <h3>Web-Server Controlled Rover with Robotic Arm and Object Detection</h3>
+      <p class="pub-venue">IEEE Xplore, November 2024</p>
+      <a href="https://ieeexplore.ieee.org/document/10816816" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Read the paper</a>
+    </li>
+  </ul>
+  <p class="pub-note">Two further papers are under review.</p>
+</section>
+
+<section id="building" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">Currently building</h2>
+    <p class="section-subtitle">Work in progress, stated as in progress.</p>
+  </div>
+  <div class="building-grid stagger-children">
+    <article class="building-card">
+      <p class="building-status mono"><span class="status-dot" aria-hidden="true"></span> <span class="visually-hidden">Status: </span>In progress</p>
+      <h3>Infrastructure RAG</h3>
+      <p>A retrieval-augmented system inside the infrastructure layer itself, so runbook lookup, change context and incident response are grounded in the organization&#39;s own configuration and history rather than hand-carried knowledge.</p>
+      <div class="project-tags"><span class="project-tag mono">RAG</span><span class="project-tag mono">SRE</span><span class="project-tag mono">OpenTofu</span><span class="project-tag mono">Ansible</span></div>
+    </article>
+    <article class="building-card">
+      <p class="building-status mono"><span class="status-dot" aria-hidden="true"></span> <span class="visually-hidden">Status: </span>In progress</p>
+      <h3>Longitudinal report explainer</h3>
+      <p>Taking Arogya-Sathi&#39;s one-shot medical-report explainer to a longitudinal one that remembers a patient&#39;s prior reports and flags changes over time, with the 62-case safety set growing into a continuous suite seeded from real misses.</p>
+      <div class="project-tags"><span class="project-tag mono">LangGraph</span><span class="project-tag mono">Evaluation</span><span class="project-tag mono">Healthcare</span></div>
+    </article>
+    <article class="building-card">
+      <p class="building-status mono"><span class="status-dot" aria-hidden="true"></span> <span class="visually-hidden">Status: </span>In progress</p>
+      <h3>agentic-devops as a standing agent</h3>
+      <p>Moving from generate-once to an agent that opens a pull request with a proposed fix when a pipeline breaks, learns a project&#39;s flaky tests across runs, and gates merges on the checks that matter for that repo.</p>
+      <div class="project-tags"><span class="project-tag mono">Agents</span><span class="project-tag mono">CI/CD</span><span class="project-tag mono">GitHub</span><span class="project-tag mono">GitLab</span></div>
+    </article>
+  </div>
+</section>
+
+<section id="about" class="section reveal">
+  <div class="section-header">
+    <h2 class="section-title">About</h2>
+    <p class="section-subtitle">An AI Engineer who ships the product and runs the platform underneath it.</p>
+  </div>
+  <p class="about-lead">AI Engineer on the founding team at Colligence Research. I build the product, agentic and LLM pipelines, multi-agent workflows over MCP, a code-generation service that emits deployment-ready applications, backend APIs, and I own the platform it runs on: CI/CD, infrastructure-as-code, observability, incident response and authentication. Most recent proof of both halves at once: a deterministic safety layer under a healthcare LLM, scored by a 62-case labeled evaluation harness that runs as a <strong>CI merge gate at recall 1.00</strong>. The engineer who ships the agent workflow is the engineer who carries the pager for it.</p>
+  <div class="skills-grid stagger-children">
+    <article class="skill-category about-card">
+      <h3><i class="fas fa-diagram-project" aria-hidden="true"></i> What I build</h3>
+      <p>Multi-agent LLM pipelines for ERP automation over MCP, a code-generation service that turns structured input specs into deployment-ready web applications, and the backend APIs behind them. Long-running, multi-step agent workflows that stay on track without a human babysitting them.</p>
+    </article>
+    <article class="skill-category about-card">
+      <h3><i class="fas fa-server" aria-hidden="true"></i> What I run</h3>
+      <p>The platform those systems run on. I established the DevOps/SRE function at Colligence Research from scratch and lead it: CI/CD, infrastructure-as-code with OpenTofu and Ansible on Linode, Docker, Zitadel for SSO and RBAC, observability, alerting and incident runbooks.</p>
+    </article>
+    <article class="skill-category about-card">
+      <h3><i class="fas fa-flask" aria-hidden="true"></i> Research and publications</h3>
+      <p>Three peer-reviewed papers, one at Springer ICTIS 2025 in Bangkok and two on IEEE Xplore, covering school administration systems, ResNet50 hyperparameter tuning and a web-server controlled rover with object detection. Two more are under review.</p>
+    </article>
+  </div>
+</section>
+
 <section id="services" class="section reveal">
   <div class="section-header">
     <h2 class="section-title">Freelance services</h2>
@@ -485,30 +648,6 @@
       <ul class="project-metrics"><li>Multi-agent workflows (LangGraph, MCP)</li><li>Local/offline LLM deployment</li><li>Evaluation &amp; guardrails</li><li>Backend APIs (FastAPI)</li></ul>
     </article>
   </div>
-</section>
-
-<section id="publications" class="section reveal">
-  <div class="section-header">
-    <h2 class="section-title">Publications</h2>
-    <p class="section-subtitle">Peer-reviewed work.</p>
-  </div>
-  <ul class="pub-list">
-    <li class="pub-item">
-      <h3>EduConnect: A Smart Solution for Streamlined School Administrations</h3>
-      <p class="pub-venue">Springer ICTIS 2025, Bangkok, ICT for Intelligent Systems, Vol. 9</p>
-    </li>
-    <li class="pub-item">
-      <h3>An Empirical Study of ResNet50 Hyperparameter Tuning for Plant Disease Classification</h3>
-      <p class="pub-venue">IEEE Xplore, November 2024</p>
-      <a href="https://ieeexplore.ieee.org/document/10816835" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Read the paper</a>
-    </li>
-    <li class="pub-item">
-      <h3>Web-Server Controlled Rover with Robotic Arm and Object Detection</h3>
-      <p class="pub-venue">IEEE Xplore, November 2024</p>
-      <a href="https://ieeexplore.ieee.org/document/10816816" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Read the paper</a>
-    </li>
-  </ul>
-  <p class="pub-note">Two further papers are under review.</p>
 </section>
 
 <section id="contact" class="section reveal">

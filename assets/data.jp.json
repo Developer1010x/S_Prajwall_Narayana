@@ -10,7 +10,9 @@
     "TODO(jp): projects[].metrics were deliberately left in English ('Crisis detection: recall 1.00 / precision 0.93' etc.) because they are evaluation-harness labels tied to measured figures. Decide with a native speaker whether Japanese labels would read better; if so, the numbers must stay untouched.",
     "TODO(jp): experience[] was translated by Claude from data.base.json and has NOT been reviewed by a native speaker. Every employer, every role and every bullet from the base is present in the same order; no claim was added, dropped, strengthened or weakened. Two things specifically need a native-speaker check: whether 「現在進行中です」 reads as clearly not-yet-shipped for the RAG infrastructure bullet (it must, that system is unfinished), and whether 「現在も統括しています」 is the right weight for having founded and now leading the DevOps/SRE function (neither more nor less than the English).",
     "TODO(jp): date format across the whole page. experience[].date, roles[].date, education[].date and projects[].date are all left in the English 'Nov 2025, present' form so the page is internally consistent. A Japanese 職務経歴書 conventionally uses 2025年11月, 現在. If that convention is wanted, change all four arrays together in one pass, not experience[] alone, the numbers must not change, only the month rendering.",
-    "TODO(jp): experience[].tags were left in English, matching skills[].items in this file. Two of them ('Agentic systems', 'Cloud security') are ordinary English phrases rather than product names and could be Japanese; the rest are technology names that must stay as they are. Decide once, for tags and skill items together."
+    "TODO(jp): experience[].tags were left in English, matching skills[].items in this file. Two of them ('Agentic systems', 'Cloud security') are ordinary English phrases rather than product names and could be Japanese; the rest are technology names that must stay as they are. Decide once, for tags and skill items together.",
+    "Hero H1 is now `headline`, promoted from the flip-card. This file's headline is the one shown; have a native speaker confirm it works as a headline rather than as a CV job line. `heroLead` is unset here on purpose, so the hero falls back to this file's translated `summary` rather than showing English.",
+    "Two sections added in the 2026-10 redesign are English-only here and are switched off with an explicit null: `building` (Currently building) and `strings.sections.featuredTitle` (Featured engineering). Translate the headings and the three `building` entries, then delete the nulls to turn both on. Until then the flagship project stays in the normal project grid on this page, which is what it did before."
   ],
   "_readme_experience": "experience[] replaces the base array wholesale (contract rule 3), so this is a complete copy with Japanese prose. Translated: role bullets, the founding-team note and location strings. NOT translated, on purpose: job titles (AI Engineer / Associate AI Engineer / Associate AI Engineer Intern / Research Intern / Associate Consultant Intern are the titles as issued by the employers, the Colligence one is the offer-letter title, and a Japanese 職務経歴書 keeps the employer's own wording; katakana 'AI エンジニア' is common in Japanese job adverts but is not what the offer letter says, and half the titles have no established katakana form at all), employer names, technology names and every date and figure.",
   "meta": {
@@ -81,7 +83,8 @@
       "publicationsTitle": "論文",
       "publicationsSubtitle": "査読付き論文。3 件が発表済み、2 件が査読中です。",
       "contactTitle": "連絡先",
-      "contactSubtitle": "メールが最も確実です。日本語の応募書類（履歴書・職務経歴書）はご依頼に応じてお送りします。"
+      "contactSubtitle": "メールが最も確実です。日本語の応募書類（履歴書・職務経歴書）はご依頼に応じてお送りします。",
+      "featuredTitle": null
     },
     "hero": {
       "greeting": "はじめまして",
@@ -186,11 +189,13 @@
         "MCP orchestration",
         "Multi-agent workflows",
         "RAG",
-        "LangChain",
         "LangGraph",
-        "Claude API",
-        "LLM integration",
         "Evaluation harnesses"
+      ],
+      "secondary": [
+        "LangChain",
+        "Claude API",
+        "LLM integration"
       ]
     },
     {
@@ -202,10 +207,12 @@
         "OpenTofu (IaC)",
         "Ansible",
         "Docker",
+        "Observability and alerting",
+        "Incident runbooks"
+      ],
+      "secondary": [
         "Linux",
         "Linode",
-        "Observability and alerting",
-        "Incident runbooks",
         "Zitadel (SSO/IAM)",
         "RBAC",
         "Git"
@@ -217,15 +224,17 @@
       "icon": "fa-code",
       "items": [
         "Python",
-        "C",
-        "C++",
         "FastAPI",
-        "REST APIs",
         "PostgreSQL",
+        "REST APIs",
+        "C++",
+        "Shell scripting"
+      ],
+      "secondary": [
+        "C",
         "SQL",
         "Swift",
-        "Rust",
-        "Shell scripting"
+        "Rust"
       ]
     },
     {
@@ -234,12 +243,14 @@
       "icon": "fa-brain",
       "items": [
         "PyTorch",
-        "TensorFlow",
         "YOLOv8",
         "OpenCV",
-        "CNN",
-        "ResNet",
         "Quantized model deployment"
+      ],
+      "secondary": [
+        "TensorFlow",
+        "CNN",
+        "ResNet"
       ]
     }
   ],
@@ -608,5 +619,7 @@
       "url": "https://github.com/nushell/nushell/pull/19017",
       "date": "Sep 2026"
     }
-  ]
+  ],
+  "building": null,
+  "skillsNote": null
 }

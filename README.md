@@ -154,6 +154,63 @@ The site is plain static files with no runtime dependency on the edge. Opened fr
   page. Until a per-country CV lands in `assets/cv/`, the build omits the CV button
   entirely, see `assets/cv/README.md`. The old file is still in git history.
 
+## The 2026-10 redesign
+
+The page was reordered so the evidence comes before the biography. It used to run
+About -> Skills -> Experience -> Education -> Projects -> Services -> Publications,
+which put the strongest material (a 62-case evaluation harness running as a CI merge
+gate, three peer-reviewed papers) behind two screens of self-description. It now runs:
+
+```
+hero (one claim)  ->  credibility strip  ->  featured system  ->  selected projects
+  ->  capabilities  ->  experience  ->  education  ->  research
+  ->  currently building  ->  about  ->  services  ->  contact
+```
+
+What changed, and why:
+
+* **The hero makes one claim, not eight.** `headline` is now the H1 and reads as a
+  claim; the name moved to the eyebrow and the identity card. The eight-claim
+  paragraph that used to open the page is still on the site, in About, which is
+  where a reader who wants depth goes looking for it. `heroLead` is the short
+  replacement and falls back to `summary` when a language has not translated it.
+* **One system is featured**, with its measured results as a label/figure table and
+  an inline-SVG architecture diagram, rather than as a paragraph of prose with the
+  numbers buried in it. Driven by `featured: true` in the data.
+* **Capabilities over inventory.** Each skill group shows its strongest items, with
+  the rest kept in a visibly secondary row. Nothing was deleted.
+* **Currently building** states in-progress work as in progress. Every entry in it
+  is already claimed elsewhere in the data.
+* **Monospace is a semantic layer**, applied by class to metrics, tags, field labels
+  and diagram text. Body copy is never mono.
+
+`assets/css/site.css` was **extended, not rewritten**. The flat, graphite,
+single-accent, no-gradient system described at the top of that file is deliberate and
+still governs; the redesign adds the monospace layer, the grid texture, the featured
+section and the new components on top of the same tokens.
+
+### Not translated yet
+
+`building`, `skillsNote` and the featured section are English-only. Rather than print
+English headings over translated content, `jp`, `de`, `in.hi`, `in.kn` and `in.mr`
+switch them off with an explicit `null` and render as they did before. Each file has a
+`_todo` saying exactly what to translate to turn them back on. See
+`assets/DATA-CONTRACT.md`.
+
+### Bugs found and fixed while rebuilding
+
+These were live on the site and are unrelated to the visual work:
+
+| Bug | Cause |
+| --- | --- |
+| Mobile menu could not open at all | `site.js` toggled `.active` on `#nav-links`; the stylesheet defines `.nav-links.open` |
+| Active nav link never highlighted | `site.js` toggled `.active`; the stylesheet defines `a.is-current` |
+| Hamburger rendered as an empty square | its three `<span>` bars had no CSS rules in any version of the sheet |
+| Every `.btn-primary` failed WCAG AA | white text on the old accent measured **2.52:1**. The accent is now `#38BDF8` with `--accent-ink` for button text, measured **8.83:1** |
+| Project cards had a full-width colour stripe | `.project-icon` had only a margin, so it stretched to the card width |
+| Publications rendered with stray list bullets | `.pub-list` is a `<ul>` of card-styled `<li>`s and never reset `list-style` |
+| `.navbar.scrolled` did nothing | the class is toggled by `site.js` and had no rule |
+
 ## Performance notes
 
 * One 100 KB inline-CSS page became six pages of ~27 KB each sharing one cached

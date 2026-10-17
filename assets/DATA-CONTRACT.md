@@ -223,3 +223,108 @@ npm run build    # regenerates the eight pages, sitemap.xml and robots.txt
 
 A build failure prints the exact file, key and reason. Do not commit a data change
 without running one of these.
+
+---
+
+# The 2026-10 redesign keys
+
+The page was reordered so that evidence comes before biography: hero (one claim)
+→ credibility strip → featured system → selected projects → capabilities →
+experience → education → research → currently building → about → services →
+contact. Five data keys drive the parts that are new.
+
+## `headline` is now the H1
+
+It used to be a secondary line on the hero profile card. It is now **the largest
+text on the page**, so it should read as a claim, not as a CV job title:
+
+```json
+{ "headline": "I build agentic AI systems and the infrastructure that keeps them running." }
+```
+
+This key was chosen over introducing a new one precisely **because every language
+file already translates it**. A new key would have meant an untranslated English
+sentence as the H1 of the ja, de, hi, kn and mr pages.
+
+The name moved into the hero eyebrow and the identity card. It is still on the
+page twice; it is simply no longer the biggest thing on it.
+
+## `heroLead`, the short hero paragraph
+
+```json
+{ "heroLead": "I engineer multi-agent workflows, retrieval systems, ..." }
+```
+
+Optional. **Absent → the hero falls back to that file's own `summary`**, which
+every language already translates, so a page can never show an English lead
+under a translated headline. `summary` itself is unchanged and still feeds the
+meta description and the About section, which is where the long version belongs.
+
+## `featured`, `lead`, `keyMetrics` and `diagram` on a project
+
+One project is promoted out of the grid into its own section:
+
+```json
+{ "id": "arogya-sathi", "featured": true,
+  "lead": "The short version, shown in the featured card.",
+  "keyMetrics": [ { "label": "Crisis detection recall", "value": "1.00" } ],
+  "diagram": { "caption": "...", "nodes": [...], "edges": [["a","b"]] } }
+```
+
+* `featured: true` picks it. Nothing is hardcoded in the build, so moving the
+  flag to another project is the whole change. If no project is flagged, the
+  section is omitted and every project stays in the grid.
+* `lead` is the featured card's copy; absent, it falls back to `description`.
+* `keyMetrics` renders as a label/figure table. Values must already appear in
+  `metrics` or elsewhere in the data — this key reformats evidence, it never
+  introduces any.
+* `diagram` renders as inline SVG (so it inverts with the theme). A node is
+  `{ id, label, kind, col, row }` where `kind` is `io`, `core`, `ai` or `det`,
+  `col` may be negative, and `row` is the layer. An edge naming an unknown node
+  **fails the build**. Keep labels to proper nouns and product names: the figure
+  is not translated, so it has to read the same on every language page.
+
+Because **arrays replace wholesale** (merge rule 3), a region supplying its own
+`projects` would otherwise lose all four of these. The build re-attaches
+`featured`, `keyMetrics` and `diagram` by id from `data.base.json`, so a
+translated page keeps its own translated title and description and still gets
+the figure and the metric table.
+
+## `building`, the Currently building section
+
+```json
+{ "building": [ { "id": "...", "title": "...", "status": "In progress",
+                  "body": "...", "tags": ["RAG"] } ] }
+```
+
+Everything in it must already be claimed elsewhere in the data (a role bullet,
+or a project's "is being taken further" sentence). The section makes in-progress
+work findable; it is not a place to announce new work.
+
+## `skills[].secondary` and `skillsNote`
+
+Each capability group keeps its strongest items in `items`; everything else goes
+to `secondary`, which renders smaller and clearly marked. Items are not deleted:
+a shorter list bought by quietly dropping true things is not an improvement.
+`skillsNote` is the one-line "currently going deeper on ..." under the grid.
+
+## Turning the English-only sections off
+
+`building`, `skillsNote` and the featured section are **English-only today**.
+Rather than print English headings over translated content, `data.jp.json`,
+`data.de.json`, `data.in.hi.json`, `data.in.kn.json` and `data.in.mr.json`
+switch them off with the normal null deletion (merge rule 4):
+
+```json
+{ "building": null,
+  "skillsNote": null,
+  "strings": { "sections": { "featuredTitle": null } } }
+```
+
+`renderFeatured` and `renderBuilding` each return nothing when their section
+title is missing. Those pages render exactly as they did before the redesign,
+with the flagship project in the normal grid.
+
+**To switch a language on:** translate `strings.sections.featuredTitle` and
+`featuredSubtitle` (and `buildingTitle` / `buildingSubtitle` and the `building`
+entries), then delete the nulls. Each file carries a `_todo` saying so.

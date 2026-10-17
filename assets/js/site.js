@@ -154,7 +154,7 @@
 
     if (hamburger && links) {
       hamburger.addEventListener('click', function () {
-        var open = links.classList.toggle('active');
+        var open = links.classList.toggle('open');
         hamburger.classList.toggle('active', open);
         hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
@@ -170,7 +170,7 @@
         window.scrollTo({ top: target.offsetTop - navOffset(), behavior: reduceMotion ? 'auto' : 'smooth' });
         target.setAttribute('tabindex', '-1');
         target.focus({ preventScroll: true });
-        if (links) links.classList.remove('active');
+        if (links) links.classList.remove('open');
         if (hamburger) {
           hamburger.classList.remove('active');
           hamburger.setAttribute('aria-expanded', 'false');
@@ -193,7 +193,7 @@
         if (y >= section.offsetTop - navOffset() - 40) current = section.getAttribute('id');
       });
       Array.prototype.forEach.call(navAnchors, function (a) {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+        a.classList.toggle('is-current', a.getAttribute('href') === '#' + current);
       });
     }, 100);
 

@@ -37,9 +37,23 @@
   --text-muted: #A3ADB9;
   --text-faint: #78828E;
 
-  --accent: #7BA2F5;
-  --accent-hover: #A2BEFA;
-  --accent-wash: #182238;
+  /* Accent, 2026-10. Was #7BA2F5. Two reasons for the change, one of them a
+     bug: white text on the old accent measured 2.52:1, so every .btn-primary
+     on the site failed WCAG AA. The accent is now a cyan-blue and the primary
+     button sets its text to --accent-ink instead of white.
+       #38BDF8 on --bg        = 8.83:1
+       --accent-ink on accent = 8.83:1
+     Still exactly one accent: links, focus, the primary button and the
+     technical marks. Never decoration. */
+  --accent: #38BDF8;
+  --accent-hover: #7DD3FC;
+  --accent-ink: #07121A;
+  --accent-wash: #0C2230;
+
+  /* Monospace is a semantic layer, not a style: it marks technical content
+     only — metrics, tags, field labels, identifiers, diagram text. Body copy
+     is never mono. */
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --ok: #4FBF9B;
   --warn: #D8A63C;
@@ -73,9 +87,12 @@ body[data-theme='light'] {
   --text-muted: #5B646E;
   --text-faint: #8B939C;
 
-  --accent: #2A5BD7;
-  --accent-hover: #1E45A8;
-  --accent-wash: #EEF2FC;
+  /* Light theme keeps white-on-accent, which passes here: #0369A1 measures
+     5.93:1 against white. */
+  --accent: #0369A1;
+  --accent-hover: #075985;
+  --accent-ink: #FFFFFF;
+  --accent-wash: #E8F4FB;
 
   --ok: #17795E;
   --warn: #9A6700;
@@ -318,25 +335,10 @@ li:last-child { margin-bottom: 0; }
 }
 .stat-item dt { color: var(--text-muted); font-size: var(--step-1); line-height: 1.4; }
 
-/* Profile card — was a floating, tilting, flipping card */
-.hero-visual { display: flex; justify-content: center; }
-.flip-card { width: 100%; max-width: 270px; }
-.flip-card-inner { position: relative; }
-.flip-card-front, .flip-card-back {
-  background: var(--bg-subtle);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.6rem 1.25rem;
-  text-align: center;
-}
-.flip-card-back { margin-top: 0.75rem; }
-.profile-image {
-  width: 118px; height: 118px; border-radius: 50%;
-  object-fit: cover; margin: 0 auto 0.9rem;
-  border: 1px solid var(--border-strong);
-}
-.flip-name { font-family: 'Poppins', sans-serif; font-weight: 650; margin-bottom: 0.15rem; }
-.flip-card-front > div:not(.flip-name), .flip-card-back p { color: var(--text-muted); font-size: 0.92rem; }
+/* The hero's profile card is now the technical identity card (.id-card),
+   styled further down with the rest of the 2026-10 sections. The flip-card
+   rules that lived here are deleted rather than neutralised: the markup they
+   styled is no longer emitted by templates/page.html. */
 
 .status-badge {
   display: inline-flex; align-items: center; gap: 0.45rem;
@@ -365,8 +367,8 @@ li:last-child { margin-bottom: 0; }
   transition: background var(--speed) ease, border-color var(--speed) ease, color var(--speed) ease;
 }
 .btn:hover { text-decoration: none; border-color: var(--text-faint); background: var(--bg-subtle); }
-.btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #fff; }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: var(--accent-ink); }
 .btn-secondary { background: var(--bg-raised); }
 
 /* CV downloads.
@@ -494,7 +496,15 @@ li:last-child { margin-bottom: 0; }
 
 /* Projects */
 .projects-waterfall { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1rem; }
-.project-icon { margin-bottom: 0.7rem; }
+/* The icon is a tile, not a banner. With only a margin declared it was a
+   block-level div stretching the full card width, so the per-project colour
+   rendered as a stripe across the top of every card. */
+.project-icon {
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.7rem;
+}
 .project-subtitle { color: var(--text-muted); font-size: 0.94rem; margin: -0.25rem 0 0.6rem; }
 .project-description { color: var(--text-muted); font-size: 0.94rem; }
 .project-metrics {
@@ -507,7 +517,12 @@ li:last-child { margin-bottom: 0; }
 .project-link { font-size: 0.9rem; }
 
 /* Publications */
-.pub-list { display: grid; gap: 0.85rem; }
+/* .pub-list is a <ul> and each .pub-item is an <li> styled as a card, so
+   without resetting the list styling every publication rendered with a disc
+   marker floating outside its card. Same class of bug the skill/project tag
+   lists were fixed for further up this sheet. */
+.pub-list { display: grid; gap: 0.85rem; list-style: none; margin: 0; padding: 0; }
+.pub-list > li { margin: 0; }
 .pub-venue { color: var(--text-faint); font-size: 0.9rem; }
 .pub-note { color: var(--text-muted); font-size: 0.92rem; margin-top: 1rem; }
 
@@ -653,3 +668,717 @@ h1, h2, h3, .flip-name, .logo-text { letter-spacing: -0.025em; }
 .project-tag, .skill-tag { transition: border-color var(--speed) ease, color var(--speed) ease; }
 .project-tag:hover, .skill-tag:hover { border-color: var(--accent); color: var(--text); }
 .stat-number { letter-spacing: -0.03em; }
+
+/* ==========================================================================
+   2026-10 redesign
+   --------------------------------------------------------------------------
+   Positioning the page around one claim and putting the evidence first.
+   This is an extension of the flat system above, not a replacement: same
+   tokens, same hairline borders, same no-gradient rule, same motion budget.
+   What is new is a monospace technical layer, a featured-system section with a
+   real figure in it, and type large enough to carry a single claim.
+   ========================================================================== */
+
+/* ── Monospace technical layer ───────────────────────────────────────────── */
+
+/* Applied by class, never by element, so it marks technical content rather
+   than decorating headings. Mono faces run wide and dark next to Sora, so the
+   size is stepped down and the tracking opened slightly to compensate. */
+.mono {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  letter-spacing: 0.01em;
+  font-variant-ligatures: none;
+}
+
+/* ── Hero ────────────────────────────────────────────────────────────────── */
+
+/* Technical grid backdrop. Two repeating-linear-gradients rather than an
+   image: it costs no request, inverts with the theme, and is masked to fade
+   out before it reaches the text. Kept at 2% so it reads as paper texture and
+   never as a visible grid competing with the content. */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(to right, var(--border) 0 1px, transparent 1px 72px),
+    repeating-linear-gradient(to bottom, var(--border) 0 1px, transparent 1px 72px);
+  opacity: 0.45;
+  -webkit-mask-image: radial-gradient(118% 92% at 14% 0%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(118% 92% at 14% 0%, #000 0%, transparent 72%);
+}
+
+.hero-content { align-items: start; }
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1.1rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.8rem;
+}
+.hero-eyebrow-sep {
+  flex: none;
+  width: 22px;
+  height: 1px;
+  background: var(--border-strong);
+}
+.hero-eyebrow-muted { color: var(--text-faint); text-transform: none; letter-spacing: 0.02em; }
+
+/* The claim. One sentence, set as large as the viewport allows, because it is
+   the only thing on the first screen that has to be read. The name moved up
+   into the eyebrow and into the identity card: a recruiter is looking for what
+   this person does, and learns the name either way. */
+.hero-claim {
+  font-size: clamp(2.05rem, 5.4vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  margin: 0 0 1.15rem;
+  max-width: 21ch;
+  text-wrap: balance;
+}
+
+.hero-capabilities {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0 0 1.25rem;
+  min-height: 1.6em;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--accent);
+}
+
+.hero-text .description { font-size: var(--step1); max-width: 54ch; }
+
+.btn-quiet {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-muted);
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+.btn-quiet:hover { background: transparent; border-color: var(--border); color: var(--text); }
+
+/* ── Technical identity card ─────────────────────────────────────────────── */
+
+/* The console-style card the brief asked for, kept to one card rather than
+   turning the whole page into a fake terminal. Every row is a real field from
+   the data and the field labels are the already-translated Contact labels. */
+.id-card {
+  width: 100%;
+  max-width: 290px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  overflow: hidden;
+}
+.id-card-head {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+}
+.id-card .profile-image {
+  width: 104px; height: 104px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 1.35rem auto 0.9rem;
+  border: 1px solid var(--border-strong);
+}
+.id-card-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 650;
+  text-align: center;
+  margin: 0 0 0.1rem;
+  letter-spacing: -0.025em;
+}
+.id-card-role {
+  text-align: center;
+  color: var(--accent);
+  font-size: 0.92rem;
+  margin: 0 0 1.1rem;
+}
+
+/* Label/value rows. Grid rather than the default dl flow so the values line up
+   in a column, which is what makes it read as a readout instead of prose. */
+.id-card-fields {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 0.8rem;
+  margin: 0;
+  padding: 0 1rem 0.3rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.9rem;
+  font-size: 0.86rem;
+}
+.id-card-fields dt {
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: 0.66rem;
+  align-self: center;
+}
+.id-card-fields dd { margin: 0; color: var(--text-muted); min-width: 0; overflow-wrap: break-word; }
+
+.id-card .status-badge { margin: 0.5rem 1rem 1.1rem; }
+
+/* ── Credibility strip ───────────────────────────────────────────────────── */
+
+/* These three numbers were the last thing in the hero text column, which on a
+   phone put them below the fold behind four buttons. They are now a band of
+   their own directly under the hero, which is the first thing after the claim. */
+.credibility-strip {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-subtle);
+  padding: 1.5rem var(--gutter);
+}
+.credibility-strip .hero-stats {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  gap: clamp(1.75rem, 6vw, 4.5rem);
+}
+.credibility-strip .stat-number { font-size: var(--step2); }
+.credibility-strip .stat-item dt { max-width: 18ch; }
+
+/* ── Featured system ─────────────────────────────────────────────────────── */
+
+.featured-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+.featured-name { font-size: var(--step3); margin: 0 0 0.25rem; }
+.featured-subtitle { color: var(--accent); font-size: 0.95rem; margin: 0 0 1rem; }
+.featured-description { color: var(--text-muted); margin-bottom: 1.1rem; }
+.featured-description strong { color: var(--text); }
+.featured-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 1.1rem; }
+
+/* The figure spans both columns underneath the text and the metric table.
+   Inside the right-hand column it was rendering about 380px wide, which put
+   its 11px mono labels below the point of being readable. */
+.featured-body { grid-template-areas: "text evidence" "figure figure"; }
+.featured-text { grid-area: text; }
+.featured-evidence { grid-area: evidence; }
+.featured-figure { grid-area: figure; margin-top: 0.5rem; }
+.featured-figure .diagram { margin-top: 0; }
+.featured-figure .diagram-svg { max-width: 760px; margin-inline: auto; }
+
+.featured-evidence {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+}
+.featured-evidence-label {
+  margin: 0 0 0.85rem;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+}
+
+/* Metric table. The numbers were previously a bulleted list of sentences
+   ("Crisis detection: recall 1.00 / precision 0.93"), which reads as prose and
+   scans as nothing. Label left, figure right, figure in mono at display size:
+   the point of a measured result is that it can be taken in at a glance. */
+.metric-table { display: grid; gap: 0; margin: 0; }
+.metric {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.metric:last-child { border-bottom: 0; }
+.metric dt { color: var(--text-muted); font-size: 0.88rem; margin: 0; }
+.metric dd {
+  margin: 0;
+  color: var(--text);
+  font-size: var(--step2);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Architecture diagram ────────────────────────────────────────────────── */
+
+.diagram { margin: 1.4rem 0 0; }
+.diagram-svg { width: 100%; height: auto; display: block; overflow: visible; }
+
+.diagram-svg .dg-edge {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-width: 1.25;
+  marker-end: url(#dg-arrow);
+}
+.diagram-svg #dg-arrow path { fill: var(--border-strong); }
+
+.diagram-svg .dg-node rect {
+  fill: var(--bg);
+  stroke: var(--border-strong);
+  stroke-width: 1;
+}
+.diagram-svg .dg-node text {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: var(--text-muted);
+}
+/* Three node kinds, distinguished by border and label colour rather than by
+   fill, so the figure stays flat and keeps working in both themes. The
+   deterministic nodes are the point of the diagram, so they are the ones the
+   accent is spent on. */
+.diagram-svg .dg-ai rect { stroke: var(--border-strong); }
+.diagram-svg .dg-det rect { stroke: var(--accent); }
+.diagram-svg .dg-det text { fill: var(--accent); }
+.diagram-svg .dg-io rect { fill: var(--bg-subtle); stroke: var(--border); }
+.diagram-svg .dg-io text { fill: var(--text-faint); }
+
+.diagram figcaption {
+  color: var(--text-faint);
+  font-size: 0.82rem;
+  margin-top: 0.85rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 920px) {
+  .featured-body {
+    grid-template-columns: 1fr;
+    grid-template-areas: "text" "evidence" "figure";
+  }
+}
+
+/* ── Capabilities: core vs secondary ─────────────────────────────────────── */
+
+.skill-tag.is-core {
+  color: var(--text);
+  border-color: var(--border-strong);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+.skill-secondary-label {
+  margin: 1rem 0 0.45rem;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.64rem;
+}
+/* Secondary items stay on the page but stop competing: no pill, no border,
+   just a quieter comma-free row. Dropping them outright would have been a
+   shorter list bought with a less honest one. */
+.skill-tags.is-secondary { margin-top: 0; gap: 0.3rem 0.5rem; }
+.skill-tags.is-secondary .skill-tag {
+  background: transparent;
+  border-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+}
+.skill-tags.is-secondary .skill-tag:not(:last-child)::after {
+  content: "·";
+  margin-left: 0.5rem;
+  color: var(--border-strong);
+}
+.skill-tags.is-secondary .skill-tag:hover { color: var(--text-muted); border-color: transparent; }
+
+.skills-note {
+  margin-top: 1.4rem;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--border-strong);
+}
+.skills-note strong { color: var(--text); }
+
+/* ── Currently building ──────────────────────────────────────────────────── */
+
+.building-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  gap: 1rem;
+}
+.building-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--warn);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.4rem;
+}
+.building-card h3 { font-size: var(--step1); margin: 0 0 0.5rem; }
+.building-card p { color: var(--text-muted); font-size: 0.93rem; }
+.building-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.6rem;
+  color: var(--warn);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.68rem;
+}
+.building-status .status-dot { background: var(--warn); }
+
+/* ── About ───────────────────────────────────────────────────────────────── */
+
+/* The eight-claim paragraph that used to open the page. It is good material in
+   the wrong place: it lands here, where a reader has already decided to read. */
+.about-lead {
+  font-size: var(--step1);
+  color: var(--text-muted);
+  max-width: 68ch;
+  margin: 0 0 1.75rem;
+}
+.about-lead strong { color: var(--text); }
+
+/* ── Tags, mono ──────────────────────────────────────────────────────────── */
+
+.project-tag.mono { font-size: 0.76rem; }
+
+/* ── Fixes found while rebuilding ────────────────────────────────────────── */
+
+/* site.js toggles .active on the hamburger, and nothing styled it, so the
+   button gave no feedback that the menu was open. (It also toggled .active on
+   #nav-links, which no rule matched either: the mobile menu could not open at
+   all. That one was a script fix, in site.js.) */
+.hamburger.active { color: var(--text); border-color: var(--accent); }
+
+/* The sticky navbar reads .scrolled from site.js; it had no rule. A hairline
+   is enough — the bar already has a border and a blur. */
+.navbar.scrolled { border-bottom-color: var(--border-strong); }
+
+@media (max-width: 880px) {
+  .hero-visual { order: 0; justify-content: flex-start; }
+  .id-card { max-width: 100%; }
+  .hero-claim { max-width: 26ch; }
+}
+
+@media print {
+  .hero-grid, .diagram { display: none; }
+  .credibility-strip { border: 0; }
+}
+
+/* ── Narrow-viewport overflow ────────────────────────────────────────────── */
+
+/* Defensive, not a bug fix: no page currently overflows (measured at a 500px
+   viewport, the narrowest headless Chrome will honour, scrollWidth 485).
+
+   These guard the two ways this layout could start overflowing as content
+   grows. A grid item defaults to min-width:auto and so refuses to shrink below
+   its min-content width, which in the experience cards is set by
+   .timeline-date (white-space:nowrap) sitting beside a long role title; and a
+   long unbroken token in a card has nothing to break on. Guarded at the cause
+   rather than with overflow-x:hidden on <body>, which would hide this and
+   every future instance of it. */
+.skills-grid > *,
+.projects-waterfall > *,
+.building-grid > *,
+.contact-grid > * { min-width: 0; }
+
+.timeline-card, .project-waterfall-card, .building-card, .about-card { overflow-wrap: break-word; }
+
+@media (max-width: 560px) {
+  /* Below this the date can no longer comfortably share a line with the role
+     title. Not verifiable here: headless Chrome clamps its viewport to 500px,
+     so real phone widths (360-430px) have not been rendered. */
+  .timeline-date { white-space: normal; }
+  .timeline-card-head { gap: 0.15rem; }
+}
+
+/* The hamburger's three <span> bars had no rules in any version of this
+   stylesheet, so the button rendered as an empty bordered square. It was
+   invisible in practice because the menu it opens was broken too (site.js
+   toggled a class no rule matched), so nobody reached for it. */
+.hamburger { flex-direction: column; gap: 4px; }
+.hamburger span:not(.visually-hidden) {
+  display: block;
+  width: 16px; height: 1.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform var(--speed) ease, opacity var(--speed) ease;
+}
+/* Open state: the bars become a cross. */
+.hamburger.active span:not(.visually-hidden):nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+.hamburger.active span:not(.visually-hidden):nth-child(2) { opacity: 0; }
+.hamburger.active span:not(.visually-hidden):nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger span:not(.visually-hidden) { transition: none; }
+}
+
+/* ==========================================================================
+   Apple-like pass
+   --------------------------------------------------------------------------
+   Typography, controls and motion moved toward the language Apple uses on its
+   own product pages. What that actually means, concretely, because "Apple-like"
+   otherwise collapses into glassmorphism and parallax:
+
+     1. SF, set tight. Large type carries negative tracking; small type does not.
+     2. Near-black, not grey. Surfaces separate by luminance, not by border.
+     3. Pill controls, one solid accent, everything else quiet.
+     4. Motion is slow-out and never bounces. One long ease, applied to
+        opacity and a few pixels of travel, staggered down the page.
+     5. Nothing moves that the reader did not scroll to.
+
+   Rules 4 and 5 are the same motion budget the flat rewrite set, with better
+   easing and a stagger. This layer deliberately does not add parallax, pinned
+   scroll sections or scroll-scrubbed video.
+   ========================================================================== */
+
+:root {
+  /* Near-black. Apple's dark surfaces separate by luminance rather than by a
+     visible hairline, so the borders below get quieter as the bg gets darker. */
+  --bg: #0B0B0D;
+  --bg-subtle: #141416;
+  --bg-raised: #1A1A1D;
+  --border: #2A2A2E;
+  --border-strong: #3A3A3F;
+
+  --text: #F5F5F7;          /* Apple's off-white, never pure #FFF */
+  --text-muted: #A1A1A6;
+  --text-faint: #6E6E73;
+
+  /* Two blues, which is what Apple actually ships: a bright one for links on
+     dark, and a deeper one behind white text where AA has to hold.
+       #2997FF on --bg       = 6.52:1
+       white on #0071E3      = 4.70:1  */
+  --accent: #2997FF;
+  --accent-hover: #6AB7FF;
+  --accent-solid: #0071E3;
+  --accent-solid-hover: #0077ED;
+  --accent-ink: #FFFFFF;
+  --accent-wash: #10243A;
+
+  --radius: 18px;
+  --radius-sm: 12px;
+  --radius-pill: 980px;     /* Apple's actual button radius */
+
+  /* One ease for everything, slow-out, no overshoot. */
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --speed: 320ms;
+  --speed-slow: 760ms;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+    'Inter', system-ui, 'Segoe UI', Roboto, 'Hiragino Sans', 'Yu Gothic',
+    'Noto Sans JP', Meiryo, 'Noto Sans Devanagari', 'Noto Sans Kannada', sans-serif;
+}
+
+body[data-theme='light'] {
+  --bg: #FFFFFF;
+  --bg-subtle: #F5F5F7;     /* Apple's light section grey */
+  --bg-raised: #FFFFFF;
+  --border: #E5E5E7;
+  --border-strong: #D2D2D7;
+
+  --text: #1D1D1F;          /* Apple's near-black, never pure #000 */
+  --text-muted: #6E6E73;
+  --text-faint: #86868B;
+
+  --accent: #0066CC;        /* 5.57:1 on white, both as link and behind white */
+  --accent-hover: #0055AA;
+  --accent-solid: #0066CC;
+  --accent-solid-hover: #0055AA;
+  --accent-ink: #FFFFFF;
+  --accent-wash: #F0F6FD;
+}
+
+/* ── Type ────────────────────────────────────────────────────────────────── */
+
+body {
+  font-family: var(--font-sans);
+  font-size: 17px;          /* Apple's body size */
+  line-height: 1.5;
+  letter-spacing: -0.012em;
+}
+
+h1, h2, h3, h4, .logo-text, .id-card-name, .stat-number {
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+/* Tracking scales with size: large type tightens, small type must not, or it
+   turns to mud. This is the single most recognisable thing about SF in use. */
+.hero-claim {
+  font-size: clamp(2.3rem, 5.6vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+.section-title { font-weight: 600; letter-spacing: -0.028em; }
+.featured-name { letter-spacing: -0.028em; }
+.hero-eyebrow, .id-card-head, .featured-evidence-label,
+.skill-secondary-label, .building-status { letter-spacing: 0.06em; }
+
+.section-subtitle, .hero-text .description, .about-lead {
+  letter-spacing: -0.01em;
+  color: var(--text-muted);
+}
+
+/* ── Rhythm ──────────────────────────────────────────────────────────────── */
+
+/* Apple's pages breathe considerably more than a CV does. */
+.section { padding: clamp(4rem, 10vw, 7.5rem) var(--gutter); }
+.section-header { margin-bottom: 3rem; }
+.hero { padding: clamp(3.5rem, 9vw, 7rem) var(--gutter) clamp(3rem, 7vw, 5.5rem); }
+
+/* The accent dash above each heading is a tooling convention, not an Apple one. */
+.section-header::before { display: none; }
+
+/* Sections separate by surface, the way Apple alternates white and #F5F5F7,
+   rather than by a hairline rule. */
+.section + .section { border-top: 0; }
+#skills, #education, #building, #services { background: var(--bg-subtle); }
+#skills, #education, #building, #services,
+.credibility-strip { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+/* ── Controls ────────────────────────────────────────────────────────────── */
+
+.btn {
+  border-radius: var(--radius-pill);
+  padding: 0.75rem 1.35rem;
+  font-size: 1rem;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+  transition: background var(--speed) var(--ease), color var(--speed) var(--ease),
+              border-color var(--speed) var(--ease), transform var(--speed) var(--ease);
+}
+.btn:hover { transform: scale(1.03); }
+.btn:active { transform: scale(0.98); }
+
+.btn-primary {
+  background: var(--accent-solid);
+  border-color: var(--accent-solid);
+  color: var(--accent-ink);
+  font-weight: 500;
+}
+.btn-primary:hover { background: var(--accent-solid-hover); border-color: var(--accent-solid-hover); }
+.btn-quiet:hover { transform: none; color: var(--accent); }
+
+.theme-toggle, .hamburger, .social-link, .back-to-top, .cv-modal-close {
+  border-radius: var(--radius-pill);
+  transition: color var(--speed) var(--ease), border-color var(--speed) var(--ease),
+              background var(--speed) var(--ease), transform var(--speed) var(--ease);
+}
+.theme-toggle:hover, .social-link:hover, .back-to-top:hover { transform: scale(1.06); }
+
+.nav-links a { transition: color var(--speed) var(--ease); }
+.navbar { backdrop-filter: saturate(180%) blur(20px); }
+
+/* ── Surfaces ────────────────────────────────────────────────────────────── */
+
+.about-card, .skill-category, .timeline-card, .project-waterfall-card,
+.pub-item, .contact-item, .building-card, .featured-evidence, .id-card {
+  border-radius: var(--radius);
+  transition: transform var(--speed) var(--ease), border-color var(--speed) var(--ease),
+              box-shadow var(--speed) var(--ease);
+}
+
+/* Lift, not glow. A single soft shadow, and only in light mode, where Apple
+   uses one; on near-black a shadow is invisible, so the border carries it. */
+.about-card:hover, .skill-category:hover, .project-waterfall-card:hover,
+.pub-item:hover, .building-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: none;
+}
+body[data-theme='light'] .about-card:hover,
+body[data-theme='light'] .skill-category:hover,
+body[data-theme='light'] .project-waterfall-card:hover,
+body[data-theme='light'] .pub-item:hover,
+body[data-theme='light'] .building-card:hover {
+  box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.18);
+}
+
+.skill-tag, .project-tag { border-radius: var(--radius-pill); }
+.status-badge { border-radius: var(--radius-pill); }
+
+/* The grid texture is a developer-tooling motif. Apple would not ship it, so it
+   drops to the threshold of visibility rather than being deleted outright. */
+.hero-grid { opacity: 0.14; }
+
+/* ── Motion ──────────────────────────────────────────────────────────────── */
+
+/* One long slow-out ease, opacity plus a little travel. site.js adds .active
+   when the section enters the viewport; nothing animates on load, and nothing
+   animates that the reader has not scrolled to. */
+@media (scripting: enabled) {
+  .reveal, .stagger-children {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity var(--speed-slow) var(--ease), transform var(--speed-slow) var(--ease);
+  }
+  .reveal.active, .stagger-children.active { opacity: 1; transform: none; }
+
+  /* Stagger. The container reveals, then its cards follow one after another.
+     Capped at 8 so a long grid does not end up with a card arriving a second
+     and a half after the one before it. */
+  .stagger-children.active > * {
+    animation: rise var(--speed-slow) var(--ease) backwards;
+  }
+  .stagger-children.active > *:nth-child(1) { animation-delay: 60ms; }
+  .stagger-children.active > *:nth-child(2) { animation-delay: 120ms; }
+  .stagger-children.active > *:nth-child(3) { animation-delay: 180ms; }
+  .stagger-children.active > *:nth-child(4) { animation-delay: 240ms; }
+  .stagger-children.active > *:nth-child(5) { animation-delay: 300ms; }
+  .stagger-children.active > *:nth-child(6) { animation-delay: 360ms; }
+  .stagger-children.active > *:nth-child(7) { animation-delay: 420ms; }
+  .stagger-children.active > *:nth-child(n+8) { animation-delay: 480ms; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* The hero is above the fold, so it has nothing to scroll into. It arrives on
+   load instead, once, in the same ease. */
+@media (scripting: enabled) {
+  .hero-text > *, .hero-visual { animation: rise var(--speed-slow) var(--ease) backwards; }
+  .hero-text > *:nth-child(1) { animation-delay: 40ms; }
+  .hero-text > *:nth-child(2) { animation-delay: 100ms; }
+  .hero-text > *:nth-child(3) { animation-delay: 160ms; }
+  .hero-text > *:nth-child(4) { animation-delay: 220ms; }
+  .hero-text > *:nth-child(5) { animation-delay: 280ms; }
+  .hero-text > *:nth-child(6) { animation-delay: 340ms; }
+  .hero-visual { animation-delay: 200ms; }
+}
+
+/* Non-negotiable: all of the above is decoration and comes off entirely. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .stagger-children,
+  .stagger-children.active > *,
+  .hero-text > *, .hero-visual {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .btn:hover, .btn:active, .theme-toggle:hover,
+  .social-link:hover, .back-to-top:hover { transform: none; }
+}
+
+/* The capability line kept a hard accent rule down its left edge, which is a
+   developer-tooling motif and the one thing on the first screen still reading
+   as a dashboard. It becomes a quiet subhead: still monospace, because it is
+   still a technical list, but no rule and more air above it. */
+.hero-capabilities {
+  border-left: 0;
+  padding-left: 0;
+  margin: 0.35rem 0 1.6rem;
+  color: var(--text-faint);
+  font-size: 0.9rem;
+  letter-spacing: 0.015em;
+}
+.hero-claim { margin-bottom: 0.9rem; }
