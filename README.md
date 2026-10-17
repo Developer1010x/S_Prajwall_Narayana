@@ -211,6 +211,28 @@ These were live on the site and are unrelated to the visual work:
 | Publications rendered with stray list bullets | `.pub-list` is a `<ul>` of card-styled `<li>`s and never reset `list-style` |
 | `.navbar.scrolled` did nothing | the class is toggled by `site.js` and had no rule |
 
+## Asset cache busting
+
+`vercel.json` caches `/assets/css|js|images` for a day while every regional page is
+`max-age=0, must-revalidate`. At a stable URL those two policies contradict each
+other: a deploy that changes the markup and the stylesheet together serves the new
+HTML immediately and the old CSS for up to 24 hours, so anyone who had visited
+before the deploy sees new markup styled by the previous stylesheet. The first
+deploy of the redesign did exactly that.
+
+`scripts/build.mjs` now hashes the contents of `site.css` and `site.js` and appends
+the first 8 hex characters as `?v=`, so the URL changes whenever the file does:
+
+```html
+<link rel="stylesheet" href="../assets/css/site.css?v=82cb81f5">
+<script src="../assets/js/site.js?v=7b9bfdd2" defer></script>
+```
+
+The long cache now only ever applies to a version that cannot be stale. The hash is
+computed once per build and shared by all eight pages. Nothing needs to be
+remembered or bumped by hand, which is the point: a rule a human has to remember to
+apply is a rule that breaks the first time someone forgets.
+
 ## Performance notes
 
 * One 100 KB inline-CSS page became six pages of ~27 KB each sharing one cached

@@ -14,11 +14,35 @@
  */
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK_ONLY = process.argv.includes('--check');
+
+/*
+ * Content hash for a static asset, used as a ?v= on its URL.
+ *
+ * vercel.json caches /assets/css|js|images for 86400s while every regional page
+ * is max-age=0, must-revalidate. At a stable URL that combination is a bug, not
+ * a tuning choice: a deploy that changes the markup and the stylesheet together
+ * serves the new HTML immediately and the old CSS for up to a day, so anyone
+ * who had visited before the deploy gets a broken page until their cache
+ * expires. That is exactly what happened on the first deploy of the redesign.
+ *
+ * Hashing the content into the query string means the URL changes whenever the
+ * file does, so the long cache applies to a version that can never be stale,
+ * and no deploy can mismatch markup against styles again.
+ */
+function assetVersion(relPath) {
+  try {
+    return createHash('sha256').update(readFileSync(join(ROOT, relPath))).digest('hex').slice(0, 8);
+  } catch (err) {
+    warn(`could not hash ${relPath} for cache-busting (${err.code}); serving it unversioned`);
+    return '';
+  }
+}
 
 const problems = [];
 const warnings = [];
@@ -630,7 +654,7 @@ function renderContact(data) {
 /* page assembly                                                       */
 /* ------------------------------------------------------------------ */
 
-function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
+function buildRegion(cc, base, template, lang = null, maps = { paths: {} }, assetV = { css: '', js: '' }) {
   // `lang` builds a language variant of a region, e.g. /in/hi/, by layering
   // data.<cc>.<lang>.json on top of data.<cc>.json. The geo routing is unchanged
   // by this: a country still maps to one region, and the region's default page is
@@ -845,6 +869,8 @@ function buildRegion(cc, base, template, lang = null, maps = { paths: {} }) {
     OG_LOCALE: esc((data.meta.lang || 'en').replace('-', '_')),
     ROBOTS: noindex ? '<meta name="robots" content="noindex,follow">\n' : '',
     ASSETS: A,
+    CSS_V: assetV.css ? `?v=${assetV.css}` : '',
+    JS_V: assetV.js ? `?v=${assetV.js}` : '',
     CV_BUTTON: cvButton,
     CV_MODAL: cvModal,
     TYPED_FIRST: esc(data.typedPhrases[0] || ''),
@@ -950,14 +976,21 @@ function main() {
   catch { warnings.push('assets/maps.json missing — hero backdrops are omitted'); }
   const origin = base.site.origin.replace(/\/$/, '');
 
+  // Hashed once, not per page: all eight pages share one stylesheet and one
+  // script, which is the whole point of the single-template build.
+  const assetV = {
+    css: assetVersion('assets/css/site.css'),
+    js: assetVersion('assets/js/site.js'),
+  };
+
   const built = [];
   for (const region of base.site.regions) {
-    const page = buildRegion(region.cc, base, template, null, maps);
+    const page = buildRegion(region.cc, base, template, null, maps, assetV);
     if (page) built.push(page);
     // Extra languages for this region. The first entry is the default and is the
     // page already built above, so it is not rebuilt here.
     for (const l of (region.languages || []).filter((x) => !x.default)) {
-      const variant = buildRegion(region.cc, base, template, l.code, maps);
+      const variant = buildRegion(region.cc, base, template, l.code, maps, assetV);
       if (variant) built.push(variant);
     }
   }
@@ -1009,6 +1042,7 @@ Sitemap: ${origin}/sitemap.xml
   );
 
   console.log(`  wrote sitemap.xml (${indexable.length + 1} indexable URLs) and robots.txt`);
+  console.log(`  asset versions: site.css?v=${assetV.css}  site.js?v=${assetV.js}`);
 }
 
 main();
